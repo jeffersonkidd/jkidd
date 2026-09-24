@@ -1,0 +1,44 @@
+{
+  "$description": "Jefferson Kidd tokens beyond the palette, read from the JKidd - DS Figma library (ADhu9noVbgFbtapMZivOHw) on 2026-09-24. The palette and the six scheme modes come from jkxo-tertiary.json next to this file. Scheme role names are camelCase here and --md-sys-color-kebab-case in CSS, as in Figma's code syntax.",
+  "figma": {
+    "fileKey": "ADhu9noVbgFbtapMZivOHw",
+    "fileName": "JKidd - DS",
+    "version": "0.1",
+    "collections": ["Palette", "Scheme", "Post Type", "Layout", "Type"]
+  },
+  "postTypes": {
+    "$description": "Post Type collection, one mode per type. Each value names a Scheme role, so a type recolours with the scheme. accent: fills (rail, tick, highlight, swatches). ink: text and thin marks (kicker, arrow, check). onAccent: text set on an accent fill. PROVISIONAL (User, 2026-09-24; CONTENT-SYSTEM.md section 9).",
+    "progress": { "label": "PROGRESS", "accent": "primaryContainer", "ink": "primary", "onAccent": "onPrimaryContainer" },
+    "decision": { "label": "DECISION", "accent": "tertiaryContainer", "ink": "tertiary", "onAccent": "onTertiaryContainer" },
+    "failure": { "label": "FAILURE", "accent": "error", "ink": "error", "onAccent": "onError" },
+    "principle": { "label": "PRINCIPLE", "accent": "inverseSurface", "ink": "onSurface", "onAccent": "inverseOnSurface" },
+    "teaching": { "label": "TEACHING", "accent": "secondary", "ink": "secondary", "onAccent": "onSecondary" }
+  },
+  "layout": {
+    "cardRail": { "value": 16, "unit": "px", "figma": "--jk-card-rail" },
+    "cardChromeInset": { "value": 48, "unit": "px", "figma": "--jk-card-chrome-inset" }
+  },
+  "canvas": {
+    "$description": "Card Frame (8:60) Ratio variants. Judge every card at 320px wide (Principle 4).",
+    "16:9": { "width": 1600, "height": 900, "figma": "8:4" },
+    "1:1": { "width": 1080, "height": 1080, "figma": "8:24" },
+    "4:5": { "width": 1080, "height": 1350, "figma": "8:42" }
+  },
+  "fonts": {
+    "$description": "Type collection: three font variables. PROVISIONAL working stack (JKIDD.md decision 1, still open).",
+    "display": { "family": "Space Grotesk", "fallback": "system-ui, sans-serif", "figma": "--jk-font-display" },
+    "body": { "family": "Inter", "fallback": "system-ui, sans-serif", "figma": "--jk-font-body" },
+    "mono": { "family": "JetBrains Mono", "fallback": "ui-monospace, monospace", "figma": "--jk-font-mono" }
+  },
+  "textStyles": {
+    "$description": "Text styles read from Figma. letterSpacing is in percent of the font size, as Figma stores it. Card/Headline and Card/Title exist in the library but haven't been read into code yet.",
+    "Card/Statement": { "font": "display", "weight": 700, "size": 120, "lineHeight": 0.95, "letterSpacing": -3 },
+    "Card/Kicker": { "font": "mono", "weight": 700, "size": 24, "lineHeight": 1, "letterSpacing": 14, "uppercase": true },
+    "Card/Chrome": { "font": "mono", "weight": 500, "size": 22, "lineHeight": 1, "letterSpacing": 12, "uppercase": true },
+    "Card/Body": { "font": "body", "weight": 500, "size": 36, "lineHeight": 1.3, "letterSpacing": 0 },
+    "Card/Code": { "font": "mono", "weight": 400, "size": 32, "lineHeight": 1.4, "letterSpacing": 0 },
+    "Doc/H1": { "font": "display", "weight": 700, "size": 40, "lineHeight": 1.1, "letterSpacing": -2 },
+    "Doc/H2": { "font": "display", "weight": 500, "size": 24, "lineHeight": 1.2, "letterSpacing": -1 },
+    "Doc/Label": { "font": "mono", "weight": 500, "size": 11, "lineHeight": 1.3, "letterSpacing": 10, "uppercase": true }
+  }
+}

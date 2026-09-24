@@ -1,0 +1,19 @@
+{
+  "$description": "Known contrast failures, accepted on purpose until the decision behind them is made. scripts/check-contrast.mjs passes a waived pair but still prints it; any failure not listed here fails the check. Remove a waiver as soon as its cause is fixed.",
+  "waivers": [
+    {
+      "scheme": "light",
+      "type": "progress",
+      "rule": "accent / surface",
+      "reason": "Post type colours are provisional (JKIDD.md; CONTENT-SYSTEM.md §9). primaryContainer #01C6DE on surface #F4FAFC is 1.97:1, under 3:1 for the rail and tick. Text already uses type/ink (primary), which passes.",
+      "found": "2026-09-24"
+    },
+    {
+      "scheme": "light",
+      "type": "decision",
+      "rule": "accent / surface",
+      "reason": "Post type colours are provisional. tertiaryContainer #FFAE00 on surface #F4FAFC is 1.76:1, under 3:1 for the rail and tick. Text already uses type/ink (tertiary), which passes.",
+      "found": "2026-09-24"
+    }
+  ]
+}

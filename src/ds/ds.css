@@ -1,0 +1,279 @@
+/* JKidd DS components. Every value reads a token from tokens.css; sizes are the
+   Figma canvas pixels (cards are drawn at 1600 wide and scaled, never reflowed). */
+
+/* ── Marks ─────────────────────────────────────────────── */
+
+.jk-monogram {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  font-family: var(--jk-font-display);
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -0.04em;
+  white-space: nowrap;
+}
+.jk-monogram[data-size="L"] { width: 96px; height: 96px; border-radius: 21.12px; font-size: 44px; }
+.jk-monogram[data-size="M"] { width: 48px; height: 48px; border-radius: 10.56px; font-size: 22px; }
+.jk-monogram[data-size="S"] { width: 28px; height: 28px; border-radius: 6.16px; font-size: 13px; }
+.jk-monogram[data-tone="brand"] { background: var(--md-sys-color-primary-container); color: var(--md-sys-color-on-primary-fixed); }
+.jk-monogram[data-tone="ink"] { background: var(--md-sys-color-inverse-surface); color: var(--md-sys-color-inverse-on-surface); }
+.jk-monogram[data-tone="outline"] { border: 1.5px solid var(--md-sys-color-on-surface); color: var(--md-sys-color-on-surface); }
+.jk-monogram[data-tone="outline"][data-size="L"] { border-width: 3px; }
+
+.jk-wordmark {
+  display: inline-flex;
+  font-family: var(--jk-font-display);
+  font-size: 56px;
+  line-height: normal;
+  margin: 0;
+}
+.jk-wordmark[data-layout="inline"] { gap: 14px; align-items: baseline; }
+.jk-wordmark[data-layout="stacked"] { flex-direction: column; align-items: flex-start; }
+.jk-wordmark[data-layout="stacked"] .jk-wordmark__given { margin-bottom: -0.107em; }
+.jk-wordmark__given { font-weight: 500; letter-spacing: -0.03em; color: var(--md-sys-color-on-surface); }
+.jk-wordmark__surname { font-weight: 700; letter-spacing: 0.02em; color: var(--md-sys-color-primary); }
+
+.jk-lockup { display: inline-flex; align-items: center; gap: 14px; flex-shrink: 0; }
+.jk-lockup__handle { color: var(--md-sys-color-on-surface); white-space: nowrap; }
+.jk-lockup__divider { width: 1.5px; height: 22px; background: var(--md-sys-color-outline); }
+.jk-project-mark {
+  display: inline-flex;
+  padding: 5px 10px;
+  border: 1.5px solid var(--md-sys-color-outline);
+  border-radius: 4px;
+  color: var(--md-sys-color-on-surface-variant);
+  white-space: nowrap;
+}
+
+/* ── Card frame (8:60) ─────────────────────────────────── */
+
+.jk-card {
+  display: flex;
+  position: relative;
+  overflow: hidden;
+  background: var(--md-sys-color-surface);
+  color: var(--md-sys-color-on-surface);
+  text-align: left;
+}
+.jk-card__rail { width: var(--jk-card-rail); flex-shrink: 0; background: var(--jk-type-accent); }
+.jk-card__body {
+  flex: 1 0 0;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: var(--jk-card-chrome-inset);
+  overflow: hidden;
+}
+.jk-card__chrome { display: flex; align-items: center; width: 100%; flex-shrink: 0; }
+.jk-card__chrome-text { color: var(--md-sys-color-on-surface-variant); white-space: nowrap; }
+.jk-card__spacer { flex: 1 0 0; }
+.jk-card__zone {
+  flex: 1 0 0;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  padding: 32px 64px;
+  overflow: hidden;
+}
+.jk-card__content { flex: 1 0 0; min-height: 0; width: 100%; display: flex; }
+.jk-card__tick { width: 128px; height: 12px; border-radius: 6px; background: var(--jk-type-accent); opacity: 0.6; }
+
+.jk-empty {
+  flex: 1 0 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 3px dashed var(--md-sys-color-outline-variant);
+  border-radius: 8px;
+  color: var(--md-sys-color-outline);
+}
+
+/* ── Card parts (9:2) ──────────────────────────────────── */
+
+.jk-kicker { display: inline-flex; align-items: center; gap: 14px; color: var(--jk-type-ink); white-space: nowrap; }
+.jk-kicker__bullet { width: 14px; height: 14px; background: var(--jk-type-accent); flex-shrink: 0; }
+/* The label reads the Post Type mode, like the Figma text bound to type/label. */
+.jk-kicker__label:empty::after { content: var(--jk-type-label); }
+
+.jk-zone {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 48px 40px 40px;
+  border: 3px dashed var(--md-sys-color-outline-variant);
+  border-radius: 8px;
+  min-width: 0;
+}
+.jk-zone[data-tone="error"] { border-color: var(--md-sys-color-error); }
+.jk-zone[data-tone="primary"] { border-color: var(--md-sys-color-primary); }
+.jk-zone-label {
+  position: absolute;
+  left: 21px;
+  top: -21px;
+  padding: 6px 12px;
+  border-radius: 4px;
+  background: var(--md-sys-color-surface);
+  color: var(--md-sys-color-on-surface-variant);
+  white-space: nowrap;
+}
+
+.jk-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 16px;
+  padding: 14px 24px 14px 16px;
+  border-radius: 8px;
+  background: var(--md-sys-color-surface-container-high);
+  color: var(--md-sys-color-on-surface);
+  white-space: nowrap;
+}
+.jk-chip[data-fill] { width: 100%; }
+.jk-chip__swatch { width: 40px; height: 40px; border-radius: 6px; flex-shrink: 0; background: var(--jk-type-accent); }
+
+.jk-arrow { display: flex; flex-direction: column; align-items: center; gap: 12px; flex-shrink: 0; }
+/* The Figma asset, used as a mask so it takes type/ink in every mode. */
+.jk-arrow__line {
+  width: 144px;
+  height: 24px;
+  background: var(--jk-type-ink);
+  -webkit-mask: var(--jk-arrow-src) center / 144px 24px no-repeat;
+  mask: var(--jk-arrow-src) center / 144px 24px no-repeat;
+}
+.jk-arrow__label { font-family: var(--jk-font-mono); font-size: 26px; line-height: 1.4; color: var(--jk-type-ink); white-space: nowrap; }
+
+.jk-badge {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 88px;
+  height: 88px;
+  border-radius: 44px;
+  flex-shrink: 0;
+  background: var(--jk-type-accent);
+  color: var(--jk-type-on-accent);
+  font-family: var(--jk-font-display);
+  font-weight: 700;
+  font-size: 64px;
+  line-height: 1;
+}
+
+.jk-terminal {
+  display: inline-flex;
+  align-items: center;
+  gap: 16px;
+  padding: 22px 32px 22px 28px;
+  border: 1px solid var(--md-sys-color-outline-variant);
+  border-radius: 12px;
+  background: var(--md-sys-color-surface-container-highest);
+  color: var(--md-sys-color-on-surface);
+  white-space: nowrap;
+}
+.jk-terminal__prompt { color: var(--jk-type-ink); }
+
+.jk-row { position: relative; display: flex; align-items: center; gap: 24px; }
+.jk-row[data-mark="dot"] { opacity: 0.7; }
+.jk-row__mark {
+  width: 40px;
+  height: 48px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--jk-font-mono);
+  font-weight: 700;
+  line-height: normal;
+  color: var(--jk-type-ink);
+}
+.jk-row[data-mark="check"] .jk-row__mark { font-size: 36px; }
+.jk-row[data-mark="cross"] .jk-row__mark { font-size: 40px; color: var(--md-sys-color-error); }
+.jk-row[data-mark="dot"] .jk-row__mark { font-size: 20px; }
+.jk-row[data-mark-tone="primary"] .jk-row__mark { color: var(--md-sys-color-primary); }
+.jk-row__text { color: var(--md-sys-color-on-surface); white-space: nowrap; }
+.jk-row[data-struck] .jk-row__text { color: var(--md-sys-color-on-surface-variant); }
+/* The strike is its own layer, not text-decoration (the shared TEXT property lesson). */
+.jk-row__strike {
+  position: absolute;
+  left: 64px;
+  right: 0;
+  top: calc(50% + 2.5px);
+  height: 3px;
+  transform: translateY(-50%);
+  background: var(--md-sys-color-on-surface-variant);
+}
+
+/* ── Archetypes (11:2) ─────────────────────────────────── */
+
+.jk-manifesto { flex: 1 0 0; display: flex; flex-direction: column; justify-content: center; align-items: flex-start; gap: 20px; }
+.jk-manifesto__statement { margin: 0; color: var(--md-sys-color-on-surface); }
+.jk-manifesto__statement span { display: block; }
+.jk-manifesto__payoff {
+  display: inline-block;
+  padding: 0 24px 8px 20px;
+  background: var(--jk-type-accent);
+  color: var(--jk-type-on-accent);
+}
+.jk-manifesto__attribution { color: var(--md-sys-color-on-surface-variant); }
+
+.jk-arch { flex: 1 0 0; display: flex; align-items: center; gap: 40px; }
+.jk-arch__zone-a { flex: 1 0 0; flex-direction: row; flex-wrap: wrap; align-content: flex-start; }
+.jk-arch__zone-b { flex: 1 0 0; }
+.jk-composition {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 100%;
+  padding: 24px;
+  border: 2px solid var(--md-sys-color-outline);
+  border-radius: 12px;
+  background: var(--md-sys-color-surface-container);
+}
+.jk-composition__title { width: 260px; height: 28px; border-radius: 4px; background: var(--md-sys-color-on-surface-variant); }
+.jk-composition__body { height: 120px; border-radius: 6px; background: var(--md-sys-color-surface-container-highest); }
+.jk-composition__action { width: 160px; height: 36px; border-radius: 6px; background: var(--jk-type-accent); }
+
+.jk-pipeline { flex: 1 0 0; display: flex; align-items: center; gap: 24px; }
+.jk-pipeline .jk-zone { flex: 1 0 0; padding: 48px 28px 40px; }
+.jk-pipeline__source { gap: 12px; }
+.jk-pipeline__transform { align-items: center; justify-content: center; }
+.jk-pipeline__output { gap: 10px; }
+.jk-code-line {
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-family: var(--jk-font-mono);
+  font-size: 26px;
+  line-height: 1.4;
+  color: var(--md-sys-color-on-surface-variant);
+  white-space: nowrap;
+  overflow: hidden;
+}
+.jk-code-line[data-highlight] { background: var(--jk-type-accent); color: var(--jk-type-on-accent); }
+
+.jk-parity { flex: 1 0 0; display: flex; align-items: stretch; }
+.jk-parity .jk-zone { flex: 1 0 0; align-items: center; justify-content: center; }
+.jk-parity__divider { display: flex; flex-direction: column; align-items: center; padding: 0 32px; }
+.jk-parity__hairline { flex: 1 0 0; width: 2px; background: var(--md-sys-color-outline); }
+.jk-specimen {
+  display: flex;
+  align-items: center;
+  padding: 22px 40px;
+  border-radius: 12px;
+  background: var(--jk-type-accent);
+  color: var(--jk-type-on-accent);
+  font-family: var(--jk-font-display);
+  font-weight: 500;
+  font-size: 40px;
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+  white-space: nowrap;
+}
+.jk-specimen-img { max-width: 100%; max-height: 100%; object-fit: contain; border-radius: 8px; }
+
+.jk-before-after { flex: 1 0 0; display: flex; align-items: stretch; gap: 48px; }
+.jk-before-after .jk-zone { flex: 1 0 0; gap: 12px; justify-content: center; align-items: flex-start; }
+
+.jk-ledger { flex: 1 0 0; display: flex; flex-direction: column; justify-content: center; align-items: flex-start; gap: 14px; }
+.jk-ledger__title { color: var(--jk-type-ink); }
