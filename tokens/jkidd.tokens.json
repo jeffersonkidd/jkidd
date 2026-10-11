@@ -59,6 +59,21 @@
         "vermilion": { "fill": "#e95e32", "on": "ink", "figma": "66:89" },
         "lagoon": { "fill": "#2f8f83", "on": "ink", "figma": "68:44" }
       }
+    },
+    "cartoon": {
+      "$description": "The large-letter cartoon fronts (Postcard Image Algo 147:933), for silly days. Inks sampled by clustering the series masters' pixels: western 'Jefferson Kidd' for ink, cream, orange, gold, brown and red; '#Build in Public' frontier for teal and dark teal, which the western master only uses inside its letters. Accent red is a colour, not a ribbon: neither cream (4.00) nor ink (3.6) reaches 4.5:1 on it. The spec's ink library: orange, cream, cyan, teal, brown, black, olive, accent red.",
+      "colors": {
+        "ink": "#1b1209",
+        "cream": "#f8e2a1",
+        "red": "#cc3605"
+      },
+      "ribbons": {
+        "orange": { "fill": "#f3740e", "on": "ink", "figma": "147:948" },
+        "gold": { "fill": "#f9aa15", "on": "ink", "figma": "147:948" },
+        "teal": { "fill": "#21a291", "on": "ink", "figma": "147:948" },
+        "dark-teal": { "fill": "#105a5b", "on": "cream", "figma": "147:948" },
+        "brown": { "fill": "#582305", "on": "cream", "figma": "147:948" }
+      }
     }
   }
 }

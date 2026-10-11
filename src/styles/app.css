@@ -347,6 +347,12 @@ h1, h2, h3 { margin: 0; }
 .ribbon-swatch[data-ribbon="sky"] { background: var(--jk-genre-illustrated-ribbon-sky); }
 .ribbon-swatch[data-ribbon="vermilion"] { background: var(--jk-genre-illustrated-ribbon-vermilion); }
 .ribbon-swatch[data-ribbon="lagoon"] { background: var(--jk-genre-illustrated-ribbon-lagoon); }
+.ribbon-swatch[data-genre="cartoon"] { border: 3px solid var(--jk-genre-cartoon-ink); }
+.ribbon-swatch[data-genre="cartoon"][data-ribbon="orange"] { background: var(--jk-genre-cartoon-ribbon-orange); }
+.ribbon-swatch[data-genre="cartoon"][data-ribbon="gold"] { background: var(--jk-genre-cartoon-ribbon-gold); }
+.ribbon-swatch[data-genre="cartoon"][data-ribbon="teal"] { background: var(--jk-genre-cartoon-ribbon-teal); }
+.ribbon-swatch[data-genre="cartoon"][data-ribbon="dark-teal"] { background: var(--jk-genre-cartoon-ribbon-dark-teal); }
+.ribbon-swatch[data-genre="cartoon"][data-ribbon="brown"] { background: var(--jk-genre-cartoon-ribbon-brown); }
 .ill-note { font-size: 13px; }
 
 .ill-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 24px; margin-top: 20px; }
@@ -442,7 +448,15 @@ h1, h2, h3 { margin: 0; }
 }
 .front-spec { max-height: 640px; }
 .front-prompt summary { cursor: pointer; }
-.front-qc { display: flex; flex-direction: column; gap: 4px; margin: 0; padding: 0; border: 0; }
+.front-qc { display: flex; flex-direction: column; gap: 4px; margin: 0; padding: 0; border: 0; min-width: 0; }
 .front-qc legend { margin-bottom: 8px; }
 .btn:disabled { opacity: 0.5; cursor: not-allowed; }
+label.btn { cursor: pointer; }
+.toon-starters { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; }
+.toon-starters .label { flex-basis: 100%; }
+.toon-starters .btn { text-align: left; }
+.toon-brief { display: flex; flex-direction: column; gap: 12px; }
+.toon-brief[open] > summary { margin-bottom: 12px; }
+.toon-brief > summary { cursor: pointer; }
+.toon-brief > .field + .field { margin-top: 12px; }
 @media (prefers-reduced-motion: reduce) { .front-tile { transition: none; } }

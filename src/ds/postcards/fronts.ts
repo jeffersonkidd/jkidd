@@ -58,6 +58,8 @@ export const DEFAULT_MASTER = "western";
 /** The narrative: the only things the spec lets change (Priority 3, Typography). */
 export type FrontBrief = {
   lettering: string;
+  /** The one idea (Principle 5). Told in pictures on the front, and set live by CartoonPostcard. */
+  story: string;
   theme: string;
   scenery: string;
   props: string;
@@ -67,6 +69,7 @@ export type FrontBrief = {
 
 export const BRIEF_FIELDS: { key: keyof FrontBrief; label: string }[] = [
   { key: "lettering", label: "Lettering" },
+  { key: "story", label: "Story" },
   { key: "theme", label: "Theme" },
   { key: "scenery", label: "Scenery" },
   { key: "props", label: "Props" },
@@ -78,7 +81,9 @@ export const BRIEF_FIELDS: { key: keyof FrontBrief; label: string }[] = [
 export function frontPrompt(master: Front, brief: FrontBrief): string {
   const lines = BRIEF_FIELDS.filter(({ key }) => brief[key].trim()).map(({ key, label }) => {
     const value = brief[key].trim();
-    return `- ${label.toUpperCase()}: ${key === "lettering" ? `"${value.toUpperCase()}"` : value}`;
+    if (key === "lettering") return `- LETTERING: "${value.toUpperCase()}"`;
+    if (key === "story") return `- STORY, TOLD IN PICTURES ONLY. DO NOT WRITE IT ON THE CARD: ${value}`;
+    return `- ${label.toUpperCase()}: ${value}`;
   });
   const greeting = master.greeting ? ` KEEP THE "GREETINGS FROM" SCRIPT LINE EXACTLY AS IN THE MASTER.` : "";
   return [

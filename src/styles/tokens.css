@@ -123,6 +123,19 @@
   --jk-genre-illustrated-on-ribbon-vermilion: var(--jk-genre-illustrated-ink);
   --jk-genre-illustrated-ribbon-lagoon: #2f8f83;
   --jk-genre-illustrated-on-ribbon-lagoon: var(--jk-genre-illustrated-ink);
+  --jk-genre-cartoon-ink: #1b1209;
+  --jk-genre-cartoon-cream: #f8e2a1;
+  --jk-genre-cartoon-red: #cc3605;
+  --jk-genre-cartoon-ribbon-orange: #f3740e;
+  --jk-genre-cartoon-on-ribbon-orange: var(--jk-genre-cartoon-ink);
+  --jk-genre-cartoon-ribbon-gold: #f9aa15;
+  --jk-genre-cartoon-on-ribbon-gold: var(--jk-genre-cartoon-ink);
+  --jk-genre-cartoon-ribbon-teal: #21a291;
+  --jk-genre-cartoon-on-ribbon-teal: var(--jk-genre-cartoon-ink);
+  --jk-genre-cartoon-ribbon-dark-teal: #105a5b;
+  --jk-genre-cartoon-on-ribbon-dark-teal: var(--jk-genre-cartoon-cream);
+  --jk-genre-cartoon-ribbon-brown: #582305;
+  --jk-genre-cartoon-on-ribbon-brown: var(--jk-genre-cartoon-cream);
 }
 
 :root,

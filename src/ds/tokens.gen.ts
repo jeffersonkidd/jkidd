@@ -60,7 +60,7 @@ export const CANVAS = {
 } as const;
 export type Ratio = keyof typeof CANVAS;
 
-export const GENRE_RIBBONS = {"illustrated":["teal","rust","sky","vermilion","lagoon"]} as const;
+export const GENRE_RIBBONS = {"illustrated":["teal","rust","sky","vermilion","lagoon"],"cartoon":["orange","gold","teal","dark-teal","brown"]} as const;
 
 export const SCHEME_COLORS: Record<Scheme, Record<string, string>> = {
   "light": {

@@ -21,7 +21,7 @@ const ROUTES = [
   { path: "thumbnails", name: "Thumbnail test", el: Thumbnails },
   { path: "studio", name: "Studio", el: Studio },
   { path: "postcards", name: "Illustrated postcards", el: IllustratedPage },
-  { path: "fronts", name: "Postcard fronts", el: FrontsPage },
+  { path: "fronts", name: "Cartoon postcards", el: FrontsPage },
   { path: "link", name: "Link page", el: LinkPagePreview },
 ] as const;
 
