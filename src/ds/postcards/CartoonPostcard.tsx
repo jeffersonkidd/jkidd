@@ -1,7 +1,7 @@
 import { forwardRef } from "react";
 import { GENRE_RIBBONS } from "../tokens.gen";
 import { NOTEBOOK_NODES } from "../figma";
-import { FIGURE_PEN, figurePose, type FigureSpec } from "./figure";
+import { FIGURE_HALO, FIGURE_PEN, figurePose, type FigureSpec } from "./figure";
 
 /**
  * The cartoon side of the postcard, for silly days: a generated large-letter front
@@ -44,13 +44,19 @@ export function SketchFigure({ spec, drawing }: { spec: FigureSpec; drawing: num
       viewBox={`0 0 ${pose.width / pose.scale} ${pose.height / pose.scale}`}
       width={pose.width}
       height={pose.height}
-      strokeWidth={FIGURE_PEN}
       style={{ transform: `translate(${pose.x}px, ${pose.y}px)` }}
       aria-hidden="true"
     >
-      {pose.paths.map((d, i) => (
-        <path key={i} d={d} />
-      ))}
+      <g className="jk-toon__figure-halo" strokeWidth={FIGURE_PEN + FIGURE_HALO}>
+        {pose.paths.map((d, i) => (
+          <path key={i} d={d} />
+        ))}
+      </g>
+      <g strokeWidth={FIGURE_PEN}>
+        {pose.paths.map((d, i) => (
+          <path key={i} d={d} />
+        ))}
+      </g>
     </svg>
   );
 }

@@ -23,6 +23,8 @@ const [, , VB_W, VB_H] = FRAMES.viewBox.split(" ").map(Number);
 const VB_GROUND = 104;
 /** Kit pen is 1.6; heavier here so the figure holds next to the front's thick ink and survives the 320px thumbnail. */
 export const FIGURE_PEN = 2.4;
+/** A cream line under the ink, this much wider, so the figure reads over a busy front like a sticker. */
+export const FIGURE_HALO = 4;
 
 type Frame = { boil: string[]; still: string[]; dx: number };
 const LOOPS = FRAMES.frames as Record<FigureCycle, Frame[]>;

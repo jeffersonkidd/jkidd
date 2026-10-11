@@ -1,5 +1,5 @@
 import { toCanvas } from "html-to-image";
-import { FIGURE_DRAWINGS_PER_SECOND, FIGURE_PEN, figurePose, figureTake, type FigureSpec } from "../ds";
+import { FIGURE_DRAWINGS_PER_SECOND, FIGURE_HALO, FIGURE_PEN, figurePose, figureTake, type FigureSpec } from "../ds";
 
 /** Video is 24 fps; the figure is drawn on twos, so each drawing holds for two frames. */
 const FPS = 24;
@@ -52,11 +52,15 @@ export async function recordCartoon(
     ctx.save();
     ctx.translate(pose.x, pose.y);
     ctx.scale(pose.scale, pose.scale);
-    ctx.strokeStyle = ink;
-    ctx.lineWidth = FIGURE_PEN;
     ctx.lineCap = "round";
     ctx.lineJoin = "round";
-    for (const d of pose.paths) ctx.stroke(new Path2D(d));
+    const paths = pose.paths.map((d) => new Path2D(d));
+    ctx.strokeStyle = cream;
+    ctx.lineWidth = FIGURE_PEN + FIGURE_HALO;
+    for (const p of paths) ctx.stroke(p);
+    ctx.strokeStyle = ink;
+    ctx.lineWidth = FIGURE_PEN;
+    for (const p of paths) ctx.stroke(p);
     ctx.restore();
     ctx.drawImage(over, 0, 0, width, height);
   };
