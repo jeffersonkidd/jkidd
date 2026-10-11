@@ -32,6 +32,20 @@ export const FIGMA_NODES = {
 
 export type FigmaNodeName = keyof typeof FIGMA_NODES;
 
-export function figmaUrl(node: string) {
-  return `https://www.figma.com/design/${FIGMA_FILE_KEY}/JKidd---DS?node-id=${node.replace(":", "-")}`;
+/** JKidd - Workbench: the link page and the illustrated postcards are drawn here, not in the library yet. */
+export const WORKBENCH_FILE_KEY = "7Q8GN3IPMoM6lhFtIMquya";
+
+/** Linktrees page (102:551). Only Link Row is live layers; the page itself is a flattened mockup. */
+export const WORKBENCH_NODES = {
+  LinkPage: "120:1335",
+  LinkBackdrop: "120:1338",
+  LinkPaper: "103:627",
+  LinkRow: "118:515",
+  /** Illustrated postcards; each sample carries its own node (ILLUSTRATED_SAMPLES). */
+  IllustratedPostcard: "63:55",
+} as const;
+
+export function figmaUrl(node: string, fileKey: string = FIGMA_FILE_KEY) {
+  const name = fileKey === WORKBENCH_FILE_KEY ? "JKidd---Workbench" : "JKidd---DS";
+  return `https://www.figma.com/design/${fileKey}/${name}?node-id=${node.replace(":", "-")}`;
 }

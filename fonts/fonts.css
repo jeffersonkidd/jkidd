@@ -1,0 +1,19 @@
+/* Special Elite, repaired: Astigmatic's outlines, unmodified; metrics fixed so a
+   left-aligned stack has a straight optical edge. The story and the numbers are
+   in special-elite-repaired/README.md. One weight only: 400. */
+
+@font-face {
+  font-family: "Special Elite Even";
+  src: url("./special-elite-repaired/SpecialEliteEven.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Special Elite Mono";
+  src: url("./special-elite-repaired/SpecialEliteMono.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}

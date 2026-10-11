@@ -7,6 +7,8 @@ import { PartsPage } from "./pages/PartsPage";
 import { Cards } from "./pages/Cards";
 import { Thumbnails } from "./pages/Thumbnails";
 import { Studio } from "./pages/Studio";
+import { LinkPagePreview } from "./pages/LinkPagePreview";
+import { IllustratedPage } from "./pages/IllustratedPage";
 import { Select } from "./components/Controls";
 
 const ROUTES = [
@@ -17,6 +19,8 @@ const ROUTES = [
   { path: "cards", name: "Archetypes", el: Cards },
   { path: "thumbnails", name: "Thumbnail test", el: Thumbnails },
   { path: "studio", name: "Studio", el: Studio },
+  { path: "postcards", name: "Illustrated postcards", el: IllustratedPage },
+  { path: "link", name: "Link page", el: LinkPagePreview },
 ] as const;
 
 export type PageProps = { scheme: Scheme; query: URLSearchParams; navigate: (to: string) => void };

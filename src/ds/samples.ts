@@ -1,4 +1,11 @@
 import type { Archetype, CardSpec } from "./Postcard";
+import type { LinkPageSpec } from "./link/LinkPage";
+import type { IllustratedSpec } from "./postcards/IllustratedPostcard";
+import railway from "./assets/postcards/railway.jpg";
+import riverboat from "./assets/postcards/riverboat.jpg";
+import lunar from "./assets/postcards/lunar.jpg";
+import edo from "./assets/postcards/edo.jpg";
+import venice from "./assets/postcards/venice.jpg";
 
 /**
  * The six Postcard/* components from JKidd - DS (11:183), as data. Sample copy is
@@ -82,3 +89,64 @@ export const SAMPLES: Record<Archetype, CardSpec> = {
 };
 
 export const SAMPLE_LIST = Object.values(SAMPLES);
+
+/**
+ * The link page's copy, from JKidd - Workbench (Linktrees, 102:551). Profile, nav and
+ * tags: Frame 30 (120:1335). Sections and tiles: the reference mockup on the same page
+ * (102:584), since Frame 30 repeats one placeholder row. No hrefs: none are recorded yet
+ * (JKIDD.md §4, link-in-bio site; CONTENT-SYSTEM.md §9 handles).
+ */
+export const LINK_SAMPLE: LinkPageSpec = {
+  wordmark: "Jefferson KIDD",
+  nav: [{ label: "Blog" }, { label: "Shop" }],
+  follow: { label: "Follow" },
+  profile: {
+    name: "Jefferson Kidd",
+    tags: ["Monofly", "Design Systems", "Music"],
+    bio: "Projects, experiments, products, music, and an ongoing exploration of what’s possible",
+    socials: [{ kind: "facebook" }, { kind: "instagram" }, { kind: "youtube" }, { kind: "github" }, { kind: "message" }],
+  },
+  items: [
+    {
+      category: "studio",
+      title: "Creative Work",
+      description: "Projects, experiments, products, music, and an ongoing exploration of what’s possible.",
+      tags: ["Monofly", "Design Systems", "Music", "Experiments"],
+    },
+    {
+      category: "blog",
+      title: "Ideas and Writing",
+      description: "Articles, essays, journal entries, tutorials, and observations from the creative process.",
+      tags: ["Design", "Code", "Music", "Process", "Education"],
+    },
+    {
+      category: "shop",
+      title: "Products and Releases",
+      description: "Design assets, digital products, music releases, merchandise, and other things you can buy.",
+      tags: ["Templates", "Music", "Tools", "Merch", "Bundles"],
+    },
+    {
+      category: "support",
+      title: "Support the Work",
+      description: "Memberships, tips, and other ways to help keep the creative practice going.",
+      tags: ["Membership", "Behind the Scenes", "Early Access"],
+    },
+  ],
+  tiles: [
+    { kicker: "Contact", label: "Get in touch" },
+    { kicker: "About", label: "The story" },
+    { kicker: "Newsletter", label: "Join the list" },
+  ],
+};
+
+/**
+ * The illustrated postcards from JKidd - Workbench, as data: scene, ribbon and copy
+ * exactly as drawn there. Venice sets its title in white; here every title is cream.
+ */
+export const ILLUSTRATED_SAMPLES: IllustratedSpec[] = [
+  { figma: "63:64", scene: railway, ribbon: "rust", title: "Jefferson Kidd", location: "COLORADO • HIGH COUNTRY", story: "THE 4:10 NEVER REACHED SILVER PASS" },
+  { figma: "63:55", scene: riverboat, ribbon: "teal", title: null, location: "MISSISSIPPI • MIDNIGHT RUN", story: "THE CARD SHARP WHO STOLE THE MOON" },
+  { figma: "66:103", scene: lunar, ribbon: "sky", title: "Jefferson Kidd", location: "MARE TRANQUILLITATIS • 2164", story: "SOMEONE PARKED ON THE MOON BUGGY" },
+  { figma: "66:85", scene: edo, ribbon: "vermilion", title: "Jefferson Kidd", location: "EDO • KITES OVER NIHONBASHI", story: "THE PARADE THAT TOOK A WRONG TURN" },
+  { figma: "68:40", scene: venice, ribbon: "lagoon", title: "Jefferson Kidd", location: "VENICE • CARNIVAL, 1598", story: "THE DOGE MISPLACED TUESDAY" },
+];

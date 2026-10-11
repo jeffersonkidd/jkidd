@@ -14,4 +14,9 @@ export const POST_TYPES = Object.fromEntries(
   Object.entries(tokens.postTypes).filter(([k]) => !k.startsWith("$")),
 );
 
+/** Genres (POSTCARDS.md §4), without the $description key. */
+export const GENRES = Object.fromEntries(
+  Object.entries(tokens.genres ?? {}).filter(([k]) => !k.startsWith("$")),
+);
+
 export { root };

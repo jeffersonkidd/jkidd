@@ -95,13 +95,32 @@
   --jk-palette-neutral-variant-100: #ffffff;
 
   /* Type */
-  --jk-font-display: "Space Grotesk", system-ui, sans-serif;
+  --jk-font-display: "Special Elite Even", "Courier New", ui-monospace, monospace;
   --jk-font-body: "Inter", system-ui, sans-serif;
   --jk-font-mono: "JetBrains Mono", ui-monospace, monospace;
 
   /* Layout */
   --jk-card-rail: 16px;
   --jk-card-chrome-inset: 48px;
+  --jk-radius-lg: 16px;
+  --jk-radius-xl: 24px;
+  --jk-radius-full: 9999px;
+  --jk-stroke-rule: 2px;
+
+  /* Genres */
+  --jk-genre-illustrated-mat: #f6d88b;
+  --jk-genre-illustrated-ink: #17130e;
+  --jk-genre-illustrated-cream: #fff0bd;
+  --jk-genre-illustrated-ribbon-teal: #4d9b96;
+  --jk-genre-illustrated-on-ribbon-teal: var(--jk-genre-illustrated-ink);
+  --jk-genre-illustrated-ribbon-rust: #a83d20;
+  --jk-genre-illustrated-on-ribbon-rust: var(--jk-genre-illustrated-cream);
+  --jk-genre-illustrated-ribbon-sky: #5896c8;
+  --jk-genre-illustrated-on-ribbon-sky: var(--jk-genre-illustrated-ink);
+  --jk-genre-illustrated-ribbon-vermilion: #e95e32;
+  --jk-genre-illustrated-on-ribbon-vermilion: var(--jk-genre-illustrated-ink);
+  --jk-genre-illustrated-ribbon-lagoon: #2f8f83;
+  --jk-genre-illustrated-on-ribbon-lagoon: var(--jk-genre-illustrated-ink);
 }
 
 :root,

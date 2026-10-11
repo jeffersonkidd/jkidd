@@ -3,7 +3,7 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
 import { readFileSync } from "node:fs";
-import { palette, tokens, SCHEMES, POST_TYPES, root } from "./lib/tokens.mjs";
+import { palette, tokens, SCHEMES, POST_TYPES, GENRES, root } from "./lib/tokens.mjs";
 import { audit, WAIVERS } from "./check-contrast.mjs";
 import { contrast } from "./lib/color.mjs";
 
@@ -51,4 +51,14 @@ test("generated CSS is in step with the sources", () => {
   for (const mode of SCHEMES.filter((m) => m !== "light")) assert.match(css, new RegExp(`\\[data-scheme="${mode}"\\]`));
   for (const type of Object.keys(POST_TYPES)) assert.match(css, new RegExp(`\\[data-post-type="${type}"\\]`));
   assert.match(css, new RegExp(`--jk-card-chrome-inset: ${tokens.layout.cardChromeInset.value}px`));
+});
+
+test("every genre ribbon becomes a fill and an on-fill variable", () => {
+  const css = readFileSync(`${root}src/styles/tokens.css`, "utf8");
+  for (const [genre, g] of Object.entries(GENRES)) {
+    for (const k of Object.keys(g.ribbons)) {
+      assert.match(css, new RegExp(`--jk-genre-${genre}-ribbon-${k}: `));
+      assert.match(css, new RegExp(`--jk-genre-${genre}-on-ribbon-${k}: var\\(--jk-genre-${genre}-`));
+    }
+  }
 });

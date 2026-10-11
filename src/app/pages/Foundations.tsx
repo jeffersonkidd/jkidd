@@ -146,8 +146,8 @@ export function Foundations({ scheme: pageScheme }: PageProps) {
       <section className="section">
         <h2 className="jk-text-doc-h2">Type</h2>
         <p className="muted">
-          Working stack, provisional (decision 1): <strong>Space Grotesk</strong> display, <strong>Inter</strong> body,{" "}
-          <strong>JetBrains Mono</strong> chrome and code. Card styles are sized for the 1600px canvas.
+          <strong>Special Elite Even</strong> display (the repaired cut in <code>fonts/</code>), <strong>Inter</strong> body,{" "}
+          <strong>JetBrains Mono</strong> chrome and code. Body and mono are still provisional (decision 1). Card styles are sized for the 1600px canvas.
         </p>
         <div className="type-specimens">
           {TEXT_STYLES.map(([name, cls, sample]) => (

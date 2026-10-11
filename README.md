@@ -88,7 +88,7 @@ Every card on the Archetypes page has an **Edit** link that opens it in the Stud
 
 ## Provisional, and not yet read into code
 
-- **Type stack** (JKIDD.md decision 1): Space Grotesk / Inter / JetBrains Mono is a working stack. Change `tokens/jkidd.tokens.json` → `fonts` and the font imports in `src/main.tsx`.
+- **Type stack** (JKIDD.md decision 1): display is **Special Elite Even** (User, 2026-10-11), the repaired cut in `fonts/special-elite-repaired/` (its README tells the story: original outlines, fixed sidebearings and metrics). Inter / JetBrains Mono remain the working body and mono. Change `tokens/jkidd.tokens.json` → `fonts` and the font imports in `src/main.tsx`. The JKidd - DS Figma library still uses Space Grotesk; the Workbench file already uses Special Elite Even.
 - **Post type colours**: provisional mapping to scheme roles, `tokens/jkidd.tokens.json` → `postTypes`.
 - **Marks**: typeset placeholders until the real marks are designed.
 - **Partly read into code:** 8 of the library's 15 text styles (`Card/Headline`, `Card/Title` and five `Doc/*` styles are missing) and 2 of its 34 Layout variables (the card rail and chrome inset; the rest are raw pixel values in `ds.css`, taken from the Figma nodes).

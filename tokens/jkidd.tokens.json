@@ -16,7 +16,11 @@
   },
   "layout": {
     "cardRail": { "value": 16, "unit": "px", "figma": "--jk-card-rail" },
-    "cardChromeInset": { "value": 48, "unit": "px", "figma": "--jk-card-chrome-inset" }
+    "cardChromeInset": { "value": 48, "unit": "px", "figma": "--jk-card-chrome-inset" },
+    "radiusLg": { "value": 16, "unit": "px", "figma": "--jk-radius-lg" },
+    "radiusXl": { "value": 24, "unit": "px", "figma": "--jk-radius-xl" },
+    "radiusFull": { "value": 9999, "unit": "px", "figma": "--jk-radius-full" },
+    "strokeRule": { "value": 2, "unit": "px", "figma": "--jk-stroke-rule" }
   },
   "canvas": {
     "$description": "Card Frame (8:60) Ratio variants. Judge every card at 320px wide (Principle 4).",
@@ -25,8 +29,8 @@
     "4:5": { "width": 1080, "height": 1350, "figma": "8:42" }
   },
   "fonts": {
-    "$description": "Type collection: three font variables. PROVISIONAL working stack (JKIDD.md decision 1, still open).",
-    "display": { "family": "Space Grotesk", "fallback": "system-ui, sans-serif", "figma": "--jk-font-display" },
+    "$description": "Type collection: three font variables. Display is Special Elite Even, the repaired cut in fonts/special-elite-repaired (User, 2026-10-11, following the JKidd - Workbench file). Body and mono stay on the provisional working stack (JKIDD.md decision 1).",
+    "display": { "family": "Special Elite Even", "fallback": "\"Courier New\", ui-monospace, monospace", "figma": "--jk-font-display" },
     "body": { "family": "Inter", "fallback": "system-ui, sans-serif", "figma": "--jk-font-body" },
     "mono": { "family": "JetBrains Mono", "fallback": "ui-monospace, monospace", "figma": "--jk-font-mono" }
   },
@@ -40,5 +44,19 @@
     "Doc/H1": { "font": "display", "weight": 700, "size": 40, "lineHeight": 1.1, "letterSpacing": -2 },
     "Doc/H2": { "font": "display", "weight": 500, "size": 24, "lineHeight": 1.2, "letterSpacing": -1 },
     "Doc/Label": { "font": "mono", "weight": 500, "size": 11, "lineHeight": 1.3, "letterSpacing": 10, "uppercase": true }
+  },
+  "genres": {
+    "$description": "Genre colours dress a postcard's front and are not the brand palette (POSTCARDS.md section 4; JKIDD.md decision 10). Hex values read from the JKidd - Workbench file (7Q8GN3IPMoM6lhFtIMquya). on names the genre colour used for text set on the fill.",
+    "illustrated": {
+      "$description": "The illustrated postcards on the Workbench page (riverboat 63:55, mountain railway 63:64, lunar colony 66:103, Edo bridge 66:85, Venice carnival 68:40): a cream mat, an ink-bordered scene, a location ribbon and a story label. Ribbon text is ink where cream fails 4.5:1 (teal 2.86, sky 2.79, vermilion 3.02, lagoon 3.43); Workbench sets it in cream on every ribbon.",
+      "colors": { "mat": "#f6d88b", "ink": "#17130e", "cream": "#fff0bd" },
+      "ribbons": {
+        "teal": { "fill": "#4d9b96", "on": "ink", "figma": "63:59" },
+        "rust": { "fill": "#a83d20", "on": "cream", "figma": "63:68" },
+        "sky": { "fill": "#5896c8", "on": "ink", "figma": "66:107" },
+        "vermilion": { "fill": "#e95e32", "on": "ink", "figma": "66:89" },
+        "lagoon": { "fill": "#2f8f83", "on": "ink", "figma": "68:44" }
+      }
+    }
   }
 }

@@ -8,12 +8,16 @@
 //   accent on surface    ≥ 3.0  rail, tick, swatches (non-text graphics)
 //   onAccent on accent   ≥ 3.0  Manifesto payoff at 120px, Parity specimen at 40px (large text)
 //
+// Genres (POSTCARDS.md §4) bring their own colours, checked the same way:
+//   on-ribbon on ribbon  ≥ 4.5  location ribbon text: 18px on the canvas, far smaller once scaled
+//   ink on cream         ≥ 4.5  story label
+//
 // Known failures are listed, with a reason, in tokens/contrast-waivers.json.
 // Exits 1 when any pair fails without a waiver, so `pnpm check` fails with it.
 
 import { readFileSync } from "node:fs";
 import { contrast } from "./lib/color.mjs";
-import { palette, SCHEMES, POST_TYPES, root } from "./lib/tokens.mjs";
+import { palette, SCHEMES, POST_TYPES, GENRES, root } from "./lib/tokens.mjs";
 
 export const WAIVERS = JSON.parse(readFileSync(`${root}tokens/contrast-waivers.json`, "utf8")).waivers;
 const waived = (r) => WAIVERS.some((w) => w.scheme === r.scheme && w.type === r.type && w.rule === r.rule);
@@ -37,6 +41,17 @@ export function audit() {
       }
     }
   }
+  for (const [genre, g] of Object.entries(GENRES)) {
+    const pairs = [
+      ...Object.entries(g.ribbons).map(([k, r]) => [`${genre}/${k}`, "on-ribbon / ribbon", g.colors[r.on], r.fill]),
+      [`${genre}/label`, "ink / cream", g.colors.ink, g.colors.cream],
+    ];
+    for (const [type, rule, fg, bg] of pairs) {
+      const ratio = contrast(fg, bg);
+      const row = { scheme: "genre", type, rule, ratio, min: 4.5, pass: ratio >= 4.5 };
+      rows.push({ ...row, waived: !row.pass && waived(row) });
+    }
+  }
   return rows;
 }
 
@@ -45,11 +60,11 @@ if (import.meta.url === `file://${process.argv[1]}`) {
   const failed = rows.filter((r) => !r.pass && !r.waived);
   const waivedRows = rows.filter((r) => r.waived);
   const pad = (s, n) => String(s).padEnd(n);
-  console.log(pad("  scheme", 24) + pad("type", 11) + pad("pair", 20) + "ratio");
+  console.log(pad("  scheme", 24) + pad("type", 24) + pad("pair", 20) + "ratio");
   for (const r of rows) {
     const mark = r.pass ? " " : r.waived ? "~" : "✕";
     const note = r.pass ? "" : `  (needs ${r.min}${r.waived ? "; waived" : ""})`;
-    console.log(`${mark} ${pad(r.scheme, 22)}${pad(r.type, 11)}${pad(r.rule, 20)}${r.ratio.toFixed(2)}${note}`);
+    console.log(`${mark} ${pad(r.scheme, 22)}${pad(r.type, 24)}${pad(r.rule, 20)}${r.ratio.toFixed(2)}${note}`);
   }
   const passed = rows.filter((r) => r.pass).length;
   console.log(`\n${passed}/${rows.length} pairs pass · ${waivedRows.length} waived (tokens/contrast-waivers.json) · ${failed.length} failing.`);

@@ -50,6 +50,8 @@
 /* ── Card frame (8:60) ─────────────────────────────────── */
 
 .jk-card {
+  /* Special Elite Even ships one weight; a faux bold smears the typewriter ink. */
+  font-synthesis-weight: none;
   display: flex;
   position: relative;
   overflow: hidden;
