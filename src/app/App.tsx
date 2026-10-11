@@ -9,6 +9,7 @@ import { Thumbnails } from "./pages/Thumbnails";
 import { Studio } from "./pages/Studio";
 import { LinkPagePreview } from "./pages/LinkPagePreview";
 import { IllustratedPage } from "./pages/IllustratedPage";
+import { FrontsPage } from "./pages/FrontsPage";
 import { Select } from "./components/Controls";
 
 const ROUTES = [
@@ -20,6 +21,7 @@ const ROUTES = [
   { path: "thumbnails", name: "Thumbnail test", el: Thumbnails },
   { path: "studio", name: "Studio", el: Studio },
   { path: "postcards", name: "Illustrated postcards", el: IllustratedPage },
+  { path: "fronts", name: "Postcard fronts", el: FrontsPage },
   { path: "link", name: "Link page", el: LinkPagePreview },
 ] as const;
 

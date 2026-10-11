@@ -43,6 +43,8 @@ export const WORKBENCH_NODES = {
   LinkRow: "118:515",
   /** Illustrated postcards; each sample carries its own node (ILLUSTRATED_SAMPLES). */
   IllustratedPostcard: "63:55",
+  /** Postcard Image Algo page: the large-letter front gallery and its production spec, one flattened frame. */
+  PostcardFronts: "147:948",
 } as const;
 
 export function figmaUrl(node: string, fileKey: string = FIGMA_FILE_KEY) {

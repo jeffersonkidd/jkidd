@@ -98,6 +98,8 @@
   --jk-font-display: "Special Elite Even", "Courier New", ui-monospace, monospace;
   --jk-font-body: "Inter", system-ui, sans-serif;
   --jk-font-mono: "JetBrains Mono", ui-monospace, monospace;
+  --jk-font-lettering: "CC Wild Words", "Comic Neue", "Comic Sans MS", cursive;
+  --jk-font-burst: "Bangers", Impact, "Arial Black", sans-serif;
 
   /* Layout */
   --jk-card-rail: 16px;

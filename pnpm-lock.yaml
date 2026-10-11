@@ -8,6 +8,12 @@ importers:
 
   .:
     dependencies:
+      '@fontsource/bangers':
+        specifier: ^5.3.0
+        version: 5.3.0
+      '@fontsource/comic-neue':
+        specifier: ^5.3.0
+        version: 5.3.0
       '@fontsource/inter':
         specifier: ^5.2.0
         version: 5.3.0
@@ -47,6 +53,12 @@ importers:
         version: 8.3.0(@types/node@22.20.4)
 
 packages:
+
+  '@fontsource/bangers@5.3.0':
+    resolution: {integrity: sha512-tSRpmWwkqrO9PCqo9wjA/99/5sLOIWm5cf51G3ooEHd8qZus8sVSSJoWp/7EvM5rIgZMjKRG6XtY9yeisKxE7g==}
+
+  '@fontsource/comic-neue@5.3.0':
+    resolution: {integrity: sha512-uZsyUTExw8tCySNhL65dN6rEUhASMPGintSS5Kw/ZkrQTK1vcAgramzOLT/mZKtZ+EXr03MHj0s5osVVJITCow==}
 
   '@fontsource/inter@5.3.0':
     resolution: {integrity: sha512-RofMylZmjlJEfELXeNHFWBRcSs75rGU/6bV2S2jfnvv/3rPXPGe0LgUJTklcHZ9lM4OZmAVFhcJPnACfb91A3g==}
@@ -379,6 +391,10 @@ packages:
         optional: true
 
 snapshots:
+
+  '@fontsource/bangers@5.3.0': {}
+
+  '@fontsource/comic-neue@5.3.0': {}
 
   '@fontsource/inter@5.3.0': {}
 

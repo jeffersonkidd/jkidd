@@ -146,8 +146,10 @@ export function Foundations({ scheme: pageScheme }: PageProps) {
       <section className="section">
         <h2 className="jk-text-doc-h2">Type</h2>
         <p className="muted">
-          <strong>Special Elite Even</strong> display (the repaired cut in <code>fonts/</code>), <strong>Inter</strong> body,{" "}
-          <strong>JetBrains Mono</strong> chrome and code. Body and mono are still provisional (decision 1). Card styles are sized for the 1600px canvas.
+          <strong>Special Elite Even</strong> display (the repaired cut in <code>fonts/</code>), <strong>Inter</strong> for running text,{" "}
+          <strong>JetBrains Mono</strong> chrome and code. Two comic faces for short text only: <strong>Wild Words</strong> lettering (Comic
+          Neue stands in until the webfont is licensed) and <strong>Bangers</strong> for loud titles. Mono is still provisional (decision 1).
+          Card styles are sized for the 1600px canvas.
         </p>
         <div className="type-specimens">
           {TEXT_STYLES.map(([name, cls, sample]) => (
@@ -159,6 +161,20 @@ export function Foundations({ scheme: pageScheme }: PageProps) {
               <code>.{cls}</code>
             </div>
           ))}
+          <div className="specimen">
+            <span className="label">Lettering · arrow annotation</span>
+            <div className="specimen__sample">
+              <span className="specimen__lettering">imports, never the other way round</span>
+            </div>
+            <code>--jk-font-lettering</code>
+          </div>
+          <div className="specimen">
+            <span className="label">Burst · titles</span>
+            <div className="specimen__sample">
+              <span className="specimen__burst">Products and Releases</span>
+            </div>
+            <code>--jk-font-burst</code>
+          </div>
         </div>
       </section>
     </div>

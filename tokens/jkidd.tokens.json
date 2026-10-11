@@ -29,10 +29,12 @@
     "4:5": { "width": 1080, "height": 1350, "figma": "8:42" }
   },
   "fonts": {
-    "$description": "Type collection: three font variables. Display is Special Elite Even, the repaired cut in fonts/special-elite-repaired (User, 2026-10-11, following the JKidd - Workbench file). Body and mono stay on the provisional working stack (JKIDD.md decision 1).",
+    "$description": "Type collection. Display: Special Elite Even, the repaired cut in fonts/special-elite-repaired (User, 2026-10-11). Body: Inter, for running text. Two comic faces for short text only (User, 2026-10-11): lettering is CC Wild Words (Comicraft, paid; loaded from the machine until a webfont licence is bought), with Comic Neue (OFL) standing in; burst is Bangers (OFL) for loud titles. Mono stays provisional (JKIDD.md decision 1). Lettering and burst aren't in the Figma library yet.",
     "display": { "family": "Special Elite Even", "fallback": "\"Courier New\", ui-monospace, monospace", "figma": "--jk-font-display" },
     "body": { "family": "Inter", "fallback": "system-ui, sans-serif", "figma": "--jk-font-body" },
-    "mono": { "family": "JetBrains Mono", "fallback": "ui-monospace, monospace", "figma": "--jk-font-mono" }
+    "mono": { "family": "JetBrains Mono", "fallback": "ui-monospace, monospace", "figma": "--jk-font-mono" },
+    "lettering": { "family": "CC Wild Words", "fallback": "\"Comic Neue\", \"Comic Sans MS\", cursive", "figma": "--jk-font-lettering" },
+    "burst": { "family": "Bangers", "fallback": "Impact, \"Arial Black\", sans-serif", "figma": "--jk-font-burst" }
   },
   "textStyles": {
     "$description": "Text styles read from Figma. letterSpacing is in percent of the font size, as Figma stores it. Card/Headline and Card/Title exist in the library but haven't been read into code yet.",

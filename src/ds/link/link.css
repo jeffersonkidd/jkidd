@@ -39,7 +39,7 @@
 /* ── Header ────────────────────────────────────────────── */
 
 .lk-header { display: flex; align-items: center; gap: 16px; padding: 0 0 0 8px; min-height: 36px; }
-.lk-header__wordmark { font-weight: 600; font-size: 28px; line-height: 1; letter-spacing: -0.01em; white-space: nowrap; }
+.lk-header__wordmark { font-family: var(--jk-font-burst); font-weight: 400; font-size: 32px; line-height: 1; letter-spacing: 0.03em; white-space: nowrap; }
 .lk-header__nav { display: flex; align-items: center; gap: 8px; margin-left: auto; }
 .lk-header__link,
 .lk-follow {
@@ -129,7 +129,9 @@
   border-radius: 10px;
   background: none;
   color: var(--md-sys-color-on-surface);
-  font: 600 16px/1 var(--jk-font-body);
+  font: 700 15px/1 var(--jk-font-lettering);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
   cursor: pointer;
 }
 .lk-tab:hover { background: color-mix(in srgb, var(--md-sys-color-surface-container-lowest) 40%, transparent); }
@@ -165,7 +167,7 @@ a.lk-row:hover { background: var(--md-sys-color-surface-container-lowest); }
 .lk-row__media img { width: 100%; height: 100%; object-fit: cover; display: block; }
 .lk-row__text { flex: 1 0 0; min-width: 260px; display: flex; flex-direction: column; justify-content: center; gap: 12px; }
 .lk-row__title-block { display: flex; flex-direction: column; gap: 4px; }
-.lk-row__title { font-weight: 800; font-size: 28px; line-height: 1.1; letter-spacing: -0.01em; }
+.lk-row__title { font-family: var(--jk-font-burst); font-weight: 400; font-size: 36px; line-height: 1; letter-spacing: 0.03em; }
 .lk-row__desc {
   font-weight: 600;
   font-size: 14px;
@@ -211,14 +213,14 @@ a.lk-row:hover { background: var(--md-sys-color-surface-container-lowest); }
   background: var(--md-sys-color-surface-container-lowest);
   text-align: center;
 }
-.lk-tile__label { font-size: 20px; line-height: 1.2; }
+.lk-tile__label { font-family: var(--jk-font-burst); font-size: 26px; line-height: 1.1; letter-spacing: 0.04em; }
 
 /* ── Narrow screens ────────────────────────────────────── */
 
 @media (max-width: 640px) {
   .lk-stage { padding: 0; background: var(--lk-backdrop) center / cover no-repeat, var(--md-sys-color-primary-container); }
   .lk-sheet { padding: 16px; border-width: 0; }
-  .lk-header__wordmark { font-size: 22px; }
+  .lk-header__wordmark { font-size: 26px; }
   .lk-header__link { display: none; }
   .lk-profile { flex-direction: column; align-items: flex-start; padding: 8px 0 0; gap: 16px; }
   .lk-avatar { width: 120px; }

@@ -17,3 +17,28 @@
   font-style: normal;
   font-display: swap;
 }
+
+/* CC Wild Words (Comicraft) is a paid face: it loads from the machine it's installed
+   on, and --jk-font-lettering falls back to Comic Neue everywhere else. After buying
+   the webfont licence, add url("./wild-words/….woff2") ahead of local() below. */
+@font-face {
+  font-family: "CC Wild Words";
+  src: local("CC Wild Words Roman"), local("CCWildWords-Roman"), local("CC Wild Words");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "CC Wild Words";
+  src: local("CC Wild Words Bold"), local("CCWildWords-Bold");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "CC Wild Words";
+  src: local("CC Wild Words Italic"), local("CCWildWords-Italic");
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}

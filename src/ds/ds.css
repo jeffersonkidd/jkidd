@@ -145,7 +145,8 @@
   -webkit-mask: var(--jk-arrow-src) center / 144px 24px no-repeat;
   mask: var(--jk-arrow-src) center / 144px 24px no-repeat;
 }
-.jk-arrow__label { font-family: var(--jk-font-mono); font-size: 26px; line-height: 1.4; color: var(--jk-type-ink); white-space: nowrap; }
+/* The annotation carries the rule: lettered like a comic caption. */
+.jk-arrow__label { font-family: var(--jk-font-lettering); font-weight: 700; font-size: 26px; line-height: 1.3; letter-spacing: 0.03em; text-transform: uppercase; color: var(--jk-type-ink); white-space: nowrap; }
 
 .jk-badge {
   display: flex;
