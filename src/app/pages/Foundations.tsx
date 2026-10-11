@@ -147,8 +147,8 @@ export function Foundations({ scheme: pageScheme }: PageProps) {
         <h2 className="jk-text-doc-h2">Type</h2>
         <p className="muted">
           <strong>Special Elite Even</strong> display (the repaired cut in <code>fonts/</code>), <strong>Inter</strong> for running text,{" "}
-          <strong>JetBrains Mono</strong> chrome and code. Two comic faces for short text only: <strong>Wild Words</strong> lettering (Comic
-          Neue stands in until the webfont is licensed) and <strong>Bangers</strong> for loud titles. Mono is still provisional (decision 1).
+          <strong>JetBrains Mono</strong> chrome and code. Two comic faces for short text only: <strong>Wild Words</strong> lettering, then{" "}
+          <strong>Anime Ace 2.0</strong> where it's installed (Comic Neue stands in where neither is) and <strong>Bangers</strong> for loud titles. Mono is still provisional (decision 1).
           Card styles are sized for the 1600px canvas.
         </p>
         <div className="type-specimens">

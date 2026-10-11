@@ -45,6 +45,9 @@ export const WORKBENCH_NODES = {
   IllustratedPostcard: "63:55",
   /** Postcard Image Algo page: the large-letter front gallery and its production spec, one flattened frame. */
   PostcardFronts: "147:948",
+  /** Cartoon postcards board on the same page: Cartoon/* ink swatches and the component. */
+  CartoonBoard: "158:536",
+  CartoonPostcard: "158:580",
 } as const;
 
 export function figmaUrl(node: string, fileKey: string = FIGMA_FILE_KEY) {

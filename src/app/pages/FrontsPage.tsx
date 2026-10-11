@@ -63,7 +63,7 @@ export function FrontsPage(_: PageProps) {
     location: printStory ? location.toUpperCase() : null,
     ribbon,
     side,
-    figma: upload ? undefined : WORKBENCH_NODES.PostcardFronts,
+    figma: WORKBENCH_NODES.CartoonPostcard,
   };
   const prompt = useMemo(() => frontPrompt(master, brief), [master, brief]);
   const hasNarrative = BRIEF_FIELDS.some(({ key }) => key !== "lettering" && brief[key].trim());

@@ -42,3 +42,28 @@
   font-style: italic;
   font-display: swap;
 }
+
+/* Anime Ace 2.0 BB (Blambot) is the second lettering face: where Wild Words isn't
+   installed, it letters before Comic Neue does. Loaded from the machine, never bundled;
+   Blambot's licence sets its own terms for webfont use. */
+@font-face {
+  font-family: "Anime Ace 2.0 BB";
+  src: local("Anime Ace 2.0 BB"), local("AnimeAce2.0BB");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Anime Ace 2.0 BB";
+  src: local("Anime Ace 2.0 BB Bold"), local("AnimeAce2.0BB-Bold");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Anime Ace 2.0 BB";
+  src: local("Anime Ace 2.0 BB Italic"), local("AnimeAce2.0BB-Italic");
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}

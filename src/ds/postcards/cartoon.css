@@ -57,17 +57,20 @@
   white-space: nowrap;
 }
 
-/* Story label: cream face, ink outline, extruded ink shadow, like the big letters */
+/* Story label: a comic caption box, so it's lettered (Wild Words, then Anime Ace 2.0).
+   Cream face, ink outline, extruded ink shadow, like the big letters. */
 .jk-toon__label {
-  padding: 18px 32px 12px;
+  padding: 20px 32px 16px;
   border: 8px solid var(--toon-ink);
   border-radius: 6px;
   background: var(--toon-cream);
   color: var(--toon-ink);
   box-shadow: 14px 16px 0 var(--toon-ink);
-  font-size: 66px;
-  line-height: 0.98;
-  letter-spacing: 0.02em;
+  font-family: var(--jk-font-lettering);
+  font-weight: 700;
+  font-size: 46px;
+  line-height: 1.12;
+  letter-spacing: 0.01em;
   text-transform: uppercase;
   text-wrap: balance;
 }
