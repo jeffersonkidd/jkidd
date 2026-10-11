@@ -30,6 +30,21 @@
   pointer-events: none;
 }
 
+/* Architect's Notebook stick figure: the kit's pen, in the front's ink. Sits over the
+   picture and under the story, so it walks behind the sticker. Pen width is set on the
+   element from FIGURE_PEN (figure.ts), in the kit's viewBox units. */
+.jk-toon__figure {
+  position: absolute;
+  top: 0;
+  left: 0;
+  overflow: visible;
+  fill: none;
+  stroke: var(--toon-ink);
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  pointer-events: none;
+}
+
 /* Story block: bottom corner, tilted like a sticker slapped on the card */
 .jk-toon__story {
   position: absolute;

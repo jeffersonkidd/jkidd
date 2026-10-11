@@ -14,4 +14,5 @@ export * from "./link/LinkPage";
 export * from "./postcards/IllustratedPostcard";
 export * from "./postcards/fronts";
 export * from "./postcards/CartoonPostcard";
+export * from "./postcards/figure";
 export * from "./samples";

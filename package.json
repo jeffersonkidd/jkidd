@@ -10,6 +10,7 @@
   },
   "scripts": {
     "tokens": "node scripts/build-tokens.mjs",
+    "notebook": "node scripts/sync-notebook.mjs",
     "contrast": "node scripts/check-contrast.mjs",
     "predev": "pnpm tokens",
     "dev": "vite",

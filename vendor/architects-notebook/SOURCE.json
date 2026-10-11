@@ -1,0 +1,13 @@
+{
+  "kit": "Architect's Notebook",
+  "figma": "gWBVp3oNqUv7ymJXNORuM0",
+  "license": "MIT (kit); generated figure geometry is the kit owner's",
+  "files": {
+    "figure-frames.json": {
+      "from": "dist/figure-frames.json",
+      "generator": "gen-figure-anim.js",
+      "sha256": "0dc01e5ee963c7ed1bd92a872148abba44bdf9c47d10cf9f9c06707bd847dab2",
+      "transform": "numbers rounded to 2 decimal places"
+    }
+  }
+}

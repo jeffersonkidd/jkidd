@@ -6,21 +6,28 @@ import {
   CARTOON_RIBBONS,
   CartoonPostcard,
   DEFAULT_MASTER,
+  FIGURE_CYCLES,
+  FIGURE_DRAWINGS_PER_SECOND,
   FRONTS,
   FRONT_QC,
   FRONT_SPEC,
   ILLUSTRATED_SAMPLES,
+  NOTEBOOK_FILE_KEY,
+  NOTEBOOK_NODES,
   WORKBENCH_FILE_KEY,
   WORKBENCH_NODES,
   figmaUrl,
   frontPrompt,
   type CartoonRibbon,
   type CartoonSpec,
+  type FigureCycle,
+  type FigureLine,
   type FrontBrief,
 } from "../../ds";
 import { PageHeader, Segmented, Select, TextField, Toggle, cap } from "../components/Controls";
 import { ScaledBox } from "../components/ScaledCard";
 import type { PageProps } from "../App";
+import { recordCartoon, videoType } from "../video";
 
 const byId = (id: string) => FRONTS.find((f) => f.id === id) ?? FRONTS[0];
 const SIDES = ["left", "right"] as const;
@@ -28,6 +35,19 @@ const SIDES = ["left", "right"] as const;
 const STARTERS = ILLUSTRATED_SAMPLES.map(({ story, location }) => ({ story, location }));
 
 let fontCSS: Promise<string> | undefined;
+
+const LINES = ["boil", "still"] as const;
+
+/** The figure's drawing number, ticking at 12 drawings a second while playing. */
+function useDrawing(playing: boolean) {
+  const [drawing, setDrawing] = useState(0);
+  useEffect(() => {
+    if (!playing) return;
+    const id = setInterval(() => setDrawing((d) => d + 1), 1000 / FIGURE_DRAWINGS_PER_SECOND);
+    return () => clearInterval(id);
+  }, [playing]);
+  return drawing;
+}
 
 /**
  * The cartoon side of the postcard, for silly days. Generate a large-letter front from a
@@ -51,6 +71,12 @@ export function FrontsPage(_: PageProps) {
   const [printStory, setPrintStory] = useState(true);
   const [upload, setUpload] = useState<{ url: string; name: string } | null>(null);
   const [checked, setChecked] = useState<boolean[]>(() => FRONT_QC.map(() => false));
+  const [figureOn, setFigureOn] = useState(true);
+  const [cycle, setCycle] = useState<FigureCycle>("walk");
+  const [line, setLine] = useState<FigureLine>("boil");
+  const [playing, setPlaying] = useState(() => !matchMedia("(prefers-reduced-motion: reduce)").matches);
+  const [recording, setRecording] = useState(false);
+  const drawing = useDrawing(playing);
   const [status, setStatus] = useState("");
   const cardRef = useRef<HTMLDivElement>(null);
   const stageRef = useRef<HTMLDivElement>(null);
@@ -64,6 +90,7 @@ export function FrontsPage(_: PageProps) {
     ribbon,
     side,
     figma: WORKBENCH_NODES.CartoonPostcard,
+    figure: figureOn ? { cycle, line } : null,
   };
   const prompt = useMemo(() => frontPrompt(master, brief), [master, brief]);
   const hasNarrative = BRIEF_FIELDS.some(({ key }) => key !== "lettering" && brief[key].trim());
@@ -105,6 +132,29 @@ export function FrontsPage(_: PageProps) {
       flash(`Exported ${width * pixelRatio}×${height * pixelRatio} PNG`);
     } catch (e) {
       flash(`Export failed: ${(e as Error).message}`);
+    }
+  };
+
+  const exportVideo = async () => {
+    if (!cardRef.current || !spec.figure) return;
+    setRecording(true);
+    try {
+      await document.fonts.ready;
+      fontCSS ??= getFontEmbedCSS(cardRef.current);
+      const { blob, ext, seconds } = await recordCartoon(cardRef.current, spec.figure, CARTOON_CANVAS, {
+        fontEmbedCSS: await fontCSS,
+        onProgress: (done) => setStatus(`Recording ${Math.round(done * 100)}%. Keep this tab in front.`),
+      });
+      const a = document.createElement("a");
+      a.href = URL.createObjectURL(blob);
+      a.download = `jkidd-cartoon-${upload ? "front" : master.id}-${spec.figure.cycle}.${ext}`;
+      a.click();
+      setTimeout(() => URL.revokeObjectURL(a.href), 10_000);
+      flash(`Exported ${seconds.toFixed(1)}s ${ext.toUpperCase()} · ${CARTOON_CANVAS.width}×${CARTOON_CANVAS.height}`);
+    } catch (e) {
+      flash(`Video failed: ${(e as Error).message}`);
+    } finally {
+      setRecording(false);
     }
   };
 
@@ -180,6 +230,15 @@ export function FrontsPage(_: PageProps) {
             </>
           ) : null}
 
+          <Toggle label="Stick figure (Architect's Notebook)" checked={figureOn} onChange={setFigureOn} />
+          {figureOn ? (
+            <>
+              <Segmented label="Figure" value={cycle} options={FIGURE_CYCLES} format={cap} onChange={setCycle} />
+              <Segmented label="Line" value={line} options={LINES} format={cap} onChange={setLine} />
+              <Toggle label="Play" checked={playing} onChange={setPlaying} />
+            </>
+          ) : null}
+
           <details className="toon-brief">
             <summary className="label">The rest of the brief</summary>
             {BRIEF_FIELDS.filter(({ key }) => key !== "story").map(({ key, label }) =>
@@ -200,7 +259,7 @@ export function FrontsPage(_: PageProps) {
 
         <div className="studio__stage">
           <ScaledBox canvas={CARTOON_CANVAS} label="Cartoon postcard preview">
-            <CartoonPostcard ref={cardRef} spec={spec} />
+            <CartoonPostcard ref={cardRef} spec={spec} drawing={drawing} />
           </ScaledBox>
 
           <div className="studio__bar">
@@ -229,6 +288,16 @@ export function FrontsPage(_: PageProps) {
             <button className="btn" onClick={() => exportPng(2)}>
               @2x
             </button>
+            {figureOn ? (
+              <button
+                className="btn"
+                onClick={exportVideo}
+                disabled={recording || !videoType()}
+                title={videoType() ? undefined : "This browser can't record video"}
+              >
+                5 · Export video
+              </button>
+            ) : null}
             <span className="studio__status" role="status">
               {status ||
                 (upload
@@ -252,13 +321,23 @@ export function FrontsPage(_: PageProps) {
             >
               Workbench {WORKBENCH_NODES.PostcardFronts} ↗
             </a>
+            {figureOn ? (
+              <a
+                className="btn btn--small btn--ghost"
+                href={figmaUrl(NOTEBOOK_NODES.Figures, NOTEBOOK_FILE_KEY)}
+                target="_blank"
+                rel="noreferrer"
+              >
+                Architect's Notebook {NOTEBOOK_NODES.Figures} ↗
+              </a>
+            ) : null}
           </div>
 
           <div className="studio__checks">
             <div className="studio__thumb">
               <span className="label">At 320px (Principle 4)</span>
               <ScaledBox canvas={CARTOON_CANVAS} width={320} label="Thumbnail preview">
-                <CartoonPostcard spec={spec} />
+                <CartoonPostcard spec={spec} drawing={drawing} />
               </ScaledBox>
             </div>
             <fieldset className="front-qc">

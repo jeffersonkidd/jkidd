@@ -50,7 +50,16 @@ export const WORKBENCH_NODES = {
   CartoonPostcard: "158:580",
 } as const;
 
+/** Architect's Notebook: the hand-drawn kit, a published library upstream of this one. Files come in by `pnpm notebook`. */
+export const NOTEBOOK_FILE_KEY = "gWBVp3oNqUv7ymJXNORuM0";
+
+export const NOTEBOOK_NODES = {
+  /** Stick figures page; the animated loops are generated from the same rig (gen-figure-anim.js). */
+  Figures: "37:2",
+} as const;
+
 export function figmaUrl(node: string, fileKey: string = FIGMA_FILE_KEY) {
-  const name = fileKey === WORKBENCH_FILE_KEY ? "JKidd---Workbench" : "JKidd---DS";
+  const name =
+    fileKey === WORKBENCH_FILE_KEY ? "JKidd---Workbench" : fileKey === NOTEBOOK_FILE_KEY ? "Architects-Notebook" : "JKidd---DS";
   return `https://www.figma.com/design/${fileKey}/${name}?node-id=${node.replace(":", "-")}`;
 }
