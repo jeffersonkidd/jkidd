@@ -27,6 +27,7 @@ import {
 import { PageHeader, Segmented, Select, TextField, Toggle, cap } from "../components/Controls";
 import { ScaledBox } from "../components/ScaledCard";
 import type { PageProps } from "../App";
+import { withInlineSvgPaint } from "../svgPaint";
 import { recordCartoon, videoType } from "../video";
 
 const byId = (id: string) => FRONTS.find((f) => f.id === id) ?? FRONTS[0];
@@ -124,7 +125,9 @@ export function FrontsPage(_: PageProps) {
     try {
       await document.fonts.ready;
       fontCSS ??= getFontEmbedCSS(cardRef.current);
-      const url = await toPng(cardRef.current, { width, height, pixelRatio, fontEmbedCSS: await fontCSS });
+      const card = cardRef.current;
+      const options = { width, height, pixelRatio, fontEmbedCSS: await fontCSS };
+      const url = await withInlineSvgPaint(card, () => toPng(card, options));
       const a = document.createElement("a");
       a.href = url;
       a.download = `jkidd-cartoon-${upload ? "front" : master.id}${pixelRatio > 1 ? `@${pixelRatio}x` : ""}.png`;

@@ -18,6 +18,7 @@ import {
 import { PageHeader, Segmented, Select, TextField, Toggle, cap } from "../components/Controls";
 import { ScaledBox } from "../components/ScaledCard";
 import type { PageProps } from "../App";
+import { withInlineSvgPaint } from "../svgPaint";
 
 /** What a depth can hold. */
 const MOVES = {
@@ -86,7 +87,9 @@ export function StagePage(_: PageProps) {
     try {
       await document.fonts.ready;
       fontCSS ??= getFontEmbedCSS(cardRef.current);
-      const url = await toPng(cardRef.current, { width, height, pixelRatio, fontEmbedCSS: await fontCSS });
+      const card = cardRef.current;
+      const options = { width, height, pixelRatio, fontEmbedCSS: await fontCSS };
+      const url = await withInlineSvgPaint(card, () => toPng(card, options));
       const a = document.createElement("a");
       a.href = url;
       a.download = `jkidd-stage${pixelRatio > 1 ? `@${pixelRatio}x` : ""}.png`;
