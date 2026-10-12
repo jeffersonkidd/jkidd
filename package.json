@@ -12,6 +12,7 @@
     "tokens": "pnpm --filter @jkidd/tokens build",
     "contrast": "pnpm --filter @jkidd/tokens contrast",
     "notebook": "pnpm --filter @jkidd/core notebook",
+    "front": "pnpm --filter @jkidd/blocks front",
     "predev": "pnpm tokens",
     "dev": "pnpm --filter @jkidd/site dev",
     "prebuild": "pnpm tokens",

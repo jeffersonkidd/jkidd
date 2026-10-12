@@ -7,6 +7,9 @@
   "exports": {
     ".": "./src/index.ts"
   },
+  "scripts": {
+    "front": "node scripts/front-intake.mjs"
+  },
   "dependencies": {
     "@jkidd/core": "workspace:*",
     "@jkidd/react": "workspace:*",

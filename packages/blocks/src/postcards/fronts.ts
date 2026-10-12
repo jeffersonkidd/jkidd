@@ -10,6 +10,7 @@ import greetingsBuild from "../assets/fronts/greetings-build-in-public.jpg";
 import buildWestern from "../assets/fronts/build-in-public-western.jpg";
 import christmas from "../assets/fronts/christmas.jpg";
 import space from "../assets/fronts/space.jpg";
+import desert from "../assets/fronts/desert.jpg";
 
 /**
  * The cartoon side of the postcard, for silly days (JKidd - Workbench, Postcard Image Algo
@@ -26,8 +27,8 @@ export type Front = {
   id: string;
   name: string;
   image: string;
-  /** The big letters, as printed. */
-  lettering: string;
+  /** The big letters, as printed. null: an art-only front, the scene is the whole card. */
+  lettering: string | null;
   /** A "Greetings from" script line over the letters. Kept from the master, never added. */
   greeting: boolean;
   /** What the card shows, for the gallery and alt text. */
@@ -47,6 +48,7 @@ export const FRONTS: Front[] = [
   { id: "build-in-public-western", name: "#Build in public, frontier", image: buildWestern, lettering: "#BUILD IN PUBLIC", greeting: false, theme: "Frontier town: saloon, mesa, riders, a steam train in the letters" },
   { id: "christmas", name: "Christmas", image: christmas, lettering: "JEFFERSON KIDD", greeting: false, theme: "Christmas: Santa, snowman, tree, a snowy village" },
   { id: "space", name: "Space", image: space, lettering: "JEFFERSON KIDD", greeting: false, theme: "Space: astronaut, rocket, alien, flying saucer" },
+  { id: "desert", name: "Desert", image: desert, lettering: null, greeting: false, theme: "Desert sunset: saguaro, prickly pear, red rock, teal mountains" },
 ];
 
 /**
@@ -86,11 +88,14 @@ export function frontPrompt(master: Front, brief: FrontBrief): string {
     return `- ${label.toUpperCase()}: ${value}`;
   });
   const greeting = master.greeting ? ` KEEP THE "GREETINGS FROM" SCRIPT LINE EXACTLY AS IN THE MASTER.` : "";
+  const intro = master.lettering
+    ? `THE ATTACHED IMAGE IS THE SERIES MASTER. ITS LETTERING READS "${master.lettering}".${greeting}`
+    : "THE ATTACHED IMAGE IS THE SERIES MASTER. IT HAS NO LETTERING: KEEP THE CARD FREE OF ANY TEXT.";
   return [
     FRONT_SPEC.trim(),
     "---",
     "# THIS POSTCARD",
-    `THE ATTACHED IMAGE IS THE SERIES MASTER. ITS LETTERING READS "${master.lettering}".${greeting}`,
+    intro,
     `REPLACE ONLY THE FOLLOWING:\n\n${lines.join("\n")}`,
   ].join("\n\n");
 }

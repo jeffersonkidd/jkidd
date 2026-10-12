@@ -58,7 +58,7 @@ export function FrontsPage(_: PageProps) {
   const [masterId, setMasterId] = useState(DEFAULT_MASTER);
   const master = byId(masterId);
   const [brief, setBrief] = useState<FrontBrief>(() => ({
-    lettering: master.lettering,
+    lettering: master.lettering ?? "",
     story: STARTERS[2].story,
     theme: "",
     scenery: "",
@@ -101,7 +101,9 @@ export function FrontsPage(_: PageProps) {
     const next = byId(id);
     setMasterId(next.id);
     setUpload(null);
-    setBrief((b) => ({ ...b, lettering: b.lettering === master.lettering ? next.lettering : b.lettering }));
+    // An art-only front is text-free: the story stays off it until asked for.
+    if (next.lettering === null) setPrintStory(false);
+    setBrief((b) => ({ ...b, lettering: b.lettering === (master.lettering ?? "") ? (next.lettering ?? "") : b.lettering }));
     if (scroll) stageRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
   };
 
@@ -380,7 +382,7 @@ export function FrontsPage(_: PageProps) {
               <span className="ill-tile__meta">
                 <span className="label">
                   {f.greeting ? "Greetings from " : ""}
-                  {f.lettering}
+                  {f.lettering ?? "No lettering"}
                 </span>
                 <span className="ill-tile__story">{f.theme}</span>
               </span>
