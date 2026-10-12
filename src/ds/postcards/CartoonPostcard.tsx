@@ -1,7 +1,8 @@
 import { forwardRef } from "react";
 import { GENRE_RIBBONS } from "../tokens.gen";
 import { NOTEBOOK_NODES } from "../figma";
-import { FIGURE_HALO, FIGURE_PEN, figurePose, type FigureSpec } from "./figure";
+import { figurePose, type FigureSpec } from "./figure";
+import { FigureStrokes } from "./SketchFigure";
 
 /**
  * The cartoon side of the postcard, for silly days: a generated large-letter front
@@ -33,7 +34,7 @@ export type CartoonSpec = {
   figure?: FigureSpec | null;
 };
 
-/** The stick figure at one drawing, stroked in currentColor (the front's ink). */
+/** The stick figure at one drawing, in the front's ink. */
 export function SketchFigure({ spec, drawing }: { spec: FigureSpec; drawing: number }) {
   const pose = figurePose(spec, drawing, CARTOON_CANVAS);
   return (
@@ -47,16 +48,7 @@ export function SketchFigure({ spec, drawing }: { spec: FigureSpec; drawing: num
       style={{ transform: `translate(${pose.x}px, ${pose.y}px)` }}
       aria-hidden="true"
     >
-      <g className="jk-toon__figure-halo" strokeWidth={FIGURE_PEN + FIGURE_HALO}>
-        {pose.paths.map((d, i) => (
-          <path key={i} d={d} />
-        ))}
-      </g>
-      <g strokeWidth={FIGURE_PEN}>
-        {pose.paths.map((d, i) => (
-          <path key={i} d={d} />
-        ))}
-      </g>
+      <FigureStrokes pose={pose} />
     </svg>
   );
 }

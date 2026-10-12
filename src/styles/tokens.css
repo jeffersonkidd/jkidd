@@ -136,6 +136,14 @@
   --jk-genre-cartoon-on-ribbon-dark-teal: var(--jk-genre-cartoon-cream);
   --jk-genre-cartoon-ribbon-brown: #582305;
   --jk-genre-cartoon-on-ribbon-brown: var(--jk-genre-cartoon-cream);
+  --jk-genre-stage-ink: #1e1b16;
+  --jk-genre-stage-ink-soft: #6b6558;
+  --jk-genre-stage-cream: #fbf8f1;
+  --jk-genre-stage-paper-alt: #f2ede1;
+  --jk-genre-stage-grid: #d9d2c0;
+  --jk-genre-stage-grid-major: #b3ab99;
+  --jk-genre-stage-blueprint: #2b5d8a;
+  --jk-genre-stage-red-pen: #b4451f;
 }
 
 :root,

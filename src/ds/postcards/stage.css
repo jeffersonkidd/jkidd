@@ -1,0 +1,105 @@
+/* Stage postcard. Canvas pixels: 1536×1024, scaled by the caller. Graph paper of
+   32px squares, ruled heavier every 4; the stage is drawn on it in the Architect's
+   Notebook hand. Colours are the genre's own tokens (--jk-genre-stage-*). */
+
+.jk-stage {
+  --stage-ink: var(--jk-genre-stage-ink);
+  --stage-ink-soft: var(--jk-genre-stage-ink-soft);
+  --stage-paper: var(--jk-genre-stage-cream);
+  --figure-ink: var(--stage-ink);
+  --figure-halo: var(--stage-paper);
+  position: relative;
+  width: 1536px;
+  height: 1024px;
+  border-radius: 18px;
+  overflow: hidden;
+  background-color: var(--stage-paper);
+  background-image:
+    linear-gradient(var(--jk-genre-stage-grid-major) 2px, transparent 2px),
+    linear-gradient(90deg, var(--jk-genre-stage-grid-major) 2px, transparent 2px),
+    linear-gradient(var(--jk-genre-stage-grid) 1px, transparent 1px),
+    linear-gradient(90deg, var(--jk-genre-stage-grid) 1px, transparent 1px);
+  background-size:
+    128px 128px,
+    128px 128px,
+    32px 32px,
+    32px 32px;
+  background-position: -1px -1px;
+  font-synthesis: none;
+}
+
+.jk-stage__drawing {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+/* Fills under the line work: the floor and title strip in paper, the flats a shade darker */
+.jk-stage__paper { fill: var(--stage-paper); stroke: none; }
+.jk-stage__flat { fill: var(--jk-genre-stage-paper-alt); stroke: none; }
+
+/* Pens */
+.jk-stage__ink { fill: none; stroke: var(--stage-ink); stroke-width: 3.2; }
+.jk-stage__thin { fill: none; stroke: var(--stage-ink); stroke-width: 2; }
+.jk-stage__faint { fill: none; stroke: var(--jk-genre-stage-grid-major); stroke-width: 1.6; }
+.jk-stage__hatch { fill: none; stroke: var(--stage-ink-soft); stroke-width: 1.2; }
+.jk-stage__tape { fill: none; stroke: var(--jk-genre-stage-blueprint); stroke-width: 2.4; stroke-dasharray: 16 12; }
+.jk-stage__dim { fill: none; stroke: var(--jk-genre-stage-blueprint); stroke-width: 2; }
+.jk-stage__spike { stroke: var(--jk-genre-stage-red-pen); stroke-width: 4; stroke-linecap: round; }
+
+/* Depth labels on the floor, and the height bar's count */
+.jk-stage__depth {
+  fill: var(--stage-ink-soft);
+  font-family: var(--jk-font-mono);
+  letter-spacing: 0.14em;
+}
+.jk-stage__dim-label {
+  fill: var(--jk-genre-stage-blueprint);
+  font-family: var(--jk-font-mono);
+  font-weight: 700;
+}
+
+/* Title strip: the bottom three squares, cells on the grid (32–1088, 1088–1344, 1344–1504) */
+.jk-stage__title {
+  position: absolute;
+  left: 32px;
+  top: 896px;
+  width: 1472px;
+  height: 96px;
+  display: grid;
+  grid-template-columns: 1056px 256px 160px;
+  color: var(--stage-ink);
+}
+.jk-stage__cell {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 6px;
+  padding: 0 24px;
+  min-width: 0;
+}
+.jk-stage__label {
+  font-family: var(--jk-font-mono);
+  font-size: 14px;
+  line-height: 1;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--stage-ink-soft);
+}
+.jk-stage__story {
+  font-family: var(--jk-font-display);
+  font-size: 40px;
+  line-height: 1.05;
+  text-transform: uppercase;
+}
+.jk-stage__story[data-long] { font-size: 28px; }
+.jk-stage__value {
+  font-family: var(--jk-font-mono);
+  font-size: 20px;
+  line-height: 1.15;
+  text-transform: uppercase;
+  overflow-wrap: anywhere;
+}

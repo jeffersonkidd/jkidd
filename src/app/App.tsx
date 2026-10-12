@@ -10,6 +10,7 @@ import { Studio } from "./pages/Studio";
 import { LinkPagePreview } from "./pages/LinkPagePreview";
 import { IllustratedPage } from "./pages/IllustratedPage";
 import { FrontsPage } from "./pages/FrontsPage";
+import { StagePage } from "./pages/StagePage";
 import { Select } from "./components/Controls";
 
 const ROUTES = [
@@ -22,6 +23,7 @@ const ROUTES = [
   { path: "studio", name: "Studio", el: Studio },
   { path: "postcards", name: "Illustrated postcards", el: IllustratedPage },
   { path: "fronts", name: "Cartoon postcards", el: FrontsPage },
+  { path: "stage", name: "Stage postcards", el: StagePage },
   { path: "link", name: "Link page", el: LinkPagePreview },
 ] as const;
 

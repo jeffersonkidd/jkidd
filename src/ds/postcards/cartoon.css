@@ -5,6 +5,8 @@
 .jk-toon {
   --toon-ink: var(--jk-genre-cartoon-ink);
   --toon-cream: var(--jk-genre-cartoon-cream);
+  --figure-ink: var(--toon-ink);
+  --figure-halo: var(--toon-cream);
   position: relative;
   width: 1536px;
   height: 1024px;
@@ -32,21 +34,13 @@
 
 /* Architect's Notebook stick figure: the kit's pen, in the front's ink. Sits over the
    picture and under the story, so it walks behind the sticker. A cream halo under the
-   ink keeps it readable over the busy front. Widths come from FIGURE_PEN and
-   FIGURE_HALO (figure.ts), in the kit's viewBox units. */
+   ink keeps it readable over the busy front (figure.css). */
 .jk-toon__figure {
   position: absolute;
   top: 0;
   left: 0;
   overflow: visible;
-  fill: none;
-  stroke: var(--toon-ink);
-  stroke-linecap: round;
-  stroke-linejoin: round;
   pointer-events: none;
-}
-.jk-toon__figure-halo {
-  stroke: var(--toon-cream);
 }
 
 /* Story block: bottom corner, tilted like a sticker slapped on the card */

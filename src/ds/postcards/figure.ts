@@ -21,6 +21,11 @@ export const FIGURE_DRAWINGS_PER_SECOND = 12;
 const [, , VB_W, VB_H] = FRAMES.viewBox.split(" ").map(Number);
 /** Feet rest on this line of the kit's viewBox (GROUND_Y in gen-figure-anim.js). */
 const VB_GROUND = 104;
+/** Head top (headY 19 − headR 11 in the rig) to feet, in viewBox units: how tall the figure looks. */
+const VB_STANDING = VB_GROUND - 8;
+/** The placement height that makes a figure look this many px tall, head to feet. */
+export const figureBoxFor = (standing: number) => (standing * VB_H) / VB_STANDING;
+
 /** Kit pen is 1.6; heavier here so the figure holds next to the front's thick ink and survives the 320px thumbnail. */
 export const FIGURE_PEN = 2.4;
 /** A cream line under the ink, this much wider, so the figure reads over a busy front like a sticker. */
@@ -39,33 +44,58 @@ export type FigurePose = {
   scale: number;
   width: number;
   height: number;
+  /** Facing left: draw mirrored about the figure's own box. */
+  flip: boolean;
 };
+
+export type FigurePlacement = {
+  /** Figure height in canvas px. */
+  height?: number;
+  /** Distance from the canvas bottom to the feet. Ignored when floor is set. */
+  ground?: number;
+  /** y of the feet, in canvas px. */
+  floor?: number;
+  /** The span it walks across, in canvas px: it enters past one end and leaves past the other. Default: the canvas. */
+  lane?: readonly [number, number];
+  /** 1 walks right, -1 walks left (drawn mirrored). */
+  dir?: 1 | -1;
+  /** Where a figure that doesn't travel stands, as a fraction of the lane (its centre). */
+  at?: number;
+};
+
+const mod = (a: number, n: number) => ((a % n) + n) % n;
 
 /** Where the figure is and what it looks like at a given drawing, on a canvas of the given size. */
 export function figurePose(
   spec: FigureSpec,
   drawing: number,
   canvas: { width: number; height: number },
-  { height = 290, ground = 56 }: { height?: number; ground?: number } = {},
+  { height = 290, ground = 56, floor, lane = [0, canvas.width], dir = 1, at = 0.5 }: FigurePlacement = {},
 ): FigurePose {
   const loop = LOOPS[spec.cycle];
   const n = loop.length;
-  const i = ((drawing % n) + n) % n;
+  const i = mod(drawing, n);
   const scale = height / VB_H;
   const width = VB_W * scale;
-  const y = canvas.height - ground - VB_GROUND * scale;
+  const y = (floor ?? canvas.height - ground) - VB_GROUND * scale;
+  const [left, right] = lane;
 
   const travel = loop.reduce((s, f) => s + f.dx, 0);
   let x: number;
   if (!travel) {
-    x = (canvas.width - width) / 2;
+    x = left + (right - left) * at - width / 2;
   } else {
-    // whole loops so far, plus this loop's steps; exit right, re-enter from the left
+    // whole loops so far, plus this loop's steps; exit one end, re-enter from the other
     const sweep = (Math.floor(drawing / n) * travel + loop.slice(0, i + 1).reduce((s, f) => s + f.dx, 0)) * scale;
-    x = (sweep % (canvas.width + width)) - width;
+    const along = mod(sweep, right - left + width);
+    x = dir === 1 ? left - width + along : right - along;
   }
-  return { paths: loop[i][spec.line], x, y, scale, width, height: VB_H * scale };
+  return { paths: loop[i][spec.line], x, y, scale, width, height: VB_H * scale, flip: dir === -1 };
 }
+
+/** SVG transform that puts the kit's viewBox at the pose, mirrored when it faces left. */
+export const figureTransform = (p: FigurePose) =>
+  p.flip ? `translate(${p.x + p.width} ${p.y}) scale(${-p.scale} ${p.scale})` : `translate(${p.x} ${p.y}) scale(${p.scale})`;
 
 /**
  * Drawings in one seamless take: one crossing for a cycle that travels (off the left

@@ -1,7 +1,9 @@
 import "./ds.css";
 import "./link/link.css";
 import "./postcards/illustrated.css";
+import "./postcards/figure.css";
 import "./postcards/cartoon.css";
+import "./postcards/stage.css";
 
 export * from "./tokens.gen";
 export * from "./figma";
@@ -15,4 +17,6 @@ export * from "./postcards/IllustratedPostcard";
 export * from "./postcards/fronts";
 export * from "./postcards/CartoonPostcard";
 export * from "./postcards/figure";
+export * from "./postcards/SketchFigure";
+export * from "./postcards/StagePostcard";
 export * from "./samples";

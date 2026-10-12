@@ -25,7 +25,8 @@ React 19 + Vite 8 + TypeScript, pnpm. Same stack as Tibbie X, without Tailwind: 
 | `scripts/check-contrast.mjs` | `pnpm contrast`: every post type × every scheme mode against WCAG | — |
 | `scripts/tokens.test.mjs` | `pnpm test`: counts match the library, roles exist, CSS is in step, waivers aren't stale | — |
 | `src/ds/` | The library. `import { Postcard, SAMPLES } from "./ds"` | Pages Marks, Frame, Card Parts, Archetypes |
-| `src/app/` | The demo site: Overview, Foundations, Marks, Card parts, Archetypes, Thumbnail test, Studio | Cover page |
+| `src/app/` | The demo site: Overview, Foundations, Marks, Card parts, Archetypes, Thumbnail test, Studio, and the postcard makers | Cover page |
+| `vendor/architects-notebook/` | Files taken from the Architect's Notebook kit by `pnpm notebook`, with `SOURCE.json` saying where each came from. Never edit by hand | Architect's Notebook library |
 
 ### Components → Figma nodes
 
@@ -69,6 +70,75 @@ Cards are drawn at their Figma canvas size (1600×900, 1080×1080, 1080×1350) a
 - **Copy JSON** (the `CardSpec`, ready for a post file) and **Copy link** (the card encoded in the URL)
 
 Every card on the Archetypes page has an **Edit** link that opens it in the Studio.
+
+---
+
+## Stage postcards
+
+`#/stage` makes a postcard of a theatre stage drawn on graph paper, in the Architect's Notebook hand, with stick figures walking, running or waving at three depths. It's a draft in code: not in Workbench or the library yet.
+
+### Making one
+
+1. **Story.** Type it, or pick a starter (the illustrated set's stories, the library's own copy). It's set in the title strip in Special Elite Even, uppercase; past 40 characters it drops from 40px to 28px so it still fits.
+2. **Location.** The middle cell of the title strip.
+3. **Cast the depths.** Each depth takes one figure: *Empty*, *Walks right*, *Walks left*, *Runs right*, *Runs left* or *Waves on the mark*. Walkers and runners enter from behind the wing at their own depth and leave behind the other; a waving figure stands on a red-pen X (upstage at 30% across, midstage 68%, downstage the centre).
+4. **Line.** *Boil* redraws the line every drawing, the kit's hand-drawn shimmer. *Still* keeps one line and only moves the pose.
+5. **Play** runs the figures at 12 drawings a second. It starts paused if your system asks for reduced motion.
+6. **Judge it at 320px** in the thumbnail under the preview, then **Export PNG** (1536×1024, or @2x). The PNG is the frame on screen: pause on the pose you want first.
+
+There's no video export on this page yet; the cartoon postcards have one.
+
+### The squares
+
+The paper is the measuring stick. One square is 32px, ruled heavier every 4 (128px), and every figure is a whole number of squares tall, head to feet:
+
+| Depth | Figure | Feet on | Floor between |
+|---|---|---|---|
+| Downstage | 8 squares (256px) | y 832 | x 192–1344, wings are the proscenium piers |
+| Midstage | 6 squares (192px) | y 704 | x 336–1200 |
+| Upstage | 4 squares (128px) | y 576 | x 480–1056 |
+| Back wall | 3 squares (96px) | y 512 | x 552–984 |
+
+It all comes from one rule. The camera is two figures high, so a figure *H* px tall stands on *y = 320 + 2H*, where 320 is the horizon, and the floor narrows toward a vanishing point at x 768. Anything you add, like a prop or a new mark, sizes the same way: decide how many squares tall it is at its depth, and its feet go on that depth's line. On the card, each depth has dashed blueprint tape on its feet line, a label (`MIDSTAGE · 6 SQ`) and a blue height bar with its count.
+
+What's drawn, back to front: paper and grid; back wall, floor boards and apron; then for each depth from upstage to downstage, that depth's figures and then its wings (so a figure is hidden until it clears its own wing); then the sheet border, the height bars and the title strip.
+
+### In code
+
+```tsx
+import { StagePostcard, type StageSpec } from "./ds";
+
+const spec: StageSpec = {
+  story: "THE PARADE THAT TOOK A WRONG TURN",
+  location: "EDO • KITES OVER NIHONBASHI",
+  line: "boil",
+  actors: [
+    { depth: "up", cycle: "walk", dir: -1 },
+    { depth: "mid", cycle: "wave", dir: 1, at: 0.68 },
+    { depth: "down", cycle: "run", dir: 1, offset: 40 },
+  ],
+};
+
+<StagePostcard spec={spec} drawing={drawing} />;
+```
+
+- `drawing` is the clock: a drawing number you advance 12 times a second (or hold still). Each actor's pose is a pure function of it, so the same number always draws the same frame.
+- `depth` is `"up"`, `"mid"` or `"down"`. Any number of actors can share a depth.
+- `cycle` is `"walk"`, `"run"` or `"wave"`; `dir` is `1` (right) or `-1` (left, drawn mirrored).
+- `at` places a figure that doesn't travel, as a fraction of its depth's floor. `offset` starts an actor that many drawings ahead, so figures don't step in time.
+- Geometry is exported as `STAGE` (each depth's squares, feet line, floor and wings), `STAGE_SQUARE` and `STAGE_CANVAS`, so other components can stand things on the same lines.
+- Colours are the `stage` genre in `tokens/jkidd.tokens.json` (`--jk-genre-stage-*`): the Architect's Notebook light ink and paper. Line work is rough.js with the kit's pen settings and a fixed seed, so the stage draws identically every time.
+
+Files: `src/ds/postcards/StagePostcard.tsx`, `stage.css`, and the maker in `src/app/pages/StagePage.tsx`.
+
+## The stick figure
+
+The figures are the Architect's Notebook kit's own animation loops (Figma *Architects Notebook*, Figures `37:2`), not redrawn here: walk, run and wave, 12 drawings each. The body moves by exactly what the planted foot sweeps back each drawing, so the feet never slide.
+
+- **Where they come from.** `pnpm notebook` copies `dist/figure-frames.json` from `../architects-notebook` (or `NOTEBOOK_DIR`) into `vendor/architects-notebook/`, rounding numbers to 2 places (357K → 121K) and recording the source's sha256 in `SOURCE.json`. To change how they move, regenerate in the kit (`npm run figures`), run `pnpm notebook` here, and review the diff. `scripts/notebook.test.mjs` checks the shape.
+- **Placing one.** `figurePose(spec, drawing, canvas, placement)` returns where a figure is and which paths to draw. Placement takes `height`, `floor` (y of the feet), `lane` (the span it crosses), `dir` and `at`. Use `figureBoxFor(px)` to make a figure *look* that many px tall head to feet, and `figureTransform(pose)` for the SVG transform.
+- **Drawing one.** `<FigureStrokes pose={pose} />` inside any SVG draws a halo line under an ink line. The colours are `--figure-ink` and `--figure-halo`, which each genre sets from its own tokens. The pen is `FIGURE_PEN` (2.4, against the kit's 1.6, so it holds at postcard scale) and the halo is `FIGURE_HALO` wider.
+- **On cartoon postcards** (`#/fronts`), one figure walks, runs or waves along the bottom of the front, behind the story label, with a cream halo so it shows up on a busy picture. **5 · Export video** records one seamless take at 1536×1024, 24 fps: a full crossing for walk and run, four loops for wave. It saves MP4 where the browser can record it, otherwise WebM. Recording runs in real time, so keep the tab in front until it finishes.
 
 ---
 

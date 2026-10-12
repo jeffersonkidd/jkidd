@@ -74,6 +74,20 @@
         "dark-teal": { "fill": "#105a5b", "on": "cream", "figma": "158:570" },
         "brown": { "fill": "#582305", "on": "cream", "figma": "158:575" }
       }
+    },
+    "stage": {
+      "$description": "The stage postcard: a theatre stage drawn in perspective on graph paper, with stick figures at three depths. Colours are the Architect's Notebook light ink and paper (handdrawn.css; Figma gWBVp3oNqUv7ymJXNORuM0): cream is --hd-paper, paperAlt the flats, grid and gridMajor the paper's rules (gridMajor is --hd-ink-faint), blueprint the dimensions and depth tape, redPen the spike marks. Not in Workbench yet.",
+      "colors": {
+        "ink": "#1e1b16",
+        "inkSoft": "#6b6558",
+        "cream": "#fbf8f1",
+        "paperAlt": "#f2ede1",
+        "grid": "#d9d2c0",
+        "gridMajor": "#b3ab99",
+        "blueprint": "#2b5d8a",
+        "redPen": "#b4451f"
+      },
+      "ribbons": {}
     }
   }
 }
