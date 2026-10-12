@@ -6,6 +6,7 @@ import riverboat from "./assets/postcards/riverboat.jpg";
 import lunar from "./assets/postcards/lunar.jpg";
 import edo from "./assets/postcards/edo.jpg";
 import venice from "./assets/postcards/venice.jpg";
+import portrait from "./assets/profile/jeffersonkidd-portrait.jpg";
 
 /**
  * The six Postcard/* components from JKidd - DS (11:183), as data. Sample copy is
@@ -102,6 +103,7 @@ export const LINK_SAMPLE: LinkPageSpec = {
   follow: { label: "Follow" },
   profile: {
     name: "Jefferson Kidd",
+    avatar: portrait,
     tags: ["Monofly", "Design Systems", "Music"],
     bio: "Projects, experiments, products, music, and an ongoing exploration of what’s possible",
     socials: [{ kind: "facebook" }, { kind: "instagram" }, { kind: "youtube" }, { kind: "github" }, { kind: "message" }],
