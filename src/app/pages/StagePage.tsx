@@ -19,6 +19,7 @@ import { PageHeader, Segmented, Select, TextField, Toggle, cap } from "../compon
 import { ScaledBox } from "../components/ScaledCard";
 import type { PageProps } from "../App";
 import { withInlineSvgPaint } from "../svgPaint";
+import { stageSvg } from "../stageSvg";
 
 /** What a depth can hold. */
 const MOVES = {
@@ -100,6 +101,21 @@ export function StagePage(_: PageProps) {
     }
   };
 
+  const exportSvg = async () => {
+    if (!cardRef.current) return;
+    try {
+      await document.fonts.ready;
+      const a = document.createElement("a");
+      a.href = URL.createObjectURL(new Blob([stageSvg(cardRef.current)], { type: "image/svg+xml" }));
+      a.download = "jkidd-stage.svg";
+      a.click();
+      setTimeout(() => URL.revokeObjectURL(a.href), 10_000);
+      flash("Exported SVG · vector, fonts not embedded");
+    } catch (e) {
+      flash(`Export failed: ${(e as Error).message}`);
+    }
+  };
+
   return (
     <div className="page page--wide">
       <PageHeader eyebrow="Genre · Architect's Notebook" title="Stage postcards">
@@ -160,6 +176,9 @@ export function StagePage(_: PageProps) {
             </button>
             <button className="btn" onClick={() => exportPng(2)}>
               @2x
+            </button>
+            <button className="btn" onClick={exportSvg}>
+              SVG
             </button>
             <a className="btn btn--ghost" href={figmaUrl(NOTEBOOK_NODES.Figures, NOTEBOOK_FILE_KEY)} target="_blank" rel="noreferrer">
               Architect's Notebook {NOTEBOOK_NODES.Figures} ↗

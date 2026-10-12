@@ -1,5 +1,5 @@
 /** The SVG properties a card's stylesheet sets on drawings. */
-const PAINT = [
+export const PAINT = [
   "fill",
   "stroke",
   "stroke-width",

@@ -84,7 +84,7 @@ Every card on the Archetypes page has an **Edit** link that opens it in the Stud
 3. **Cast the depths.** Each depth takes one figure: *Empty*, *Walks right*, *Walks left*, *Runs right*, *Runs left* or *Waves on the mark*. Walkers and runners enter from behind the wing at their own depth and leave behind the other; a waving figure stands on a red-pen X (upstage at 30% across, midstage 68%, downstage the centre).
 4. **Line.** *Boil* redraws the line every drawing, the kit's hand-drawn shimmer. *Still* keeps one line and only moves the pose.
 5. **Play** runs the figures at 12 drawings a second. It starts paused if your system asks for reduced motion.
-6. **Judge it at 320px** in the thumbnail under the preview, then **Export PNG** (1536×1024, or @2x). The PNG is the frame on screen: pause on the pose you want first.
+6. **Judge it at 320px** in the thumbnail under the preview, then **Export PNG** (1536×1024, or @2x). Or **SVG**: a standalone vector file for Figma or Illustrator, with every colour resolved from the tokens, the graph paper as lines and the title strip as text (the fonts aren't embedded, so install Special Elite Even and JetBrains Mono to see them). Both are the frame on screen: pause on the pose you want first.
 
 There's no video export on this page yet; the cartoon postcards have one.
 
@@ -129,7 +129,7 @@ const spec: StageSpec = {
 - Geometry is exported as `STAGE` (each depth's squares, feet line, floor and wings), `STAGE_SQUARE` and `STAGE_CANVAS`, so other components can stand things on the same lines.
 - Colours are the `stage` genre in `tokens/jkidd.tokens.json` (`--jk-genre-stage-*`): the Architect's Notebook light ink and paper. Line work is rough.js with the kit's pen settings and a fixed seed, so the stage draws identically every time.
 
-Files: `src/ds/postcards/StagePostcard.tsx`, `stage.css`, and the maker in `src/app/pages/StagePage.tsx`.
+Files: `src/ds/postcards/StagePostcard.tsx`, `stage.css`, the maker in `src/app/pages/StagePage.tsx`, and its SVG export in `src/app/stageSvg.ts`.
 
 ## The stick figure
 
