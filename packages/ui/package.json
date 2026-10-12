@@ -1,0 +1,19 @@
+{
+  "name": "@jkidd/ui",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "JKidd UI: the look as plain CSS, in the Figma library layers (foundations, primitives, layout, compositions), and the fonts.",
+  "exports": {
+    ".": "./src/index.css",
+    "./fonts": "./src/fonts.ts"
+  },
+  "sideEffects": true,
+  "dependencies": {
+    "@fontsource/bangers": "^5.3.0",
+    "@fontsource/comic-neue": "^5.3.0",
+    "@fontsource/inter": "^5.2.0",
+    "@fontsource/jetbrains-mono": "^5.2.0",
+    "@jkidd/tokens": "workspace:*"
+  }
+}

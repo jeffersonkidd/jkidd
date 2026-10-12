@@ -1,0 +1,23 @@
+{
+  "name": "@jkidd/blocks",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "JK Blocks: finished, postable things — the postcards, the stage, the link page — with their sample copy and art.",
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "dependencies": {
+    "@jkidd/core": "workspace:*",
+    "@jkidd/react": "workspace:*",
+    "@jkidd/tokens": "workspace:*",
+    "lucide-react": "^0.469.0",
+    "roughjs": "^4.6.6"
+  },
+  "peerDependencies": {
+    "react": "^19.0.0"
+  },
+  "devDependencies": {
+    "react": "^19.0.0"
+  }
+}

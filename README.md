@@ -16,21 +16,22 @@ React 19 + Vite 8 + TypeScript, pnpm. Same stack as Tibbie X, without Tailwind: 
 
 ## What's in it
 
-| Path | What | From Figma |
+Five packages in a pnpm workspace, stacked like the Figma libraries. Each uses only the ones above it in this table, and `scripts/layers.test.mjs` fails the build if one reaches up.
+
+| Package | What | Figma library |
 |---|---|---|
-| `tokens/jkxo-tertiary.json` | The palette: Material Theme Builder export, seed `#01C6DE`, amber `#FFAE00` tertiary. 5 tonal palettes, 6 scheme modes × 49 roles | Palette, Scheme collections |
-| `tokens/jkidd.tokens.json` | Post types (→ scheme roles), layout, canvas sizes, fonts, text styles | Post Type, Layout, Type collections; text styles |
-| `tokens/contrast-waivers.json` | Known contrast failures, each with a reason. See *Contrast* below | — |
-| `scripts/build-tokens.mjs` | `pnpm tokens`: JSON → `src/styles/tokens.css` + `src/ds/tokens.gen.ts` | — |
-| `scripts/check-contrast.mjs` | `pnpm contrast`: every post type × every scheme mode against WCAG | — |
-| `scripts/tokens.test.mjs` | `pnpm test`: counts match the library, roles exist, CSS is in step, waivers aren't stale | — |
-| `src/ds/` | The library. `import { Postcard, SAMPLES } from "./ds"` | Pages Marks, Frame, Card Parts, Archetypes |
-| `src/app/` | The demo site: Overview, Foundations, Marks, Card parts, Archetypes, Thumbnail test, Studio, and the postcard makers | Cover page |
-| `vendor/architects-notebook/` | Files taken from the Architect's Notebook kit by `pnpm notebook`, with `SOURCE.json` saying where each came from. Never edit by hand | Architect's Notebook library |
+| `@jkidd/tokens` · `packages/tokens/` | The variables. `sources/*.json` (the palette export, post types, layout, canvases, fonts, text styles, contrast waivers) → `pnpm tokens` → `src/tokens.css` + `src/tokens.gen.ts`. Also the contrast check and its tests | JKidd - Foundations |
+| `@jkidd/core` · `packages/core/` | Framework-free: the Figma node map and library keys (`src/figma.ts`), the stick-figure rig, contrast math, the export helper. `vendor/architects-notebook/` holds what `pnpm notebook` copies from the kit, with `SOURCE.json`. Never edit it by hand | — |
+| `@jkidd/ui` · `packages/ui/` | **JKidd UI**: the look as plain CSS, in folders named for the libraries (`foundations/`, `primitives/`, `layout/`, `compositions/`), and the fonts (`fonts/`, `src/fonts.ts`). Needs `@jkidd/tokens/tokens.css` first | Foundations, Primitives, Layout, Compositions |
+| `@jkidd/react` · `packages/react/` | React components for JKidd UI, in the same folders: marks, card parts, stick figure, card frame, the six archetypes | Foundations, Primitives, Layout, Compositions |
+| `@jkidd/blocks` · `packages/blocks/` | **JK Blocks**: finished things. Postcard, the illustrated, cartoon and stage postcards, the link page, sample copy and art | JKidd - Blocks |
+| `apps/site/` | The demo site and the postcard makers. `src/ds.ts` re-exports all five packages for the pages | — |
+
+The Figma library keys are `LIBRARIES` in `packages/core/src/figma.ts`. The four libraries split out of JKidd - DS (Primitives, Layout, Compositions, Blocks) start empty and fill as components are moved across in Figma. Until a component moves, its node ID still points into JKidd - DS.
 
 ### Components → Figma nodes
 
-Every component renders `data-figma="<node id>"` on its root, so you can inspect an element and jump to its source. The full map is `src/ds/figma.ts`.
+Every component renders `data-figma="<node id>"` on its root, so you can inspect an element and jump to its source. The full map is `packages/core/src/figma.ts`.
 
 | Component | Node | Notes |
 |---|---|---|
@@ -65,7 +66,7 @@ Cards are drawn at their Figma canvas size (1600×900, 1080×1080, 1080×1350) a
 
 - archetype, post type, scheme, ratio, day, series, project slot, and the content as JSON
 - a live preview, plus the same card at **320px** (Principle 4: design full size, judge at thumbnail)
-- **card rules**: the rules from `POSTCARDS.md` and the Figma component descriptions, run as checks on every edit (`src/app/lint.ts`). Manifesto 3–5 lines, Ledger 6 rows at most and uneven lengths, Pipeline highlights exactly one line, Before / After at equal weight, one arrow per diagram, day and series together or not at all, archetype vs. its best-for types
+- **card rules**: the rules from `POSTCARDS.md` and the Figma component descriptions, run as checks on every edit (`apps/site/src/app/lint.ts`). Manifesto 3–5 lines, Ledger 6 rows at most and uneven lengths, Pipeline highlights exactly one line, Before / After at equal weight, one arrow per diagram, day and series together or not at all, archetype vs. its best-for types
 - **Export PNG** at canvas size (or @2x), named `jkidd-day-18-manifesto-principle-16x9.png`
 - **Copy JSON** (the `CardSpec`, ready for a post file) and **Copy link** (the card encoded in the URL)
 
@@ -127,15 +128,15 @@ const spec: StageSpec = {
 - `cycle` is `"walk"`, `"run"` or `"wave"`; `dir` is `1` (right) or `-1` (left, drawn mirrored).
 - `at` places a figure that doesn't travel, as a fraction of its depth's floor. `offset` starts an actor that many drawings ahead, so figures don't step in time.
 - Geometry is exported as `STAGE` (each depth's squares, feet line, floor and wings), `STAGE_SQUARE` and `STAGE_CANVAS`, so other components can stand things on the same lines.
-- Colours are the `stage` genre in `tokens/jkidd.tokens.json` (`--jk-genre-stage-*`): the Architect's Notebook light ink and paper. Line work is rough.js with the kit's pen settings and a fixed seed, so the stage draws identically every time.
+- Colours are the `stage` genre in `packages/tokens/sources/jkidd.tokens.json` (`--jk-genre-stage-*`): the Architect's Notebook light ink and paper. Line work is rough.js with the kit's pen settings and a fixed seed, so the stage draws identically every time.
 
-Files: `src/ds/postcards/StagePostcard.tsx`, `stage.css`, the maker in `src/app/pages/StagePage.tsx`, and its SVG export in `src/app/stageSvg.ts`.
+Files: `packages/blocks/src/postcards/StagePostcard.tsx`, `stage.css`, `stageSvg.ts`, and the maker in `apps/site/src/app/pages/StagePage.tsx`.
 
 ## The stick figure
 
 The figures are the Architect's Notebook kit's own animation loops (Figma *Architects Notebook*, Figures `37:2`), not redrawn here: walk, run and wave, 12 drawings each. The body moves by exactly what the planted foot sweeps back each drawing, so the feet never slide.
 
-- **Where they come from.** `pnpm notebook` copies `dist/figure-frames.json` from `../architects-notebook` (or `NOTEBOOK_DIR`) into `vendor/architects-notebook/`, rounding numbers to 2 places (357K → 121K) and recording the source's sha256 in `SOURCE.json`. To change how they move, regenerate in the kit (`npm run figures`), run `pnpm notebook` here, and review the diff. `scripts/notebook.test.mjs` checks the shape.
+- **Where they come from.** `pnpm notebook` copies `dist/figure-frames.json` from `../architects-notebook` (or `NOTEBOOK_DIR`) into `packages/core/vendor/architects-notebook/`, rounding numbers to 2 places (357K → 121K) and recording the source's sha256 in `SOURCE.json`. To change how they move, regenerate in the kit (`npm run figures`), run `pnpm notebook` here, and review the diff. `packages/core/scripts/notebook.test.mjs` checks the shape.
 - **Placing one.** `figurePose(spec, drawing, canvas, placement)` returns where a figure is and which paths to draw. Placement takes `height`, `floor` (y of the feet), `lane` (the span it crosses), `dir` and `at`. Use `figureBoxFor(px)` to make a figure *look* that many px tall head to feet, and `figureTransform(pose)` for the SVG transform.
 - **Drawing one.** `<FigureStrokes pose={pose} />` inside any SVG draws a halo line under an ink line. The colours are `--figure-ink` and `--figure-halo`, which each genre sets from its own tokens. The pen is `FIGURE_PEN` (2.4, against the kit's 1.6, so it holds at postcard scale) and the halo is `FIGURE_HALO` wider.
 - **On cartoon postcards** (`#/fronts`), one figure walks, runs or waves along the bottom of the front, behind the story label, with a cream halo so it shows up on a busy picture. **5 · Export video** records one seamless take at 1536×1024, 24 fps: a full crossing for walk and run, four loops for wave. It saves MP4 where the browser can record it, otherwise WebM. Recording runs in real time, so keep the tab in front until it finishes.
@@ -152,14 +153,14 @@ The figures are the Architect's Notebook kit's own animation loops (Figma *Archi
 | accent / surface | 3.0 | rail, tick, swatches are graphics that carry the type |
 | on-accent / accent | 3.0 | Manifesto payoff and Parity specimen are large text |
 
-**Result, 2026-09-24: 88 / 90 pass.** The two failures are the light scheme's Progress rail (`#01C6DE`, 1.97:1) and Decision rail (`#FFAE00`, 1.76:1) against the surface. Every dark and contrast mode passes, and the kicker text passes everywhere because it uses `type/ink`. The post type colours are provisional, so both are waived in `tokens/contrast-waivers.json` with the reason. The check fails on any new failure, and the tests fail if a waiver stops being needed.
+**Result, 2026-09-24: 88 / 90 pass.** The two failures are the light scheme's Progress rail (`#01C6DE`, 1.97:1) and Decision rail (`#FFAE00`, 1.76:1) against the surface. Every dark and contrast mode passes, and the kicker text passes everywhere because it uses `type/ink`. The post type colours are provisional, so both are waived in `packages/tokens/sources/contrast-waivers.json` with the reason. The check fails on any new failure, and the tests fail if a waiver stops being needed.
 
 ---
 
 ## Provisional, and not yet read into code
 
-- **Type stack** (JKIDD.md decision 1): display is **Special Elite Even** (User, 2026-10-11), the repaired cut in `fonts/special-elite-repaired/` (its README tells the story: original outlines, fixed sidebearings and metrics). Inter is the body face for running text; JetBrains Mono remains the working mono. Two comic faces for short text: `--jk-font-lettering` is **CC Wild Words** (Comicraft, paid: it loads via `local()` where installed; **Anime Ace 2.0 BB** (Blambot, also `local()`, never bundled) letters next, and **Comic Neue** stands in where neither is installed; after buying the webfont, put it in `fonts/` and add its `url()` in `fonts/fonts.css`), and `--jk-font-burst` is **Bangers** (OFL) for loud titles. Change `tokens/jkidd.tokens.json` → `fonts` and the font imports in `src/main.tsx`. The JKidd - DS Figma library still uses Space Grotesk; the Workbench file already uses Special Elite Even.
-- **Post type colours**: provisional mapping to scheme roles, `tokens/jkidd.tokens.json` → `postTypes`.
+- **Type stack** (JKIDD.md decision 1): display is **Special Elite Even** (User, 2026-10-11), the repaired cut in `packages/ui/fonts/special-elite-repaired/` (its README tells the story: original outlines, fixed sidebearings and metrics). Inter is the body face for running text; JetBrains Mono remains the working mono. Two comic faces for short text: `--jk-font-lettering` is **CC Wild Words** (Comicraft, paid: it loads via `local()` where installed; **Anime Ace 2.0 BB** (Blambot, also `local()`, never bundled) letters next, and **Comic Neue** stands in where neither is installed; after buying the webfont, put it in `packages/ui/fonts/` and add its `url()` in `packages/ui/fonts/fonts.css`), and `--jk-font-burst` is **Bangers** (OFL) for loud titles. Change `packages/tokens/sources/jkidd.tokens.json` → `fonts` and the font imports in `packages/ui/src/fonts.ts`. The JKidd - DS Figma library still uses Space Grotesk; the Workbench file already uses Special Elite Even.
+- **Post type colours**: provisional mapping to scheme roles, `packages/tokens/sources/jkidd.tokens.json` → `postTypes`.
 - **Marks**: typeset placeholders until the real marks are designed.
 - **Partly read into code:** 8 of the library's 15 text styles (`Card/Headline`, `Card/Title` and five `Doc/*` styles are missing) and 2 of its 34 Layout variables (the card rail and chrome inset; the rest are raw pixel values in `ds.css`, taken from the Figma nodes).
 - **Texture** tokens: none defined in the library yet.
