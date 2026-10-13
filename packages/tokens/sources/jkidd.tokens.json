@@ -29,7 +29,7 @@
     "4:5": { "width": 1080, "height": 1350, "figma": "8:42" }
   },
   "fonts": {
-    "$description": "Type collection. Display: Special Elite Even, the repaired cut in fonts/special-elite-repaired (User, 2026-10-11). Body: Inter, for running text. Two comic faces for short text only (User, 2026-10-11): lettering is CC Wild Words (Comicraft, paid; loaded from the machine until a webfont licence is bought), then Anime Ace 2.0 BB (Blambot; also loaded from the machine, never bundled), with Comic Neue (OFL) standing in where neither is installed; burst is Bangers (OFL) for loud titles. Mono stays provisional (JKIDD.md decision 1). Lettering and burst aren't in the Figma library yet.",
+    "$description": "Type collection. Display: Special Elite Even, the repaired cut in fonts/special-elite-repaired (User, 2026-10-11). Body: Inter, for running text. Two comic faces for short text only (User, 2026-10-11): lettering is CC Wild Words (Comicraft, paid; loaded from the machine until a webfont licence is bought), then Anime Ace 2.0 BB (Blambot; also loaded from the machine, never bundled), with Comic Neue (OFL) standing in where neither is installed; burst is Bangers (OFL) for loud titles. Mono stays provisional (JKIDD.md decision 1). In Figma (Foundations, Type) since 2026-10-13: font/lettering holds Comic Neue, the installed stand-in, and font/burst Bangers.",
     "display": { "family": "Special Elite Even", "fallback": "\"Courier New\", ui-monospace, monospace", "figma": "--jk-font-display" },
     "body": { "family": "Inter", "fallback": "system-ui, sans-serif", "figma": "--jk-font-body" },
     "mono": { "family": "JetBrains Mono", "fallback": "ui-monospace, monospace", "figma": "--jk-font-mono" },

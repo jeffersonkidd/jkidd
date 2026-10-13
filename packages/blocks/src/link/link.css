@@ -1,6 +1,7 @@
-/* Link page (JKidd - Workbench 120:1335). Unlike the cards, this is a web page: it
-   reflows. Sizes are the Figma canvas halved (sheet 1600 → 800 column), so a 56px
-   Figma title is 28px here. Every colour reads a token. */
+/* Link page (JKidd - Blocks, Link Page; parts in Primitives, Layout and Compositions).
+   Unlike the cards, this is a web page: it reflows. Figma draws it at web size (the
+   800px sheet), so sizes match 1:1; type is the Foundations Link/* styles. Every
+   colour reads a token. */
 
 .lk-stage {
   display: flex;
@@ -57,6 +58,9 @@
   border: 1px solid var(--md-sys-color-outline);
   padding: 11px 24px;
 }
+/* Pill Button (Primitives): Ghost hover is lowest at 40%, Outlined hover is container-high. */
+a.lk-header__link:hover { background: color-mix(in srgb, var(--md-sys-color-surface-container-lowest) 40%, transparent); }
+a.lk-follow:hover { background: var(--md-sys-color-surface-container-high); }
 
 /* ── Profile ───────────────────────────────────────────── */
 
@@ -97,8 +101,10 @@
   background: var(--md-sys-color-inverse-surface);
   color: var(--md-sys-color-inverse-on-surface);
 }
+/* Icon Button (Primitives): hover lifts to primary. */
+a.lk-social:hover { background: var(--md-sys-color-primary); }
 
-/* ── Tags (Link Row Tags 118:498) ──────────────────────── */
+/* ── Tags (Primitives, Tag) ──────────────────────── */
 
 .lk-tags { display: flex; flex-wrap: wrap; gap: 4px; }
 .lk-tag {
@@ -140,7 +146,7 @@
   border-color: var(--md-sys-color-outline);
 }
 
-/* ── Link Row (118:515) ────────────────────────────────── */
+/* ── Link Row (Compositions) ────────────────────────────────── */
 
 .lk-rows { display: flex; flex-direction: column; gap: 16px; }
 .lk-row {
@@ -155,6 +161,7 @@
   overflow: hidden;
 }
 a.lk-row:hover { background: var(--md-sys-color-surface-container-lowest); }
+a.lk-row:hover .lk-row__go { background: var(--md-sys-color-primary); }
 .lk-row__media {
   flex: 1 0 0;
   min-width: 210px;
@@ -213,7 +220,30 @@ a.lk-row:hover { background: var(--md-sys-color-surface-container-lowest); }
   background: var(--md-sys-color-surface-container-lowest);
   text-align: center;
 }
+a.lk-tile:hover { background: var(--md-sys-color-surface-container-high); }
 .lk-tile__label { font-family: var(--jk-font-burst); font-size: 26px; line-height: 1.1; letter-spacing: 0.04em; }
+
+/* ── Focus and motion ──────────────────────────────────── */
+
+/* The Focus variant on Pill Button and Tab: a 2px primary ring outside the edge. Every
+   link and button on the sheet gets it, for keyboard users. */
+.lk-sheet a:focus-visible,
+.lk-tab:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 2px var(--md-sys-color-primary);
+}
+
+.lk-header__link,
+.lk-follow,
+.lk-social,
+.lk-tab,
+.lk-row,
+.lk-row__go,
+.lk-tile { transition: background-color 120ms ease-out; }
+
+@media (prefers-reduced-motion: reduce) {
+  .lk-sheet * { transition: none; }
+}
 
 /* ── Narrow screens ────────────────────────────────────── */
 

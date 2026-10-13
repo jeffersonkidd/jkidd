@@ -14,13 +14,14 @@ import commandSvg from "../assets/link/command.svg";
 import chevronSvg from "../assets/link/chevron-right.svg";
 import palmSky from "../assets/link/palm-sky.jpg";
 import paper from "../assets/link/paper.jpg";
-import { WORKBENCH_NODES } from "@jkidd/core";
+import { LINK_NODES } from "@jkidd/core";
 
 /**
- * The link-in-bio page from JKidd - Workbench (Linktrees, 120:1335): a paper sheet on
- * the palm sky. Link Row (118:515) is the only part drawn as live layers; the header,
- * profile, tabs and tiles are read from the flattened mockup. Sizes are the Figma
- * canvas halved: Workbench draws the sheet 1600 wide, the web column is 800.
+ * The link-in-bio page: a paper sheet on the palm sky. Drawn as live layers across the
+ * five libraries (LINK_NODES): Primitives (Tag, Icon Kicker, Pill Button, Icon Button,
+ * Tab, Avatar), Layout (Stage, Sheet), Compositions (Link Header, Link Profile, Tab Bar,
+ * Link Row, Link Tile) and the Link Page block. Figma draws it at web size, so sizes
+ * here match it 1:1. First sketched in JKidd - Workbench (Linktrees, 120:1335).
  */
 
 export type LinkCategory = "studio" | "blog" | "shop" | "support";
@@ -105,7 +106,7 @@ function Kicker({ category, label }: { category?: LinkCategory; label: string })
   );
 }
 
-/** Link Row (Workbench 118:515). Wraps to a stacked card below ~560px, as the Figma flex-wrap does. */
+/** Link Row (Compositions, LINK_NODES.LinkRow). Wraps to a stacked card below ~560px, as the Figma flex-wrap does. */
 export function LinkRow({ item }: { item: LinkItem }) {
   return (
     <Linkish href={item.href} className="lk-row">
@@ -196,8 +197,8 @@ export function LinkPage({ spec }: { spec: LinkPageSpec }) {
   const stage = { "--lk-backdrop": `url("${palmSky}")`, "--lk-paper": `url("${paper}")` } as CSSProperties;
 
   return (
-    <div className="lk-stage" style={stage} data-figma={WORKBENCH_NODES.LinkPage}>
-      <div className="lk-sheet" data-scheme="light" data-figma={WORKBENCH_NODES.LinkPaper}>
+    <div className="lk-stage" style={stage} data-figma={LINK_NODES.Stage[1]}>
+      <div className="lk-sheet" data-scheme="light" data-figma={LINK_NODES.Sheet[1]}>
         <header className="lk-header">
           <span className="lk-header__wordmark">{spec.wordmark}</span>
           <nav className="lk-header__nav" aria-label="Site">
@@ -215,7 +216,7 @@ export function LinkPage({ spec }: { spec: LinkPageSpec }) {
         <LinkProfile profile={spec.profile} />
         <LinkTabs value={filter} onChange={setFilter} />
 
-        <div className="lk-rows" data-figma={WORKBENCH_NODES.LinkRow}>
+        <div className="lk-rows" data-figma={LINK_NODES.LinkRow[1]}>
           {items.map((item) => (
             <LinkRow key={item.title} item={item} />
           ))}

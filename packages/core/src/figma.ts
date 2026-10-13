@@ -49,7 +49,7 @@ export type FigmaNodeName = keyof typeof FIGMA_NODES;
 /** JKidd - Workbench: the link page and the illustrated postcards are drawn here, not in the library yet. */
 export const WORKBENCH_FILE_KEY = "7Q8GN3IPMoM6lhFtIMquya";
 
-/** Linktrees page (102:551). Only Link Row is live layers; the page itself is a flattened mockup. */
+/** Linktrees page (102:551): the original mockup, now reference only; the live layers are LINK_NODES. */
 export const WORKBENCH_NODES = {
   LinkPage: "120:1335",
   LinkBackdrop: "120:1338",
@@ -64,6 +64,32 @@ export const WORKBENCH_NODES = {
   CartoonPostcard: "158:580",
 } as const;
 
+/**
+ * The link page as live layers across the five libraries (rebuilt 2026-10-13 from the
+ * Workbench mockup above, at web size: the 800px sheet, not the 1600 canvas). Each
+ * entry is [file key, node].
+ */
+export const LINK_NODES = {
+  // Primitives (Controls page; Icon/* on Icons)
+  Tag: [LIBRARIES.Primitives, "36:31"],
+  IconKicker: [LIBRARIES.Primitives, "36:33"],
+  PillButton: [LIBRARIES.Primitives, "36:50"],
+  IconButton: [LIBRARIES.Primitives, "36:67"],
+  Tab: [LIBRARIES.Primitives, "36:96"],
+  Avatar: [LIBRARIES.Primitives, "36:107"],
+  // Layout (Web page)
+  Stage: [LIBRARIES.Layout, "29:35"],
+  Sheet: [LIBRARIES.Layout, "29:28"],
+  // Compositions (Link page)
+  LinkHeader: [LIBRARIES.Compositions, "42:141"],
+  LinkProfile: [LIBRARIES.Compositions, "42:241"],
+  TabBar: [LIBRARIES.Compositions, "42:354"],
+  LinkRow: [LIBRARIES.Compositions, "44:203"],
+  LinkTile: [LIBRARIES.Compositions, "44:218"],
+  // Blocks (Link Page page)
+  LinkPage: [LIBRARIES.Blocks, "29:990"],
+} as const satisfies Record<string, readonly [string, string]>;
+
 /** Architect's Notebook: the hand-drawn kit, a published library upstream of this one. Files come in by `pnpm notebook`. */
 export const NOTEBOOK_FILE_KEY = "gWBVp3oNqUv7ymJXNORuM0";
 
@@ -73,7 +99,12 @@ export const NOTEBOOK_NODES = {
 } as const;
 
 export function figmaUrl(node: string, fileKey: string = FIGMA_FILE_KEY) {
+  const library = (Object.keys(LIBRARIES) as (keyof typeof LIBRARIES)[]).find((k) => LIBRARIES[k] === fileKey);
   const name =
-    fileKey === WORKBENCH_FILE_KEY ? "JKidd---Workbench" : fileKey === NOTEBOOK_FILE_KEY ? "Architects-Notebook" : "JKidd---DS";
+    fileKey === WORKBENCH_FILE_KEY
+      ? "JKidd---Workbench"
+      : fileKey === NOTEBOOK_FILE_KEY
+        ? "Architects-Notebook"
+        : `JKidd---${library ?? "DS"}`;
   return `https://www.figma.com/design/${fileKey}/${name}?node-id=${node.replace(":", "-")}`;
 }
