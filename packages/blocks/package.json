@@ -5,7 +5,8 @@
   "type": "module",
   "description": "JK Blocks: finished, postable things — the postcards, the stage, the link page — with their sample copy and art.",
   "exports": {
-    ".": "./src/index.ts"
+    ".": "./src/index.ts",
+    "./link": "./src/link/index.ts"
   },
   "scripts": {
     "front": "node scripts/front-intake.mjs"

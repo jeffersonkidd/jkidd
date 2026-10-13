@@ -5,11 +5,12 @@ Jefferson Kidd design system in code, built from the Figma libraries: *JKidd - D
 ## Commands
 
 - `pnpm dev`: demo site on :5178 (regenerates tokens first)
+- `pnpm links`: the link-in-bio site on :5179
 - `pnpm check`: tokens → contrast → tests → typecheck → build. Run it before calling a change done.
 
 ## Packages
 
-A pnpm workspace, layered like the Figma libraries: `@jkidd/tokens` → `@jkidd/core` → `@jkidd/ui` (JKidd UI, CSS) → `@jkidd/react` → `@jkidd/blocks` (JK Blocks), plus the demo in `apps/site`. A package imports only the layers before it and declares them in its `package.json`; `scripts/layers.test.mjs` enforces this. Inside `ui` and `react`, folders are named for the Figma library a piece lives in (`foundations/`, `primitives/`, `layout/`, `compositions/`): when a component moves library in Figma, move its code to match.
+A pnpm workspace, layered like the Figma libraries: `@jkidd/tokens` → `@jkidd/core` → `@jkidd/ui` (JKidd UI, CSS) → `@jkidd/react` → `@jkidd/blocks` (JK Blocks), plus two apps that consume them through `workspace:*`: the demo in `apps/site` and the link-in-bio site in `apps/links`, which renders the Link Page block from `@jkidd/blocks/link` and keeps its live copy (hrefs) in `apps/links/src/links.ts`. A package imports only the layers before it and declares them in its `package.json`; `scripts/layers.test.mjs` enforces this. Inside `ui` and `react`, folders are named for the Figma library a piece lives in (`foundations/`, `primitives/`, `layout/`, `compositions/`): when a component moves library in Figma, move its code to match.
 
 ## Rules
 

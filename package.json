@@ -2,7 +2,7 @@
   "name": "jkidd-ds",
   "private": true,
   "version": "0.1.0",
-  "description": "Jefferson Kidd design system in code, in five packages that mirror the Figma libraries: @jkidd/tokens, @jkidd/core, @jkidd/ui, @jkidd/react, @jkidd/blocks.",
+  "description": "Jefferson Kidd design system in code, in five packages that mirror the Figma libraries: @jkidd/tokens, @jkidd/core, @jkidd/ui, @jkidd/react, @jkidd/blocks, and two apps that consume them: the demo site and the link-in-bio page.",
   "type": "module",
   "packageManager": "pnpm@11.18.0",
   "engines": {
@@ -18,9 +18,11 @@
     "prebuild": "pnpm tokens",
     "build": "pnpm --filter @jkidd/site build",
     "preview": "pnpm --filter @jkidd/site preview",
+    "links": "pnpm tokens && pnpm --filter @jkidd/links dev",
+    "links:build": "pnpm --filter @jkidd/links build",
     "typecheck": "tsc --noEmit",
     "test": "node --test \"scripts/*.test.mjs\" \"packages/*/scripts/*.test.mjs\"",
-    "check": "pnpm tokens && pnpm contrast && pnpm test && tsc --noEmit && pnpm --filter @jkidd/site build"
+    "check": "pnpm tokens && pnpm contrast && pnpm test && tsc --noEmit && pnpm --filter @jkidd/site build && pnpm --filter @jkidd/links build"
   },
   "devDependencies": {
     "@types/node": "^22.0.0",
