@@ -101,3 +101,28 @@
   font-size: 28px;
   line-height: normal;
 }
+
+/* The press: the western master's printing, laid over the whole card (mat, border, picture
+   and type) for fronts that came back cleaner than it. Two 512px tiles made from the master's
+   flat sky: grain with the same spectrum, overlaid; and the paper showing through the ink,
+   in the series' cream. The opacity sits on each layer, never the wrapper: a group would
+   stop the overlay reaching the card. Calibrated so the desert plate measures as grainy as the master
+   (σ 7.4 on its sky, at canvas scale). --pic-press is the front's press. */
+.jk-pic { position: relative; }
+.jk-pic__press,
+.jk-pic__press > i {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+}
+.jk-pic__press > i { opacity: var(--pic-press); }
+.jk-pic__grain {
+  background: var(--pic-grain) 0 0 / 512px 512px repeat;
+  mix-blend-mode: overlay;
+}
+.jk-pic__dropout {
+  background: var(--pic-cream);
+  -webkit-mask: var(--pic-specks) 0 0 / 512px 512px repeat;
+  mask: var(--pic-specks) 0 0 / 512px 512px repeat;
+}

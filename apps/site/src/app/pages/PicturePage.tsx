@@ -87,6 +87,7 @@ export function PicturePage(_: PageProps) {
   const [upload, setUpload] = useState<{ url: string; name: string } | null>(null);
   const [checked, setChecked] = useState<boolean[]>(() => FRONT_QC.map(() => false));
   const [figureOn, setFigureOn] = useState(true);
+  const [pressOn, setPressOn] = useState(() => (master.press ?? 0) > 0);
   const [cycle, setCycle] = useState<FigureCycle>("walk");
   const [line, setLine] = useState<FigureLine>("boil");
   const [playing, setPlaying] = useState(() => !matchMedia("(prefers-reduced-motion: reduce)").matches);
@@ -107,6 +108,8 @@ export function PicturePage(_: PageProps) {
     ribbon: ribbons.includes(ribbon) ? ribbon : ribbons[0],
     side,
     figure: figureOn ? { cycle, line } : null,
+    // A front's own measured press; full press on one it doesn't know (an upload), or when asked for.
+    press: pressOn ? (upload ? 1 : master.press || 1) : 0,
   };
   const prompt = useMemo(() => frontPrompt(master, brief), [master, brief]);
   const hasNarrative = BRIEF_FIELDS.some(({ key }) => key !== "lettering" && brief[key].trim());
@@ -119,6 +122,7 @@ export function PicturePage(_: PageProps) {
     const nextRibbons = seriesRibbons(next.series);
     if (!nextRibbons.includes(ribbon)) setRibbon(nextRibbons[0]);
     setUpload(null);
+    setPressOn((next.press ?? 0) > 0);
     // Lettering in the picture is the title; an art-only front takes the live one.
     setTitleOn(next.lettering === null);
     setBrief((b) => ({ ...b, lettering: b.lettering === (master.lettering ?? "") ? (next.lettering ?? "") : b.lettering }));
@@ -262,6 +266,8 @@ export function PicturePage(_: PageProps) {
               <Segmented label="Corner" value={side} options={SIDES} format={cap} onChange={setSide} />
             </>
           ) : null}
+
+          <Toggle label="Press (the western master's grain)" checked={pressOn} onChange={setPressOn} />
 
           <Toggle label="Stick figure (Architect's Notebook)" checked={figureOn} onChange={setFigureOn} />
           {figureOn ? (

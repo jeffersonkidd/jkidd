@@ -62,6 +62,10 @@ export type Front = {
   greeting: boolean;
   /** What the card shows, for the gallery and alt text. */
   theme: string;
+  /** How much of the press (PicturePostcard) to print over a front that came back too clean, 0–1.
+   *  Generated fronts carry their own grain, so it's 0 for them; the plate, reduced from the
+   *  western master, lost all of it. Measured against the master's sky, not eyeballed. */
+  press?: number;
 };
 
 /** The best-of gallery, in the order it sits on 147:933 (left column, then right). */
@@ -77,7 +81,7 @@ export const FRONTS: Front[] = [
   { id: "build-in-public-western", series: "western", name: "#Build in public, frontier", image: buildWestern, lettering: "#BUILD IN PUBLIC", greeting: false, theme: "Frontier town: saloon, mesa, riders, a steam train in the letters", drifted: "Hotter orange and a brighter teal than the western master" },
   { id: "christmas", series: "christmas", name: "Christmas", image: christmas, lettering: "JEFFERSON KIDD", greeting: false, theme: "Christmas: Santa, snowman, tree, a snowy village" },
   { id: "space", series: "space", name: "Space", image: space, lettering: "JEFFERSON KIDD", greeting: false, theme: "Space: astronaut, rocket, alien, flying saucer" },
-  { id: "desert", series: "western", name: "Desert", image: desert, lettering: null, greeting: false, theme: "Desert sunset: saguaro, prickly pear, red rock, teal mountains" },
+  { id: "desert", series: "western", name: "Desert", image: desert, lettering: null, greeting: false, theme: "Desert sunset: saguaro, prickly pear, red rock, teal mountains", press: 1 },
 ];
 
 /**
