@@ -1,0 +1,107 @@
+{
+  "$description": "Snapshot of a Figma library, written by packages/tokens/scripts/figma/export.js. Don't edit by hand: refresh it from Figma. The drift tests check the token sources and figma.ts against it.",
+  "file": "Layout",
+  "fileKey": "JzxtC4giYrjWyiJbeNn7lY",
+  "readAt": "2026-10-14",
+  "pages": [
+    {
+      "id": "0:1",
+      "name": "Cover"
+    },
+    {
+      "id": "1:9",
+      "name": "Frame"
+    },
+    {
+      "id": "1:16",
+      "name": "Canvases"
+    },
+    {
+      "id": "29:2",
+      "name": "Web"
+    }
+  ],
+  "collections": {},
+  "textStyles": {},
+  "effectStyles": {},
+  "paintStyles": {},
+  "gridStyles": {},
+  "components": {
+    "29:28": {
+      "name": "Sheet",
+      "type": "COMPONENT_SET",
+      "page": "Web",
+      "width": 1310,
+      "height": 484,
+      "variants": 2,
+      "properties": {
+        "Content": {
+          "type": "SLOT"
+        },
+        "Breakpoint": {
+          "type": "VARIANT",
+          "default": "Desktop",
+          "options": [
+            "Desktop",
+            "Mobile"
+          ]
+        }
+      },
+      "description": "The paper sheet a web page sits on: Imagery/Paper stretched over tertiary-container, pinned to the Light scheme (the paper is a light raster). Desktop: an 800px column, a 4px on-secondary border, 20/24/16 padding. Mobile (below 640px): full width, 16px padding, no border. Put the page into Content; children stack 20px apart. .lk-sheet.",
+      "key": "a260b70bed6e88fecd8b4de894ce0fce28174150"
+    },
+    "29:35": {
+      "name": "Stage",
+      "type": "COMPONENT_SET",
+      "page": "Web",
+      "width": 1790,
+      "height": 980,
+      "variants": 2,
+      "properties": {
+        "Page": {
+          "type": "SLOT"
+        },
+        "Breakpoint": {
+          "type": "VARIANT",
+          "default": "Desktop",
+          "options": [
+            "Desktop",
+            "Mobile"
+          ]
+        }
+      },
+      "description": "A full-bleed web backdrop: Imagery/Palm Sky, cover, over primary-container. Desktop centres its Page 32px from the top with 16px sides; Mobile runs the page edge to edge. Holds a Sheet. .lk-stage.",
+      "key": "9bbf8db3620a6f741b0e39264bfe037645f02c28"
+    }
+  },
+  "frames": {
+    "1:2": {
+      "name": "Cover",
+      "type": "FRAME",
+      "page": "Cover",
+      "width": 1600,
+      "height": 900
+    },
+    "1:10": {
+      "name": "Frame · incoming",
+      "type": "SECTION",
+      "page": "Frame",
+      "width": 1600,
+      "height": 900
+    },
+    "1:17": {
+      "name": "Canvases · incoming",
+      "type": "SECTION",
+      "page": "Canvases",
+      "width": 1600,
+      "height": 900
+    },
+    "29:36": {
+      "name": "Header",
+      "type": "FRAME",
+      "page": "Web",
+      "width": 900,
+      "height": 132
+    }
+  }
+}

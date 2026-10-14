@@ -1,0 +1,10 @@
+{
+  "name": "JKidd Figma Snapshot",
+  "id": "jkidd-figma-snapshot",
+  "api": "1.0.0",
+  "main": "export.js",
+  "editorType": ["figma"],
+  "documentAccess": "dynamic-page",
+  "networkAccess": { "allowedDomains": ["none"] },
+  "permissions": []
+}

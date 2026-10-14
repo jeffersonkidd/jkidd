@@ -1,0 +1,110 @@
+{
+  "$description": "Snapshot of a Figma library, written by packages/tokens/scripts/figma/export.js. Don't edit by hand: refresh it from Figma. The drift tests check the token sources and figma.ts against it.",
+  "file": "Blocks",
+  "fileKey": "1qe9bxB8lEeLhFolzYd5sI",
+  "readAt": "2026-10-14",
+  "pages": [
+    {
+      "id": "0:1",
+      "name": "Cover"
+    },
+    {
+      "id": "1:9",
+      "name": "Postcards"
+    },
+    {
+      "id": "1:20",
+      "name": "Link Page"
+    },
+    {
+      "id": "1:27",
+      "name": "Illustrated"
+    },
+    {
+      "id": "1:33",
+      "name": "Cartoon"
+    },
+    {
+      "id": "1:40",
+      "name": "Stage"
+    }
+  ],
+  "collections": {},
+  "textStyles": {},
+  "effectStyles": {},
+  "paintStyles": {},
+  "gridStyles": {},
+  "components": {
+    "29:990": {
+      "name": "Link Page",
+      "type": "COMPONENT_SET",
+      "page": "Link Page",
+      "width": 1830,
+      "height": 2567,
+      "variants": 2,
+      "properties": {
+        "Breakpoint": {
+          "type": "VARIANT",
+          "default": "Desktop",
+          "options": [
+            "Desktop",
+            "Mobile"
+          ]
+        }
+      },
+      "description": "The link-in-bio page (apps/links, :5179): Stage › Sheet › Link Header, Link Profile, Tab Bar, four Link Rows and three Link Tiles. Desktop is the 800px sheet on a 1280 stage; Mobile is 390, below the 640px breakpoint. Copy is LINK_SAMPLE (@jkidd/blocks/link sample.ts); live hrefs live in apps/links/src/links.ts and are never invented. Rebuilt from JKidd - Workbench Linktrees (120:1335 page, 118:515 row) as live layers through all five libraries. In code: <LinkPage spec={LINKS} /> from @jkidd/blocks/link.",
+      "key": "36b67d2370c603d9dcab26a748e3f6e28a48899c"
+    }
+  },
+  "frames": {
+    "1:2": {
+      "name": "Cover",
+      "type": "FRAME",
+      "page": "Cover",
+      "width": 1600,
+      "height": 900
+    },
+    "1:10": {
+      "name": "Postcards · incoming",
+      "type": "SECTION",
+      "page": "Postcards",
+      "width": 1600,
+      "height": 900
+    },
+    "1:21": {
+      "name": "Link Page · arrived",
+      "type": "SECTION",
+      "page": "Link Page",
+      "width": 1600,
+      "height": 900
+    },
+    "30:514": {
+      "name": "Example · Filtered to Blog",
+      "type": "FRAME",
+      "page": "Link Page",
+      "width": 1280,
+      "height": 964
+    },
+    "1:28": {
+      "name": "Illustrated · incoming",
+      "type": "SECTION",
+      "page": "Illustrated",
+      "width": 1600,
+      "height": 900
+    },
+    "1:34": {
+      "name": "Cartoon · incoming",
+      "type": "SECTION",
+      "page": "Cartoon",
+      "width": 1600,
+      "height": 900
+    },
+    "1:41": {
+      "name": "Stage · incoming",
+      "type": "SECTION",
+      "page": "Stage",
+      "width": 1600,
+      "height": 900
+    }
+  }
+}

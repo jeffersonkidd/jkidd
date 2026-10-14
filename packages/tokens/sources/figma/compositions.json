@@ -1,0 +1,188 @@
+{
+  "$description": "Snapshot of a Figma library, written by packages/tokens/scripts/figma/export.js. Don't edit by hand: refresh it from Figma. The drift tests check the token sources and figma.ts against it.",
+  "file": "Compositions",
+  "fileKey": "N62b8rJJLQ4MT339QUVpr9",
+  "readAt": "2026-10-14",
+  "pages": [
+    {
+      "id": "0:1",
+      "name": "Cover"
+    },
+    {
+      "id": "1:9",
+      "name": "Archetypes"
+    },
+    {
+      "id": "42:2",
+      "name": "Link"
+    }
+  ],
+  "collections": {},
+  "textStyles": {},
+  "effectStyles": {},
+  "paintStyles": {},
+  "gridStyles": {},
+  "components": {
+    "42:141": {
+      "name": "Link Header",
+      "type": "COMPONENT_SET",
+      "page": "Link",
+      "width": 832,
+      "height": 192,
+      "variants": 2,
+      "properties": {
+        "Wordmark": {
+          "type": "TEXT",
+          "default": "Jefferson KIDD"
+        },
+        "Breakpoint": {
+          "type": "VARIANT",
+          "default": "Desktop",
+          "options": [
+            "Desktop",
+            "Mobile"
+          ]
+        }
+      },
+      "description": "Link page header: the wordmark, then Blog and Shop (Pill Button, Ghost) and Follow (Outlined) at the right. Mobile drops the ghost links and shrinks the wordmark to 26px. .lk-header. Copy: LINK_SAMPLE.wordmark, nav, follow.",
+      "key": "0e5d3eb1d31dbf0d6bdd16f2a871541e80c3f8d7"
+    },
+    "42:241": {
+      "name": "Link Profile",
+      "type": "COMPONENT_SET",
+      "page": "Link",
+      "width": 832,
+      "height": 647,
+      "variants": 2,
+      "properties": {
+        "Name": {
+          "type": "TEXT",
+          "default": "Jefferson Kidd"
+        },
+        "Bio": {
+          "type": "TEXT",
+          "default": "Projects, experiments, products, music, and an ongoing exploration of what’s possible"
+        },
+        "Tags": {
+          "type": "SLOT"
+        },
+        "Breakpoint": {
+          "type": "VARIANT",
+          "default": "Desktop",
+          "options": [
+            "Desktop",
+            "Mobile"
+          ]
+        }
+      },
+      "description": "Profile: Avatar, the name as the page h1, tags, bio (scrim 60%) and social Icon Buttons, each needing an aria-label in code. Desktop sits side by side; Mobile stacks with the Compact avatar and a 38px name. .lk-profile. Copy: LINK_SAMPLE.profile. Tags is a slot: fill it with Tag instances (Primitives), as many as the item has.",
+      "key": "cce78d7b12bcc29e411c3adb33adba2ab046110a"
+    },
+    "42:354": {
+      "name": "Tab Bar",
+      "type": "COMPONENT_SET",
+      "page": "Link",
+      "width": 832,
+      "height": 232,
+      "variants": 2,
+      "properties": {
+        "Breakpoint": {
+          "type": "VARIANT",
+          "default": "Desktop",
+          "options": [
+            "Desktop",
+            "Mobile"
+          ]
+        }
+      },
+      "description": "Filters the Link Rows: All, Studio, Blog, Shop, Support (a role=\"group\" of toggle buttons). Desktop: five equal cells, 8px apart. Mobile: tabs hug their labels and the row scrolls sideways (scrollbar hidden). Swap a Tab to State=Selected to show the active filter. .lk-tabs.",
+      "key": "13d73dba823de7f30bffb1acf7785549538a7625"
+    },
+    "44:203": {
+      "name": "Link Row",
+      "type": "COMPONENT_SET",
+      "page": "Link",
+      "width": 1624,
+      "height": 718,
+      "variants": 4,
+      "properties": {
+        "Title": {
+          "type": "TEXT",
+          "default": "Creative Work"
+        },
+        "Description": {
+          "type": "TEXT",
+          "default": "Projects, experiments, products, music, and an ongoing exploration of what’s possible."
+        },
+        "Tags": {
+          "type": "SLOT"
+        },
+        "Breakpoint": {
+          "type": "VARIANT",
+          "default": "Desktop",
+          "options": [
+            "Desktop",
+            "Mobile"
+          ]
+        },
+        "State": {
+          "type": "VARIANT",
+          "default": "Default",
+          "options": [
+            "Default",
+            "Hover"
+          ]
+        }
+      },
+      "description": "One link: media, then kicker, title, description and tags, then the Go button. The whole row is the link (an <a> when it has an href). Desktop: media 210–280px wide, 160 tall, beside the text. Mobile: media full width, 180 tall, above the text. Media without an image shows scrim at 80%; put an image fill on Media to use one. Kicker is exposed: set its Icon (Studio Command, Blog Feather, Shop/Support Layout Grid) and Label. Hover lifts the row to surface-container-lowest and the Go button to primary. Was Workbench Link Row 118:515. .lk-row. Tags is a slot: fill it with Tag instances (Primitives), as many as the item has.",
+      "key": "c0b3bbbceeb85cee8a8060b6acd32164171e3bcc"
+    },
+    "44:218": {
+      "name": "Link Tile",
+      "type": "COMPONENT_SET",
+      "page": "Link",
+      "width": 604,
+      "height": 160,
+      "variants": 2,
+      "properties": {
+        "Label": {
+          "type": "TEXT",
+          "default": "Get in touch"
+        },
+        "State": {
+          "type": "VARIANT",
+          "default": "Default",
+          "options": [
+            "Default",
+            "Hover"
+          ]
+        }
+      },
+      "description": "A short link under the rows: kicker plus a burst label, centred, at least 80px tall. Three to a row on desktop, one per row on mobile. Hover is new here; code has none yet. .lk-tile. Copy: LINK_SAMPLE.tiles.",
+      "key": "b91685186de8b7cee903bdd7aff3f61fd2982e45"
+    }
+  },
+  "frames": {
+    "1:2": {
+      "name": "Cover",
+      "type": "FRAME",
+      "page": "Cover",
+      "width": 1600,
+      "height": 900
+    },
+    "1:10": {
+      "name": "Archetypes · incoming",
+      "type": "SECTION",
+      "page": "Archetypes",
+      "width": 1600,
+      "height": 900
+    },
+    "44:219": {
+      "name": "Link",
+      "type": "FRAME",
+      "page": "Link",
+      "width": 1624,
+      "height": 2496
+    }
+  }
+}

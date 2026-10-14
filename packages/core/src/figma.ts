@@ -16,7 +16,8 @@ export const LIBRARIES = {
 
 /** Where each code component lives in JKidd - DS. Rendered as data-figma on the root element. */
 export const FIGMA_NODES = {
-  Cover: "11:1298",
+  /** The Cover frame; its Scheme mode switches it between light and dark. */
+  Cover: "98:3432",
   Monogram: "7:20",
   Wordmark: "7:27",
   ProjectMark: "7:28",

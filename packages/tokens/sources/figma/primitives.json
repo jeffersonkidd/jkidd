@@ -1,0 +1,304 @@
+{
+  "$description": "Snapshot of a Figma library, written by packages/tokens/scripts/figma/export.js. Don't edit by hand: refresh it from Figma. The drift tests check the token sources and figma.ts against it.",
+  "file": "Primitives",
+  "fileKey": "jm9r6k7bY7JuaJup8EWKgQ",
+  "readAt": "2026-10-14",
+  "pages": [
+    {
+      "id": "0:1",
+      "name": "Cover"
+    },
+    {
+      "id": "1:9",
+      "name": "Card Parts"
+    },
+    {
+      "id": "35:2",
+      "name": "Icons"
+    },
+    {
+      "id": "35:3",
+      "name": "Controls"
+    }
+  ],
+  "collections": {},
+  "textStyles": {},
+  "effectStyles": {},
+  "paintStyles": {},
+  "gridStyles": {},
+  "components": {
+    "35:38": {
+      "name": "Icon/Chevron Right",
+      "type": "COMPONENT",
+      "page": "Icons",
+      "width": 24,
+      "height": 24,
+      "description": "Lucide Chevron Right (lucide-react 0.469), 24 grid, 2px stroke bound to on-surface: override the stroke colour per use. Link Row go button.",
+      "key": "b39d0ec783c422177d30d352128b356babe94af5"
+    },
+    "35:39": {
+      "name": "Icon/Command",
+      "type": "COMPONENT",
+      "page": "Icons",
+      "width": 24,
+      "height": 24,
+      "description": "Lucide Command (lucide-react 0.469), 24 grid, 2px stroke bound to on-surface: override the stroke colour per use. Studio kicker (Link Row draws Studio with the Command glyph).",
+      "key": "5eacc2c6e645dbd834a67dcd3919bf7e216869e5"
+    },
+    "35:40": {
+      "name": "Icon/Facebook",
+      "type": "COMPONENT",
+      "page": "Icons",
+      "width": 24,
+      "height": 24,
+      "description": "Lucide Facebook (lucide-react 0.469), 24 grid, 2px stroke bound to on-surface: override the stroke colour per use. Social link.",
+      "key": "fb42752af8c38272831efc6937a3a2aede3c38af"
+    },
+    "35:41": {
+      "name": "Icon/Feather",
+      "type": "COMPONENT",
+      "page": "Icons",
+      "width": 24,
+      "height": 24,
+      "description": "Lucide Feather (lucide-react 0.469), 24 grid, 2px stroke bound to on-surface: override the stroke colour per use. Blog category and tab.",
+      "key": "94e8f454444b7ec947f81e7885a245df7a2e5f98"
+    },
+    "35:42": {
+      "name": "Icon/Github",
+      "type": "COMPONENT",
+      "page": "Icons",
+      "width": 24,
+      "height": 24,
+      "description": "Lucide Github (lucide-react 0.469), 24 grid, 2px stroke bound to on-surface: override the stroke colour per use. Social link.",
+      "key": "4a9c47c7b408089c308247f9346b930028b359ec"
+    },
+    "35:43": {
+      "name": "Icon/Instagram",
+      "type": "COMPONENT",
+      "page": "Icons",
+      "width": 24,
+      "height": 24,
+      "description": "Lucide Instagram (lucide-react 0.469), 24 grid, 2px stroke bound to on-surface: override the stroke colour per use. Social link.",
+      "key": "d11cb4158e15cc132cc2b7537c1142c88ab4ed1e"
+    },
+    "35:44": {
+      "name": "Icon/Layout Grid",
+      "type": "COMPONENT",
+      "page": "Icons",
+      "width": 24,
+      "height": 24,
+      "description": "Lucide Layout Grid (lucide-react 0.469), 24 grid, 2px stroke bound to on-surface: override the stroke colour per use. All tab; Shop and Support categories.",
+      "key": "13dd1a4ce176d52a2e887939e0b22b66458ea690"
+    },
+    "35:45": {
+      "name": "Icon/Message Circle",
+      "type": "COMPONENT",
+      "page": "Icons",
+      "width": 24,
+      "height": 24,
+      "description": "Lucide Message Circle (lucide-react 0.469), 24 grid, 2px stroke bound to on-surface: override the stroke colour per use. Social link: message.",
+      "key": "0455361af76e54b9d5c225aff8254568a4fa18dc"
+    },
+    "35:46": {
+      "name": "Icon/Wrench",
+      "type": "COMPONENT",
+      "page": "Icons",
+      "width": 24,
+      "height": 24,
+      "description": "Lucide Wrench (lucide-react 0.469), 24 grid, 2px stroke bound to on-surface: override the stroke colour per use. Studio tab.",
+      "key": "4f19f690bc3d79ab33c474967a73fadcb2e20793"
+    },
+    "35:47": {
+      "name": "Icon/Youtube",
+      "type": "COMPONENT",
+      "page": "Icons",
+      "width": 24,
+      "height": 24,
+      "description": "Lucide Youtube (lucide-react 0.469), 24 grid, 2px stroke bound to on-surface: override the stroke colour per use. Social link.",
+      "key": "eed1d8205d64973558e8ffc2d9a23a7e9dc61415"
+    },
+    "36:31": {
+      "name": "Tag",
+      "type": "COMPONENT",
+      "page": "Controls",
+      "width": 130,
+      "height": 23,
+      "properties": {
+        "Label": {
+          "type": "TEXT",
+          "default": "Design Systems"
+        }
+      },
+      "description": "A short uppercase label chip. .lk-tag. Used in a wrapping row of 4px gaps (profile tags, Link Row tags).",
+      "key": "1bb182888bd617a305bd40093019f522e137e293"
+    },
+    "36:33": {
+      "name": "Icon Kicker",
+      "type": "COMPONENT",
+      "page": "Controls",
+      "width": 82,
+      "height": 24,
+      "properties": {
+        "Icon": {
+          "type": "INSTANCE_SWAP",
+          "default": "35:39"
+        },
+        "Label": {
+          "type": "TEXT",
+          "default": "Studio"
+        }
+      },
+      "description": "Category label above a row or tile title: a 16px icon in a 4px box, then a mono uppercase label in scrim at 80%. .lk-kicker. Studio uses the Command glyph; Blog Feather; Shop and Support Layout Grid.",
+      "key": "3e3e6f58173753cd95bc206a9b21fa8874752257"
+    },
+    "36:50": {
+      "name": "Pill Button",
+      "type": "COMPONENT_SET",
+      "page": "Controls",
+      "width": 330,
+      "height": 140,
+      "variants": 6,
+      "properties": {
+        "Label": {
+          "type": "TEXT",
+          "default": "Blog"
+        },
+        "Style": {
+          "type": "VARIANT",
+          "default": "Ghost",
+          "options": [
+            "Ghost",
+            "Outlined"
+          ]
+        },
+        "State": {
+          "type": "VARIANT",
+          "default": "Default",
+          "options": [
+            "Default",
+            "Hover",
+            "Focus"
+          ]
+        }
+      },
+      "description": "Header link (Ghost) and Follow (Outlined). Mono 11px, full radius. .lk-header__link, .lk-follow. Focus draws a 2px primary ring; code has none yet. Ghost hides below 640px in the header.",
+      "key": "f80a2210533127274fb20a7fd6ccf522e9de587f"
+    },
+    "36:67": {
+      "name": "Icon Button",
+      "type": "COMPONENT_SET",
+      "page": "Controls",
+      "width": 136,
+      "height": 136,
+      "variants": 4,
+      "properties": {
+        "Icon": {
+          "type": "INSTANCE_SWAP",
+          "default": "35:43"
+        },
+        "Use": {
+          "type": "VARIANT",
+          "default": "Social",
+          "options": [
+            "Social",
+            "Go"
+          ]
+        },
+        "State": {
+          "type": "VARIANT",
+          "default": "Default",
+          "options": [
+            "Default",
+            "Hover"
+          ]
+        }
+      },
+      "description": "32px round button on inverse-surface; the icon takes inverse-on-surface. Social: 18px icon (.lk-social). Go: 20px chevron at the end of a Link Row (.lk-row__go). Hover lifts to primary; code has no hover yet. Needs an aria-label in code (the social kind).",
+      "key": "aefc058e41f4b0e19123a72a9d42b63d80ab2f7e"
+    },
+    "36:96": {
+      "name": "Tab",
+      "type": "COMPONENT_SET",
+      "page": "Controls",
+      "width": 680,
+      "height": 94,
+      "variants": 4,
+      "properties": {
+        "Label": {
+          "type": "TEXT",
+          "default": "All"
+        },
+        "Icon": {
+          "type": "INSTANCE_SWAP",
+          "default": "35:44"
+        },
+        "State": {
+          "type": "VARIANT",
+          "default": "Default",
+          "options": [
+            "Default",
+            "Hover",
+            "Selected",
+            "Focus"
+          ]
+        }
+      },
+      "description": "Filter tab: a toggle button (aria-pressed), 46px tall, 10px radius, comic lettering. .lk-tab. Selected sits on surface-container-lowest with an outline. Fills its grid cell (FILL width) in a row of five.",
+      "key": "0c2e4940d155c0c37f20c80f40a938a595dfb9b1"
+    },
+    "36:107": {
+      "name": "Avatar",
+      "type": "COMPONENT_SET",
+      "page": "Controls",
+      "width": 364,
+      "height": 220,
+      "variants": 2,
+      "properties": {
+        "Photo": {
+          "type": "BOOLEAN",
+          "default": true
+        },
+        "Size": {
+          "type": "VARIANT",
+          "default": "Large",
+          "options": [
+            "Large",
+            "Compact"
+          ]
+        }
+      },
+      "description": "Round profile photo with a 1px on-surface ring over tertiary-98 (shown when there is no photo). Large 172px; Compact 120px below 640px. .lk-avatar. Photo fill: Imagery/Portrait.",
+      "key": "619bc9e96f6109bfa927e39f3b3309d241f3a9f9"
+    }
+  },
+  "frames": {
+    "1:2": {
+      "name": "Cover",
+      "type": "FRAME",
+      "page": "Cover",
+      "width": 1600,
+      "height": 900
+    },
+    "1:10": {
+      "name": "Card Parts · incoming",
+      "type": "SECTION",
+      "page": "Card Parts",
+      "width": 1600,
+      "height": 900
+    },
+    "36:129": {
+      "name": "Icons",
+      "type": "FRAME",
+      "page": "Icons",
+      "width": 720,
+      "height": 358
+    },
+    "36:108": {
+      "name": "Controls",
+      "type": "FRAME",
+      "page": "Controls",
+      "width": 1108,
+      "height": 642
+    }
+  }
+}

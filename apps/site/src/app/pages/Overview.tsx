@@ -3,13 +3,13 @@ import { ScaledCard } from "../components/ScaledCard";
 import type { PageProps } from "../App";
 
 const STATS = [
-  ["180", "Variables"],
+  ["182", "Variables"],
   ["6", "Scheme modes"],
   ["5", "Post types"],
   ["6", "Archetypes"],
 ] as const;
 
-/** The library's Cover (11:1298), as a responsive page. */
+/** The library's Cover (98:3432), as a responsive page. */
 export function Overview({ navigate }: PageProps) {
   return (
     <div className="cover">

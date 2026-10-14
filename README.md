@@ -157,6 +157,19 @@ The figures are the Architect's Notebook kit's own animation loops (Figma *Archi
 
 ---
 
+## Staying in step with Figma
+
+The token sources are written by hand, because they carry what Figma doesn't hold (font fallbacks, the reason for each choice, contrast waivers). What keeps them honest is a snapshot of Figma and a test that compares the two.
+
+- **`packages/tokens/sources/figma/*.json`** are the snapshots, one per library (`foundations.json` is *JKidd - DS*; `primitives`, `layout`, `compositions`, `blocks` are the split libraries). Each holds the pages, every variable in every mode (with scopes, descriptions, IDs and keys), the text, effect, paint and grid styles with their bound variables and descriptions, every component and component set (size, properties, variant count, description), and each page's top-level frames. Committed, so `git diff` shows what changed in Figma. Don't edit them by hand.
+- **`packages/tokens/scripts/figma/export.js`** writes it. It's read-only, and runs two ways: as a development plugin (in Figma, Plugins → Development → Import plugin from manifest, pick `packages/tokens/scripts/figma/manifest.json`, then run *JKidd Figma Snapshot* and download the file), or by asking Claude to refresh the snapshot through the Figma MCP. Figma's variables REST API needs an Enterprise plan, so the Plugin API is the way in.
+- **`packages/tokens/scripts/figma-drift.test.mjs`** runs in `pnpm check`. It compares the snapshot with `jkidd.tokens.json` and `jkxo-tertiary.json` (palette, all scheme modes, post types, layout, fonts, text styles, shadows) and lists everything out of step. Fix the source, or waive the item in `packages/tokens/sources/figma-waivers.json` with a reason; a waiver that stops applying fails the test too.
+- **`packages/core/scripts/figma-nodes.test.mjs`** checks every node ID in `packages/core/src/figma.ts` (`FIGMA_NODES`, `LINK_NODES`) is still a component, component set or top-level frame in its library's snapshot, so a deleted or moved node fails `pnpm check` instead of leaving a dead link.
+
+So the loop is: change Figma → refresh the snapshot → `pnpm check` → fix the sources → `pnpm tokens`.
+
+---
+
 ## Provisional, and not yet read into code
 
 - **Type stack** (JKIDD.md decision 1): display is **Special Elite Even** (User, 2026-10-11), the repaired cut in `packages/ui/fonts/special-elite-repaired/` (its README tells the story: original outlines, fixed sidebearings and metrics). Inter is the body face for running text; JetBrains Mono remains the working mono. Two comic faces for short text: `--jk-font-lettering` is **CC Wild Words** (Comicraft, paid: it loads via `local()` where installed; **Anime Ace 2.0 BB** (Blambot, also `local()`, never bundled) letters next; after buying the webfont, put it in `packages/ui/fonts/` and add its `url()` in `packages/ui/fonts/fonts.css`), and `--jk-font-burst` is **Bangers** (OFL) for loud titles. Change `packages/tokens/sources/jkidd.tokens.json` → `fonts` and the font imports in `packages/ui/src/fonts.ts`. The Figma Type collection in JKidd - DS matches: `font/display` is Special Elite Even, `font/lettering` Anime Ace 2.0 BB and `font/burst` Bangers.
