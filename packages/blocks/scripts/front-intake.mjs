@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-// Turns a delivered cartoon-front master into the repo asset, the same way every time:
+// Turns a delivered picture-postcard front master into the repo asset, the same way every time:
 // trim the art's own drawn border (a recorded inset, never eyeballed), centre-crop to the
 // 1536×1024 canvas ratio, resize to @2x (3072×2048) and write a JPEG to assets/fronts/.
 // The master stays outside the repo. Uses macOS `sips`, so nothing to install.
@@ -14,7 +14,7 @@ import { tmpdir } from "node:os";
 import { join, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
 
-const OUT = { width: 3072, height: 2048 }; // CARTOON_CANVAS @2x
+const OUT = { width: 3072, height: 2048 }; // PICTURE_CANVAS @2x
 const QUALITY = 82;
 const here = dirname(fileURLToPath(import.meta.url));
 

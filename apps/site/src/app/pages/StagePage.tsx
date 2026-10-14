@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { getFontEmbedCSS, toPng } from "html-to-image";
 import {
   FIGURE_DRAWINGS_PER_SECOND,
-  ILLUSTRATED_SAMPLES,
+  STORY_STARTERS,
   NOTEBOOK_FILE_KEY,
   NOTEBOOK_NODES,
   STAGE,
@@ -45,8 +45,8 @@ const MARK: Record<StageDepth, number> = { up: 0.3, mid: 0.68, down: 0.5 };
 const OFFSET: Record<StageDepth, number> = { up: 0, mid: 17, down: 40 };
 
 const LINES = ["boil", "still"] as const;
-/** The illustrated set's stories, as starters: the library's own copy. */
-const STARTERS = ILLUSTRATED_SAMPLES.map(({ story, location }) => ({ story, location }));
+/** Story starters: the library's own copy. */
+const STARTERS = STORY_STARTERS;
 
 let fontCSS: Promise<string> | undefined;
 
@@ -133,7 +133,7 @@ export function StagePage(_: PageProps) {
             <span className="label">Story</span>
             <textarea rows={2} value={story} onChange={(e) => setStory(e.target.value)} />
           </label>
-          <div className="toon-starters">
+          <div className="story-starters">
             <span className="label">Starters</span>
             {STARTERS.map((s) => (
               <button

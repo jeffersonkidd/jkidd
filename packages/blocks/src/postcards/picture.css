@@ -1,0 +1,103 @@
+/* Picture postcard (Postcard Image Algo 147:933; board 285:247). Canvas pixels:
+   1536×1024, scaled by the caller. The mat, the ink border, the title lockup, the
+   ribbon and the tilted label are the retired illustrated set's (Workbench frames deleted 2026-10-13);
+   the inks are each series' own, read off its fronts (--jk-genre-picture-<series>-*),
+   not the palette's (POSTCARDS.md §4). */
+
+.jk-pic {
+  /* --pic-ink, --pic-cream, --pic-ribbon and --pic-on-ribbon are set on the element from
+     the front's series (PicturePostcard). */
+  --figure-ink: var(--pic-ink);
+  --figure-halo: var(--pic-cream);
+  width: 1536px;
+  height: 1024px;
+  display: flex;
+  padding: 34px;
+  border-radius: 18px;
+  background: var(--jk-genre-picture-mat);
+  overflow: hidden;
+  font-family: var(--jk-font-body);
+  font-weight: 900;
+  font-synthesis-weight: none;
+}
+
+/* The picture, in its ink border (from the illustrated set). Children are placed on its
+   padding box, which is PICTURE_SCENE. */
+.jk-pic__scene {
+  position: relative;
+  flex: 1 0 0;
+  border: 10px solid var(--pic-ink);
+  border-radius: 10px;
+  overflow: hidden;
+}
+.jk-pic__art {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  pointer-events: none;
+}
+
+/* Architect's Notebook stick figure: the kit's pen, in the front's ink, with a cream
+   halo so it reads over a busy front (figure.css). Under the type. */
+.jk-pic__figure {
+  position: absolute;
+  top: 0;
+  left: 0;
+  overflow: visible;
+  pointer-events: none;
+}
+
+.jk-pic p { margin: 0; white-space: nowrap; }
+
+/* Title lockup (from the illustrated set): the title, with the location ribbon under it */
+.jk-pic__lockup {
+  position: absolute;
+  top: 50px;
+  left: 54px;
+  right: 54px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--jk-space-1);
+}
+.jk-pic__title {
+  font-size: 148px;
+  line-height: 0.82;
+  color: var(--pic-cream);
+  text-shadow: 12px 14px 0 var(--pic-ink);
+  text-align: center;
+}
+
+/* Location ribbon (from the illustrated set) */
+.jk-pic__ribbon {
+  padding: 9px 22px;
+  border: 4px solid var(--pic-ink);
+  border-radius: var(--jk-radius-full);
+  background: var(--pic-ribbon);
+  color: var(--pic-on-ribbon);
+  font-size: 18px;
+  line-height: normal;
+}
+
+/* Story block: the label (from the illustrated set), and the ribbon over it when there's no
+   title. Tilted 2° as printed, in the corner the hero isn't in. */
+.jk-pic__story {
+  position: absolute;
+  bottom: 42px;
+  display: flex;
+  flex-direction: column;
+  gap: var(--jk-space-3);
+  transform: rotate(2deg);
+}
+.jk-pic[data-side="left"] .jk-pic__story { left: 54px; align-items: flex-start; transform-origin: left center; }
+.jk-pic[data-side="right"] .jk-pic__story { right: 54px; align-items: flex-end; transform-origin: right center; }
+.jk-pic__label {
+  padding: var(--jk-space-3) var(--jk-space-6);
+  border: 5px solid var(--pic-ink);
+  background: var(--pic-cream);
+  color: var(--pic-ink);
+  font-size: 28px;
+  line-height: normal;
+}

@@ -9,7 +9,8 @@
     "./link": "./src/link/index.ts"
   },
   "scripts": {
-    "front": "node scripts/front-intake.mjs"
+    "front": "node scripts/front-intake.mjs",
+    "front-inks": "node scripts/front-inks.mjs"
   },
   "dependencies": {
     "@jkidd/core": "workspace:*",

@@ -8,8 +8,7 @@ import { Cards } from "./pages/Cards";
 import { Thumbnails } from "./pages/Thumbnails";
 import { Studio } from "./pages/Studio";
 import { LinkPagePreview } from "./pages/LinkPagePreview";
-import { IllustratedPage } from "./pages/IllustratedPage";
-import { FrontsPage } from "./pages/FrontsPage";
+import { PicturePage } from "./pages/PicturePage";
 import { StagePage } from "./pages/StagePage";
 import { Select } from "./components/Controls";
 
@@ -21,8 +20,7 @@ const ROUTES = [
   { path: "cards", name: "Archetypes", el: Cards },
   { path: "thumbnails", name: "Thumbnail test", el: Thumbnails },
   { path: "studio", name: "Studio", el: Studio },
-  { path: "postcards", name: "Illustrated postcards", el: IllustratedPage },
-  { path: "fronts", name: "Cartoon postcards", el: FrontsPage },
+  { path: "postcards", name: "Picture postcards", el: PicturePage },
   { path: "stage", name: "Stage postcards", el: StagePage },
   { path: "link", name: "Link page", el: LinkPagePreview },
 ] as const;

@@ -2,7 +2,7 @@ import FRAMES from "../vendor/architects-notebook/figure-frames.json";
 
 /**
  * The Architect's Notebook stick figure (Figma gWBVp3oNqUv7ymJXNORuM0, Figures 37:2),
- * for the cartoon postcard. Frames are the kit's own, vendored by `pnpm notebook`:
+ * for the picture postcard. Frames are the kit's own, vendored by `pnpm notebook`:
  * 12 drawings a loop, shown on twos at 24 fps (12 drawings a second), and the body
  * moves by what the planted foot swept back (dx), so the feet never skate.
  *

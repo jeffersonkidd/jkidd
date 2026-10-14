@@ -4,3 +4,4 @@ dist
 *.local
 exports/
 .files
+.claude/settings.local.json

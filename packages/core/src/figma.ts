@@ -47,7 +47,7 @@ export const FIGMA_NODES = {
 
 export type FigmaNodeName = keyof typeof FIGMA_NODES;
 
-/** JKidd - Workbench: the link page and the illustrated postcards are drawn here, not in the library yet. */
+/** JKidd - Workbench: the link page and the picture postcard are drawn here, not in the library yet. */
 export const WORKBENCH_FILE_KEY = "7Q8GN3IPMoM6lhFtIMquya";
 
 /** Linktrees page (102:551): the original mockup, now reference only; the live layers are LINK_NODES. */
@@ -56,13 +56,11 @@ export const WORKBENCH_NODES = {
   LinkBackdrop: "120:1338",
   LinkPaper: "103:627",
   LinkRow: "118:515",
-  /** Illustrated postcards; each sample carries its own node (ILLUSTRATED_SAMPLES). */
-  IllustratedPostcard: "63:55",
   /** Postcard Image Algo page: the large-letter front gallery and its production spec, one flattened frame. */
   PostcardFronts: "147:948",
-  /** Cartoon postcards board on the same page: Cartoon/* ink swatches and the component. */
-  CartoonBoard: "158:536",
-  CartoonPostcard: "158:580",
+  /** Picture postcard board on the same page (Handoff): the brief, the ink swatches and the component. */
+  PictureBoard: "285:247",
+  PicturePostcard: "158:580",
 } as const;
 
 /**

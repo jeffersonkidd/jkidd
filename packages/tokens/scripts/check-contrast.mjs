@@ -44,7 +44,8 @@ export function audit() {
   for (const [genre, g] of Object.entries(GENRES)) {
     const pairs = [
       ...Object.entries(g.ribbons).map(([k, r]) => [`${genre}/${k}`, "on-ribbon / ribbon", g.colors[r.on], r.fill]),
-      [`${genre}/label`, "ink / cream", g.colors.ink, g.colors.cream],
+      // a genre that only frames others (picture: the mat) sets no label
+      ...(g.colors.ink && g.colors.cream ? [[`${genre}/label`, "ink / cream", g.colors.ink, g.colors.cream]] : []),
     ];
     for (const [type, rule, fg, bg] of pairs) {
       const ratio = contrast(fg, bg);
@@ -60,11 +61,11 @@ if (import.meta.url === `file://${process.argv[1]}`) {
   const failed = rows.filter((r) => !r.pass && !r.waived);
   const waivedRows = rows.filter((r) => r.waived);
   const pad = (s, n) => String(s).padEnd(n);
-  console.log(pad("  scheme", 24) + pad("type", 24) + pad("pair", 20) + "ratio");
+  console.log(pad("  scheme", 24) + pad("type", 34) + pad("pair", 20) + "ratio");
   for (const r of rows) {
     const mark = r.pass ? " " : r.waived ? "~" : "✕";
     const note = r.pass ? "" : `  (needs ${r.min}${r.waived ? "; waived" : ""})`;
-    console.log(`${mark} ${pad(r.scheme, 22)}${pad(r.type, 24)}${pad(r.rule, 20)}${r.ratio.toFixed(2)}${note}`);
+    console.log(`${mark} ${pad(r.scheme, 22)}${pad(r.type, 34)}${pad(r.rule, 20)}${r.ratio.toFixed(2)}${note}`);
   }
   const passed = rows.filter((r) => r.pass).length;
   console.log(`\n${passed}/${rows.length} pairs pass · ${waivedRows.length} waived (sources/contrast-waivers.json) · ${failed.length} failing.`);

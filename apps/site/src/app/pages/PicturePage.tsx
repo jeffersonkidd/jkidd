@@ -2,38 +2,48 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import { getFontEmbedCSS, toPng } from "html-to-image";
 import {
   BRIEF_FIELDS,
-  CARTOON_CANVAS,
-  CARTOON_RIBBONS,
-  CartoonPostcard,
+  PICTURE_CANVAS,
+  SERIES,
+  SERIES_IDS,
+  PicturePostcard,
   DEFAULT_MASTER,
   FIGURE_CYCLES,
   FIGURE_DRAWINGS_PER_SECOND,
   FRONTS,
   FRONT_QC,
   FRONT_SPEC,
-  ILLUSTRATED_SAMPLES,
+  STORY_STARTERS,
   NOTEBOOK_FILE_KEY,
   NOTEBOOK_NODES,
   WORKBENCH_FILE_KEY,
   WORKBENCH_NODES,
   figmaUrl,
   frontPrompt,
+  seriesRibbons,
   withInlineSvgPaint,
-  type CartoonRibbon,
-  type CartoonSpec,
+  type PictureSpec,
   type FigureCycle,
   type FigureLine,
+  type Front,
+  type SeriesId,
   type FrontBrief,
 } from "../../ds";
 import { PageHeader, Segmented, Select, TextField, Toggle, cap } from "../components/Controls";
 import { ScaledBox } from "../components/ScaledCard";
 import type { PageProps } from "../App";
-import { recordCartoon, videoType } from "../video";
+import { recordPicture, videoType } from "../video";
 
 const byId = (id: string) => FRONTS.find((f) => f.id === id) ?? FRONTS[0];
+/** A series' fronts: the master first, drifted ones last. */
+const inSeries = (id: SeriesId) => {
+  const rank = (f: Front) => (f.id === SERIES[id].master ? 0 : f.drifted ? 2 : 1);
+  return FRONTS.filter((f) => f.series === id).sort((a, b) => rank(a) - rank(b));
+};
 const SIDES = ["left", "right"] as const;
-/** The illustrated set's stories, as starters: the library's own copy. */
-const STARTERS = ILLUSTRATED_SAMPLES.map(({ story, location }) => ({ story, location }));
+/** Story starters: the library's own copy. */
+const STARTERS = STORY_STARTERS;
+/** The title the illustrated set printed over its scenes: the library's own copy. */
+const TITLE = "Jefferson Kidd";
 
 let fontCSS: Promise<string> | undefined;
 
@@ -51,10 +61,11 @@ function useDrawing(playing: boolean) {
 }
 
 /**
- * The cartoon side of the postcard, for silly days. Generate a large-letter front from a
- * series master and the production spec, bring it back, put the story on it, export.
+ * The picture postcard, one of the postcard's two types (the archetypes are the other).
+ * Generate a front from a series master and the production spec, bring it back, put the
+ * story on it, export.
  */
-export function FrontsPage(_: PageProps) {
+export function PicturePage(_: PageProps) {
   const [masterId, setMasterId] = useState(DEFAULT_MASTER);
   const master = byId(masterId);
   const [brief, setBrief] = useState<FrontBrief>(() => ({
@@ -67,9 +78,12 @@ export function FrontsPage(_: PageProps) {
     icons: "",
   }));
   const [location, setLocation] = useState(STARTERS[2].location);
-  const [ribbon, setRibbon] = useState<CartoonRibbon>("teal");
-  const [side, setSide] = useState<CartoonSpec["side"]>("right");
+  const [ribbon, setRibbon] = useState("teal");
+  const ribbons = seriesRibbons(master.series);
+  const [side, setSide] = useState<PictureSpec["side"]>("right");
   const [printStory, setPrintStory] = useState(true);
+  const [titleOn, setTitleOn] = useState(master.lettering === null);
+  const [title, setTitle] = useState(TITLE);
   const [upload, setUpload] = useState<{ url: string; name: string } | null>(null);
   const [checked, setChecked] = useState<boolean[]>(() => FRONT_QC.map(() => false));
   const [figureOn, setFigureOn] = useState(true);
@@ -84,13 +98,15 @@ export function FrontsPage(_: PageProps) {
 
   useEffect(() => () => (upload ? URL.revokeObjectURL(upload.url) : undefined), [upload]);
 
-  const spec: CartoonSpec = {
+  const spec: PictureSpec = {
     scene: upload?.url ?? master.image,
+    series: master.series,
+    title: titleOn ? title : null,
     story: printStory ? brief.story.toUpperCase() : null,
     location: printStory ? location.toUpperCase() : null,
-    ribbon,
+    ribbon: ribbons.includes(ribbon) ? ribbon : ribbons[0],
     side,
-    figma: WORKBENCH_NODES.CartoonPostcard,
+    figma: WORKBENCH_NODES.PicturePostcard,
     figure: figureOn ? { cycle, line } : null,
   };
   const prompt = useMemo(() => frontPrompt(master, brief), [master, brief]);
@@ -100,9 +116,12 @@ export function FrontsPage(_: PageProps) {
   const pickMaster = (id: string, scroll = false) => {
     const next = byId(id);
     setMasterId(next.id);
+    // Ribbons belong to a series: keep the ink if the new press has it, else its first.
+    const nextRibbons = seriesRibbons(next.series);
+    if (!nextRibbons.includes(ribbon)) setRibbon(nextRibbons[0]);
     setUpload(null);
-    // An art-only front is text-free: the story stays off it until asked for.
-    if (next.lettering === null) setPrintStory(false);
+    // Lettering in the picture is the title; an art-only front takes the live one.
+    setTitleOn(next.lettering === null);
     setBrief((b) => ({ ...b, lettering: b.lettering === (master.lettering ?? "") ? (next.lettering ?? "") : b.lettering }));
     if (scroll) stageRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
   };
@@ -123,7 +142,7 @@ export function FrontsPage(_: PageProps) {
 
   const exportPng = async (pixelRatio: number) => {
     if (!cardRef.current) return;
-    const { width, height } = CARTOON_CANVAS;
+    const { width, height } = PICTURE_CANVAS;
     try {
       await document.fonts.ready;
       fontCSS ??= getFontEmbedCSS(cardRef.current);
@@ -132,7 +151,7 @@ export function FrontsPage(_: PageProps) {
       const url = await withInlineSvgPaint(card, () => toPng(card, options));
       const a = document.createElement("a");
       a.href = url;
-      a.download = `jkidd-cartoon-${upload ? "front" : master.id}${pixelRatio > 1 ? `@${pixelRatio}x` : ""}.png`;
+      a.download = `jkidd-postcard-${upload ? "front" : master.id}${pixelRatio > 1 ? `@${pixelRatio}x` : ""}.png`;
       a.click();
       flash(`Exported ${width * pixelRatio}×${height * pixelRatio} PNG`);
     } catch (e) {
@@ -146,16 +165,16 @@ export function FrontsPage(_: PageProps) {
     try {
       await document.fonts.ready;
       fontCSS ??= getFontEmbedCSS(cardRef.current);
-      const { blob, ext, seconds } = await recordCartoon(cardRef.current, spec.figure, CARTOON_CANVAS, {
+      const { blob, ext, seconds } = await recordPicture(cardRef.current, spec.figure, PICTURE_CANVAS, {
         fontEmbedCSS: await fontCSS,
         onProgress: (done) => setStatus(`Recording ${Math.round(done * 100)}%. Keep this tab in front.`),
       });
       const a = document.createElement("a");
       a.href = URL.createObjectURL(blob);
-      a.download = `jkidd-cartoon-${upload ? "front" : master.id}-${spec.figure.cycle}.${ext}`;
+      a.download = `jkidd-postcard-${upload ? "front" : master.id}-${spec.figure.cycle}.${ext}`;
       a.click();
       setTimeout(() => URL.revokeObjectURL(a.href), 10_000);
-      flash(`Exported ${seconds.toFixed(1)}s ${ext.toUpperCase()} · ${CARTOON_CANVAS.width}×${CARTOON_CANVAS.height}`);
+      flash(`Exported ${seconds.toFixed(1)}s ${ext.toUpperCase()} · ${PICTURE_CANVAS.width}×${PICTURE_CANVAS.height}`);
     } catch (e) {
       flash(`Video failed: ${(e as Error).message}`);
     } finally {
@@ -165,11 +184,11 @@ export function FrontsPage(_: PageProps) {
 
   return (
     <div className="page page--wide">
-      <PageHeader eyebrow="Genre · Postcard Image Algo" title="Cartoon postcards">
+      <PageHeader eyebrow="Postcard · Postcard Image Algo" title="Picture postcards">
         <p>
-          The other side of the postcard, for when it's time to be silly. Big extruded letters, each a window onto
-          the scene, a cartoon hero up front, printed on aged card, and one comic story slapped on top. It sits beside
-          the archetypes and the illustrated postcards; it doesn't replace them.
+          One of the postcard's two types; the archetypes are the other. Big extruded letters, each a window onto the
+          scene, a cartoon hero up front, printed on aged card, set in a cream mat with an ink border. On top, live:
+          a location ribbon, a story label tilted 2°, and a title when the front has no lettering of its own.
         </p>
         <p>
           The picture is generated, not laid out: pick a series master, write the story, send the spec with the master
@@ -181,18 +200,22 @@ export function FrontsPage(_: PageProps) {
       <div className="studio" ref={stageRef}>
         <form className="studio__panel" onSubmit={(e) => e.preventDefault()}>
           <Select
-            label="Series master"
+            label="Front"
             value={master.id}
             options={FRONTS.map((f) => f.id)}
-            format={(id) => byId(id).name}
+            format={(id) => `${SERIES[byId(id).series].name} · ${byId(id).name}`}
             onChange={(id) => pickMaster(id)}
           />
+          <p className="muted front-note">
+            {SERIES[master.series].name} series, master: {byId(SERIES[master.series].master).name}.
+            {master.drifted ? ` Drifted: ${master.drifted}. Regenerate it from the master before using it as one.` : ""}
+          </p>
 
           <label className="field">
             <span className="label">Story</span>
             <textarea rows={2} value={brief.story} onChange={(e) => setField("story", e.target.value)} />
           </label>
-          <div className="toon-starters">
+          <div className="story-starters">
             <span className="label">Starters</span>
             {STARTERS.map((s) => (
               <button
@@ -209,21 +232,27 @@ export function FrontsPage(_: PageProps) {
             ))}
           </div>
 
+          <Toggle label="Title over the picture" checked={titleOn} onChange={setTitleOn} />
+          {titleOn ? <TextField label="Title" value={title} onChange={setTitle} /> : null}
+
           <Toggle label="Print the story on the card" checked={printStory} onChange={setPrintStory} />
           {printStory ? (
             <>
               <TextField label="Location ribbon" value={location} onChange={(v) => setLocation(v.toUpperCase())} />
               <fieldset className="ribbon-picker">
-                <legend className="label">Ribbon ink</legend>
+                <legend className="label">Ribbon ink · {SERIES[master.series].name}</legend>
                 <div className="ribbon-picker__row">
-                  {CARTOON_RIBBONS.map((r) => (
+                  {ribbons.map((r) => (
                     <button
                       key={r}
                       type="button"
                       className="ribbon-swatch"
-                      data-genre="cartoon"
+                      style={{
+                        background: `var(--jk-genre-picture-${master.series}-ribbon-${r})`,
+                        borderColor: `var(--jk-genre-picture-${master.series}-ink)`,
+                      }}
                       data-ribbon={r}
-                      aria-pressed={ribbon === r}
+                      aria-pressed={spec.ribbon === r}
                       aria-label={cap(r.replace("-", " "))}
                       title={cap(r.replace("-", " "))}
                       onClick={() => setRibbon(r)}
@@ -244,7 +273,7 @@ export function FrontsPage(_: PageProps) {
             </>
           ) : null}
 
-          <details className="toon-brief">
+          <details className="front-brief">
             <summary className="label">The rest of the brief</summary>
             {BRIEF_FIELDS.filter(({ key }) => key !== "story").map(({ key, label }) =>
               key === "lettering" ? (
@@ -257,14 +286,14 @@ export function FrontsPage(_: PageProps) {
               ),
             )}
           </details>
-          <p className="muted ill-note">
+          <p className="muted front-note">
             Priority 3: only the narrative changes. Everything else is read from the master, so attach it every time.
           </p>
         </form>
 
         <div className="studio__stage">
-          <ScaledBox canvas={CARTOON_CANVAS} label="Cartoon postcard preview">
-            <CartoonPostcard ref={cardRef} spec={spec} drawing={drawing} />
+          <ScaledBox canvas={PICTURE_CANVAS} label="Picture postcard preview">
+            <PicturePostcard ref={cardRef} spec={spec} drawing={drawing} />
           </ScaledBox>
 
           <div className="studio__bar">
@@ -341,8 +370,8 @@ export function FrontsPage(_: PageProps) {
           <div className="studio__checks">
             <div className="studio__thumb">
               <span className="label">At 320px (Principle 4)</span>
-              <ScaledBox canvas={CARTOON_CANVAS} width={320} label="Thumbnail preview">
-                <CartoonPostcard spec={spec} drawing={drawing} />
+              <ScaledBox canvas={PICTURE_CANVAS} width={320} label="Thumbnail preview">
+                <PicturePostcard spec={spec} drawing={drawing} />
               </ScaledBox>
             </div>
             <fieldset className="front-qc">
@@ -357,7 +386,7 @@ export function FrontsPage(_: PageProps) {
                   <span>{q.charAt(0) + q.slice(1).toLowerCase()}</span>
                 </label>
               ))}
-              <p className="muted ill-note">
+              <p className="muted front-note">
                 {checked.every(Boolean) ? "It belongs to the series." : 'If any answer is "no," continue refining.'}
               </p>
             </fieldset>
@@ -371,24 +400,35 @@ export function FrontsPage(_: PageProps) {
       </div>
 
       <section className="section">
-        <h2 className="jk-text-doc-h2">The best of</h2>
+        <h2 className="jk-text-doc-h2">The series</h2>
         <p className="muted">
-          Generations kept from the Workbench. Any of them can be the master for the next one. Pick one to load it.
+          Generations kept from the Workbench, by press. A series is one master, the fronts drawn from it and the
+          inks read off them; its ribbons are its own. Any on-press front can be the master for the next one. Pick one
+          to load it.
         </p>
-        <div className="ill-grid">
-          {FRONTS.map((f) => (
-            <button key={f.id} type="button" className="ill-tile" aria-pressed={f.id === master.id} onClick={() => pickMaster(f.id, true)}>
-              <img className="front-tile" src={f.image} alt="" loading="lazy" />
-              <span className="ill-tile__meta">
-                <span className="label">
-                  {f.greeting ? "Greetings from " : ""}
-                  {f.lettering ?? "No lettering"}
-                </span>
-                <span className="ill-tile__story">{f.theme}</span>
-              </span>
-            </button>
-          ))}
-        </div>
+        {SERIES_IDS.map((id) => (
+          <div key={id} className="front-series">
+            <h3 className="label">
+              {SERIES[id].name} · {inSeries(id).length} front{inSeries(id).length === 1 ? "" : "s"}
+            </h3>
+            <div className="front-grid">
+              {inSeries(id).map((f) => (
+                <button key={f.id} type="button" className="front-pick" aria-pressed={f.id === master.id} onClick={() => pickMaster(f.id, true)}>
+                  <img className="front-tile" src={f.image} alt="" loading="lazy" />
+                  <span className="front-pick__meta">
+                    <span className="label">
+                      {f.id === SERIES[id].master ? "Master · " : ""}
+                      {f.drifted ? "Drifted · " : ""}
+                      {f.greeting ? "Greetings from " : ""}
+                      {f.lettering ?? "No lettering"}
+                    </span>
+                    <span className="front-pick__story">{f.drifted ? `${f.theme}. ${f.drifted}.` : f.theme}</span>
+                  </span>
+                </button>
+              ))}
+            </div>
+          </div>
+        ))}
       </section>
 
       <section className="section">

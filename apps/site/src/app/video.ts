@@ -1,5 +1,5 @@
 import { toCanvas } from "html-to-image";
-import { FIGURE_DRAWINGS_PER_SECOND, FIGURE_HALO, FIGURE_PEN, figurePose, figureTake, type FigureSpec } from "../ds";
+import { FIGURE_DRAWINGS_PER_SECOND, FIGURE_HALO, FIGURE_PEN, PICTURE_SCENE, figurePose, figureTake, type FigureSpec } from "../ds";
 
 /** Video is 24 fps; the figure is drawn on twos, so each drawing holds for two frames. */
 const FPS = 24;
@@ -13,12 +13,13 @@ export const videoType = () =>
 const hasClass = (n: Node, ...names: string[]) => n instanceof Element && names.some((c) => n.classList.contains(c));
 
 /**
- * Record a cartoon postcard with its stick figure, one seamless take, at canvas size.
- * The card is snapshotted twice (the picture under the figure, the story over it) and
- * the figure is stroked between them every drawing, from the same poses as the preview.
+ * Record a picture postcard with its stick figure, one seamless take, at canvas size.
+ * The card is snapshotted twice (the mat and picture under the figure, the border and
+ * type over it) and the figure is stroked between them every drawing, clipped to the
+ * picture (PICTURE_SCENE), from the same poses as the preview.
  * Records in real time, so the tab has to stay in front until it's done.
  */
-export async function recordCartoon(
+export async function recordPicture(
   card: HTMLElement,
   figure: FigureSpec,
   canvas: { width: number; height: number },
@@ -29,15 +30,19 @@ export async function recordCartoon(
   const { width, height } = canvas;
   const shot = { width, height, pixelRatio: 1, fontEmbedCSS };
 
-  const under = await toCanvas(card, { ...shot, filter: (n) => !hasClass(n, "jk-toon__figure", "jk-toon__story") });
+  const under = await toCanvas(card, {
+    ...shot,
+    filter: (n) => !hasClass(n, "jk-pic__figure", "jk-pic__lockup", "jk-pic__story"),
+  });
   const over = await toCanvas(card, {
     ...shot,
     style: { background: "transparent" },
-    filter: (n) => !hasClass(n, "jk-toon__figure", "jk-toon__art"),
+    filter: (n) => !hasClass(n, "jk-pic__figure", "jk-pic__art"),
   });
   const css = getComputedStyle(card);
-  const ink = css.getPropertyValue("--toon-ink").trim();
-  const cream = css.getPropertyValue("--toon-cream").trim();
+  const ink = css.getPropertyValue("--pic-ink").trim();
+  const cream = css.getPropertyValue("--pic-cream").trim();
+  const scene = PICTURE_SCENE;
 
   const out = document.createElement("canvas");
   out.width = width;
@@ -48,9 +53,12 @@ export async function recordCartoon(
     ctx.fillStyle = cream;
     ctx.fillRect(0, 0, width, height);
     ctx.drawImage(under, 0, 0, width, height);
-    const pose = figurePose(figure, drawing, canvas);
+    const pose = figurePose(figure, drawing, scene);
     ctx.save();
-    ctx.translate(pose.x, pose.y);
+    ctx.beginPath();
+    ctx.rect(scene.x, scene.y, scene.width, scene.height);
+    ctx.clip();
+    ctx.translate(scene.x + pose.x, scene.y + pose.y);
     ctx.scale(pose.scale, pose.scale);
     ctx.lineCap = "round";
     ctx.lineJoin = "round";
@@ -65,7 +73,7 @@ export async function recordCartoon(
     ctx.drawImage(over, 0, 0, width, height);
   };
 
-  const take = figureTake(figure, canvas);
+  const take = figureTake(figure, scene);
   const frames = take * (FPS / FIGURE_DRAWINGS_PER_SECOND);
   const recorder = new MediaRecorder(out.captureStream(FPS), { mimeType: type, videoBitsPerSecond: 12_000_000 });
   const chunks: Blob[] = [];

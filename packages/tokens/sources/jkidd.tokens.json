@@ -92,30 +92,124 @@
   },
   "genres": {
     "$description": "Genre colours dress a postcard's front and are not the brand palette (POSTCARDS.md section 4; JKIDD.md decision 10). Hex values read from the JKidd - Workbench file (7Q8GN3IPMoM6lhFtIMquya). on names the genre colour used for text set on the fill.",
-    "illustrated": {
-      "$description": "The illustrated postcards on the Workbench page (riverboat 63:55, mountain railway 63:64, lunar colony 66:103, Edo bridge 66:85, Venice carnival 68:40): a cream mat, an ink-bordered scene, a location ribbon and a story label. Ribbon text is ink where cream fails 4.5:1 (teal 2.86, sky 2.79, vermilion 3.02, lagoon 3.43); Workbench sets it in cream on every ribbon.",
-      "colors": { "mat": "#f6d88b", "ink": "#17130e", "cream": "#fff0bd" },
-      "ribbons": {
-        "teal": { "fill": "#4d9b96", "on": "ink", "figma": "63:59" },
-        "rust": { "fill": "#a83d20", "on": "cream", "figma": "63:68" },
-        "sky": { "fill": "#5896c8", "on": "ink", "figma": "66:107" },
-        "vermilion": { "fill": "#e95e32", "on": "ink", "figma": "66:89" },
-        "lagoon": { "fill": "#2f8f83", "on": "ink", "figma": "68:44" }
-      }
+    "picture": {
+      "$description": "The picture postcard's frame, shared by every series (POSTCARDS.md section 4): the cream mat around the ink-bordered front. The mat is the retired illustrated set's (its Workbench frames were deleted 2026-10-13). Each series brings its own inks as picture-<series>.",
+      "colors": {
+        "mat": "#f6d88b"
+      },
+      "ribbons": {}
     },
-    "cartoon": {
-      "$description": "The large-letter cartoon fronts (Postcard Image Algo 147:933), for silly days. Inks sampled by clustering the series masters' pixels: western 'Jefferson Kidd' for ink, cream, orange, gold, brown and red; '#Build in Public' frontier for teal and dark teal, which the western master only uses inside its letters. Accent red is a colour, not a ribbon: neither cream (4.00) nor ink (3.6) reaches 4.5:1 on it. The spec's ink library: orange, cream, cyan, teal, brown, black, olive, accent red.",
+    "picture-western": {
+      "$description": "Western series (Postcard Image Algo 147:933; board 285:247): master 'western', with 'greetings-western' and 'desert' on the same press. 'build-in-public-western' (Frontier Town) is the same theme in drifted inks and is left out of the sample. Ink, cream, orange, gold, brown and red were read by hand from the master and match `pnpm front-inks` on the three cards within a few points; teal and dark teal are from `pnpm front-inks` (2026-10-13), replacing the earlier #21a291 and #105a5b, which came from Frontier Town. Accent red is a colour, not a ribbon: neither cream (4.00) nor ink (3.6) reaches 4.5:1 on it. The spec's ink library: orange, cream, cyan, teal, brown, black, olive, accent red.",
       "colors": {
         "ink": "#1b1209",
         "cream": "#f8e2a1",
         "red": "#cc3605"
       },
       "ribbons": {
-        "orange": { "fill": "#f3740e", "on": "ink", "figma": "158:555" },
-        "gold": { "fill": "#f9aa15", "on": "ink", "figma": "158:560" },
-        "teal": { "fill": "#21a291", "on": "ink", "figma": "158:565" },
-        "dark-teal": { "fill": "#105a5b", "on": "cream", "figma": "158:570" },
-        "brown": { "fill": "#582305", "on": "cream", "figma": "158:575" }
+        "orange": { "fill": "#f3740e", "on": "ink", "figma": "285:267" },
+        "gold": { "fill": "#f9aa15", "on": "ink", "figma": "285:272" },
+        "teal": { "fill": "#63a784", "on": "ink", "figma": "285:277" },
+        "dark-teal": { "fill": "#236a57", "on": "cream", "figma": "285:282" },
+        "brown": { "fill": "#582305", "on": "cream", "figma": "285:287" }
+      }
+    },
+    "picture-build-in-public": {
+      "$description": "Build in Public series: master 'greetings-build-in-public', with 'build-crew'. Inks from `pnpm front-inks` on greetings-build-in-public.jpg, build-crew.jpg (2026-10-13): ink is the darkest 3%, cream the lightest pale 5%, each ribbon the purest quarter of a hue that covers the card and carries text at 4.5:1.",
+      "colors": {
+        "ink": "#14181f",
+        "cream": "#f0e2ae"
+      },
+      "ribbons": {
+        "orange": { "fill": "#ee8a2b", "on": "ink" },
+        "teal": { "fill": "#51b49a", "on": "ink" },
+        "red": { "fill": "#e5653f", "on": "ink" },
+        "gold": { "fill": "#f6bd42", "on": "ink" },
+        "yellow": { "fill": "#e7d07a", "on": "ink" }
+      }
+    },
+    "picture-miami": {
+      "$description": "Miami series: master 'miami'. Inks from `pnpm front-inks` on miami.jpg (2026-10-13): ink is the darkest 3%, cream the lightest pale 5%, each ribbon the purest quarter of a hue that covers the card and carries text at 4.5:1.",
+      "colors": {
+        "ink": "#1c022b",
+        "cream": "#f8e7c0"
+      },
+      "ribbons": {
+        "pink": { "fill": "#ec3e7d", "on": "ink" },
+        "dark-violet": { "fill": "#2d1045", "on": "cream" },
+        "dark-purple": { "fill": "#6e2561", "on": "cream" },
+        "red": { "fill": "#e97359", "on": "ink" },
+        "dark-pink": { "fill": "#932955", "on": "cream" }
+      }
+    },
+    "picture-spy": {
+      "$description": "Heist series: master 'spy'. Inks from `pnpm front-inks` on spy.jpg (2026-10-13): ink is the darkest 3%, cream the lightest pale 5%, each ribbon the purest quarter of a hue that covers the card and carries text at 4.5:1.",
+      "colors": {
+        "ink": "#18100f",
+        "cream": "#f5dbad"
+      },
+      "ribbons": {
+        "orange": { "fill": "#f19139", "on": "ink" },
+        "gold": { "fill": "#f7bf53", "on": "ink" },
+        "brown": { "fill": "#8e3f1f", "on": "cream" },
+        "red": { "fill": "#ea6246", "on": "ink" },
+        "dark-pink": { "fill": "#923a4f", "on": "cream" }
+      }
+    },
+    "picture-treasure": {
+      "$description": "Treasure series: master 'treasure'. Inks from `pnpm front-inks` on treasure.jpg (2026-10-13): ink is the darkest 3%, cream the lightest pale 5%, each ribbon the purest quarter of a hue that covers the card and carries text at 4.5:1.",
+      "colors": {
+        "ink": "#161208",
+        "cream": "#efe5a4"
+      },
+      "ribbons": {
+        "yellow": { "fill": "#ead362", "on": "ink" },
+        "gold": { "fill": "#f8bd34", "on": "ink" },
+        "brown": { "fill": "#8f410d", "on": "cream" },
+        "orange": { "fill": "#f08e25", "on": "ink" },
+        "green": { "fill": "#9eba6a", "on": "ink" }
+      }
+    },
+    "picture-pirate": {
+      "$description": "Pirate series: master 'pirate'. Inks from `pnpm front-inks` on pirate.jpg (2026-10-13): ink is the darkest 3%, cream the lightest pale 5%, each ribbon the purest quarter of a hue that covers the card and carries text at 4.5:1.",
+      "colors": {
+        "ink": "#0f0b07",
+        "cream": "#f9dfa3"
+      },
+      "ribbons": {
+        "brown": { "fill": "#953a14", "on": "cream" },
+        "orange": { "fill": "#ed8d3b", "on": "ink" },
+        "gold": { "fill": "#f4bf5e", "on": "ink" },
+        "yellow": { "fill": "#f2d98d", "on": "ink" },
+        "red": { "fill": "#e34519", "on": "ink" }
+      }
+    },
+    "picture-christmas": {
+      "$description": "Christmas series: master 'christmas'. Inks from `pnpm front-inks` on christmas.jpg (2026-10-13): ink is the darkest 3%, cream the lightest pale 5%, each ribbon the purest quarter of a hue that covers the card and carries text at 4.5:1.",
+      "colors": {
+        "ink": "#14130b",
+        "cream": "#f5e5a5"
+      },
+      "ribbons": {
+        "yellow": { "fill": "#d8c56f", "on": "ink" },
+        "brown": { "fill": "#a32c0f", "on": "cream" },
+        "gold": { "fill": "#e0b252", "on": "ink" },
+        "orange": { "fill": "#df7a2a", "on": "ink" },
+        "green": { "fill": "#89a665", "on": "ink" }
+      }
+    },
+    "picture-space": {
+      "$description": "Space series: master 'space'. Inks from `pnpm front-inks` on space.jpg (2026-10-13): ink is the darkest 3%, cream the lightest pale 5%, each ribbon the purest quarter of a hue that covers the card and carries text at 4.5:1.",
+      "colors": {
+        "ink": "#151025",
+        "cream": "#f1ddbc"
+      },
+      "ribbons": {
+        "dark-violet": { "fill": "#553985", "on": "cream" },
+        "dark-blue": { "fill": "#2f3b82", "on": "cream" },
+        "pink": { "fill": "#e06285", "on": "ink" },
+        "dark-purple": { "fill": "#833b83", "on": "cream" },
+        "orange": { "fill": "#f69d52", "on": "ink" }
       }
     },
     "stage": {

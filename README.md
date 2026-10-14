@@ -24,7 +24,7 @@ Five packages in a pnpm workspace, stacked like the Figma libraries. Each uses o
 | `@jkidd/core` · `packages/core/` | Framework-free: the Figma node map and library keys (`src/figma.ts`), the stick-figure rig, contrast math, the export helper. `vendor/architects-notebook/` holds what `pnpm notebook` copies from the kit, with `SOURCE.json`. Never edit it by hand | — |
 | `@jkidd/ui` · `packages/ui/` | **JKidd UI**: the look as plain CSS, in folders named for the libraries (`foundations/`, `primitives/`, `layout/`, `compositions/`), and the fonts (`fonts/`, `src/fonts.ts`). Needs `@jkidd/tokens/tokens.css` first | Foundations, Primitives, Layout, Compositions |
 | `@jkidd/react` · `packages/react/` | React components for JKidd UI, in the same folders: marks, card parts, stick figure, card frame, the six archetypes | Foundations, Primitives, Layout, Compositions |
-| `@jkidd/blocks` · `packages/blocks/` | **JK Blocks**: finished things. Postcard, the illustrated, cartoon and stage postcards, the link page, sample copy and art | JKidd - Blocks |
+| `@jkidd/blocks` · `packages/blocks/` | **JK Blocks**: finished things. Postcard (the archetypes), the picture and stage postcards, the link page, sample copy and art | JKidd - Blocks |
 | `apps/site/` | The demo site and the postcard makers. `src/ds.ts` re-exports all five packages for the pages | — |
 
 The Figma library keys are `LIBRARIES` in `packages/core/src/figma.ts`. The four libraries split out of JKidd - Foundations (Primitives, Layout, Compositions, Blocks) start empty and fill as components are moved across in Figma. Until a component moves, its node ID still points into JKidd - Foundations.
@@ -74,20 +74,43 @@ Every card on the Archetypes page has an **Edit** link that opens it in the Stud
 
 ---
 
+## Picture postcards
+
+A postcard comes in two types: the archetype cards above, and the picture postcard. `#/postcards` makes the picture one: a front generated under the production spec (`packages/blocks/src/postcards/front-spec.md`, verbatim from Workbench `147:933`), set in a cream mat with an ink border, with live type on top. The type is a location ribbon, a story label tilted 2°, and a title when the front has no lettering of its own. The ribbon sits under the title, or over the label when there's no title, so it never covers the front's own letters. It replaces the illustrated and cartoon postcards: the mat, border, title and story pieces are the illustrated set's, and the fronts, inks and stick figure are the cartoon one's. The five illustrated scenes are gone. Their stories stay as starters (`STORY_STARTERS`).
+
+### Making one
+
+1. **Series master.** Pick a front from the gallery. Lettered fronts carry their own title. Art-only fronts (the desert) turn the live title on, and it reads "Jefferson Kidd" until you change it.
+2. **Story.** Type it, or pick a starter. Turn on **Print the story on the card** to set the label and ribbon, then choose one of the series' ribbon inks and the corner the hero isn't in.
+3. **Copy prompt**, then **Download master**, and send both to ChatGPT's image model, which drew the existing fronts. The spec is that ChatGPT conversation about consistency, distilled into one document; a different model is the easiest way for a front to drift. Only the narrative changes: the theme, scenery, props, the story told through the scene, and the icons inside the letters. **Use your front** loads what comes back, and **Next to the master** walks the spec's checklist.
+4. **Export PNG** (1536×1024, or @2x), or **Export video** with the stick figure.
+
+### Series
+
+Fronts come in series. A series is one press: a master, the fronts drawn from it, and the inks read off them. The registry is `SERIES` in `packages/blocks/src/postcards/fronts.ts`, and each front names its series. The card takes its series' ink, cream and ribbons (`--jk-genre-picture-<series>-*`); the mat is the same on every series (`--jk-genre-picture-mat`). The maker shows only the series' own ribbons, and the gallery is grouped by series. A front in a series' theme but printed in other inks is marked `drifted` (Frontier Town, in Western): it's left out of the ink sample until it's regenerated from the master.
+
+**Adding a front or a series**
+
+1. `pnpm front <master.png> <id>` trims and crops the delivered image into `packages/blocks/src/assets/fronts/` (`front-intake.mjs`).
+2. Add it to `FRONTS` with its `series`, and to `SERIES` if the series is new.
+3. `pnpm front-inks <fronts…>` reads the series' inks off its on-press fronts (`front-inks.mjs`, nothing to install). It prints a proposal; copy `colors` and `ribbons` into `genres.picture-<series>` in `packages/tokens/sources/jkidd.tokens.json`, then run `pnpm check`. Every ribbon it proposes passes 4.5:1, and `pnpm contrast` checks them again.
+
+---
+
 ## Stage postcards
 
 `#/stage` makes a postcard of a theatre stage drawn on graph paper, in the Architect's Notebook hand, with stick figures walking, running or waving at three depths. It's a draft in code: not in Workbench or the library yet.
 
 ### Making one
 
-1. **Story.** Type it, or pick a starter (the illustrated set's stories, the library's own copy). It's set in the title strip in Special Elite Even, uppercase; past 40 characters it drops from 40px to 28px so it still fits.
+1. **Story.** Type it, or pick a starter (`STORY_STARTERS`, the library's own copy). It's set in the title strip in Special Elite Even, uppercase; past 40 characters it drops from 40px to 28px so it still fits.
 2. **Location.** The middle cell of the title strip.
 3. **Cast the depths.** Each depth takes one figure: *Empty*, *Walks right*, *Walks left*, *Runs right*, *Runs left* or *Waves on the mark*. Walkers and runners enter from behind the wing at their own depth and leave behind the other; a waving figure stands on a red-pen X (upstage at 30% across, midstage 68%, downstage the centre).
 4. **Line.** *Boil* redraws the line every drawing, the kit's hand-drawn shimmer. *Still* keeps one line and only moves the pose.
 5. **Play** runs the figures at 12 drawings a second. It starts paused if your system asks for reduced motion.
 6. **Judge it at 320px** in the thumbnail under the preview, then **Export PNG** (1536×1024, or @2x). Or **SVG**: a standalone vector file for Figma or Illustrator, with every colour resolved from the tokens, the graph paper as lines and the title strip as text (the fonts aren't embedded, so install Special Elite Even and JetBrains Mono to see them). Both are the frame on screen: pause on the pose you want first.
 
-There's no video export on this page yet; the cartoon postcards have one.
+There's no video export on this page yet; the picture postcards have one.
 
 ### The squares
 
@@ -139,7 +162,7 @@ The figures are the Architect's Notebook kit's own animation loops (Figma *Archi
 - **Where they come from.** `pnpm notebook` copies `dist/figure-frames.json` from `../architects-notebook` (or `NOTEBOOK_DIR`) into `packages/core/vendor/architects-notebook/`, rounding numbers to 2 places (357K → 121K) and recording the source's sha256 in `SOURCE.json`. To change how they move, regenerate in the kit (`npm run figures`), run `pnpm notebook` here, and review the diff. `packages/core/scripts/notebook.test.mjs` checks the shape.
 - **Placing one.** `figurePose(spec, drawing, canvas, placement)` returns where a figure is and which paths to draw. Placement takes `height`, `floor` (y of the feet), `lane` (the span it crosses), `dir` and `at`. Use `figureBoxFor(px)` to make a figure *look* that many px tall head to feet, and `figureTransform(pose)` for the SVG transform.
 - **Drawing one.** `<FigureStrokes pose={pose} />` inside any SVG draws a halo line under an ink line. The colours are `--figure-ink` and `--figure-halo`, which each genre sets from its own tokens. The pen is `FIGURE_PEN` (2.4, against the kit's 1.6, so it holds at postcard scale) and the halo is `FIGURE_HALO` wider.
-- **On cartoon postcards** (`#/fronts`), one figure walks, runs or waves along the bottom of the front, behind the story label, with a cream halo so it shows up on a busy picture. **5 · Export video** records one seamless take at 1536×1024, 24 fps: a full crossing for walk and run, four loops for wave. It saves MP4 where the browser can record it, otherwise WebM. Recording runs in real time, so keep the tab in front until it finishes.
+- **On picture postcards** (`#/postcards`), one figure walks, runs or waves along the bottom of the picture, inside the ink border and behind the type, with a cream halo so it shows up on a busy picture. **5 · Export video** records one seamless take at 1536×1024, 24 fps: a full crossing for walk and run, four loops for wave. It saves MP4 where the browser can record it, otherwise WebM. Recording runs in real time, so keep the tab in front until it finishes.
 
 ---
 

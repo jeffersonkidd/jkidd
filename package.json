@@ -22,7 +22,8 @@
     "links:build": "pnpm --filter @jkidd/links build",
     "typecheck": "tsc --noEmit",
     "test": "node --test \"scripts/*.test.mjs\" \"packages/*/scripts/*.test.mjs\"",
-    "check": "pnpm tokens && pnpm contrast && pnpm test && tsc --noEmit && pnpm --filter @jkidd/site build && pnpm --filter @jkidd/links build"
+    "check": "pnpm tokens && pnpm contrast && pnpm test && tsc --noEmit && pnpm --filter @jkidd/site build && pnpm --filter @jkidd/links build",
+    "front-inks": "pnpm --filter @jkidd/blocks front-inks"
   },
   "devDependencies": {
     "@types/node": "^22.0.0",
