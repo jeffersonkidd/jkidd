@@ -1,8 +1,8 @@
 {
-  "$description": "Jefferson Kidd tokens beyond the palette, read from the JKidd - DS Figma library (ADhu9noVbgFbtapMZivOHw) on 2026-09-24. The palette and the six scheme modes come from jkxo-tertiary.json next to this file. Scheme role names are camelCase here and --md-sys-color-kebab-case in CSS, as in Figma's code syntax.",
+  "$description": "Jefferson Kidd tokens beyond the palette, read from the JKidd - Foundations Figma library (ADhu9noVbgFbtapMZivOHw; JKidd - DS until 2026-10-14) on 2026-09-24. The palette and the six scheme modes come from jkxo-tertiary.json next to this file. Scheme role names are camelCase here and --md-sys-color-kebab-case in CSS, as in Figma's code syntax.",
   "figma": {
     "fileKey": "ADhu9noVbgFbtapMZivOHw",
-    "fileName": "JKidd - DS",
+    "fileName": "JKidd - Foundations",
     "version": "0.1",
     "collections": ["Palette", "Scheme", "Post Type", "Layout", "Type"]
   },
@@ -57,7 +57,7 @@
     "burst": { "family": "Bangers", "fallback": "Impact, \"Arial Black\", sans-serif", "figma": "--jk-font-burst" }
   },
   "textStyles": {
-    "$description": "Text styles read from Figma. letterSpacing is in percent of the font size, as Figma stores it. Read from JKidd - DS on 2026-10-13, in Figma order. Display weights are 400: Special Elite Even ships one weight, and the 700/500 kept from Space Grotesk made browsers fake a bold. Not read in: Card/Title, Doc/Body and Doc/Small (fonts not bound to a Type variable: Anime Ace 2.0, Patrick Hand SC, Architects Daughter) and Doc/Body Strong (Inter Regular, so not strong).",
+    "$description": "Text styles read from Figma. letterSpacing is in percent of the font size, as Figma stores it. Read from JKidd - Foundations on 2026-10-13, in Figma order. Display weights are 400: Special Elite Even ships one weight, and the 700/500 kept from Space Grotesk made browsers fake a bold. Not read in: Card/Title, Doc/Body and Doc/Small (fonts not bound to a Type variable: Anime Ace 2.0, Patrick Hand SC, Architects Daughter) and Doc/Body Strong (Inter Regular, so not strong).",
     "Card/Statement": { "font": "display", "weight": 400, "size": 120, "lineHeight": 0.95, "letterSpacing": -3 },
     "Card/Headline": { "font": "display", "weight": 400, "size": 88, "lineHeight": 1, "letterSpacing": -2 },
     "Card/Body": { "font": "body", "weight": 400, "size": 36, "lineHeight": 1.3, "letterSpacing": 0 },
@@ -83,7 +83,7 @@
     "Link/Nav": { "font": "mono", "weight": 500, "size": 11, "lineHeight": 1, "letterSpacing": 4 }
   },
   "effects": {
-    "$description": "Effect styles read from JKidd - DS on 2026-10-13: drop shadows in primary-10 (#001f24) at the opacity Figma gives. blur is Figma's radius.",
+    "$description": "Effect styles read from JKidd - Foundations on 2026-10-13: drop shadows in primary-10 (#001f24) at the opacity Figma gives. blur is Figma's radius.",
     "Elevation/Card": [
       { "x": 0, "y": 2, "blur": 4, "spread": 0, "color": "#001f241a" },
       { "x": 0, "y": 16, "blur": 40, "spread": -8, "color": "#001f2424" }

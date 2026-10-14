@@ -153,8 +153,11 @@ function drift() {
 const DRIFT = drift();
 const waived = new Set(WAIVERS.map((w) => w.figma));
 
+// A development plugin isn't given figma.fileKey, so a plugin snapshot is matched by
+// file name instead (tokens.figma.fileName; JKidd - DS is its name before 2026-10-14).
 test("the snapshot is of the library the tokens are read from", () => {
-  assert.equal(figma.fileKey, tokens.figma.fileKey);
+  if (figma.fileKey) assert.equal(figma.fileKey, tokens.figma.fileKey);
+  else assert.ok([tokens.figma.fileName, "JKidd - DS"].includes(figma.file), `no fileKey, and "${figma.file}" isn't ${tokens.figma.fileName}`);
 });
 
 test("the token sources match the Figma snapshot, apart from waived items", () => {

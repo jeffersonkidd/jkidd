@@ -1,6 +1,6 @@
 {
   "$description": "Snapshot of a Figma library, written by packages/tokens/scripts/figma/export.js. Don't edit by hand: refresh it from Figma. The drift tests check the token sources and figma.ts against it.",
-  "file": "Primitives",
+  "file": "JKidd - Primitives",
   "fileKey": "jm9r6k7bY7JuaJup8EWKgQ",
   "readAt": "2026-10-14",
   "pages": [

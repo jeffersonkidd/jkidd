@@ -237,7 +237,7 @@ async function snapshot() {
 
 async function runPlugin() {
   const json = JSON.stringify(await snapshot(), null, 2) + "\n";
-  // "JKidd - Primitives" → primitives.json. JKidd - DS is becoming Foundations.
+  // "JKidd - Primitives" → primitives.json. JKidd - DS (the old name of Foundations) still maps to foundations.json.
   const library = figma.root.name.toLowerCase().replace(/^jkidd - /, "").replace(/[^a-z0-9]+/g, "-");
   const file = `${library === "ds" ? "foundations" : library}.json`;
   figma.showUI(

@@ -2,9 +2,9 @@ import { FIGMA_FILE_KEY } from "@jkidd/tokens";
 
 /**
  * The JKidd design libraries, in layer order; each uses only the ones before it, as
- * the packages do. JKidd - DS becomes Foundations. The other four were split out of
+ * the packages do. Foundations was JKidd - DS. The other four were split out of
  * it on 2026-10-12 and fill as components are moved across in Figma; until then the
- * node IDs below still point into JKidd - DS.
+ * node IDs below still point into Foundations.
  */
 export const LIBRARIES = {
   Foundations: FIGMA_FILE_KEY,
@@ -14,7 +14,7 @@ export const LIBRARIES = {
   Blocks: "1qe9bxB8lEeLhFolzYd5sI",
 } as const;
 
-/** Where each code component lives in JKidd - DS. Rendered as data-figma on the root element. */
+/** Where each code component lives in JKidd - Foundations. Rendered as data-figma on the root element. */
 export const FIGMA_NODES = {
   /** The Cover frame; its Scheme mode switches it between light and dark. */
   Cover: "98:3432",

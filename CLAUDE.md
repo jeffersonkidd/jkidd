@@ -1,6 +1,6 @@
 # CLAUDE.md
 
-Jefferson Kidd design system in code, built from the Figma libraries: *JKidd - DS* (`ADhu9noVbgFbtapMZivOHw`, becoming *JKidd - Foundations*) and the four split out of it (Primitives, Layout, Compositions, Blocks; keys in `packages/core/src/figma.ts`). The charter and the rules it implements live in the Workbench: `~/Desktop/🧰 Workbench/projects/jkidd/` (`JKIDD.md`, `content/POSTCARDS.md`, `content/CONTENT-SYSTEM.md`).
+Jefferson Kidd design system in code, built from the Figma libraries: *JKidd - Foundations* (`ADhu9noVbgFbtapMZivOHw`, formerly *JKidd - DS*) and the four split out of it (Primitives, Layout, Compositions, Blocks; keys in `packages/core/src/figma.ts`). The charter and the rules it implements live in the Workbench: `~/Desktop/🧰 Workbench/projects/jkidd/` (`JKIDD.md`, `content/POSTCARDS.md`, `content/CONTENT-SYSTEM.md`).
 
 ## Commands
 
