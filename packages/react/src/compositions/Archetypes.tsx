@@ -18,7 +18,7 @@ export type ManifestoContent = {
 
 export function Manifesto({ lines, payoff, attribution, kicker }: ManifestoContent) {
   return (
-    <div className="jk-manifesto" data-figma={FIGMA_NODES.Manifesto}>
+    <div className="jk-manifesto" data-figma={FIGMA_NODES.Manifesto[1]}>
       <Kicker>{kicker}</Kicker>
       <div style={{ height: 12 }} />
       <p className="jk-manifesto__statement jk-text-card-statement">
@@ -48,7 +48,7 @@ export type ArchitectureContent = {
 
 export function ArchitectureDiagram({ from, arrow, to }: ArchitectureContent) {
   return (
-    <div className="jk-arch" data-figma={FIGMA_NODES.ArchitectureDiagram}>
+    <div className="jk-arch" data-figma={FIGMA_NODES.ArchitectureDiagram[1]}>
       <Zone label={from.label} className="jk-arch__zone-a">
         {from.chips.map((c) => (
           <TokenChip key={c}>{c}</TokenChip>
@@ -77,7 +77,7 @@ export type PipelineContent = {
 
 export function Pipeline({ source, transform, output, arrows }: PipelineContent) {
   return (
-    <div className="jk-pipeline" data-figma={FIGMA_NODES.Pipeline}>
+    <div className="jk-pipeline" data-figma={FIGMA_NODES.Pipeline[1]}>
       <Zone label={source.label} className="jk-pipeline__source">
         {source.chips.map((c) => (
           <TokenChip key={c} fill>
@@ -120,7 +120,7 @@ function ParitySide({ half }: { half: ParityHalf }) {
 
 export function Parity({ left, right }: ParityContent) {
   return (
-    <div className="jk-parity" data-figma={FIGMA_NODES.Parity}>
+    <div className="jk-parity" data-figma={FIGMA_NODES.Parity[1]}>
       <ParitySide half={left} />
       <div className="jk-parity__divider">
         <div className="jk-parity__hairline" />
@@ -142,7 +142,7 @@ export type BeforeAfterContent = {
 /** Red only on the left, primary only on the right; never mix. Equal visual weight. */
 export function BeforeAfter({ before, after }: BeforeAfterContent) {
   return (
-    <div className="jk-before-after" data-figma={FIGMA_NODES.BeforeAfter}>
+    <div className="jk-before-after" data-figma={FIGMA_NODES.BeforeAfter[1]}>
       <Zone label={before.label ?? "BEFORE"} tone="error">
         {before.items.map((t) => (
           <CheckRow key={t} mark="cross" struck text="code">
@@ -168,7 +168,7 @@ export type LedgerContent = { title: string; /** 6 rows at most. */ rows: Ledger
 
 export function Ledger({ title, rows }: LedgerContent) {
   return (
-    <div className="jk-ledger" data-figma={FIGMA_NODES.Ledger}>
+    <div className="jk-ledger" data-figma={FIGMA_NODES.Ledger[1]}>
       <span className="jk-ledger__title jk-text-card-kicker">{title}</span>
       <div style={{ height: 8 }} />
       {rows.slice(0, 6).map((r, i) => (

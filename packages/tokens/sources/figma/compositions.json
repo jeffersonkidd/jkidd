@@ -23,6 +23,84 @@
   "paintStyles": {},
   "gridStyles": {},
   "components": {
+    "81:239": {
+      "name": "Content/Manifesto",
+      "type": "COMPONENT",
+      "page": "Archetypes",
+      "width": 1360,
+      "height": 644,
+      "properties": {
+        "Statement": {
+          "type": "TEXT",
+          "default": "One idea per card.\nThe tweet carries nuance."
+        },
+        "Payoff": {
+          "type": "TEXT",
+          "default": "The card is the claim."
+        },
+        "Attribution": {
+          "type": "TEXT",
+          "default": "PRINCIPLE 5 · ONE IDEA PER CARD"
+        },
+        "Show attribution": {
+          "type": "BOOLEAN",
+          "default": true
+        }
+      },
+      "description": "Manifesto · best for Principle. One oversized statement; the payoff line sits on a type/accent highlight. No imagery: the type is the image. Break lines by meaning, 3–5 lines at most. Sample copy from postcard-wireframes.jsx.",
+      "key": "6b7c9a464f3c6948e1c077d4eb2be56712a96428"
+    },
+    "81:247": {
+      "name": "Content/Architecture Diagram",
+      "type": "COMPONENT",
+      "page": "Archetypes",
+      "width": 1360,
+      "height": 644,
+      "description": "Architecture Diagram · best for Decision, Principle. Two labelled zones, one arrow, one annotation that carries the rule. Chips should be real components exported from the real file. Sample from postcard-wireframes.jsx.",
+      "key": "be9309aaab1574b90edbfdf0efbdf3ac4deff7f2"
+    },
+    "81:262": {
+      "name": "Content/Pipeline",
+      "type": "COMPONENT",
+      "page": "Archetypes",
+      "width": 1360,
+      "height": 644,
+      "description": "Pipeline · best for Teaching. Source → transform → output. The middle stage is one real terminal command. Highlight exactly one thing in the output. Sample from postcard-wireframes.jsx; replace with the real pipeline.",
+      "key": "08403bc0b61d7753bd5c1f4514e4b542a3755ba4"
+    },
+    "81:281": {
+      "name": "Content/Parity",
+      "type": "COMPONENT",
+      "page": "Archetypes",
+      "width": 1360,
+      "height": 644,
+      "description": "Parity · best for Progress, Teaching. The same thing twice: Figma render left, live code render right, same zoom and crop. The = is the whole argument; any drift undermines the card. Replace both Specimens with real screenshots.",
+      "key": "6ee91d6e4a5e74cf962da4433904028aacabde0c"
+    },
+    "81:294": {
+      "name": "Content/Before After",
+      "type": "COMPONENT",
+      "page": "Archetypes",
+      "width": 1360,
+      "height": 644,
+      "description": "Before / After · best for Failure. The mistake struck through with error ✕ on the left, the fix with primary ✓ on the right. Red only on the left, the brand accent only on the right; never mix. Equal visual weight. Sample from postcard-wireframes.jsx.",
+      "key": "88db2235aca247ee53a698712552bcd8f3f2c493"
+    },
+    "81:305": {
+      "name": "Content/Ledger",
+      "type": "COMPONENT",
+      "page": "Archetypes",
+      "width": 1360,
+      "height": 644,
+      "properties": {
+        "Heading": {
+          "type": "TEXT",
+          "default": "LIBRARY v0.1 SHIPPED"
+        }
+      },
+      "description": "Ledger · best for Progress and recaps. A left-aligned checklist of real item names at uneven lengths, 6 lines at most. Subtraction variant: set rows to Struck=Yes for a ledger of what was cut. Sample rows are this library's own build, 2026-09-24.",
+      "key": "20326baafbbe1e722f7a79be12b37fc82ed1f21b"
+    },
     "42:141": {
       "name": "Link Header",
       "type": "COMPONENT_SET",
@@ -170,12 +248,12 @@
       "width": 1600,
       "height": 900
     },
-    "1:10": {
-      "name": "Archetypes · incoming",
-      "type": "SECTION",
+    "1:11": {
+      "name": "Archetypes",
+      "type": "FRAME",
       "page": "Archetypes",
-      "width": 1600,
-      "height": 900
+      "width": 2960,
+      "height": 2562
     },
     "44:219": {
       "name": "Link",

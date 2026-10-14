@@ -43,10 +43,10 @@
     "space32": { "value": 128, "unit": "px", "figma": "--jk-space-32" }
   },
   "canvas": {
-    "$description": "Card Frame (8:60) Ratio variants. Judge every card at 320px wide (Principle 4).",
-    "16:9": { "width": 1600, "height": 900, "figma": "8:4" },
-    "1:1": { "width": 1080, "height": 1080, "figma": "8:24" },
-    "4:5": { "width": 1080, "height": 1350, "figma": "8:42" }
+    "$description": "Card Frame (Layout 67:72) Ratio variants. Judge every card at 320px wide (Principle 4).",
+    "16:9": { "width": 1600, "height": 900, "figma": "67:73" },
+    "1:1": { "width": 1080, "height": 1080, "figma": "67:86" },
+    "4:5": { "width": 1080, "height": 1350, "figma": "67:99" }
   },
   "fonts": {
     "$description": "Type collection. Display: Special Elite Even, the repaired cut in fonts/special-elite-repaired (User, 2026-10-11). Body: Inter, for running text. Two comic faces for short text only (User, 2026-10-11): lettering is CC Wild Words (Comicraft, paid; loaded from the machine until a webfont licence is bought), then Anime Ace 2.0 BB (Blambot; also loaded from the machine, never bundled); burst is Bangers (OFL) for loud titles. Mono stays provisional (JKIDD.md decision 1). In Figma (Foundations, Type) since 2026-10-13: font/lettering holds Anime Ace 2.0 BB and font/burst Bangers. The comic faces are Wild Words, Anime Ace and Bangers; Comic Neue is not used (User, 2026-10-13).",
@@ -100,18 +100,18 @@
       "ribbons": {}
     },
     "picture-western": {
-      "$description": "Western series (Postcard Image Algo 147:933; board 285:247): master 'western', with 'greetings-western' and 'desert' on the same press. 'build-in-public-western' (Frontier Town) is the same theme in drifted inks and is left out of the sample. Ink, cream, orange, gold, brown and red were read by hand from the master and match `pnpm front-inks` on the three cards within a few points; teal and dark teal are from `pnpm front-inks` (2026-10-13), replacing the earlier #21a291 and #105a5b, which came from Frontier Town. Accent red is a colour, not a ribbon: neither cream (4.00) nor ink (3.6) reaches 4.5:1 on it. The spec's ink library: orange, cream, cyan, teal, brown, black, olive, accent red.",
+      "$description": "Western series (Postcard Image Algo 147:933; Blocks board 77:1719): master 'western', with 'greetings-western' and 'desert' on the same press. 'build-in-public-western' (Frontier Town) is the same theme in drifted inks and is left out of the sample. Ink, cream, orange, gold, brown and red were read by hand from the master and match `pnpm front-inks` on the three cards within a few points; teal and dark teal are from `pnpm front-inks` (2026-10-13), replacing the earlier #21a291 and #105a5b, which came from Frontier Town. Accent red is a colour, not a ribbon: neither cream (4.00) nor ink (3.6) reaches 4.5:1 on it. The spec's ink library: orange, cream, cyan, teal, brown, black, olive, accent red.",
       "colors": {
         "ink": "#1b1209",
         "cream": "#f8e2a1",
         "red": "#cc3605"
       },
       "ribbons": {
-        "orange": { "fill": "#f3740e", "on": "ink", "figma": "285:267" },
-        "gold": { "fill": "#f9aa15", "on": "ink", "figma": "285:272" },
-        "teal": { "fill": "#63a784", "on": "ink", "figma": "285:277" },
-        "dark-teal": { "fill": "#236a57", "on": "cream", "figma": "285:282" },
-        "brown": { "fill": "#582305", "on": "cream", "figma": "285:287" }
+        "orange": { "fill": "#f3740e", "on": "ink", "figma": "77:1738" },
+        "gold": { "fill": "#f9aa15", "on": "ink", "figma": "77:1743" },
+        "teal": { "fill": "#63a784", "on": "ink", "figma": "77:1748" },
+        "dark-teal": { "fill": "#236a57", "on": "cream", "figma": "77:1753" },
+        "brown": { "fill": "#582305", "on": "cream", "figma": "77:1758" }
       }
     },
     "picture-build-in-public": {

@@ -1,4 +1,4 @@
-/* ── Archetypes (11:2) ─────────────────────────────────── */
+/* ── Archetypes (Compositions 1:11)───────────────────────────────── */
 
 .jk-manifesto { flex: 1 0 0; display: flex; flex-direction: column; justify-content: center; align-items: flex-start; gap: var(--jk-space-5); }
 .jk-manifesto__statement { margin: 0; color: var(--md-sys-color-on-surface); }

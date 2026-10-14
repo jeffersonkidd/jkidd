@@ -21,7 +21,7 @@ export function Cards(_: PageProps) {
     scheme,
     ratio,
     project: project.trim() || null,
-    // Series posts show day and series; regular posts neither (Card Frame 8:60).
+    // Series posts show day and series; regular posts neither (Card Frame 67:72).
     ...(series === "series" && { day: s.day ?? "DAY 01", series: "21 DAYS OF DEV" }),
     ...(series === "regular" && { day: null, series: null }),
   });
@@ -63,7 +63,7 @@ export function Cards(_: PageProps) {
                     Edit
                   </a>
                   <a className="btn btn--small btn--ghost" href={figmaUrl(meta.figma)} target="_blank" rel="noreferrer">
-                    {meta.figma} ↗
+                    {meta.figma[1]} ↗
                   </a>
                 </div>
               </div>

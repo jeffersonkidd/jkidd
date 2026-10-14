@@ -15,6 +15,7 @@ import {
   type PipelineContent,
 } from "@jkidd/react";
 import type { PostType } from "@jkidd/tokens";
+import { FIGMA_NODES, type FigmaNode } from "@jkidd/core";
 
 /** A whole card as data: the frame's props plus one archetype and its content. */
 export type CardSpec = FrameProps &
@@ -29,13 +30,13 @@ export type CardSpec = FrameProps &
 
 export type Archetype = CardSpec["archetype"];
 
-export const ARCHETYPES: Record<Archetype, { name: string; bestFor: PostType[]; figma: string; rule: string }> = {
-  manifesto: { name: "Manifesto", bestFor: ["principle"], figma: "11:184", rule: "One oversized statement. The type is the image." },
-  architecture: { name: "Architecture Diagram", bestFor: ["decision", "principle"], figma: "11:212", rule: "Two zones, one arrow. Two arrows is two cards." },
-  pipeline: { name: "Pipeline", bestFor: ["teaching"], figma: "11:261", rule: "Source → one real command → output. Highlight one thing." },
-  parity: { name: "Parity", bestFor: ["progress", "teaching"], figma: "11:317", rule: "The same thing twice. The = is the whole argument." },
-  "before-after": { name: "Before / After", bestFor: ["failure"], figma: "11:351", rule: "Red only on the left, the fix only on the right." },
-  ledger: { name: "Ledger", bestFor: ["progress"], figma: "11:397", rule: "Real item names, uneven lengths, 6 rows at most." },
+export const ARCHETYPES: Record<Archetype, { name: string; bestFor: PostType[]; figma: FigmaNode; rule: string }> = {
+  manifesto: { name: "Manifesto", bestFor: ["principle"], figma: FIGMA_NODES["Postcard/Manifesto"], rule: "One oversized statement. The type is the image." },
+  architecture: { name: "Architecture Diagram", bestFor: ["decision", "principle"], figma: FIGMA_NODES["Postcard/Architecture Diagram"], rule: "Two zones, one arrow. Two arrows is two cards." },
+  pipeline: { name: "Pipeline", bestFor: ["teaching"], figma: FIGMA_NODES["Postcard/Pipeline"], rule: "Source → one real command → output. Highlight one thing." },
+  parity: { name: "Parity", bestFor: ["progress", "teaching"], figma: FIGMA_NODES["Postcard/Parity"], rule: "The same thing twice. The = is the whole argument." },
+  "before-after": { name: "Before / After", bestFor: ["failure"], figma: FIGMA_NODES["Postcard/Before After"], rule: "Red only on the left, the fix only on the right." },
+  ledger: { name: "Ledger", bestFor: ["progress"], figma: FIGMA_NODES["Postcard/Ledger"], rule: "Real item names, uneven lengths, 6 rows at most." },
 };
 
 function Content(spec: CardSpec) {

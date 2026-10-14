@@ -27,6 +27,121 @@
   "paintStyles": {},
   "gridStyles": {},
   "components": {
+    "65:62": {
+      "name": "Kicker",
+      "type": "COMPONENT",
+      "page": "Card Parts",
+      "width": 167,
+      "height": 24,
+      "description": "Post type label. Text is bound to type/label, so it reads the card's Post Type mode; no text property needed.",
+      "key": "486f6a6c7db17dd146efc96784fd64b17f871429"
+    },
+    "65:65": {
+      "name": "Check Row",
+      "type": "COMPONENT_SET",
+      "page": "Card Parts",
+      "width": 1074,
+      "height": 418,
+      "variants": 6,
+      "properties": {
+        "Label": {
+          "type": "TEXT",
+          "default": "Wired the tokens into the site shell"
+        },
+        "Mark": {
+          "type": "VARIANT",
+          "default": "Check",
+          "options": [
+            "Check",
+            "Cross",
+            "Dot"
+          ]
+        },
+        "Struck": {
+          "type": "VARIANT",
+          "default": "No",
+          "options": [
+            "No",
+            "Yes"
+          ]
+        }
+      },
+      "description": "One line of a Ledger or Before / After card. Check (type ink) for shipped, Cross (error) for the mistake, Dot for a note. Struck=Yes is the subtraction ledger: what was cut. Real item names at uneven lengths; 6 rows at most.",
+      "key": "f2407573b19ab5907681c1ece10e3530f6451741"
+    },
+    "65:86": {
+      "name": "Token Chip",
+      "type": "COMPONENT",
+      "page": "Card Parts",
+      "width": 384,
+      "height": 73,
+      "properties": {
+        "Token": {
+          "type": "TEXT",
+          "default": "surface-primary"
+        },
+        "Show swatch": {
+          "type": "BOOLEAN",
+          "default": true
+        }
+      },
+      "description": "A component or token chip for Architecture Diagram zones and Pipeline outputs. Override the swatch fill with the real token.",
+      "key": "d035a1096e205654b685b1626b6085d6507c530a"
+    },
+    "65:89": {
+      "name": "Arrow",
+      "type": "COMPONENT",
+      "page": "Card Parts",
+      "width": 144,
+      "height": 72,
+      "properties": {
+        "Annotation": {
+          "type": "TEXT",
+          "default": "imports"
+        }
+      },
+      "description": "One arrow per card. The annotation carries the rule. A diagram that needs two arrows is two cards.",
+      "key": "a1d67465f505340c8110b17cff7dbe32bdf6f537"
+    },
+    "65:94": {
+      "name": "Equals Badge",
+      "type": "COMPONENT",
+      "page": "Card Parts",
+      "width": 88,
+      "height": 88,
+      "description": "The whole argument of a Parity card. Sits on the hairline between the Figma half and the code half.",
+      "key": "7caacf8b5fe93f303c6570a2dffd4f8f966bcab0"
+    },
+    "65:96": {
+      "name": "Terminal",
+      "type": "COMPONENT",
+      "page": "Card Parts",
+      "width": 367,
+      "height": 91,
+      "properties": {
+        "Command": {
+          "type": "TEXT",
+          "default": "npm run tokens"
+        }
+      },
+      "description": "The hero of a Pipeline card: one real command. Content never invents: use the command that actually ran.",
+      "key": "bfeb53273a45613445d1043c61c42f99a7b6261b"
+    },
+    "65:99": {
+      "name": "Zone Label",
+      "type": "COMPONENT",
+      "page": "Card Parts",
+      "width": 180,
+      "height": 34,
+      "properties": {
+        "Label": {
+          "type": "TEXT",
+          "default": "PRIMITIVES"
+        }
+      },
+      "description": "Sits on the top edge of a dashed zone (absolute, y = -18). Names the zone: PRIMITIVES, FIGMA, BEFORE…",
+      "key": "85475a273c5eaeb224c753ce189cf558765d3c6a"
+    },
     "35:38": {
       "name": "Icon/Chevron Right",
       "type": "COMPONENT",
@@ -279,12 +394,12 @@
       "width": 1600,
       "height": 900
     },
-    "1:10": {
-      "name": "Card Parts · incoming",
-      "type": "SECTION",
+    "1:11": {
+      "name": "Card Parts",
+      "type": "FRAME",
       "page": "Card Parts",
-      "width": 1600,
-      "height": 900
+      "width": 1074,
+      "height": 1422
     },
     "36:129": {
       "name": "Icons",

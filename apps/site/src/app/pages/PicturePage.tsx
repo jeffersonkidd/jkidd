@@ -106,7 +106,6 @@ export function PicturePage(_: PageProps) {
     location: printStory ? location.toUpperCase() : null,
     ribbon: ribbons.includes(ribbon) ? ribbon : ribbons[0],
     side,
-    figma: WORKBENCH_NODES.PicturePostcard,
     figure: figureOn ? { cycle, line } : null,
   };
   const prompt = useMemo(() => frontPrompt(master, brief), [master, brief]);

@@ -32,7 +32,7 @@ export const CardFrame = forwardRef<HTMLDivElement, FrameProps & { children?: Re
       data-scheme={scheme}
       data-post-type={postType}
       data-ratio={ratio}
-      data-figma={FIGMA_NODES.CardFrame}
+      data-figma={FIGMA_NODES.CardFrame[1]}
       style={{ width, height }}
     >
       <div className="jk-card__rail" />
@@ -45,7 +45,7 @@ export const CardFrame = forwardRef<HTMLDivElement, FrameProps & { children?: Re
         <div className="jk-card__zone">
           <div className="jk-card__content">
             {children ?? (
-              <div className="jk-empty jk-text-card-chrome" data-figma={FIGMA_NODES.ContentEmpty}>
+              <div className="jk-empty jk-text-card-chrome" data-figma={FIGMA_NODES.ContentEmpty[1]}>
                 CONTENT ZONE · swap in an archetype
               </div>
             )}

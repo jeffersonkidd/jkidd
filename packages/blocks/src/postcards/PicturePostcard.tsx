@@ -1,5 +1,5 @@
 import { forwardRef, type CSSProperties } from "react";
-import { NOTEBOOK_NODES } from "@jkidd/core";
+import { FIGMA_NODES, NOTEBOOK_NODES } from "@jkidd/core";
 import { figurePose, type FigureSpec } from "@jkidd/core";
 import { FigureStrokes } from "@jkidd/react";
 import type { SeriesId } from "./fronts";
@@ -36,8 +36,6 @@ export type PictureSpec = {
   ribbon: string;
   /** Which bottom corner the label sits in: the one the hero isn't standing in. */
   side: "left" | "right";
-  /** Workbench node the front was read from. */
-  figma?: string;
   /** An Architect's Notebook stick figure in the front's ink. null or absent: none. */
   figure?: FigureSpec | null;
 };
@@ -83,7 +81,7 @@ export const PicturePostcard = forwardRef<HTMLDivElement, { spec: PictureSpec; d
       data-series={spec.series}
       data-ribbon={spec.ribbon}
       data-side={spec.side}
-      data-figma={spec.figma}
+      data-figma={FIGMA_NODES.PicturePostcard[1]}
     >
       <div className="jk-pic__scene">
         <img className="jk-pic__art" src={spec.scene} alt="" draggable={false} />

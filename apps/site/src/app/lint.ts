@@ -21,7 +21,7 @@ export function lintCard(spec: CardSpec): Finding[] {
     out.push({
       level: "warn",
       message: "Series posts show both the day and the series; regular posts show neither.",
-      source: "Card Frame 8:60",
+      source: "Card Frame 67:72",
     });
   }
   if (spec.ratio && spec.ratio !== "16:9" && spec.archetype !== "manifesto" && spec.archetype !== "ledger") {
@@ -35,14 +35,14 @@ export function lintCard(spec: CardSpec): Finding[] {
   switch (spec.archetype) {
     case "manifesto": {
       const n = spec.content.lines.length + 1;
-      if (n > 5) out.push({ level: "error", message: `${n} lines. Manifesto takes 3–5 lines at most, payoff included.`, source: "Content/Manifesto 11:3" });
+      if (n > 5) out.push({ level: "error", message: `${n} lines. Manifesto takes 3–5 lines at most, payoff included.`, source: "Content/Manifesto 81:239" });
       if (n < 3) out.push({ level: "info", message: `${n} lines. The spec suggests 3–5; break lines by meaning, not width.`, source: "POSTCARDS.md §3" });
       if (!spec.content.payoff.trim()) out.push({ level: "error", message: "No payoff line. The payoff is the claim.", source: "POSTCARDS.md §3" });
       break;
     }
     case "architecture":
       if (spec.content.arrow.includes("→") || spec.content.arrow.includes(","))
-        out.push({ level: "warn", message: "The annotation looks like two rules. A diagram that needs two arrows is two cards.", source: "Arrow 9:28" });
+        out.push({ level: "warn", message: "The annotation looks like two rules. A diagram that needs two arrows is two cards.", source: "Arrow 65:89" });
       if (spec.content.from.chips.length > 6)
         out.push({ level: "warn", message: `${spec.content.from.chips.length} chips. Keep a zone readable at 320px.`, source: "Principle 4" });
       break;
@@ -51,12 +51,12 @@ export function lintCard(spec: CardSpec): Finding[] {
       if (highlight < 0 || highlight >= lines.length)
         out.push({ level: "error", message: "Highlight exactly one output line; the eye needs a landing point.", source: "POSTCARDS.md §3" });
       if (!spec.content.transform.command.trim())
-        out.push({ level: "error", message: "The middle stage needs one real command.", source: "Terminal 9:35" });
+        out.push({ level: "error", message: "The middle stage needs one real command.", source: "Terminal 65:96" });
       break;
     }
     case "parity":
       if (!spec.content.left.image && !spec.content.right.image)
-        out.push({ level: "info", message: "Replace both specimens with real screenshots at the same zoom and crop before posting.", source: "Content/Parity 11:82" });
+        out.push({ level: "info", message: "Replace both specimens with real screenshots at the same zoom and crop before posting.", source: "Content/Parity 81:281" });
       else if (spec.content.left.specimen !== spec.content.right.specimen)
         out.push({ level: "warn", message: "The halves describe different things. The = is the whole argument.", source: "POSTCARDS.md §3" });
       break;
@@ -66,7 +66,7 @@ export function lintCard(spec: CardSpec): Finding[] {
       break;
     case "ledger": {
       const n = spec.content.rows.length;
-      if (n > 6) out.push({ level: "error", message: `${n} rows; only the first 6 render. Keep the 6 most visual.`, source: "Content/Ledger 11:123" });
+      if (n > 6) out.push({ level: "error", message: `${n} rows; only the first 6 render. Keep the 6 most visual.`, source: "Content/Ledger 81:305" });
       const lens = spec.content.rows.map((r) => r.text.length);
       if (n >= 3 && Math.max(...lens) - Math.min(...lens) < 6)
         out.push({ level: "info", message: "Rows are all about the same length. Real item names come at uneven lengths.", source: "POSTCARDS.md §3" });

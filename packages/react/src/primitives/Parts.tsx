@@ -5,7 +5,7 @@ import { FIGMA_NODES } from "@jkidd/core";
 /** Post type label. Empty by default, so it reads the card's type (type/label). */
 export function Kicker({ children }: { children?: string }) {
   return (
-    <span className="jk-kicker" data-figma={FIGMA_NODES.Kicker}>
+    <span className="jk-kicker" data-figma={FIGMA_NODES.Kicker[1]}>
       <span className="jk-kicker__bullet" aria-hidden />
       <span className="jk-kicker__label jk-text-card-kicker">{children}</span>
     </span>
@@ -28,7 +28,7 @@ export function Zone({
 }) {
   return (
     <div className={`jk-zone ${className}`} data-tone={tone}>
-      <span className="jk-zone-label jk-text-card-chrome" data-figma={FIGMA_NODES.ZoneLabel}>
+      <span className="jk-zone-label jk-text-card-chrome" data-figma={FIGMA_NODES.ZoneLabel[1]}>
         {label}
       </span>
       {children}
@@ -39,7 +39,7 @@ export function Zone({
 /** A component or token chip. Pass swatch to override the type accent with the real token. */
 export function TokenChip({ children, swatch, fill }: { children: string; swatch?: string; fill?: boolean }) {
   return (
-    <span className="jk-chip" data-fill={fill || undefined} data-figma={FIGMA_NODES.TokenChip}>
+    <span className="jk-chip" data-fill={fill || undefined} data-figma={FIGMA_NODES.TokenChip[1]}>
       <span className="jk-chip__swatch" style={swatch ? { background: swatch } : undefined} aria-hidden />
       <span className="jk-text-card-code">{children}</span>
     </span>
@@ -50,7 +50,7 @@ export function TokenChip({ children, swatch, fill }: { children: string; swatch
 export function Arrow({ children }: { children: string }) {
   const style = { "--jk-arrow-src": `url("${arrowLine}")` } as CSSProperties;
   return (
-    <span className="jk-arrow" data-figma={FIGMA_NODES.Arrow}>
+    <span className="jk-arrow" data-figma={FIGMA_NODES.Arrow[1]}>
       <span className="jk-arrow__line" style={style} aria-hidden />
       <span className="jk-arrow__label">{children}</span>
     </span>
@@ -60,7 +60,7 @@ export function Arrow({ children }: { children: string }) {
 /** The whole argument of a Parity card. */
 export function EqualsBadge() {
   return (
-    <span className="jk-badge" data-figma={FIGMA_NODES.EqualsBadge} aria-label="equals">
+    <span className="jk-badge" data-figma={FIGMA_NODES.EqualsBadge[1]} aria-label="equals">
       =
     </span>
   );
@@ -69,7 +69,7 @@ export function EqualsBadge() {
 /** The hero of a Pipeline card: one real command. Use the command that actually ran. */
 export function Terminal({ children }: { children: string }) {
   return (
-    <span className="jk-terminal jk-text-card-code" data-figma={FIGMA_NODES.Terminal}>
+    <span className="jk-terminal jk-text-card-code" data-figma={FIGMA_NODES.Terminal[1]}>
       <span className="jk-terminal__prompt">$</span>
       <span>{children}</span>
     </span>
@@ -102,7 +102,7 @@ export function CheckRow({
       data-mark={mark}
       data-mark-tone={markTone}
       data-struck={struck || undefined}
-      data-figma={FIGMA_NODES.CheckRow}
+      data-figma={FIGMA_NODES.CheckRow[1]}
     >
       <span className="jk-row__mark" aria-hidden>
         {GLYPH[mark]}

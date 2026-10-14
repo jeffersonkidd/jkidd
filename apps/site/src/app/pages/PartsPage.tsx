@@ -5,7 +5,7 @@ import type { PageProps } from "../App";
 
 const MARKS: RowMark[] = ["check", "cross", "dot"];
 
-/** Card Parts (9:2), drawn at card scale and shrunk to fit the page. */
+/** Card Parts (Primitives 1:11), drawn at card scale and shrunk to fit the page. */
 export function PartsPage(_: PageProps) {
   const [type, setType] = useState<PostType>("progress");
   return (
@@ -25,7 +25,7 @@ export function PartsPage(_: PageProps) {
         <div className="parts-canvas__inner">
           <figure>
             <Kicker />
-            <figcaption className="label">Kicker · 9:3 · reads type/label</figcaption>
+            <figcaption className="label">Kicker · 65:62 · reads type/label</figcaption>
           </figure>
 
           <figure>
@@ -38,31 +38,31 @@ export function PartsPage(_: PageProps) {
                 )),
               )}
             </div>
-            <figcaption className="label">Check Row · 9:24 · strike is its own layer</figcaption>
+            <figcaption className="label">Check Row · 65:65 · strike is its own layer</figcaption>
           </figure>
 
           <div className="parts-grid">
             <figure>
               <TokenChip>surface-container</TokenChip>
-              <figcaption className="label">Token Chip · 9:25</figcaption>
+              <figcaption className="label">Token Chip · 65:86</figcaption>
             </figure>
             <figure>
               <Arrow>imports</Arrow>
-              <figcaption className="label">Arrow · 9:28 · one per card</figcaption>
+              <figcaption className="label">Arrow · 65:89 · one per card</figcaption>
             </figure>
             <figure>
               <EqualsBadge />
-              <figcaption className="label">Equals Badge · 9:33</figcaption>
+              <figcaption className="label">Equals Badge · 65:94</figcaption>
             </figure>
             <figure>
               <Terminal>pnpm tokens</Terminal>
-              <figcaption className="label">Terminal · 9:35 · the command that ran</figcaption>
+              <figcaption className="label">Terminal · 65:96 · the command that ran</figcaption>
             </figure>
             <figure>
               <Zone label="PRIMITIVES">
                 <div style={{ height: 40 }} />
               </Zone>
-              <figcaption className="label">Zone + Zone Label · 9:38</figcaption>
+              <figcaption className="label">Zone + Zone Label · 65:99</figcaption>
             </figure>
           </div>
         </div>

@@ -3,8 +3,7 @@ import { FIGMA_FILE_KEY } from "@jkidd/tokens";
 /**
  * The JKidd design libraries, in layer order; each uses only the ones before it, as
  * the packages do. Foundations was JKidd - DS. The other four were split out of
- * it on 2026-10-12 and fill as components are moved across in Figma; until then the
- * node IDs below still point into Foundations.
+ * it on 2026-10-12, and the components moved across on 2026-10-14.
  */
 export const LIBRARIES = {
   Foundations: FIGMA_FILE_KEY,
@@ -14,40 +13,51 @@ export const LIBRARIES = {
   Blocks: "1qe9bxB8lEeLhFolzYd5sI",
 } as const;
 
-/** Where each code component lives in JKidd - Foundations. Rendered as data-figma on the root element. */
+/** A node in one of the libraries: [file key, node ID]. data-figma takes the ID ([1]); figmaUrl takes the pair. */
+export type FigmaNode = readonly [fileKey: string, node: string];
+
+/** Where each code component lives in the libraries. Its ID is rendered as data-figma on the root element. */
 export const FIGMA_NODES = {
+  // Foundations (Cover page; marks on Marks)
   /** The Cover frame; its Scheme mode switches it between light and dark. */
-  Cover: "98:3432",
-  Monogram: "7:20",
-  Wordmark: "7:27",
-  ProjectMark: "7:28",
-  HandleLockup: "7:30",
-  CardFrame: "8:60",
-  ContentEmpty: "8:2",
-  Kicker: "9:3",
-  CheckRow: "9:24",
-  TokenChip: "9:25",
-  Arrow: "9:28",
-  EqualsBadge: "9:33",
-  Terminal: "9:35",
-  ZoneLabel: "9:38",
-  Manifesto: "11:3",
-  ArchitectureDiagram: "11:13",
-  Pipeline: "11:44",
-  Parity: "11:82",
-  BeforeAfter: "11:98",
-  Ledger: "11:123",
-  "Postcard/Manifesto": "11:184",
-  "Postcard/Architecture Diagram": "11:212",
-  "Postcard/Pipeline": "11:261",
-  "Postcard/Parity": "11:317",
-  "Postcard/Before After": "11:351",
-  "Postcard/Ledger": "11:397",
-} as const;
+  Cover: [LIBRARIES.Foundations, "98:3432"],
+  Monogram: [LIBRARIES.Foundations, "7:20"],
+  Wordmark: [LIBRARIES.Foundations, "7:27"],
+  ProjectMark: [LIBRARIES.Foundations, "7:28"],
+  HandleLockup: [LIBRARIES.Foundations, "7:30"],
+  // Primitives (Card Parts page)
+  Kicker: [LIBRARIES.Primitives, "65:62"],
+  CheckRow: [LIBRARIES.Primitives, "65:65"],
+  TokenChip: [LIBRARIES.Primitives, "65:86"],
+  Arrow: [LIBRARIES.Primitives, "65:89"],
+  EqualsBadge: [LIBRARIES.Primitives, "65:94"],
+  Terminal: [LIBRARIES.Primitives, "65:96"],
+  ZoneLabel: [LIBRARIES.Primitives, "65:99"],
+  // Layout (Frame page)
+  CardFrame: [LIBRARIES.Layout, "67:72"],
+  ContentEmpty: [LIBRARIES.Layout, "67:70"],
+  // Compositions (Archetypes page)
+  Manifesto: [LIBRARIES.Compositions, "81:239"],
+  ArchitectureDiagram: [LIBRARIES.Compositions, "81:247"],
+  Pipeline: [LIBRARIES.Compositions, "81:262"],
+  Parity: [LIBRARIES.Compositions, "81:281"],
+  BeforeAfter: [LIBRARIES.Compositions, "81:294"],
+  Ledger: [LIBRARIES.Compositions, "81:305"],
+  // Blocks (Postcards page)
+  "Postcard/Manifesto": [LIBRARIES.Blocks, "61:812"],
+  "Postcard/Architecture Diagram": [LIBRARIES.Blocks, "61:814"],
+  "Postcard/Pipeline": [LIBRARIES.Blocks, "61:816"],
+  "Postcard/Parity": [LIBRARIES.Blocks, "61:818"],
+  "Postcard/Before After": [LIBRARIES.Blocks, "61:820"],
+  "Postcard/Ledger": [LIBRARIES.Blocks, "61:822"],
+  // Blocks (Picture Postcard page): the component, and the board with the brief and the Western inks
+  PicturePostcard: [LIBRARIES.Blocks, "77:1763"],
+  PictureBoard: [LIBRARIES.Blocks, "77:1719"],
+} as const satisfies Record<string, FigmaNode>;
 
 export type FigmaNodeName = keyof typeof FIGMA_NODES;
 
-/** JKidd - Workbench: the link page and the picture postcard are drawn here, not in the library yet. */
+/** JKidd - Workbench: drafts and reference that aren't in the libraries. */
 export const WORKBENCH_FILE_KEY = "7Q8GN3IPMoM6lhFtIMquya";
 
 /** Linktrees page (102:551): the original mockup, now reference only; the live layers are LINK_NODES. */
@@ -58,9 +68,6 @@ export const WORKBENCH_NODES = {
   LinkRow: "118:515",
   /** Postcard Image Algo page: the large-letter front gallery and its production spec, one flattened frame. */
   PostcardFronts: "147:948",
-  /** Picture postcard board on the same page (Handoff): the brief, the ink swatches and the component. */
-  PictureBoard: "285:247",
-  PicturePostcard: "158:580",
 } as const;
 
 /**
@@ -87,7 +94,7 @@ export const LINK_NODES = {
   LinkTile: [LIBRARIES.Compositions, "44:218"],
   // Blocks (Link Page page)
   LinkPage: [LIBRARIES.Blocks, "29:990"],
-} as const satisfies Record<string, readonly [string, string]>;
+} as const satisfies Record<string, FigmaNode>;
 
 /** Architect's Notebook: the hand-drawn kit, a published library upstream of this one. Files come in by `pnpm notebook`. */
 export const NOTEBOOK_FILE_KEY = "gWBVp3oNqUv7ymJXNORuM0";
@@ -97,13 +104,15 @@ export const NOTEBOOK_NODES = {
   Figures: "37:2",
 } as const;
 
-export function figmaUrl(node: string, fileKey: string = FIGMA_FILE_KEY) {
+/** A Figma link to a library node ([file key, node]), or to a node ID in another file (Foundations by default). */
+export function figmaUrl(node: string | FigmaNode, fileKey: string = FIGMA_FILE_KEY) {
+  if (typeof node !== "string") [fileKey, node] = node;
   const library = (Object.keys(LIBRARIES) as (keyof typeof LIBRARIES)[]).find((k) => LIBRARIES[k] === fileKey);
   const name =
     fileKey === WORKBENCH_FILE_KEY
       ? "JKidd---Workbench"
       : fileKey === NOTEBOOK_FILE_KEY
         ? "Architects-Notebook"
-        : `JKidd---${library ?? "DS"}`;
+        : `JKidd---${library ?? "Foundations"}`;
   return `https://www.figma.com/design/${fileKey}/${name}?node-id=${node.replace(":", "-")}`;
 }

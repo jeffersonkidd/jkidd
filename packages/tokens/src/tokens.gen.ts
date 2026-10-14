@@ -45,17 +45,17 @@ export const CANVAS = {
   "16:9": {
     "width": 1600,
     "height": 900,
-    "figma": "8:4"
+    "figma": "67:73"
   },
   "1:1": {
     "width": 1080,
     "height": 1080,
-    "figma": "8:24"
+    "figma": "67:86"
   },
   "4:5": {
     "width": 1080,
     "height": 1350,
-    "figma": "8:42"
+    "figma": "67:99"
   }
 } as const;
 export type Ratio = keyof typeof CANVAS;

@@ -3,7 +3,7 @@ import type { Archetype, CardSpec } from "./Postcard";
 export { LINK_SAMPLE } from "./link/sample";
 
 /**
- * The six Postcard/* components from JKidd - Foundations (11:183), as data. Sample copy is
+ * The six Postcard/* components from JKidd - Blocks (Postcards, 61:811), as data. Sample copy is
  * the library's own: from postcard-wireframes.jsx and the v0.1 build (2026-09-24).
  * Replace it with the real work before posting: content never invents.
  */

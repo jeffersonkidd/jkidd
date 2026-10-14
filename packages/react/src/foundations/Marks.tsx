@@ -10,7 +10,7 @@ export type MonogramSize = "L" | "M" | "S";
  */
 export function Monogram({ tone = "brand", size = "L" }: { tone?: MonogramTone; size?: MonogramSize }) {
   return (
-    <span className="jk-monogram" data-tone={tone} data-size={size} data-figma={FIGMA_NODES.Monogram} role="img" aria-label="JK">
+    <span className="jk-monogram" data-tone={tone} data-size={size} data-figma={FIGMA_NODES.Monogram[1]} role="img" aria-label="JK">
       JK
     </span>
   );
@@ -19,7 +19,7 @@ export function Monogram({ tone = "brand", size = "L" }: { tone?: MonogramTone; 
 /** Typeset wordmark. PLACEHOLDER. The surname carries the brand colour. */
 export function Wordmark({ layout = "inline" }: { layout?: "inline" | "stacked" }) {
   return (
-    <p className="jk-wordmark" data-layout={layout} data-figma={FIGMA_NODES.Wordmark}>
+    <p className="jk-wordmark" data-layout={layout} data-figma={FIGMA_NODES.Wordmark[1]}>
       <span className="jk-wordmark__given">Jefferson</span>
       <span className="jk-wordmark__surname">KIDD</span>
     </p>
@@ -29,7 +29,7 @@ export function Wordmark({ layout = "inline" }: { layout?: "inline" | "stacked" 
 /** The swappable project slot: TIBBIE X, HF LAB, SDS LAB, MONOFLY. */
 export function ProjectMark({ children }: { children: string }) {
   return (
-    <span className="jk-project-mark jk-text-card-chrome" data-figma={FIGMA_NODES.ProjectMark}>
+    <span className="jk-project-mark jk-text-card-chrome" data-figma={FIGMA_NODES.ProjectMark[1]}>
       {children}
     </span>
   );
@@ -41,7 +41,7 @@ export function ProjectMark({ children }: { children: string }) {
  */
 export function HandleLockup({ handle = "@JFKIDD", project }: { handle?: string; project?: string | null }) {
   return (
-    <span className="jk-lockup" data-figma={FIGMA_NODES.HandleLockup}>
+    <span className="jk-lockup" data-figma={FIGMA_NODES.HandleLockup[1]}>
       <Monogram size="S" />
       <span className="jk-lockup__handle jk-text-card-chrome">{handle}</span>
       {project ? (

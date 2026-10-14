@@ -19,7 +19,7 @@ export function MarksPage(_: PageProps) {
 
       <section className="section">
         <h2 className="jk-text-doc-h2">
-          Monogram <a className="figma-link" href={figmaUrl(FIGMA_NODES.Monogram)} target="_blank" rel="noreferrer">7:20 ↗</a>
+          Monogram <a className="figma-link" href={figmaUrl(FIGMA_NODES.Monogram)} target="_blank" rel="noreferrer">{FIGMA_NODES.Monogram[1]} ↗</a>
         </h2>
         <p className="muted">Brand on light or dark; Ink for the Principle card and print; Outline over photos.</p>
         <div className="board">
@@ -36,7 +36,7 @@ export function MarksPage(_: PageProps) {
 
       <section className="section">
         <h2 className="jk-text-doc-h2">
-          Wordmark <a className="figma-link" href={figmaUrl(FIGMA_NODES.Wordmark)} target="_blank" rel="noreferrer">7:27 ↗</a>
+          Wordmark <a className="figma-link" href={figmaUrl(FIGMA_NODES.Wordmark)} target="_blank" rel="noreferrer">{FIGMA_NODES.Wordmark[1]} ↗</a>
         </h2>
         <p className="muted">The surname carries the brand colour.</p>
         <div className="board board--split">
@@ -47,7 +47,7 @@ export function MarksPage(_: PageProps) {
 
       <section className="section">
         <h2 className="jk-text-doc-h2">
-          Handle Lockup <a className="figma-link" href={figmaUrl(FIGMA_NODES.HandleLockup)} target="_blank" rel="noreferrer">7:30 ↗</a>
+          Handle Lockup <a className="figma-link" href={figmaUrl(FIGMA_NODES.HandleLockup)} target="_blank" rel="noreferrer">{FIGMA_NODES.HandleLockup[1]} ↗</a>
         </h2>
         <p className="muted">The project slot takes the project's name, or hides for posts about J.F. Kidd himself.</p>
         <div className="board board--stack">

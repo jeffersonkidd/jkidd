@@ -13,20 +13,20 @@
       "name": "Postcards"
     },
     {
+      "id": "1:33",
+      "name": "Picture Postcard"
+    },
+    {
       "id": "1:20",
       "name": "Link Page"
     },
     {
-      "id": "1:27",
-      "name": "Illustrated"
-    },
-    {
-      "id": "1:33",
-      "name": "Cartoon"
-    },
-    {
       "id": "1:40",
       "name": "Stage"
+    },
+    {
+      "id": "85:2",
+      "name": "Thumbnail Test"
     }
   ],
   "collections": {},
@@ -35,6 +35,122 @@
   "paintStyles": {},
   "gridStyles": {},
   "components": {
+    "61:812": {
+      "name": "Postcard/Manifesto",
+      "type": "COMPONENT",
+      "page": "Postcards",
+      "width": 1600,
+      "height": 900,
+      "description": "Manifesto archetype in the 16:9 constant frame. Default type: Principle (best for Principle). Shown as a 21 Days of Dev post. Change the type by setting this instance's Post Type mode; change the scheme with its Scheme mode.",
+      "key": "65d2ca3bcc4f2b71fdb08d5c94ce860717be0294"
+    },
+    "61:814": {
+      "name": "Postcard/Architecture Diagram",
+      "type": "COMPONENT",
+      "page": "Postcards",
+      "width": 1600,
+      "height": 900,
+      "description": "Architecture Diagram archetype in the 16:9 constant frame. Default type: Decision (best for Decision, Principle). Shown as a 21 Days of Dev post. Change the type by setting this instance's Post Type mode; change the scheme with its Scheme mode.",
+      "key": "a176a665f6ed88c75fb15faa50d3805bd73bbf93"
+    },
+    "61:816": {
+      "name": "Postcard/Pipeline",
+      "type": "COMPONENT",
+      "page": "Postcards",
+      "width": 1600,
+      "height": 900,
+      "description": "Pipeline archetype in the 16:9 constant frame. Default type: Teaching (best for Teaching). Shown as a regular post: day and series off. Change the type by setting this instance's Post Type mode; change the scheme with its Scheme mode.",
+      "key": "b97a03f720aa8974c472d8fde95bd66b29b66afb"
+    },
+    "61:818": {
+      "name": "Postcard/Parity",
+      "type": "COMPONENT",
+      "page": "Postcards",
+      "width": 1600,
+      "height": 900,
+      "description": "Parity archetype in the 16:9 constant frame. Default type: Progress (best for Progress, Teaching). Shown as a 21 Days of Dev post. Change the type by setting this instance's Post Type mode; change the scheme with its Scheme mode.",
+      "key": "00932e415f4a4f03ac157af0d9ce5be9eab53ed2"
+    },
+    "61:820": {
+      "name": "Postcard/Before After",
+      "type": "COMPONENT",
+      "page": "Postcards",
+      "width": 1600,
+      "height": 900,
+      "description": "Before After archetype in the 16:9 constant frame. Default type: Failure (best for Failure). Shown as a regular post: day and series off. Change the type by setting this instance's Post Type mode; change the scheme with its Scheme mode.",
+      "key": "c83e7cff42e22c74208b7799e3c6f19c7cc1cbbc"
+    },
+    "61:822": {
+      "name": "Postcard/Ledger",
+      "type": "COMPONENT",
+      "page": "Postcards",
+      "width": 1600,
+      "height": 900,
+      "description": "Ledger archetype in the 16:9 constant frame. Default type: Progress (best for Progress, recaps). Shown as a 21 Days of Dev post. Change the type by setting this instance's Post Type mode; change the scheme with its Scheme mode.",
+      "key": "1711ebe238010803f4701520a4bfd57516d39d35"
+    },
+    "77:1763": {
+      "name": "Picture Postcard",
+      "type": "COMPONENT",
+      "page": "Picture Postcard",
+      "width": 1536,
+      "height": 1024,
+      "properties": {
+        "Title": {
+          "type": "TEXT",
+          "default": "Jefferson Kidd"
+        },
+        "Show title": {
+          "type": "BOOLEAN",
+          "default": false
+        },
+        "Story": {
+          "type": "TEXT",
+          "default": "THE 4:10 NEVER REACHED SILVER PASS"
+        },
+        "Location": {
+          "type": "TEXT",
+          "default": "COLORADO • HIGH COUNTRY"
+        },
+        "Show story": {
+          "type": "BOOLEAN",
+          "default": true
+        },
+        "Show location": {
+          "type": "BOOLEAN",
+          "default": true
+        }
+      },
+      "description": "Picture postcard: one of the postcard's two types (the archetype Postcard/* are the other). A generated front (swap Front's image fill) in a cream mat (--jk-genre-picture-mat) and a 10px ink border, 1536×1024, scaled not reflowed. Live type on top: a title (Inter Black 148, cream, hard ink shadow) only on art-only fronts; a location ribbon; a story label tilted 2° in the bottom corner the hero isn't standing in (mirror to the left). With a title on, code moves the ribbon under the title. Ink, cream and ribbon are the front's series' own (--jk-genre-picture-<series>-*), shown here in Western with the orange ribbon; Dark Teal and Brown ribbons take cream text. Story and location copy is the library's own (STORY_STARTERS). Code: PicturePostcard (jkidd-ds, #/postcards).",
+      "key": "c38d3e69475da302a754213086b98db7153d76aa"
+    },
+    "77:1771": {
+      "name": "Story Label (draft)",
+      "type": "COMPONENT",
+      "page": "Picture Postcard",
+      "width": 901,
+      "height": 516,
+      "properties": {
+        "Story": {
+          "type": "TEXT",
+          "default": "Someone farted wet on both benches!!!"
+        },
+        "Location": {
+          "type": "TEXT",
+          "default": "I aim to find him"
+        },
+        "Show story": {
+          "type": "BOOLEAN",
+          "default": true
+        },
+        "Show location": {
+          "type": "BOOLEAN",
+          "default": true
+        }
+      },
+      "description": "The picture postcard's story label. One of the postcard's two types (the archetypes are the other). Code: PicturePostcard in jkidd-ds (#/postcards).",
+      "key": "a32225ec762cf08ec0d12ec80c83df2ddc6b012d"
+    },
     "29:990": {
       "name": "Link Page",
       "type": "COMPONENT_SET",
@@ -64,40 +180,33 @@
       "width": 1600,
       "height": 900
     },
-    "1:10": {
-      "name": "Postcards · incoming",
-      "type": "SECTION",
+    "61:811": {
+      "name": "Postcards",
+      "type": "FRAME",
       "page": "Postcards",
-      "width": 1600,
-      "height": 900
+      "width": 3440,
+      "height": 3020
     },
-    "1:21": {
-      "name": "Link Page · arrived",
-      "type": "SECTION",
-      "page": "Link Page",
-      "width": 1600,
-      "height": 900
+    "67:1279": {
+      "name": "Fronts",
+      "type": "FRAME",
+      "page": "Picture Postcard",
+      "width": 6400,
+      "height": 6400
     },
-    "30:514": {
-      "name": "Example · Filtered to Blog",
+    "77:1719": {
+      "name": "Picture Postcard",
+      "type": "FRAME",
+      "page": "Picture Postcard",
+      "width": 2056,
+      "height": 2070
+    },
+    "61:652": {
+      "name": "Link Page",
       "type": "FRAME",
       "page": "Link Page",
-      "width": 1280,
-      "height": 964
-    },
-    "1:28": {
-      "name": "Illustrated · incoming",
-      "type": "SECTION",
-      "page": "Illustrated",
-      "width": 1600,
-      "height": 900
-    },
-    "1:34": {
-      "name": "Cartoon · incoming",
-      "type": "SECTION",
-      "page": "Cartoon",
-      "width": 1600,
-      "height": 900
+      "width": 1830,
+      "height": 3691
     },
     "1:41": {
       "name": "Stage · incoming",
@@ -105,6 +214,13 @@
       "page": "Stage",
       "width": 1600,
       "height": 900
+    },
+    "85:8": {
+      "name": "Thumbnail Test",
+      "type": "FRAME",
+      "page": "Thumbnail Test",
+      "width": 1920,
+      "height": 2024
     }
   }
 }

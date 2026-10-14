@@ -18,13 +18,13 @@ function block(name) {
   return source.slice(start, source.indexOf("\n}", start));
 }
 
-// FIGMA_NODES: `Name: "7:20",` or `"Postcard/Manifesto": "11:184",` — all in Foundations.
-const FIGMA_NODES = [...block("FIGMA_NODES").matchAll(/^\s+"?([^":]+)"?:\s*"(\d+:\d+)"/gm)].map(([, name, id]) => [name, "Foundations", id]);
-// LINK_NODES: `Tag: [LIBRARIES.Primitives, "36:31"],`
-const LINK_NODES = [...block("LINK_NODES").matchAll(/^\s+(\w+):\s*\[LIBRARIES\.(\w+),\s*"(\d+:\d+)"\]/gm)].map(([, name, lib, id]) => [name, lib, id]);
+// `Kicker: [LIBRARIES.Primitives, "65:62"],` or `"Postcard/Manifesto": [LIBRARIES.Blocks, "61:812"],`
+const entries = (name) => [...block(name).matchAll(/^\s+"?([^":]+)"?:\s*\[LIBRARIES\.(\w+),\s*"(\d+:\d+)"\]/gm)].map(([, n, lib, id]) => [n, lib, id]);
+const FIGMA_NODES = entries("FIGMA_NODES");
+const LINK_NODES = entries("LINK_NODES");
 
 test("figma.ts lists the nodes this test checks", () => {
-  assert.ok(FIGMA_NODES.length >= 25, `parsed ${FIGMA_NODES.length} FIGMA_NODES`);
+  assert.ok(FIGMA_NODES.length >= 28, `parsed ${FIGMA_NODES.length} FIGMA_NODES`);
   assert.ok(LINK_NODES.length >= 14, `parsed ${LINK_NODES.length} LINK_NODES`);
 });
 

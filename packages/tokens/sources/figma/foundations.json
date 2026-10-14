@@ -1,7 +1,7 @@
 {
   "$description": "Snapshot of a Figma library, written by packages/tokens/scripts/figma/export.js. Don't edit by hand: refresh it from Figma. The drift tests check the token sources and figma.ts against it.",
   "file": "JKidd - Foundations",
-  "fileKey": null,
+  "fileKey": "ADhu9noVbgFbtapMZivOHw",
   "readAt": "2026-10-14",
   "pages": [
     {
@@ -47,30 +47,6 @@
     {
       "id": "4:208",
       "name": "Layout"
-    },
-    {
-      "id": "4:209",
-      "name": "——— COMPONENTS ———"
-    },
-    {
-      "id": "4:211",
-      "name": "Frame"
-    },
-    {
-      "id": "4:212",
-      "name": "Card Parts"
-    },
-    {
-      "id": "4:213",
-      "name": "Archetypes"
-    },
-    {
-      "id": "4:214",
-      "name": "——— IN USE ———"
-    },
-    {
-      "id": "4:215",
-      "name": "Thumbnail Test"
     }
   ],
   "collections": {
@@ -3019,8 +2995,8 @@
       "name": "Monogram",
       "type": "COMPONENT_SET",
       "page": "Marks",
-      "width": 528,
-      "height": 280,
+      "width": 772,
+      "height": 160,
       "variants": 9,
       "properties": {
         "Tone": {
@@ -3098,304 +3074,6 @@
       },
       "description": "Top-right chrome of every card (decision 3a, User 2026-09-24): the J.F. Kidd mark and handle stay fixed; the project mark sits in a slot and can be hidden. Set the nested Project Mark's text per post.",
       "key": "bfdc5e9b7daa4f76935579aa14f53b2afa0cef6c"
-    },
-    "8:2": {
-      "name": "Content/Empty",
-      "type": "COMPONENT",
-      "page": "Frame",
-      "width": 1360,
-      "height": 644,
-      "description": "Default content for Card Frame. Swap the frame's Content property to a Content/* archetype.",
-      "key": "7bbdd52031a75e66b1bf33a43cf158e0acb5f7d8"
-    },
-    "8:60": {
-      "name": "Card Frame",
-      "type": "COMPONENT_SET",
-      "page": "Frame",
-      "width": 5760,
-      "height": 1510,
-      "variants": 4,
-      "properties": {
-        "Day": {
-          "type": "TEXT",
-          "default": "DAY 01"
-        },
-        "Show day": {
-          "type": "BOOLEAN",
-          "default": true
-        },
-        "Series": {
-          "type": "TEXT",
-          "default": "21 DAYS OF DEV"
-        },
-        "Show series": {
-          "type": "BOOLEAN",
-          "default": true
-        },
-        "Content": {
-          "type": "INSTANCE_SWAP",
-          "default": "11:98"
-        },
-        "Ratio": {
-          "type": "VARIANT",
-          "default": "16:9",
-          "options": [
-            "16:9",
-            "1:1",
-            "4:5",
-            "5:4"
-          ]
-        }
-      },
-      "description": "The constant frame (POSTCARDS.md §1). Only the Content Zone changes between cards. Accent rail and tick bind to type/accent: set the instance's Post Type mode to set the type. Series posts show Day and Series (\"21 DAYS OF DEV\"); regular posts turn both off. Swap Content to a Content/* archetype. Judge at 320px (Thumbnail Test page).",
-      "key": "2c145fb67c95a8750a900a61a192edeab7434b1f"
-    },
-    "9:3": {
-      "name": "Kicker",
-      "type": "COMPONENT",
-      "page": "Card Parts",
-      "width": 167,
-      "height": 24,
-      "description": "Post type label. Text is bound to type/label, so it reads the card's Post Type mode; no text property needed.",
-      "key": "79f215b62b4b67732b564f2058c4e86a5e02173c"
-    },
-    "9:24": {
-      "name": "Check Row",
-      "type": "COMPONENT_SET",
-      "page": "Card Parts",
-      "width": 1074,
-      "height": 418,
-      "variants": 6,
-      "properties": {
-        "Label": {
-          "type": "TEXT",
-          "default": "Wired the tokens into the site shell"
-        },
-        "Mark": {
-          "type": "VARIANT",
-          "default": "Check",
-          "options": [
-            "Check",
-            "Cross",
-            "Dot"
-          ]
-        },
-        "Struck": {
-          "type": "VARIANT",
-          "default": "No",
-          "options": [
-            "No",
-            "Yes"
-          ]
-        }
-      },
-      "description": "One line of a Ledger or Before / After card. Check (type ink) for shipped, Cross (error) for the mistake, Dot for a note. Struck=Yes is the subtraction ledger: what was cut. Real item names at uneven lengths; 6 rows at most.",
-      "key": "ded4d311dc3cf888539fe0fab0cbc730e721c63e"
-    },
-    "9:25": {
-      "name": "Token Chip",
-      "type": "COMPONENT",
-      "page": "Card Parts",
-      "width": 384,
-      "height": 73,
-      "properties": {
-        "Token": {
-          "type": "TEXT",
-          "default": "surface-primary"
-        },
-        "Show swatch": {
-          "type": "BOOLEAN",
-          "default": true
-        }
-      },
-      "description": "A component or token chip for Architecture Diagram zones and Pipeline outputs. Override the swatch fill with the real token.",
-      "key": "6cc313b28ae35803469b930637dc4d40f89e9625"
-    },
-    "9:28": {
-      "name": "Arrow",
-      "type": "COMPONENT",
-      "page": "Card Parts",
-      "width": 144,
-      "height": 72,
-      "properties": {
-        "Annotation": {
-          "type": "TEXT",
-          "default": "imports"
-        }
-      },
-      "description": "One arrow per card. The annotation carries the rule. A diagram that needs two arrows is two cards.",
-      "key": "9c68e2ea87afe20179ba9648a8f57226d33f1367"
-    },
-    "9:33": {
-      "name": "Equals Badge",
-      "type": "COMPONENT",
-      "page": "Card Parts",
-      "width": 88,
-      "height": 88,
-      "description": "The whole argument of a Parity card. Sits on the hairline between the Figma half and the code half.",
-      "key": "7ef6fb0ce98a6c105180d60daefa4e6cda50cd57"
-    },
-    "9:35": {
-      "name": "Terminal",
-      "type": "COMPONENT",
-      "page": "Card Parts",
-      "width": 367,
-      "height": 91,
-      "properties": {
-        "Command": {
-          "type": "TEXT",
-          "default": "npm run tokens"
-        }
-      },
-      "description": "The hero of a Pipeline card: one real command. Content never invents: use the command that actually ran.",
-      "key": "bc77b41d3855c085dcbc105629323a6fa31fc709"
-    },
-    "9:38": {
-      "name": "Zone Label",
-      "type": "COMPONENT",
-      "page": "Card Parts",
-      "width": 180,
-      "height": 34,
-      "properties": {
-        "Label": {
-          "type": "TEXT",
-          "default": "PRIMITIVES"
-        }
-      },
-      "description": "Sits on the top edge of a dashed zone (absolute, y = -18). Names the zone: PRIMITIVES, FIGMA, BEFORE…",
-      "key": "c3f08ebd196295664a0e0830c15715282c531a26"
-    },
-    "11:3": {
-      "name": "Content/Manifesto",
-      "type": "COMPONENT",
-      "page": "Archetypes",
-      "width": 1360,
-      "height": 644,
-      "properties": {
-        "Statement": {
-          "type": "TEXT",
-          "default": "One idea per card.\nThe tweet carries nuance."
-        },
-        "Payoff": {
-          "type": "TEXT",
-          "default": "The card is the claim."
-        },
-        "Attribution": {
-          "type": "TEXT",
-          "default": "PRINCIPLE 5 · ONE IDEA PER CARD"
-        },
-        "Show attribution": {
-          "type": "BOOLEAN",
-          "default": true
-        }
-      },
-      "description": "Manifesto · best for Principle. One oversized statement; the payoff line sits on a type/accent highlight. No imagery: the type is the image. Break lines by meaning, 3–5 lines at most. Sample copy from postcard-wireframes.jsx.",
-      "key": "de294be85cb73fcac7126a81d730624e3bf6158f"
-    },
-    "11:13": {
-      "name": "Content/Architecture Diagram",
-      "type": "COMPONENT",
-      "page": "Archetypes",
-      "width": 1360,
-      "height": 644,
-      "description": "Architecture Diagram · best for Decision, Principle. Two labelled zones, one arrow, one annotation that carries the rule. Chips should be real components exported from the real file. Sample from postcard-wireframes.jsx.",
-      "key": "d592c7d6a018dcd17040dcc3760a77a77f83263e"
-    },
-    "11:44": {
-      "name": "Content/Pipeline",
-      "type": "COMPONENT",
-      "page": "Archetypes",
-      "width": 1360,
-      "height": 644,
-      "description": "Pipeline · best for Teaching. Source → transform → output. The middle stage is one real terminal command. Highlight exactly one thing in the output. Sample from postcard-wireframes.jsx; replace with the real pipeline.",
-      "key": "d705000113eb1dcab033b8f8fd0533e20a8d5b97"
-    },
-    "11:82": {
-      "name": "Content/Parity",
-      "type": "COMPONENT",
-      "page": "Archetypes",
-      "width": 1360,
-      "height": 644,
-      "description": "Parity · best for Progress, Teaching. The same thing twice: Figma render left, live code render right, same zoom and crop. The = is the whole argument; any drift undermines the card. Replace both Specimens with real screenshots.",
-      "key": "10b9f543670d21fd290c72a38ad78ac7471a9edc"
-    },
-    "11:98": {
-      "name": "Content/Before After",
-      "type": "COMPONENT",
-      "page": "Archetypes",
-      "width": 1360,
-      "height": 644,
-      "description": "Before / After · best for Failure. The mistake struck through with error ✕ on the left, the fix with primary ✓ on the right. Red only on the left, the brand accent only on the right; never mix. Equal visual weight. Sample from postcard-wireframes.jsx.",
-      "key": "9dad2e81f7bbb3acc43b059327e829cb1966e96f"
-    },
-    "11:123": {
-      "name": "Content/Ledger",
-      "type": "COMPONENT",
-      "page": "Archetypes",
-      "width": 1360,
-      "height": 644,
-      "properties": {
-        "Heading": {
-          "type": "TEXT",
-          "default": "LIBRARY v0.1 SHIPPED"
-        }
-      },
-      "description": "Ledger · best for Progress and recaps. A left-aligned checklist of real item names at uneven lengths, 6 lines at most. Subtraction variant: set rows to Struck=Yes for a ledger of what was cut. Sample rows are this library's own build, 2026-09-24.",
-      "key": "ecea81ac6a588845704996087a781fc5996d5ddf"
-    },
-    "11:184": {
-      "name": "Postcard/Manifesto",
-      "type": "COMPONENT",
-      "page": "Archetypes",
-      "width": 1600,
-      "height": 900,
-      "description": "Manifesto archetype in the 16:9 constant frame. Default type: Principle (best for Principle). Shown as a 21 Days of Dev post. Change the type by setting this instance's Post Type mode; change the scheme with its Scheme mode.",
-      "key": "93d23eefd31ad672ba9da9cdc45fbcc80a99dd19"
-    },
-    "11:212": {
-      "name": "Postcard/Architecture Diagram",
-      "type": "COMPONENT",
-      "page": "Archetypes",
-      "width": 1600,
-      "height": 900,
-      "description": "Architecture Diagram archetype in the 16:9 constant frame. Default type: Decision (best for Decision, Principle). Shown as a 21 Days of Dev post. Change the type by setting this instance's Post Type mode; change the scheme with its Scheme mode.",
-      "key": "fac02a9bc249d0b0d76ee525c2a9bfbdcd8e1162"
-    },
-    "11:261": {
-      "name": "Postcard/Pipeline",
-      "type": "COMPONENT",
-      "page": "Archetypes",
-      "width": 1600,
-      "height": 900,
-      "description": "Pipeline archetype in the 16:9 constant frame. Default type: Teaching (best for Teaching). Shown as a regular post: day and series off. Change the type by setting this instance's Post Type mode; change the scheme with its Scheme mode.",
-      "key": "b6256e285a4f8d58b51c5c9868fdc76ab1209f76"
-    },
-    "11:317": {
-      "name": "Postcard/Parity",
-      "type": "COMPONENT",
-      "page": "Archetypes",
-      "width": 1600,
-      "height": 900,
-      "description": "Parity archetype in the 16:9 constant frame. Default type: Progress (best for Progress, Teaching). Shown as a 21 Days of Dev post. Change the type by setting this instance's Post Type mode; change the scheme with its Scheme mode.",
-      "key": "66ecb129c2e89e6ff6262c54d461e2df57ac9464"
-    },
-    "11:351": {
-      "name": "Postcard/Before After",
-      "type": "COMPONENT",
-      "page": "Archetypes",
-      "width": 1600,
-      "height": 900,
-      "description": "Before After archetype in the 16:9 constant frame. Default type: Failure (best for Failure). Shown as a regular post: day and series off. Change the type by setting this instance's Post Type mode; change the scheme with its Scheme mode.",
-      "key": "3322070c0100052e1a737ff127270aef9a410461"
-    },
-    "11:397": {
-      "name": "Postcard/Ledger",
-      "type": "COMPONENT",
-      "page": "Archetypes",
-      "width": 1600,
-      "height": 900,
-      "description": "Ledger archetype in the 16:9 constant frame. Default type: Progress (best for Progress, recaps). Shown as a 21 Days of Dev post. Change the type by setting this instance's Post Type mode; change the scheme with its Scheme mode.",
-      "key": "d09ed5d1192341090dbb845b8a427020d822a500"
     }
   },
   "frames": {
@@ -3420,12 +3098,12 @@
       "width": 1294,
       "height": 2456
     },
-    "104:3754": {
-      "name": "Section 1",
-      "type": "SECTION",
+    "399:2953": {
+      "name": "Marks",
+      "type": "FRAME",
       "page": "Marks",
-      "width": 978,
-      "height": 1288
+      "width": 1387,
+      "height": 1166
     },
     "298:1440": {
       "name": "Link Page imagery",
@@ -3433,6 +3111,41 @@
       "page": "Imagery",
       "width": 1390,
       "height": 557
+    },
+    "379:1426": {
+      "name": "jkidd-stage (1) 1",
+      "type": "FRAME",
+      "page": "Illustrations",
+      "width": 1536,
+      "height": 1024
+    },
+    "381:1740": {
+      "name": "jkidd-stage 1",
+      "type": "FRAME",
+      "page": "Illustrations",
+      "width": 1536,
+      "height": 1024
+    },
+    "382:2395": {
+      "name": "51236a7d-7a49-4f20-bd6c-72ef5c9a638d 2 [Vectorized]",
+      "type": "FRAME",
+      "page": "Illustrations",
+      "width": 1536,
+      "height": 1024
+    },
+    "382:1894": {
+      "name": "51236a7d-7a49-4f20-bd6c-72ef5c9a638d 2 [Vectorized]",
+      "type": "FRAME",
+      "page": "Illustrations",
+      "width": 1536,
+      "height": 1024
+    },
+    "425:3522": {
+      "name": "favicon 2",
+      "type": "FRAME",
+      "page": "Illustrations",
+      "width": 400,
+      "height": 400
     },
     "5:2": {
       "name": "Color",
@@ -3445,22 +3158,8 @@
       "name": "Type",
       "type": "FRAME",
       "page": "Type",
-      "width": 1680,
-      "height": 2769
-    },
-    "214:2623": {
-      "name": "figure-crowd",
-      "type": "FRAME",
-      "page": "Type",
-      "width": 221,
-      "height": 80
-    },
-    "298:1456": {
-      "name": "Link type",
-      "type": "SECTION",
-      "page": "Type",
-      "width": 1020,
-      "height": 762
+      "width": 2767,
+      "height": 3718
     },
     "5:597": {
       "name": "Post Types",
@@ -3473,57 +3172,8 @@
       "name": "Layout",
       "type": "FRAME",
       "page": "Layout",
-      "width": 1592,
-      "height": 2032
-    },
-    "12:1245": {
-      "name": "Page Header",
-      "type": "FRAME",
-      "page": "Frame",
-      "width": 978,
-      "height": 300
-    },
-    "9:2": {
-      "name": "Card Parts",
-      "type": "FRAME",
-      "page": "Card Parts",
-      "width": 1234,
-      "height": 1344
-    },
-    "12:1249": {
-      "name": "Page Header",
-      "type": "FRAME",
-      "page": "Card Parts",
-      "width": 978,
-      "height": 276
-    },
-    "11:2": {
-      "name": "Content components",
-      "type": "FRAME",
-      "page": "Archetypes",
-      "width": 2960,
-      "height": 2252
-    },
-    "11:183": {
-      "name": "Postcards",
-      "type": "FRAME",
-      "page": "Archetypes",
-      "width": 3440,
-      "height": 3020
-    },
-    "12:1253": {
-      "name": "Page Header",
-      "type": "FRAME",
-      "page": "Archetypes",
-      "width": 978,
-      "height": 300
-    },
-    "11:454": {
-      "name": "Thumbnail Test",
-      "type": "FRAME",
-      "page": "Thumbnail Test",
-      "width": 1920,
-      "height": 2024
+      "width": 1307,
+      "height": 1568
     }
   }
 }
