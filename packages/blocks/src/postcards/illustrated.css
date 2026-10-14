@@ -52,7 +52,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 4px;
+  gap: var(--jk-space-1);
 }
 .jk-ill__title {
   font-size: 148px;
@@ -66,7 +66,7 @@
 .jk-ill__ribbon {
   padding: 9px 22px;
   border: 4px solid var(--ill-ink);
-  border-radius: 999px;
+  border-radius: var(--jk-radius-full);
   background: var(--ill-ribbon);
   color: var(--ill-on-ribbon);
   font-size: 18px;
@@ -75,7 +75,7 @@
 
 /* Story label (63:62), tilted 2° as printed */
 .jk-ill__label {
-  padding: 12px 24px;
+  padding: var(--jk-space-3) var(--jk-space-6);
   border: 5px solid var(--ill-ink);
   background: var(--ill-cream);
   color: var(--ill-ink);

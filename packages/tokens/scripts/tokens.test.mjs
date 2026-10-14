@@ -53,6 +53,33 @@ test("generated CSS is in step with the sources", () => {
   assert.match(css, new RegExp(`--jk-card-chrome-inset: ${tokens.layout.cardChromeInset.value}px`));
 });
 
+test("the spacing scale matches the Figma Layout collection: space/0 to space/3200 on a 4px step", () => {
+  const css = readFileSync(`${root}src/tokens.css`, "utf8");
+  const steps = [0, 1, 2, 3, 4, 5, 6, 8, 10, 12, 16, 20, 24, 32];
+  for (const n of steps) assert.match(css, new RegExp(`--jk-space-${n}: ${n * 4}px;`));
+});
+
+test("the radius scale matches the Figma Layout collection", () => {
+  const css = readFileSync(`${root}src/tokens.css`, "utf8");
+  const radii = { none: 0, xs: 2, sm: 4, md: 8, lg: 16, xl: 24, full: 9999 };
+  for (const [name, px] of Object.entries(radii)) assert.match(css, new RegExp(`--jk-radius-${name}: ${px}px;`));
+});
+
+test("the stroke scale matches the Figma Layout collection", () => {
+  const css = readFileSync(`${root}src/tokens.css`, "utf8");
+  for (const [name, px] of Object.entries({ hairline: 1, rule: 2, zone: 3 })) assert.match(css, new RegExp(`--jk-stroke-${name}: ${px}px;`));
+});
+
+test("display text styles use the one weight Special Elite Even ships, so no browser fakes a bold", () => {
+  for (const [name, s] of Object.entries(tokens.textStyles)) if (s.font === "display") assert.equal(s.weight, 400, name);
+});
+
+test("every effect style becomes an elevation variable", () => {
+  const css = readFileSync(`${root}src/tokens.css`, "utf8");
+  assert.match(css, /--jk-elevation-card: 0px 2px 4px 0px #001f241a, 0px 16px 40px -8px #001f2424;/);
+  assert.match(css, /--jk-elevation-thumbnail: 0px 4px 12px -2px #001f2429;/);
+});
+
 test("every genre ribbon becomes a fill and an on-fill variable", () => {
   const css = readFileSync(`${root}src/tokens.css`, "utf8");
   for (const [genre, g] of Object.entries(GENRES)) {

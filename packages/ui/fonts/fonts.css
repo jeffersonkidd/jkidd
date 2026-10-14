@@ -19,7 +19,8 @@
 }
 
 /* CC Wild Words (Comicraft) is a paid face: it loads from the machine it's installed
-   on, and --jk-font-lettering falls back to Comic Neue everywhere else. After buying
+   on, and --jk-font-lettering falls back to Anime Ace 2.0 BB, then the system
+   comic face. After buying
    the webfont licence, add url("./wild-words/….woff2") ahead of local() below. */
 @font-face {
   font-family: "CC Wild Words";
@@ -44,7 +45,7 @@
 }
 
 /* Anime Ace 2.0 BB (Blambot) is the second lettering face: where Wild Words isn't
-   installed, it letters before Comic Neue does. Loaded from the machine, never bundled;
+   installed, it letters instead. Loaded from the machine, never bundled;
    Blambot's licence sets its own terms for webfont use. */
 @font-face {
   font-family: "Anime Ace 2.0 BB";

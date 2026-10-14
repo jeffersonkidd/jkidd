@@ -28,7 +28,16 @@ const genreVars = Object.entries(GENRES).flatMap(([g, def]) => [
   ]),
 ]);
 
-const layoutVars = Object.entries(tokens.layout).map(([k, t]) => [`--jk-${kebab(k)}`, `${t.value}${t.unit}`]);
+// Named by the Figma variable's code syntax, so space/400 becomes --jk-space-4 as in Figma.
+const layoutVars = Object.entries(tokens.layout).map(([k, t]) => [t.figma ?? `--jk-${kebab(k)}`, `${t.value}${t.unit}`]);
+
+// Effect styles → box-shadow lists. Elevation/Card becomes --jk-elevation-card.
+const effectVars = Object.entries(tokens.effects)
+  .filter(([k]) => !k.startsWith("$"))
+  .map(([name, shadows]) => [
+    `--jk-${kebab(name.replace("/", "-"))}`,
+    shadows.map((s) => `${s.x}px ${s.y}px ${s.blur}px ${s.spread}px ${s.color}`).join(", "),
+  ]);
 
 // Scheme collection: 49 roles × 6 modes. Light is also the :root fallback.
 const schemeBlock = (mode) => {
@@ -71,7 +80,7 @@ const textStyles = Object.entries(tokens.textStyles)
 
 const css = [
   HEADER,
-  `:root {\n  /* Palette: ${paletteVars.length} variables */\n${decl(paletteVars)}\n\n  /* Type */\n${decl(fontVars)}\n\n  /* Layout */\n${decl(layoutVars)}\n\n  /* Genres */\n${decl(genreVars)}\n}`,
+  `:root {\n  /* Palette: ${paletteVars.length} variables */\n${decl(paletteVars)}\n\n  /* Type */\n${decl(fontVars)}\n\n  /* Layout */\n${decl(layoutVars)}\n\n  /* Effects */\n${decl(effectVars)}\n\n  /* Genres */\n${decl(genreVars)}\n}`,
   ...SCHEMES.map(schemeBlock),
   ...Object.entries(POST_TYPES).map(typeBlock),
   ...textStyles,

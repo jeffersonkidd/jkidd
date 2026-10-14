@@ -60,7 +60,7 @@
 .jk-toon__ribbon {
   padding: 8px 28px 4px;
   border: 6px solid var(--toon-ink);
-  border-radius: 999px;
+  border-radius: var(--jk-radius-full);
   background: var(--toon-ribbon);
   color: var(--toon-on-ribbon);
   box-shadow: 8px 9px 0 var(--toon-ink);
@@ -73,7 +73,7 @@
 /* Story label: a comic caption box, so it's lettered (Wild Words, then Anime Ace 2.0).
    Cream face, ink outline, extruded ink shadow, like the big letters. */
 .jk-toon__label {
-  padding: 20px 32px 16px;
+  padding: var(--jk-space-5) var(--jk-space-8) var(--jk-space-4);
   border: 8px solid var(--toon-ink);
   border-radius: 6px;
   background: var(--toon-cream);

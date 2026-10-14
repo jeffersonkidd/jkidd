@@ -17,10 +17,30 @@
   "layout": {
     "cardRail": { "value": 16, "unit": "px", "figma": "--jk-card-rail" },
     "cardChromeInset": { "value": 48, "unit": "px", "figma": "--jk-card-chrome-inset" },
+    "radiusNone": { "value": 0, "unit": "px", "figma": "--jk-radius-none" },
+    "radiusXs": { "value": 2, "unit": "px", "figma": "--jk-radius-xs" },
+    "radiusSm": { "value": 4, "unit": "px", "figma": "--jk-radius-sm" },
+    "radiusMd": { "value": 8, "unit": "px", "figma": "--jk-radius-md" },
     "radiusLg": { "value": 16, "unit": "px", "figma": "--jk-radius-lg" },
     "radiusXl": { "value": 24, "unit": "px", "figma": "--jk-radius-xl" },
     "radiusFull": { "value": 9999, "unit": "px", "figma": "--jk-radius-full" },
-    "strokeRule": { "value": 2, "unit": "px", "figma": "--jk-stroke-rule" }
+    "strokeHairline": { "value": 1, "unit": "px", "figma": "--jk-stroke-hairline" },
+    "strokeRule": { "value": 2, "unit": "px", "figma": "--jk-stroke-rule" },
+    "strokeZone": { "value": 3, "unit": "px", "figma": "--jk-stroke-zone" },
+    "space0": { "value": 0, "unit": "px", "figma": "--jk-space-0" },
+    "space1": { "value": 4, "unit": "px", "figma": "--jk-space-1" },
+    "space2": { "value": 8, "unit": "px", "figma": "--jk-space-2" },
+    "space3": { "value": 12, "unit": "px", "figma": "--jk-space-3" },
+    "space4": { "value": 16, "unit": "px", "figma": "--jk-space-4" },
+    "space5": { "value": 20, "unit": "px", "figma": "--jk-space-5" },
+    "space6": { "value": 24, "unit": "px", "figma": "--jk-space-6" },
+    "space8": { "value": 32, "unit": "px", "figma": "--jk-space-8" },
+    "space10": { "value": 40, "unit": "px", "figma": "--jk-space-10" },
+    "space12": { "value": 48, "unit": "px", "figma": "--jk-space-12" },
+    "space16": { "value": 64, "unit": "px", "figma": "--jk-space-16" },
+    "space20": { "value": 80, "unit": "px", "figma": "--jk-space-20" },
+    "space24": { "value": 96, "unit": "px", "figma": "--jk-space-24" },
+    "space32": { "value": 128, "unit": "px", "figma": "--jk-space-32" }
   },
   "canvas": {
     "$description": "Card Frame (8:60) Ratio variants. Judge every card at 320px wide (Principle 4).",
@@ -29,23 +49,46 @@
     "4:5": { "width": 1080, "height": 1350, "figma": "8:42" }
   },
   "fonts": {
-    "$description": "Type collection. Display: Special Elite Even, the repaired cut in fonts/special-elite-repaired (User, 2026-10-11). Body: Inter, for running text. Two comic faces for short text only (User, 2026-10-11): lettering is CC Wild Words (Comicraft, paid; loaded from the machine until a webfont licence is bought), then Anime Ace 2.0 BB (Blambot; also loaded from the machine, never bundled), with Comic Neue (OFL) standing in where neither is installed; burst is Bangers (OFL) for loud titles. Mono stays provisional (JKIDD.md decision 1). In Figma (Foundations, Type) since 2026-10-13: font/lettering holds Comic Neue, the installed stand-in, and font/burst Bangers.",
+    "$description": "Type collection. Display: Special Elite Even, the repaired cut in fonts/special-elite-repaired (User, 2026-10-11). Body: Inter, for running text. Two comic faces for short text only (User, 2026-10-11): lettering is CC Wild Words (Comicraft, paid; loaded from the machine until a webfont licence is bought), then Anime Ace 2.0 BB (Blambot; also loaded from the machine, never bundled); burst is Bangers (OFL) for loud titles. Mono stays provisional (JKIDD.md decision 1). In Figma (Foundations, Type) since 2026-10-13: font/lettering holds Anime Ace 2.0 BB and font/burst Bangers. The comic faces are Wild Words, Anime Ace and Bangers; Comic Neue is not used (User, 2026-10-13).",
     "display": { "family": "Special Elite Even", "fallback": "\"Courier New\", ui-monospace, monospace", "figma": "--jk-font-display" },
     "body": { "family": "Inter", "fallback": "system-ui, sans-serif", "figma": "--jk-font-body" },
     "mono": { "family": "JetBrains Mono", "fallback": "ui-monospace, monospace", "figma": "--jk-font-mono" },
-    "lettering": { "family": "CC Wild Words", "fallback": "\"Anime Ace 2.0 BB\", \"Comic Neue\", \"Comic Sans MS\", cursive", "figma": "--jk-font-lettering" },
+    "lettering": { "family": "CC Wild Words", "fallback": "\"Anime Ace 2.0 BB\", \"Comic Sans MS\", cursive", "figma": "--jk-font-lettering" },
     "burst": { "family": "Bangers", "fallback": "Impact, \"Arial Black\", sans-serif", "figma": "--jk-font-burst" }
   },
   "textStyles": {
-    "$description": "Text styles read from Figma. letterSpacing is in percent of the font size, as Figma stores it. Card/Headline and Card/Title exist in the library but haven't been read into code yet.",
-    "Card/Statement": { "font": "display", "weight": 700, "size": 120, "lineHeight": 0.95, "letterSpacing": -3 },
-    "Card/Kicker": { "font": "mono", "weight": 700, "size": 24, "lineHeight": 1, "letterSpacing": 14, "uppercase": true },
-    "Card/Chrome": { "font": "mono", "weight": 500, "size": 22, "lineHeight": 1, "letterSpacing": 12, "uppercase": true },
-    "Card/Body": { "font": "body", "weight": 500, "size": 36, "lineHeight": 1.3, "letterSpacing": 0 },
+    "$description": "Text styles read from Figma. letterSpacing is in percent of the font size, as Figma stores it. Read from JKidd - DS on 2026-10-13, in Figma order. Display weights are 400: Special Elite Even ships one weight, and the 700/500 kept from Space Grotesk made browsers fake a bold. Not read in: Card/Title, Doc/Body and Doc/Small (fonts not bound to a Type variable: Anime Ace 2.0, Patrick Hand SC, Architects Daughter) and Doc/Body Strong (Inter Regular, so not strong).",
+    "Card/Statement": { "font": "display", "weight": 400, "size": 120, "lineHeight": 0.95, "letterSpacing": -3 },
+    "Card/Headline": { "font": "display", "weight": 400, "size": 88, "lineHeight": 1, "letterSpacing": -2 },
+    "Card/Body": { "font": "body", "weight": 400, "size": 36, "lineHeight": 1.3, "letterSpacing": 0 },
     "Card/Code": { "font": "mono", "weight": 400, "size": 32, "lineHeight": 1.4, "letterSpacing": 0 },
-    "Doc/H1": { "font": "display", "weight": 700, "size": 40, "lineHeight": 1.1, "letterSpacing": -2 },
-    "Doc/H2": { "font": "display", "weight": 500, "size": 24, "lineHeight": 1.2, "letterSpacing": -1 },
-    "Doc/Label": { "font": "mono", "weight": 500, "size": 11, "lineHeight": 1.3, "letterSpacing": 10, "uppercase": true }
+    "Card/Chrome": { "font": "mono", "weight": 500, "size": 22, "lineHeight": 1, "letterSpacing": 12, "uppercase": true },
+    "Card/Kicker": { "font": "mono", "weight": 700, "size": 24, "lineHeight": 1, "letterSpacing": 14, "uppercase": true },
+    "Doc/Display": { "font": "display", "weight": 400, "size": 72, "lineHeight": 1, "letterSpacing": -3 },
+    "Doc/H1": { "font": "display", "weight": 400, "size": 40, "lineHeight": 1.1, "letterSpacing": -2 },
+    "Doc/H2": { "font": "display", "weight": 400, "size": 24, "lineHeight": 1.2, "letterSpacing": -1 },
+    "Doc/Caption": { "font": "mono", "weight": 400, "size": 13, "lineHeight": 1.4, "letterSpacing": 0 },
+    "Doc/Label": { "font": "mono", "weight": 500, "size": 11, "lineHeight": 1.3, "letterSpacing": 10, "uppercase": true },
+    "Doc/Code": { "font": "mono", "weight": 400, "size": 12, "lineHeight": 1.4, "letterSpacing": 0 },
+    "Link/Wordmark": { "font": "burst", "weight": 400, "size": 32, "lineHeight": 1, "letterSpacing": 3 },
+    "Link/Wordmark Compact": { "font": "burst", "weight": 400, "size": 26, "lineHeight": 1, "letterSpacing": 3 },
+    "Link/Name": { "font": "display", "weight": 400, "size": 46, "lineHeight": 1.1, "letterSpacing": -1 },
+    "Link/Name Compact": { "font": "display", "weight": 400, "size": 38, "lineHeight": 1.1, "letterSpacing": -1 },
+    "Link/Row Title": { "font": "burst", "weight": 400, "size": 36, "lineHeight": 1, "letterSpacing": 3 },
+    "Link/Tile Label": { "font": "burst", "weight": 400, "size": 26, "lineHeight": 1.1, "letterSpacing": 4 },
+    "Link/Body": { "font": "body", "weight": 600, "size": 14, "lineHeight": 1.4, "letterSpacing": 0 },
+    "Link/Tab": { "font": "lettering", "weight": 400, "size": 15, "lineHeight": 1, "letterSpacing": 4, "uppercase": true },
+    "Link/Kicker": { "font": "mono", "weight": 700, "size": 12, "lineHeight": 1, "letterSpacing": 14, "uppercase": true },
+    "Link/Tag": { "font": "mono", "weight": 500, "size": 11, "lineHeight": 1, "letterSpacing": 12, "uppercase": true },
+    "Link/Nav": { "font": "mono", "weight": 500, "size": 11, "lineHeight": 1, "letterSpacing": 4 }
+  },
+  "effects": {
+    "$description": "Effect styles read from JKidd - DS on 2026-10-13: drop shadows in primary-10 (#001f24) at the opacity Figma gives. blur is Figma's radius.",
+    "Elevation/Card": [
+      { "x": 0, "y": 2, "blur": 4, "spread": 0, "color": "#001f241a" },
+      { "x": 0, "y": 16, "blur": 40, "spread": -8, "color": "#001f2424" }
+    ],
+    "Elevation/Thumbnail": [{ "x": 0, "y": 4, "blur": 12, "spread": -2, "color": "#001f2429" }]
   },
   "genres": {
     "$description": "Genre colours dress a postcard's front and are not the brand palette (POSTCARDS.md section 4; JKIDD.md decision 10). Hex values read from the JKidd - Workbench file (7Q8GN3IPMoM6lhFtIMquya). on names the genre colour used for text set on the fill.",

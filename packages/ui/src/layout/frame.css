@@ -16,7 +16,7 @@
   min-width: 0;
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: var(--jk-space-5);
   padding: var(--jk-card-chrome-inset);
   overflow: hidden;
 }
@@ -28,7 +28,7 @@
   min-height: 0;
   display: flex;
   flex-direction: column;
-  padding: 32px 64px;
+  padding: var(--jk-space-8) var(--jk-space-16);
   overflow: hidden;
 }
 .jk-card__content { flex: 1 0 0; min-height: 0; width: 100%; display: flex; }
@@ -39,8 +39,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  border: 3px dashed var(--md-sys-color-outline-variant);
-  border-radius: 8px;
+  border: var(--jk-stroke-zone) dashed var(--md-sys-color-outline-variant);
+  border-radius: var(--jk-radius-md);
   color: var(--md-sys-color-outline);
 }
 

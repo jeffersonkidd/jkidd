@@ -1,36 +1,36 @@
 /* ── Archetypes (11:2) ─────────────────────────────────── */
 
-.jk-manifesto { flex: 1 0 0; display: flex; flex-direction: column; justify-content: center; align-items: flex-start; gap: 20px; }
+.jk-manifesto { flex: 1 0 0; display: flex; flex-direction: column; justify-content: center; align-items: flex-start; gap: var(--jk-space-5); }
 .jk-manifesto__statement { margin: 0; color: var(--md-sys-color-on-surface); }
 .jk-manifesto__statement span { display: block; }
 .jk-manifesto__payoff {
   display: inline-block;
-  padding: 0 24px 8px 20px;
+  padding: 0 var(--jk-space-6) var(--jk-space-2) var(--jk-space-5);
   background: var(--jk-type-accent);
   color: var(--jk-type-on-accent);
 }
 .jk-manifesto__attribution { color: var(--md-sys-color-on-surface-variant); }
 
-.jk-arch { flex: 1 0 0; display: flex; align-items: center; gap: 40px; }
+.jk-arch { flex: 1 0 0; display: flex; align-items: center; gap: var(--jk-space-10); }
 .jk-arch__zone-a { flex: 1 0 0; flex-direction: row; flex-wrap: wrap; align-content: flex-start; }
 .jk-arch__zone-b { flex: 1 0 0; }
 .jk-composition {
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: var(--jk-space-4);
   width: 100%;
-  padding: 24px;
-  border: 2px solid var(--md-sys-color-outline);
+  padding: var(--jk-space-6);
+  border: var(--jk-stroke-rule) solid var(--md-sys-color-outline);
   border-radius: 12px;
   background: var(--md-sys-color-surface-container);
 }
-.jk-composition__title { width: 260px; height: 28px; border-radius: 4px; background: var(--md-sys-color-on-surface-variant); }
+.jk-composition__title { width: 260px; height: 28px; border-radius: var(--jk-radius-sm); background: var(--md-sys-color-on-surface-variant); }
 .jk-composition__body { height: 120px; border-radius: 6px; background: var(--md-sys-color-surface-container-highest); }
 .jk-composition__action { width: 160px; height: 36px; border-radius: 6px; background: var(--jk-type-accent); }
 
-.jk-pipeline { flex: 1 0 0; display: flex; align-items: center; gap: 24px; }
+.jk-pipeline { flex: 1 0 0; display: flex; align-items: center; gap: var(--jk-space-6); }
 .jk-pipeline .jk-zone { flex: 1 0 0; padding: 48px 28px 40px; }
-.jk-pipeline__source { gap: 12px; }
+.jk-pipeline__source { gap: var(--jk-space-3); }
 .jk-pipeline__transform { align-items: center; justify-content: center; }
 .jk-pipeline__output { gap: 10px; }
 .jk-code-line {
@@ -47,7 +47,7 @@
 
 .jk-parity { flex: 1 0 0; display: flex; align-items: stretch; }
 .jk-parity .jk-zone { flex: 1 0 0; align-items: center; justify-content: center; }
-.jk-parity__divider { display: flex; flex-direction: column; align-items: center; padding: 0 32px; }
+.jk-parity__divider { display: flex; flex-direction: column; align-items: center; padding: 0 var(--jk-space-8); }
 .jk-parity__hairline { flex: 1 0 0; width: 2px; background: var(--md-sys-color-outline); }
 .jk-specimen {
   display: flex;
@@ -63,10 +63,10 @@
   letter-spacing: -0.01em;
   white-space: nowrap;
 }
-.jk-specimen-img { max-width: 100%; max-height: 100%; object-fit: contain; border-radius: 8px; }
+.jk-specimen-img { max-width: 100%; max-height: 100%; object-fit: contain; border-radius: var(--jk-radius-md); }
 
-.jk-before-after { flex: 1 0 0; display: flex; align-items: stretch; gap: 48px; }
-.jk-before-after .jk-zone { flex: 1 0 0; gap: 12px; justify-content: center; align-items: flex-start; }
+.jk-before-after { flex: 1 0 0; display: flex; align-items: stretch; gap: var(--jk-space-12); }
+.jk-before-after .jk-zone { flex: 1 0 0; gap: var(--jk-space-3); justify-content: center; align-items: flex-start; }
 
 .jk-ledger { flex: 1 0 0; display: flex; flex-direction: column; justify-content: center; align-items: flex-start; gap: 14px; }
 .jk-ledger__title { color: var(--jk-type-ink); }

@@ -9,10 +9,10 @@
   position: relative;
   display: flex;
   flex-direction: column;
-  gap: 16px;
-  padding: 48px 40px 40px;
-  border: 3px dashed var(--md-sys-color-outline-variant);
-  border-radius: 8px;
+  gap: var(--jk-space-4);
+  padding: var(--jk-space-12) var(--jk-space-10) var(--jk-space-10);
+  border: var(--jk-stroke-zone) dashed var(--md-sys-color-outline-variant);
+  border-radius: var(--jk-radius-md);
   min-width: 0;
 }
 .jk-zone[data-tone="error"] { border-color: var(--md-sys-color-error); }
@@ -22,7 +22,7 @@
   left: 21px;
   top: -21px;
   padding: 6px 12px;
-  border-radius: 4px;
+  border-radius: var(--jk-radius-sm);
   background: var(--md-sys-color-surface);
   color: var(--md-sys-color-on-surface-variant);
   white-space: nowrap;
@@ -31,9 +31,9 @@
 .jk-chip {
   display: inline-flex;
   align-items: center;
-  gap: 16px;
+  gap: var(--jk-space-4);
   padding: 14px 24px 14px 16px;
-  border-radius: 8px;
+  border-radius: var(--jk-radius-md);
   background: var(--md-sys-color-surface-container-high);
   color: var(--md-sys-color-on-surface);
   white-space: nowrap;
@@ -41,7 +41,7 @@
 .jk-chip[data-fill] { width: 100%; }
 .jk-chip__swatch { width: 40px; height: 40px; border-radius: 6px; flex-shrink: 0; background: var(--jk-type-accent); }
 
-.jk-arrow { display: flex; flex-direction: column; align-items: center; gap: 12px; flex-shrink: 0; }
+.jk-arrow { display: flex; flex-direction: column; align-items: center; gap: var(--jk-space-3); flex-shrink: 0; }
 /* The Figma asset, used as a mask so it takes type/ink in every mode. */
 .jk-arrow__line {
   width: 144px;
@@ -72,9 +72,9 @@
 .jk-terminal {
   display: inline-flex;
   align-items: center;
-  gap: 16px;
+  gap: var(--jk-space-4);
   padding: 22px 32px 22px 28px;
-  border: 1px solid var(--md-sys-color-outline-variant);
+  border: var(--jk-stroke-hairline) solid var(--md-sys-color-outline-variant);
   border-radius: 12px;
   background: var(--md-sys-color-surface-container-highest);
   color: var(--md-sys-color-on-surface);
@@ -82,7 +82,7 @@
 }
 .jk-terminal__prompt { color: var(--jk-type-ink); }
 
-.jk-row { position: relative; display: flex; align-items: center; gap: 24px; }
+.jk-row { position: relative; display: flex; align-items: center; gap: var(--jk-space-6); }
 .jk-row[data-mark="dot"] { opacity: 0.7; }
 .jk-row__mark {
   width: 40px;
