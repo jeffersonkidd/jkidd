@@ -1,21 +1,52 @@
-import { HandleLockup, Monogram, Wordmark, FIGMA_NODES, figmaUrl, type MonogramSize, type MonogramTone } from "../../ds";
+import { Emblem, HandleLockup, Monogram, Wordmark, FIGMA_NODES, figmaUrl, type MonogramSize, type MonogramTone } from "../../ds";
 import { PageHeader } from "../components/Controls";
 import type { PageProps } from "../App";
 
 const TONES: MonogramTone[] = ["brand", "ink", "outline"];
 const SIZES: MonogramSize[] = ["L", "M", "S"];
 const PROJECTS = ["TIBBIE X", "HF LAB", "SDS LAB", "MONOFLY"];
+const EMBLEM_SIZES = [192, 96, 48, 32, 16];
 
 export function MarksPage(_: PageProps) {
   return (
     <div className="page">
       <PageHeader eyebrow="Components · 01" title="Marks">
         <p>
-          Placeholders until the real marks are designed (JKIDD.md §6, step 3): a typeset JK monogram and wordmark in the
-          display face. The Handle Lockup is the top-right chrome of every card: the J.F. Kidd mark and handle fixed, the
+          The emblem is the real mark. The monogram and wordmark are placeholders until they're designed (JKIDD.md §6,
+          step 3): typeset in the display face. The Handle Lockup is the top-right chrome of every card: the J.F. Kidd mark and handle fixed, the
           project in a slot you can hide (decision 3a, settled 2026-09-24).
         </p>
       </PageHeader>
+
+      <section className="section">
+        <h2 className="jk-text-doc-h2">
+          Emblem <a className="figma-link" href={figmaUrl(FIGMA_NODES.Emblem)} target="_blank" rel="noreferrer">{FIGMA_NODES.Emblem[1]} ↗</a>
+        </h2>
+        <p className="muted">
+          The winged seahorse: logo, favicon and avatar, drawn from the master's own geometry. The badge keeps its black,
+          grey and white on light or dark; Mono takes the text colour, and is the figure's default since it has no field
+          of its own. Below 32px the detail closes up, so the favicon is as small as it goes.
+        </p>
+        <div className="board">
+          <div className="board__row">
+            <span className="label board__caption">badge</span>
+            {EMBLEM_SIZES.map((size) => (
+              <Emblem key={size} size={size} />
+            ))}
+          </div>
+          <div className="board__row">
+            <span className="label board__caption">figure</span>
+            {EMBLEM_SIZES.map((size) => (
+              <Emblem key={size} variant="figure" size={size / 2} />
+            ))}
+          </div>
+          <div className="board__row">
+            <span className="label board__caption">mono</span>
+            <Emblem tone="mono" size={96} />
+            <Emblem tone="mono" size={48} />
+          </div>
+        </div>
+      </section>
 
       <section className="section">
         <h2 className="jk-text-doc-h2">
@@ -61,6 +92,9 @@ export function MarksPage(_: PageProps) {
       <section className="section">
         <h2 className="jk-text-doc-h2">On dark</h2>
         <div className="board board--split" data-scheme="dark">
+          <Emblem size={96} />
+          <Emblem tone="mono" size={96} />
+          <Emblem variant="figure" size={60} />
           <Monogram />
           <Wordmark layout="stacked" />
           <HandleLockup project="TIBBIE X" />

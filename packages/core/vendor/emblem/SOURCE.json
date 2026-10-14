@@ -1,0 +1,16 @@
+{
+  "mark": "Emblem: the winged seahorse badge (logo, favicon, avatar)",
+  "figma": {
+    "file": "ADhu9noVbgFbtapMZivOHw",
+    "node": "425:3522",
+    "where": "JKidd - Foundations › Illustrations › Logo Assets › asset 3"
+  },
+  "files": {
+    "emblem.json": {
+      "from": "emblem.source.svg",
+      "generator": "scripts/sync-emblem.mjs",
+      "sha256": "3f14b19f56249d24cf1ee27ca10de7160e6c017afd279e66e648b53bc2c1158a",
+      "transform": "transforms baked into the points, numbers rounded to 2 places, shapes sorted, in paint order, into field, band, body, halo and wing"
+    }
+  }
+}

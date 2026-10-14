@@ -3,12 +3,13 @@
   "version": "0.1.0",
   "private": true,
   "type": "module",
-  "description": "Framework-free logic: Figma node map, the stick-figure rig, contrast math and export helpers. No React.",
+  "description": "Framework-free logic: Figma node map, the stick-figure rig, the emblem's geometry, contrast math and export helpers. No React.",
   "exports": {
     ".": "./src/index.ts"
   },
   "scripts": {
     "notebook": "node scripts/sync-notebook.mjs",
+    "emblem": "node scripts/sync-emblem.mjs",
     "test": "node --test \"scripts/*.test.mjs\""
   },
   "dependencies": {

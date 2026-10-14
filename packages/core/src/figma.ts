@@ -18,13 +18,15 @@ export type FigmaNode = readonly [fileKey: string, node: string];
 
 /** Where each code component lives in the libraries. Its ID is rendered as data-figma on the root element. */
 export const FIGMA_NODES = {
-  // Foundations (Cover page; marks on Marks)
+  // Foundations (Cover page; marks on Marks; the emblem on Illustrations)
   /** The Cover frame; its Scheme mode switches it between light and dark. */
   Cover: [LIBRARIES.Foundations, "98:3432"],
   Monogram: [LIBRARIES.Foundations, "7:20"],
   Wordmark: [LIBRARIES.Foundations, "7:27"],
   ProjectMark: [LIBRARIES.Foundations, "7:28"],
   HandleLockup: [LIBRARIES.Foundations, "7:30"],
+  /** The vector of the three Logo Assets (asset 3). A frame for now, not yet a component. */
+  Emblem: [LIBRARIES.Foundations, "425:3522"],
   // Primitives (Card Parts page)
   Kicker: [LIBRARIES.Primitives, "65:62"],
   CheckRow: [LIBRARIES.Primitives, "65:65"],

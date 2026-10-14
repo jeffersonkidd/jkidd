@@ -12,6 +12,7 @@
     "tokens": "pnpm --filter @jkidd/tokens build",
     "contrast": "pnpm --filter @jkidd/tokens contrast",
     "notebook": "pnpm --filter @jkidd/core notebook",
+    "emblem": "pnpm --filter @jkidd/core emblem && node scripts/icons.mjs",
     "front": "pnpm --filter @jkidd/blocks front",
     "predev": "pnpm tokens",
     "dev": "pnpm --filter @jkidd/site dev",
@@ -26,6 +27,7 @@
     "front-inks": "pnpm --filter @jkidd/blocks front-inks"
   },
   "devDependencies": {
+    "@resvg/resvg-js": "^2.6.2",
     "@types/node": "^22.0.0",
     "@types/react": "^19.0.0",
     "@types/react-dom": "^19.0.0",

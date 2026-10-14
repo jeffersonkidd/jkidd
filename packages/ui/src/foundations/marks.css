@@ -48,3 +48,28 @@
   white-space: nowrap;
 }
 
+
+/* The emblem: the winged seahorse badge. Its layers paint from --jk-emblem-*, so a
+   tone is only a set of these. The halo's outline knocks the wing out of the ring
+   and body (a mask in the component) and paints in --jk-emblem-halo over that. */
+.jk-emblem {
+  --jk-emblem-ink: var(--jk-palette-neutral-0);
+  --jk-emblem-band: var(--jk-palette-neutral-70);
+  --jk-emblem-field: var(--jk-palette-neutral-100);
+  --jk-emblem-halo: var(--jk-emblem-field);
+  display: block;
+  flex-shrink: 0;
+  width: var(--jk-emblem-size, 100%);
+  height: auto;
+  overflow: visible;
+  fill-rule: evenodd;
+}
+.jk-emblem[data-tone="mono"] {
+  --jk-emblem-ink: currentColor;
+  --jk-emblem-band: transparent;
+  --jk-emblem-field: transparent;
+}
+.jk-emblem__field { fill: var(--jk-emblem-field); }
+.jk-emblem__band { fill: var(--jk-emblem-band); stroke: var(--jk-emblem-ink); stroke-miterlimit: 1; }
+.jk-emblem__ink { fill: var(--jk-emblem-ink); }
+.jk-emblem__halo { fill: var(--jk-emblem-ink); stroke: var(--jk-emblem-halo); stroke-linejoin: round; }

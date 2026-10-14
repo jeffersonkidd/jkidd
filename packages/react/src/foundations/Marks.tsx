@@ -1,4 +1,5 @@
-import { FIGMA_NODES } from "@jkidd/core";
+import { useId, type CSSProperties } from "react";
+import { EMBLEM, EMBLEM_LABEL, FIGMA_NODES } from "@jkidd/core";
 
 export type MonogramTone = "brand" | "ink" | "outline";
 export type MonogramSize = "L" | "M" | "S";
@@ -51,5 +52,64 @@ export function HandleLockup({ handle = "@JFKIDD", project }: { handle?: string;
         </>
       ) : null}
     </span>
+  );
+}
+
+export type EmblemVariant = "badge" | "figure";
+export type EmblemTone = "original" | "mono";
+
+/**
+ * The winged seahorse: J.F. Kidd's logo, favicon and avatar, drawn from the master's
+ * own geometry (EMBLEM in @jkidd/core). Badge is the whole emblem in its ring; Figure
+ * is the seahorse alone, boxed tight. Original keeps the master's black, grey and
+ * white (from the neutral palette), and holds on light or dark because the badge
+ * brings its own field; Mono draws in currentColor, for one-colour print and stamps.
+ * The figure has no field to stand on, so it defaults to Mono; Original is for light
+ * grounds and photos, where its white halo works as a sticker edge.
+ * Size is the width in px (the badge is square); without one it fills its box.
+ * Pass label={null} where a name is already given next to it.
+ */
+export function Emblem({
+  variant = "badge",
+  tone = variant === "badge" ? "original" : "mono",
+  size,
+  label = EMBLEM_LABEL,
+  className = "",
+}: {
+  variant?: EmblemVariant;
+  tone?: EmblemTone;
+  size?: number;
+  label?: string | null;
+  className?: string;
+}) {
+  const knockout = useId();
+  const badge = variant === "badge";
+  const style = size === undefined ? undefined : ({ "--jk-emblem-size": `${size}px` } as CSSProperties);
+  return (
+    <svg
+      className={`jk-emblem ${className}`}
+      data-variant={variant}
+      data-tone={tone}
+      data-figma={FIGMA_NODES.Emblem[1]}
+      viewBox={badge ? EMBLEM.viewBox : EMBLEM.figureViewBox}
+      style={style}
+      {...(label ? { role: "img", "aria-label": label } : { "aria-hidden": true })}
+    >
+      <mask id={knockout} maskUnits="userSpaceOnUse" x="0" y="0" width="400" height="400">
+        <rect width="400" height="400" fill="white" />
+        <path d={EMBLEM.halo.d} fill="black" stroke="black" strokeWidth={EMBLEM.halo.stroke} strokeLinejoin="round" />
+      </mask>
+      {badge ? <circle className="jk-emblem__field" cx={EMBLEM.field.cx} cy={EMBLEM.field.cy} r={EMBLEM.field.r} /> : null}
+      <g mask={`url(#${knockout})`}>
+        {badge ? <path className="jk-emblem__band" d={EMBLEM.band.d} strokeWidth={EMBLEM.band.stroke} /> : null}
+        <g className="jk-emblem__ink">
+          {EMBLEM.body.map((d, i) => (
+            <path key={i} d={d} />
+          ))}
+        </g>
+      </g>
+      <path className="jk-emblem__halo" d={EMBLEM.halo.d} strokeWidth={EMBLEM.halo.stroke} />
+      <path className="jk-emblem__ink" d={EMBLEM.wing} />
+    </svg>
   );
 }
