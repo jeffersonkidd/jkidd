@@ -9,3 +9,4 @@ export * from "./postcards/PicturePostcard";
 export * from "./postcards/StagePostcard";
 export * from "./postcards/stageSvg";
 export * from "./samples";
+export * from "./templates";

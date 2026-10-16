@@ -31,7 +31,8 @@ const specifiers = (src) => [
 ].map((m) => m[1]);
 
 test("the packages are the ones the layers name", () => {
-  assert.deepEqual(readdirSync(join(root, "packages")).sort(), Object.keys(ALLOWED).sort());
+  const dirs = readdirSync(join(root, "packages")).filter((f) => statSync(join(root, "packages", f)).isDirectory());
+  assert.deepEqual(dirs.sort(), Object.keys(ALLOWED).sort());
 });
 
 for (const [pkg, allowed] of Object.entries(ALLOWED)) {

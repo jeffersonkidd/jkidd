@@ -1,12 +1,17 @@
 # CLAUDE.md
 
-Jefferson Kidd design system in code, built from the Figma libraries: *JKidd - Foundations* (`ADhu9noVbgFbtapMZivOHw`, formerly *JKidd - DS*) and the four split out of it (Primitives, Layout, Compositions, Blocks; keys in `packages/core/src/figma.ts`). The charter and the rules it implements live in the Workbench: `~/Desktop/🧰 Workbench/projects/jkidd/` (`JKIDD.md`, `content/POSTCARDS.md`, `content/CONTENT-SYSTEM.md`).
+Jefferson Kidd design system in code, built from the Figma libraries: *JKidd - Foundations* (`ADhu9noVbgFbtapMZivOHw`, formerly *JKidd - DS*) and the four split out of it (Primitives, Layout, Compositions, Blocks; keys in `packages/core/src/figma.ts`). The charter and the rules it implements live in the Workbench: `~/Desktop/Workbench/projects/jkidd/` (`JKIDD.md`, `content/POSTCARDS.md`, `content/CONTENT-SYSTEM.md`).
 
 ## Commands
 
 - `pnpm dev`: demo site on :5178 (regenerates tokens first)
 - `pnpm links`: the link-in-bio site on :5179
 - `pnpm check`: tokens → contrast → tests → typecheck → build. Run it before calling a change done.
+
+## Docs
+
+- `docs/MANUAL.md`: how to run this repo, a lesson per task (outline; lessons written one at a time).
+- `docs/CLIENT-GUIDES.md`: teaching clients to run what we build for them. The first guide is Tibbie X's, in `~/Desktop/tibbiex/docs/guide/`.
 
 ## Packages
 

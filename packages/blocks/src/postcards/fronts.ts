@@ -12,6 +12,7 @@ import buildWestern from "../assets/fronts/build-in-public-western.jpg";
 import christmas from "../assets/fronts/christmas.jpg";
 import space from "../assets/fronts/space.jpg";
 import desert from "../assets/fronts/desert.jpg";
+import buildJk from "../assets/fronts/build-in-public-jk.jpg";
 
 /**
  * The fronts of the picture postcard (JKidd - Workbench, Postcard Image Algo 147:933), one
@@ -82,6 +83,7 @@ export const FRONTS: Front[] = [
   { id: "christmas", series: "christmas", name: "Christmas", image: christmas, lettering: "JEFFERSON KIDD", greeting: false, theme: "Christmas: Santa, snowman, tree, a snowy village" },
   { id: "space", series: "space", name: "Space", image: space, lettering: "JEFFERSON KIDD", greeting: false, theme: "Space: astronaut, rocket, alien, flying saucer" },
   { id: "desert", series: "western", name: "Desert", image: desert, lettering: null, greeting: false, theme: "Desert sunset: saguaro, prickly pear, red rock, teal mountains", press: 1 },
+  { id: "build-in-public-jk", series: "build-in-public", name: "Build in public, lettered", image: buildJk, lettering: "JEFFERSON KIDD", greeting: false, theme: "Building in public: a rocket, coders at laptops, whiteboards, hearts and a lightbulb in the letters, over the dusk skyline", press: 0.75 },
 ];
 
 /**

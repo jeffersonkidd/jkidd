@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import { getFontEmbedCSS, toPng } from "html-to-image";
-import { ARCHETYPES, CANVAS, POST_TYPES, SAMPLES, SCHEMES, type Archetype, type CardSpec, type Ratio } from "../../ds";
+import { ARCHETYPES, CANVAS, POST_TYPES, SAMPLES, SCHEMES, TEMPLATES, type Archetype, type CardSpec, type Ratio } from "../../ds";
 import { PageHeader, Segmented, Select, TextField, cap } from "../components/Controls";
 import { ScaledCard } from "../components/ScaledCard";
 import { lintCard } from "../lint";
@@ -8,6 +8,7 @@ import { decodeSpec, encodeSpec } from "../share";
 import type { PageProps } from "../App";
 
 const ARCHETYPE_KEYS = Object.keys(ARCHETYPES) as Archetype[];
+const TEMPLATE_IDS = ["", ...TEMPLATES.map((t) => t.id)];
 
 function slug(spec: CardSpec) {
   const day = spec.day ? `${spec.day.toLowerCase().replace(/\s+/g, "-")}-` : "";
@@ -38,6 +39,16 @@ export function Studio({ query }: PageProps) {
     const sample = SAMPLES[a];
     setSpec((s) => ({ ...s, archetype: a, content: sample.content, postType: sample.postType }) as CardSpec);
     setJson(JSON.stringify(sample.content, null, 2));
+  };
+
+  const [templateId, setTemplateId] = useState("");
+  const template = TEMPLATES.find((t) => t.id === templateId);
+  const pickTemplate = (id: string) => {
+    setTemplateId(id);
+    const t = TEMPLATES.find((t) => t.id === id);
+    if (!t) return;
+    setSpec((s) => ({ scheme: s.scheme, ratio: s.ratio, day: null, series: null, project: null, ...t.spec }) as CardSpec);
+    setJson(JSON.stringify(t.spec.content, null, 2));
   };
 
   const editJson = (text: string) => {
@@ -96,6 +107,21 @@ export function Studio({ query }: PageProps) {
 
       <div className="studio">
         <form className="studio__panel" onSubmit={(e) => e.preventDefault()}>
+          <Select
+            label="Template"
+            value={templateId}
+            options={TEMPLATE_IDS}
+            onChange={pickTemplate}
+            format={(id) => {
+              const t = TEMPLATES.find((t) => t.id === id);
+              return t ? `${t.name} · ${ARCHETYPES[t.spec.archetype].name}` : "None: the archetype's sample";
+            }}
+          />
+          {template ? (
+            <p className="muted">
+              Idea {template.idea}, journal {template.event}. Pattern: {template.pattern}. Check the copy against the event before posting.
+            </p>
+          ) : null}
           <Select label="Archetype" value={spec.archetype} options={ARCHETYPE_KEYS} onChange={switchArchetype} format={(a) => ARCHETYPES[a].name} />
           <Segmented label="Post type" value={spec.postType} options={POST_TYPES} onChange={(postType) => set({ postType })} format={cap} />
           <Select label="Scheme" value={spec.scheme ?? "dark"} options={SCHEMES} onChange={(scheme) => set({ scheme })} />
