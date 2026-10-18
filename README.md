@@ -6,7 +6,7 @@ A card is data. Write the frame settings and one archetype's content as JSON, re
 
 ```
 pnpm install
-pnpm dev        # http://localhost:5178 (runs pnpm tokens first)
+pnpm dev        # demo on http://localhost:5178, links on :5179 (runs pnpm tokens first)
 pnpm check      # tokens → contrast audit → tests → typecheck → build
 ```
 

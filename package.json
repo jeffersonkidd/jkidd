@@ -15,7 +15,7 @@
     "emblem": "pnpm --filter @jkidd/core emblem && node scripts/icons.mjs",
     "front": "pnpm --filter @jkidd/blocks front",
     "predev": "pnpm tokens",
-    "dev": "pnpm --filter @jkidd/site dev",
+    "dev": "pnpm --filter @jkidd/site --filter @jkidd/links --parallel dev",
     "prebuild": "pnpm tokens",
     "build": "pnpm --filter @jkidd/site build",
     "preview": "pnpm --filter @jkidd/site preview",

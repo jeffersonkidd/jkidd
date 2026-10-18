@@ -4,8 +4,8 @@ Jefferson Kidd design system in code, built from the Figma libraries: *JKidd - F
 
 ## Commands
 
-- `pnpm dev`: demo site on :5178 (regenerates tokens first)
-- `pnpm links`: the link-in-bio site on :5179
+- `pnpm dev`: demo site on :5178 and the link-in-bio site on :5179 (regenerates tokens first)
+- `pnpm links`: the link-in-bio site alone on :5179
 - `pnpm check`: tokens → contrast → tests → typecheck → build. Run it before calling a change done.
 
 ## Docs
