@@ -1,14 +1,30 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import { getFontEmbedCSS, toPng } from "html-to-image";
-import { ARCHETYPES, CANVAS, POST_TYPES, SAMPLES, SCHEMES, TEMPLATES, type Archetype, type CardSpec, type Ratio } from "../../ds";
+import {
+  ARCHETYPES,
+  CANVAS,
+  DressedPostcard,
+  POST_TYPES,
+  SAMPLES,
+  SCHEMES,
+  SERIES,
+  SERIES_IDS,
+  TEMPLATES,
+  dressBack,
+  type Archetype,
+  type CardSpec,
+  type Ratio,
+} from "../../ds";
 import { PageHeader, Segmented, Select, TextField, cap } from "../components/Controls";
-import { ScaledCard } from "../components/ScaledCard";
+import { ScaledBox, ScaledCard } from "../components/ScaledCard";
 import { lintCard } from "../lint";
 import { decodeSpec, encodeSpec } from "../share";
 import type { PageProps } from "../App";
 
 const ARCHETYPE_KEYS = Object.keys(ARCHETYPES) as Archetype[];
 const TEMPLATE_IDS = ["", ...TEMPLATES.map((t) => t.id)];
+const BACKS = ["plain", "dressed"] as const;
+const DRESSES = ["", ...SERIES_IDS] as const;
 
 function slug(spec: CardSpec) {
   const day = spec.day ? `${spec.day.toLowerCase().replace(/\s+/g, "-")}-` : "";
@@ -77,7 +93,7 @@ export function Studio({ query }: PageProps) {
       const url = await toPng(cardRef.current, { width, height, pixelRatio, fontEmbedCSS: await fontCSS });
       const a = document.createElement("a");
       a.href = url;
-      a.download = `${slug(spec)}${pixelRatio > 1 ? `@${pixelRatio}x` : ""}.png`;
+      a.download = `${slug(spec)}${dressed ? "-dressed" : ""}${pixelRatio > 1 ? `@${pixelRatio}x` : ""}.png`;
       a.click();
       flash(`Exported ${width * pixelRatio}×${height * pixelRatio} PNG in ${((performance.now() - t0) / 1000).toFixed(1)}s`);
     } catch (e) {
@@ -95,6 +111,24 @@ export function Studio({ query }: PageProps) {
   };
 
   const ratio = spec.ratio ?? "16:9";
+
+  // Dressing the back (#/backs): read this card's JSON and dress it from the stock catalog.
+  const [back, setBack] = useState<(typeof BACKS)[number]>("plain");
+  const [dress, setDress] = useState<(typeof DRESSES)[number]>("");
+  const [take, setTake] = useState(0);
+  const source = template ? { idea: template.idea, event: template.event } : null;
+  const dressed = useMemo(
+    () => (back === "dressed" ? dressBack(spec, { source, dress: dress || null, take }).dressing : null),
+    [back, spec, dress, take, template],
+  );
+  const preview = (width?: number, ref?: typeof cardRef) =>
+    dressed ? (
+      <ScaledBox canvas={CANVAS[ratio]} width={width} label="Dressed back preview">
+        <DressedPostcard ref={ref} spec={spec} dressing={dressed} />
+      </ScaledBox>
+    ) : (
+      <ScaledCard ref={ref} spec={spec} width={width} label={`${ARCHETYPES[spec.archetype].name} postcard preview`} />
+    );
 
   return (
     <div className="page page--wide">
@@ -131,6 +165,24 @@ export function Studio({ query }: PageProps) {
             <TextField label="Series" value={spec.series ?? ""} placeholder="regular post" onChange={(v) => set({ series: v.toUpperCase() || null })} />
           </div>
           <TextField label="Project slot" value={spec.project ?? ""} placeholder="empty hides it" onChange={(v) => set({ project: v.toUpperCase() || null })} />
+          <Segmented label="Back" value={back} options={BACKS} onChange={setBack} format={cap} />
+          {back === "dressed" ? (
+            <div className="row-2">
+              <Select
+                label="Printed in"
+                value={dress}
+                options={DRESSES}
+                onChange={setDress}
+                format={(d) => (d ? SERIES[d].name : "Card's scheme")}
+              />
+              <label className="field">
+                <span className="label">Take {take + 1}</span>
+                <button type="button" className="btn" onClick={() => setTake((t) => t + 1)}>
+                  Another take
+                </button>
+              </label>
+            </div>
+          ) : null}
           <label className="field">
             <span className="label">Content · JSON</span>
             <textarea
@@ -145,7 +197,7 @@ export function Studio({ query }: PageProps) {
         </form>
 
         <div className="studio__stage">
-          <ScaledCard ref={cardRef} spec={spec} label={`${ARCHETYPES[spec.archetype].name} postcard preview`} />
+          {preview(undefined, cardRef)}
 
           <div className="studio__bar">
             <button className="btn btn--primary" onClick={() => exportPng(1)}>
@@ -168,7 +220,7 @@ export function Studio({ query }: PageProps) {
           <div className="studio__checks">
             <div className="studio__thumb">
               <span className="label">At 320px (Principle 4)</span>
-              <ScaledCard spec={spec} width={320} label="Thumbnail preview" />
+              {preview(320)}
             </div>
             <div className="lint">
               <span className="label">
