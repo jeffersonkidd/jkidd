@@ -99,7 +99,7 @@ Fronts come in series. A series is one press: a master, the fronts drawn from it
 
 ## Stage postcards
 
-`#/stage` makes a postcard of a theatre stage drawn on graph paper, in the Architect's Notebook hand, with stick figures walking, running or waving at three depths. It's a draft in code: not in Workbench or the library yet.
+`#/stage` makes a postcard of a theatre stage drawn on graph paper over the card stock, in the Architect's Notebook hand, with stick figures walking, running or waving at three depths. It's a draft in code: not in Workbench or the library yet.
 
 ### Making one
 
@@ -108,7 +108,7 @@ Fronts come in series. A series is one press: a master, the fronts drawn from it
 3. **Cast the depths.** Each depth takes one figure: *Empty*, *Walks right*, *Walks left*, *Runs right*, *Runs left* or *Waves on the mark*. Walkers and runners enter from behind the wing at their own depth and leave behind the other; a waving figure stands on a red-pen X (upstage at 30% across, midstage 68%, downstage the centre).
 4. **Line.** *Boil* redraws the line every drawing, the kit's hand-drawn shimmer. *Still* keeps one line and only moves the pose.
 5. **Play** runs the figures at 12 drawings a second. It starts paused if your system asks for reduced motion.
-6. **Judge it at 320px** in the thumbnail under the preview, then **Export PNG** (1536×1024, or @2x). Or **SVG**: a standalone vector file for Figma or Illustrator, with every colour resolved from the tokens, the graph paper as lines and the title strip as text (the fonts aren't embedded, so install Special Elite Even and JetBrains Mono to see them). Both are the frame on screen: pause on the pose you want first.
+6. **Judge it at 320px** in the thumbnail under the preview, then **Export PNG** (1536×1024, or @2x). Or **SVG**: a standalone vector file for Figma or Illustrator, with every colour resolved from the tokens, the graph paper as lines over the card stock (embedded, so the file stands alone; about 1.8 MB) and the title strip as text (the fonts aren't embedded, so install Special Elite Even and JetBrains Mono to see them). Both are the frame on screen: pause on the pose you want first.
 
 There's no video export on this page yet; the picture postcards have one.
 

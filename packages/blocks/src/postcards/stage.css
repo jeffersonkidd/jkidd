@@ -1,6 +1,7 @@
 /* Stage postcard. Canvas pixels: 1536×1024, scaled by the caller. Graph paper of
-   32px squares, ruled heavier every 4; the stage is drawn on it in the Architect's
-   Notebook hand. Colours are the genre's own tokens (--jk-genre-stage-*). */
+   32px squares, ruled heavier every 4, over the card stock; the stage is drawn on it
+   in the Architect's Notebook hand. Colours are the genre's own tokens
+   (--jk-genre-stage-*); cream is the fallback under the stock. */
 
 .jk-stage {
   --stage-ink: var(--jk-genre-stage-ink);
@@ -18,13 +19,16 @@
     linear-gradient(var(--jk-genre-stage-grid-major) 2px, transparent 2px),
     linear-gradient(90deg, var(--jk-genre-stage-grid-major) 2px, transparent 2px),
     linear-gradient(var(--jk-genre-stage-grid) 1px, transparent 1px),
-    linear-gradient(90deg, var(--jk-genre-stage-grid) 1px, transparent 1px);
+    linear-gradient(90deg, var(--jk-genre-stage-grid) 1px, transparent 1px),
+    var(--stage-stock, none);
   background-size:
     128px 128px,
     128px 128px,
     32px 32px,
-    32px 32px;
-  background-position: -1px -1px;
+    32px 32px,
+    100% 100%;
+  background-position: -1px -1px, -1px -1px, -1px -1px, -1px -1px, 0 0;
+  background-repeat: repeat, repeat, repeat, repeat, no-repeat;
   font-synthesis: none;
 }
 
@@ -37,9 +41,9 @@
   stroke-linejoin: round;
 }
 
-/* Fills under the line work: the floor and title strip in paper, the flats a shade darker */
-.jk-stage__paper { fill: var(--stage-paper); stroke: none; }
-.jk-stage__flat { fill: var(--jk-genre-stage-paper-alt); stroke: none; }
+/* Fills under the line work: card stock (cream without it), and the flats a shade darker */
+.jk-stage__paper { fill: var(--stage-stock-paint, var(--stage-paper)); stroke: none; }
+.jk-stage__flat { fill: color-mix(in srgb, var(--stage-ink) 7%, transparent); stroke: none; }
 
 /* Pens */
 .jk-stage__ink { fill: none; stroke: var(--stage-ink); stroke-width: 3.2; }

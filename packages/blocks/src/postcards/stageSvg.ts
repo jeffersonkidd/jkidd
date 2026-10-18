@@ -15,10 +15,11 @@ const esc = (s: string) => s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replac
 /**
  * The stage postcard as a standalone vector SVG, for Figma or Illustrator: every
  * colour resolved from the tokens and written on the element, the graph paper as
- * lines, and the title strip as text, one <text> per line as it wraps on the card.
+ * lines over the card stock (embedded once, as a pattern the paper fills share), and
+ * the title strip as text, one <text> per line as it wraps on the card.
  * It is the drawing on screen when it's called, so a walking figure is caught mid-step.
  */
-export function stageSvg(card: HTMLElement): string {
+export async function stageSvg(card: HTMLElement): Promise<string> {
   const { width: W, height: H } = STAGE_CANVAS;
   const live = card.querySelector<SVGSVGElement>("svg.jk-stage__drawing");
   if (!live) throw new Error("no stage drawing to export");
@@ -42,6 +43,24 @@ export function stageSvg(card: HTMLElement): string {
       if (v && DEFAULTS[p] !== v) d.setAttribute(p, v);
     }
   });
+  // the card stock: one pattern, its raster embedded so the file stands alone
+  const patterns = [...drawing.querySelectorAll("pattern")];
+  const pattern = patterns[0];
+  const images = patterns.flatMap((p) => [...p.querySelectorAll("image")]);
+  const embedded = images.length ? await dataUrl(images[0].getAttribute("href") ?? "") : "";
+  images.forEach((image) => image.setAttribute("href", embedded));
+  // longest id first, so card-stock doesn't claim card-stock-plain's references
+  const renames = patterns
+    .map((p, i) => [p.id, i ? "card-stock-plain" : "card-stock"] as const)
+    .sort((a, b) => b[0].length - a[0].length);
+  patterns.forEach((p, i) => (p.id = i ? "card-stock-plain" : "card-stock"));
+  // computed paint can come back with the page's address in front of the #
+  for (const el of drawing.querySelectorAll<SVGElement>("[fill], [stroke]"))
+    for (const a of ["fill", "stroke"]) {
+      const v = el.getAttribute(a);
+      const hit = v && renames.find(([old]) => v.includes(`#${old}`));
+      if (hit) el.setAttribute(a, `url(#${hit[1]})`);
+    }
   // useId ids have colons, which some editors won't resolve in url(#…)
   drawing.querySelectorAll("clipPath").forEach((cp, i) => {
     const old = cp.id;
@@ -57,6 +76,7 @@ export function stageSvg(card: HTMLElement): string {
   for (let y = 0; y <= H; y += STAGE_SQUARE) y % rule ? (minor += `M0 ${y - 0.5}H${W}`) : (major += `M0 ${y}H${W}`);
   const paper =
     `<rect width="${W}" height="${H}" fill="${css.backgroundColor}"/>` +
+    (pattern ? `<rect width="${W}" height="${H}" fill="url(#card-stock)"/>` : "") +
     `<path d="${minor}" stroke="${token("--jk-genre-stage-grid")}" stroke-width="1" fill="none"/>` +
     `<path d="${major}" stroke="${token("--jk-genre-stage-grid-major")}" stroke-width="2" fill="none"/>`;
 
@@ -108,4 +128,14 @@ export function stageSvg(card: HTMLElement): string {
   root.insertAdjacentHTML("beforeend", `<g id="title-strip">${title}</g>`);
   out.append(defs, root);
   return `<?xml version="1.0" encoding="UTF-8"?>\n${new XMLSerializer().serializeToString(out)}`;
+}
+
+async function dataUrl(href: string): Promise<string> {
+  const blob = await (await fetch(href)).blob();
+  return new Promise((resolve, reject) => {
+    const r = new FileReader();
+    r.onload = () => resolve(r.result as string);
+    r.onerror = () => reject(r.error);
+    r.readAsDataURL(blob);
+  });
 }

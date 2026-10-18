@@ -106,7 +106,7 @@ export function StagePage(_: PageProps) {
     try {
       await document.fonts.ready;
       const a = document.createElement("a");
-      a.href = URL.createObjectURL(new Blob([stageSvg(cardRef.current)], { type: "image/svg+xml" }));
+      a.href = URL.createObjectURL(new Blob([await stageSvg(cardRef.current)], { type: "image/svg+xml" }));
       a.download = "jkidd-stage.svg";
       a.click();
       setTimeout(() => URL.revokeObjectURL(a.href), 10_000);

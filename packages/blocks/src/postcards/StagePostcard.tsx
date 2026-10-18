@@ -1,11 +1,13 @@
-import { forwardRef, useId } from "react";
+import { forwardRef, useId, type CSSProperties } from "react";
 import rough from "roughjs";
 import { NOTEBOOK_NODES } from "@jkidd/core";
 import { figureBoxFor, figurePose, figureTransform, type FigureCycle, type FigureLine } from "@jkidd/core";
 import { FigureStrokes } from "@jkidd/react";
+import stock from "../assets/link/paper.jpg";
 
 /**
- * The stage postcard: a theatre stage drawn in one-point perspective on graph paper,
+ * The stage postcard: a theatre stage drawn in one-point perspective on graph paper
+ * ruled over the card stock (the paper raster, 3:2 like the canvas, so never stretched),
  * in the Architect's Notebook hand, with stick figures at three depths. Not in
  * Workbench yet. Drawn on a 1536×1024 canvas and scaled, never reflowed.
  *
@@ -19,6 +21,8 @@ export const STAGE_CANVAS = { width: 1536, height: 1024 } as const;
 export const STAGE_SQUARE = 32;
 
 const CX = 768;
+/** Halo tile cut from the middle of the stock, in the figure's own units. */
+const HALO_TILE = 192;
 const HORIZON = 320;
 /** Floor half-width per px below the horizon: the stage narrows toward the vanishing point. */
 const SPREAD = 1.125;
@@ -181,9 +185,11 @@ const LAYERS = drawStage();
 function Static({ layer }: { layer: Layer }) {
   return (
     <>
-      {layer.fills.map((f, i) => (
-        <polygon key={`f${i}`} points={f.points} className={`jk-stage__${f.kind}`} />
-      ))}
+      {layer.fills.flatMap((f, i) => [
+        <polygon key={`f${i}`} points={f.points} className="jk-stage__paper" />,
+        // A flat is the stock a shade darker: the same paper with a wash of ink over it.
+        f.kind === "flat" ? <polygon key={`s${i}`} points={f.points} className="jk-stage__flat" /> : null,
+      ])}
       {layer.strokes.map((s, i) => (
         <path key={i} d={s.d} className={`jk-stage__${s.kind}`} />
       ))}
@@ -199,6 +205,14 @@ export const StagePostcard = forwardRef<HTMLDivElement, { spec: StageSpec; drawi
 ) {
   const id = useId();
   const clip = (d: StageDepth) => `${id}-${d}`;
+  // The stock as a paint, so the floor, piers, flats and title strip cut the grid back to
+  // card stock. Plain characters: the id is written into a CSS url().
+  const stockId = `stock-${id.replace(/[^\w-]/g, "")}`;
+  const style = {
+    "--stage-stock": `url("${stock}")`,
+    "--stage-stock-paint": `url(#${stockId})`,
+    "--figure-halo": `url(#${stockId}-plain)`,
+  } as CSSProperties;
   const story = spec.story?.trim() || null;
   const location = spec.location?.trim() || null;
 
@@ -217,9 +231,16 @@ export const StagePostcard = forwardRef<HTMLDivElement, { spec: StageSpec; drawi
   });
 
   return (
-    <div ref={ref} className="jk-stage">
+    <div ref={ref} className="jk-stage" style={style}>
       <svg className="jk-stage__drawing" viewBox={`0 0 ${STAGE_CANVAS.width} ${STAGE_CANVAS.height}`} aria-hidden="true">
         <defs>
+          <pattern id={stockId} patternUnits="userSpaceOnUse" width={STAGE_CANVAS.width} height={STAGE_CANVAS.height}>
+            <image href={stock} width={STAGE_CANVAS.width} height={STAGE_CANVAS.height} preserveAspectRatio="none" />
+          </pattern>
+          {/* Halos: a figure is drawn in its own scaled units, so it tiles the stock's plain middle, clear of the burnt edge. */}
+          <pattern id={`${stockId}-plain`} patternUnits="userSpaceOnUse" width={HALO_TILE} height={HALO_TILE}>
+            <image href={stock} x={-STAGE_CANVAS.width / 2} y={-STAGE_CANVAS.height / 2} width={STAGE_CANVAS.width} height={STAGE_CANVAS.height} preserveAspectRatio="none" />
+          </pattern>
           {STAGE_DEPTHS.map((d) => (
             <clipPath key={d} id={clip(d)}>
               <rect x={STAGE[d].wings[0]} y={0} width={STAGE[d].wings[1] - STAGE[d].wings[0]} height={STAGE_CANVAS.height} />
