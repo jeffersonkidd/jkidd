@@ -32,8 +32,8 @@ export type Dressing = {
   take: number;
   /** A picture postcard series whose paper and inks the back is printed in; null keeps the card's scheme. */
   dress: string | null;
-  /** Dressed in a series, the card prints on cream, so it goes to the light scheme. */
-  scheme: CardSpec["scheme"] | null;
+  /** Every back prints on the card stock, a light raster, so it goes to the light scheme. */
+  scheme: CardSpec["scheme"];
   texture: CatalogPick;
   overlays: CatalogPick[];
   shapes: ShapePick[];
@@ -233,7 +233,7 @@ export function pickDressing(spec: CardSpec, reading: Reading, catalog: CatalogE
     seed,
     take,
     dress,
-    scheme: dress ? "light" : null,
+    scheme: "light",
     texture,
     overlays,
     shapes,

@@ -54,11 +54,11 @@ function Why({ lines }: { lines: string[] }) {
   );
 }
 
-/** A texture or overlay on a strip of card, in the page's scheme. */
-function Swatch({ entry, scheme }: { entry: CatalogEntry; scheme: string }) {
+/** A texture or overlay on a strip of card stock, in the back's light scheme. */
+function Swatch({ entry }: { entry: CatalogEntry }) {
   const attrs = entry.kind === "texture" ? { "data-texture": entry.id } : { "data-texture": "none", "data-overlays": entry.id };
   return (
-    <div className="jk-back backs__swatch" data-scheme={scheme} data-post-type="progress" style={backVars(7)} {...attrs}>
+    <div className="jk-back backs__swatch" data-scheme="light" data-post-type="progress" style={backVars(7)} {...attrs}>
       <div className="jk-card">
         <span />
       </div>
@@ -66,7 +66,7 @@ function Swatch({ entry, scheme }: { entry: CatalogEntry; scheme: string }) {
   );
 }
 
-export function BacksPage({ scheme: pageScheme, query, navigate }: PageProps) {
+export function BacksPage({ query, navigate }: PageProps) {
   const cardId = CARD_IDS.includes(query.get("card") ?? "") ? query.get("card")! : CARDS[0].id;
   const dress = (DRESSES as readonly string[]).includes(query.get("dress") ?? "") ? query.get("dress")! : "";
   const take = Math.max(0, Number(query.get("take")) || 0);
@@ -146,7 +146,7 @@ export function BacksPage({ scheme: pageScheme, query, navigate }: PageProps) {
           value={dress}
           options={DRESSES}
           onChange={(d) => go({ dress: d })}
-          format={(d) => (d ? `${SERIES[d as keyof typeof SERIES].name} series inks` : "The card's own scheme")}
+          format={(d) => (d ? `${SERIES[d as keyof typeof SERIES].name} series inks` : "The card's own inks")}
         />
         <div className="backs__take">
           <span className="label">Take {take + 1}</span>
@@ -167,7 +167,7 @@ export function BacksPage({ scheme: pageScheme, query, navigate }: PageProps) {
         <figure>
           <figcaption className="label">Default rendering</figcaption>
           <ScaledBox canvas={canvas} label="The plain archetype card">
-            <Postcard spec={dressing.scheme ? { ...card.spec, scheme: dressing.scheme } : card.spec} />
+            <Postcard spec={{ ...card.spec, scheme: dressing.scheme }} />
           </ScaledBox>
         </figure>
         <figure>
@@ -279,7 +279,7 @@ export function BacksPage({ scheme: pageScheme, query, navigate }: PageProps) {
               <li>
                 <span className="label">Style</span>
                 <strong>{SERIES[dressing.dress as keyof typeof SERIES].name} series inks</strong>
-                <Why lines={["Printed on the series' cream in its ink, so the back pairs with that series' fronts. Cream takes the light scheme."]} />
+                <Why lines={["Printed in the series' ink, so the back pairs with that series' fronts."]} />
               </li>
             ) : null}
             {dressing.shapes.map((s) => (
@@ -320,7 +320,7 @@ export function BacksPage({ scheme: pageScheme, query, navigate }: PageProps) {
 
       <section className="backs__section">
         <h2 className="jk-text-doc-h2">Every template, dressed</h2>
-        <p className="muted">First takes in the card's own scheme. Each one is read from its own JSON.</p>
+        <p className="muted">First takes, on the card stock. Each one is read from its own JSON.</p>
         <div className="card-grid">
           {gallery.map((g) => (
             <article key={g.id} className="card-tile">
@@ -351,7 +351,7 @@ export function BacksPage({ scheme: pageScheme, query, navigate }: PageProps) {
         <div className="backs__catalog">
           {CATALOG.map((c) => (
             <article key={c.id}>
-              {c.kind !== "shape" ? <Swatch entry={c} scheme={pageScheme} /> : null}
+              {c.kind !== "shape" ? <Swatch entry={c} /> : null}
               <span className="label">{c.kind}{c.weight ? ` · weight ${c.weight}` : ""}</span>
               <strong>{c.name}</strong>
               <p>{c.look}</p>

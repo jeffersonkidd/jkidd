@@ -3,6 +3,7 @@ import { CANVAS } from "@jkidd/tokens";
 import { Postcard, type CardSpec } from "../Postcard";
 import grain from "../assets/press/grain.png";
 import specks from "../assets/press/specks.png";
+import stock from "../assets/link/paper.jpg";
 import { CATALOG } from "./catalog";
 import { readCard, type CardSource, type Reading } from "./read";
 import { pickDressing, rng, type DressOptions, type Dressing } from "./pick";
@@ -16,8 +17,9 @@ import { Airmail, Cachet, ColorBar, Imprint, PhotoCorners, Registration, RubberS
  *   intake (CardSpec) → lint (apps/site lint.ts) → read (read.ts) → pick (pick.ts)
  *   → place (place.ts, measured here) → check (dropped shapes, contrast) → export
  *
- * The frame and the content render exactly as the plain Postcard does; the dressing only lies
- * under it (texture), faintly over it (overlays), and beside it (shapes).
+ * The frame and the content render as the plain Postcard does, printed on the card stock (the
+ * paper raster the link page uses) in the light scheme; the dressing only lies under it
+ * (texture), faintly over it (overlays), and beside it (shapes).
  */
 export function dressBack(spec: CardSpec, options: DressOptions & { source?: CardSource | null } = {}): { reading: Reading; dressing: Dressing } {
   const reading = readCard(spec, options.source ?? null);
@@ -37,9 +39,10 @@ function foxing(seed: number) {
   }).join(", ");
 }
 
-/** The variables the textures and overlays read: the press images and this seed's foxing. */
+/** The variables the back reads: the card stock, the press images and this seed's foxing. */
 export const backVars = (seed: number) =>
   ({
+    "--back-stock": `url("${stock}")`,
     "--back-grain": `url("${grain}")`,
     "--back-specks": `url("${specks}")`,
     "--back-foxing": foxing(seed),
@@ -49,7 +52,7 @@ export const DressedPostcard = forwardRef<
   HTMLDivElement,
   { spec: CardSpec; dressing: Dressing; onPlace?: (placed: Placed) => void }
 >(function DressedPostcard({ spec, dressing, onPlace }, forwarded) {
-  const card: CardSpec = dressing.scheme ? { ...spec, scheme: dressing.scheme } : spec;
+  const card: CardSpec = { ...spec, scheme: dressing.scheme };
   const canvas = CANVAS[card.ratio ?? "16:9"];
   const root = useRef<HTMLDivElement | null>(null);
   const [placed, setPlaced] = useState<Placed>({ shapes: {}, zones: [] });

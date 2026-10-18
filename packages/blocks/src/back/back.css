@@ -5,6 +5,10 @@
 
 .jk-back { position: relative; overflow: hidden; }
 
+/* Every back is printed on the card stock: the paper raster stretched to the card, as the link
+   page's sheet does. It's a light raster, so the back takes the light scheme (pick.ts). */
+.jk-back .jk-card { background: var(--back-stock) 0 0 / 100% 100% no-repeat, var(--md-sys-color-surface); }
+
 .jk-back .jk-card > * { position: relative; z-index: 1; }
 .jk-back .jk-card::before,
 .jk-back .jk-card::after {
@@ -16,7 +20,8 @@
 .jk-back .jk-card::before { z-index: 0; }
 .jk-back .jk-card::after { z-index: 2; }
 
-/* Dressed in a series: printed on that series' cream in its ink (the picture postcards' inks). */
+/* Dressed in a series: printed in that series' ink (the picture postcards' inks); its cream
+   tints the stock's fallback and the containers. */
 .jk-back[data-dress],
 .jk-back[data-dress] [data-scheme] {
   --md-sys-color-surface: var(--dress-paper);
