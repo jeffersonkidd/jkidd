@@ -2,7 +2,6 @@
 //
 //   vendor/stock/paper.source.jpg (3:2, landscape)
 //     → src/assets/stock/paper-3x2.jpg   the master, unchanged    stage postcards
-//       src/assets/stock/paper-1536.jpg  3:2 at 1536×1024         the postcard canvas, pixel for pixel
 //       src/assets/stock/paper-2x3.jpg   the master turned 90°    link page sheet
 //       src/assets/stock/paper-16x9.jpg  from 3:2                 16:9 backs
 //       src/assets/stock/paper-1x1.jpg   from 3:2                 1:1 backs
@@ -56,8 +55,6 @@ function nineSlice(src, sw, sh, w, h) {
 mkdirSync(OUT, { recursive: true });
 const land = size(MASTER);
 copyFileSync(MASTER, join(OUT, "paper-3x2.jpg"));
-// The stage and picture postcard canvas, pixel for pixel
-execFileSync("sips", ["-z", "1024", "1536", "-s", "formatOptions", QUALITY, MASTER, "--out", join(OUT, "paper-1536.jpg")], { stdio: "ignore" });
 const portrait = join(OUT, "paper-2x3.jpg");
 execFileSync("sips", ["-r", "90", "-s", "formatOptions", QUALITY, MASTER, "--out", portrait], { stdio: "ignore" });
 const port = size(portrait);
@@ -74,4 +71,4 @@ for (const [name, src, s, w, h] of shapes) {
   jpeg(png, join(OUT, name));
 }
 rmSync(tmp, { recursive: true, force: true });
-console.log(`stock: paper-3x2, paper-1536, paper-2x3, ${shapes.map(([n]) => n.replace(".jpg", "")).join(", ")} → src/assets/stock`);
+console.log(`stock: paper-3x2, paper-2x3, ${shapes.map(([n]) => n.replace(".jpg", "")).join(", ")} → src/assets/stock`);

@@ -2952,21 +2952,9 @@
           "imageHash": "75f537eac43d259287dbf433f7278c1844ffb96c"
         }
       ],
-      "description": "The card stock: a warm parchment sheet, 3:2, 2048×1366, always stretched to its frame, never cropped, so the burnt edges show. Master: packages/blocks/vendor/stock/paper.source.jpg; pnpm stock cuts it to every shape in src/assets/stock (3:2, 1536×1024, 2:3 turned 90°, 16:9, 1:1, 4:5). Under the link page sheet, every dressed postcard back and the stage postcards; whatever prints on it takes the Light scheme.",
+      "description": "The card stock: a warm parchment sheet, 3:2, 2048×1366, always stretched to its frame, never cropped, so the burnt edges show. Master: packages/blocks/vendor/stock/paper.source.jpg; pnpm stock cuts it to every shape in src/assets/stock (3:2, 2:3 turned 90°, 16:9, 1:1, 4:5). Under the link page sheet, every dressed postcard back and the stage postcards; whatever prints on it takes the Light scheme.",
       "id": "S:44e99cf8993ea379d9f6241c31dc5e88e97d9b8d",
       "key": "44e99cf8993ea379d9f6241c31dc5e88e97d9b8d"
-    },
-    "Imagery/Paper 1536": {
-      "paints": [
-        {
-          "type": "IMAGE",
-          "scaleMode": "CROP",
-          "imageHash": "c2530d8c0624ba14336e07766dd938bb93ae0e32"
-        }
-      ],
-      "description": "The card stock at 1536×1024: the 3:2 sheet at the postcard canvas size, pixel for pixel. src/assets/stock/paper-1536.jpg (pnpm stock).",
-      "id": "S:7a15b9d2f33b799b165b18a37cba6329d16d8b93",
-      "key": "7a15b9d2f33b799b165b18a37cba6329d16d8b93"
     },
     "Imagery/Paper 16:9": {
       "paints": [
@@ -3177,8 +3165,8 @@
       "name": "Imagery",
       "type": "SECTION",
       "page": "Imagery",
-      "width": 1651,
-      "height": 981
+      "width": 1390,
+      "height": 963
     },
     "379:1426": {
       "name": "jkidd-stage (1) 1",
