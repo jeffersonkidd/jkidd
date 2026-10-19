@@ -1,7 +1,7 @@
 import { forwardRef, type CSSProperties } from "react";
 import { FIGMA_NODES, NOTEBOOK_NODES } from "@jkidd/core";
 import { figurePose, type FigureSpec } from "@jkidd/core";
-import { FigureStrokes } from "@jkidd/react";
+import { FigureStrokes } from "@jkidd/ui";
 import type { SeriesId } from "./fronts";
 import grain from "../assets/press/grain.png";
 import specks from "../assets/press/specks.png";

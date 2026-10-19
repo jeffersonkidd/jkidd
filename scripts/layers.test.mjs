@@ -1,6 +1,6 @@
 // node --test scripts/ : the packages stack in the order of the Figma libraries, and
 // each one may only use the packages beneath it. Foundations → Primitives → Layout →
-// Compositions → Blocks in Figma; tokens → core → ui → react → blocks in code.
+// Compositions → Blocks in Figma; tokens → core → ui → blocks in code.
 
 import { test } from "node:test";
 import assert from "node:assert/strict";
@@ -14,9 +14,8 @@ const root = resolve(dirname(fileURLToPath(import.meta.url)), "..");
 const ALLOWED = {
   tokens: [],
   core: ["tokens"],
-  ui: ["tokens"],
-  react: ["tokens", "core", "ui"],
-  blocks: ["tokens", "core", "ui", "react"],
+  ui: ["tokens", "core"],
+  blocks: ["tokens", "core", "ui"],
 };
 
 const files = (dir) =>

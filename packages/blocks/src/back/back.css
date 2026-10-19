@@ -93,8 +93,8 @@
   opacity: 0.4;
 }
 
-/* ── Shapes: placed here; drawn by @jkidd/react primitives/Dressing.tsx, styled in
-   @jkidd/ui primitives/dressing.css ── */
+/* ── Shapes: placed here; drawn and styled by @jkidd/ui primitives/ (Dressing.tsx,
+   dressing.css) ── */
 
 .jk-back__shapes { position: absolute; inset: 0; z-index: 3; pointer-events: none; }
 .jk-back__shapes svg { display: block; overflow: visible; }

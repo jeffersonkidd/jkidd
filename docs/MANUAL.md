@@ -16,7 +16,7 @@ against the repo as they are.*
 
 | # | Lesson | Covers | Commands | The post it makes |
 |---|---|---|---|---|
-| 1 | Find your way around | The five packages and two apps, what each layer may import (`scripts/layers.test.mjs`), folders named for Figma libraries | `pnpm dev`, `pnpm links`, `pnpm check` | An architecture diagram card |
+| 1 | Find your way around | The four packages and two apps, what each layer may import (`scripts/layers.test.mjs`), folders named for Figma libraries | `pnpm dev`, `pnpm links`, `pnpm check` | An architecture diagram card |
 | 2 | Change a token | `packages/tokens/sources/*.json` → generated CSS and TS; contrast audit; `contrast-waivers.json` | `pnpm tokens`, `pnpm contrast` | A before/after card |
 | 3 | Follow Figma | `sources/figma/*.json` snapshots and the export script; the drift test; `figma-waivers.json`; `data-figma` IDs; moving code when a component changes library | `pnpm test` | A parity card |
 | 4 | Make a card | The Studio (`#/studio`), card rules in `apps/site/src/app/lint.ts`, PNG export at canvas size | `pnpm dev` | The card |

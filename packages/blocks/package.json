@@ -15,8 +15,8 @@
   },
   "dependencies": {
     "@jkidd/core": "workspace:*",
-    "@jkidd/react": "workspace:*",
     "@jkidd/tokens": "workspace:*",
+    "@jkidd/ui": "workspace:*",
     "lucide-react": "^0.469.0",
     "roughjs": "^4.6.6"
   },

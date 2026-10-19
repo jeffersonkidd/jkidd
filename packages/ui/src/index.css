@@ -1,6 +1,6 @@
-/* JKidd UI: the look, as plain CSS, in the layers of the Figma libraries.
-   Needs @jkidd/tokens/tokens.css loaded first. Any renderer that writes these
-   class names gets the look; @jkidd/react is one. */
+/* JKidd UI: the look, as plain CSS, in the layers of the Figma libraries, beside the
+   components that write these class names (index.ts imports it). Needs
+   @jkidd/tokens/tokens.css loaded first. On its own: @jkidd/ui/styles.css. */
 @import "./foundations/marks.css";
 @import "./primitives/parts.css";
 @import "./primitives/figure.css";

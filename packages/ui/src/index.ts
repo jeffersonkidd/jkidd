@@ -1,4 +1,4 @@
-import "@jkidd/ui";
+import "./index.css";
 
 export * from "./foundations/Marks";
 export * from "./primitives/Parts";

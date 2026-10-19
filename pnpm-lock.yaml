@@ -60,9 +60,6 @@ importers:
       '@jkidd/core':
         specifier: workspace:*
         version: link:../../packages/core
-      '@jkidd/react':
-        specifier: workspace:*
-        version: link:../../packages/react
       '@jkidd/tokens':
         specifier: workspace:*
         version: link:../../packages/tokens
@@ -91,12 +88,12 @@ importers:
       '@jkidd/core':
         specifier: workspace:*
         version: link:../core
-      '@jkidd/react':
-        specifier: workspace:*
-        version: link:../react
       '@jkidd/tokens':
         specifier: workspace:*
         version: link:../tokens
+      '@jkidd/ui':
+        specifier: workspace:*
+        version: link:../ui
       lucide-react:
         specifier: ^0.469.0
         version: 0.469.0(react@19.3.0)
@@ -114,25 +111,6 @@ importers:
         specifier: workspace:*
         version: link:../tokens
 
-  packages/react:
-    dependencies:
-      '@jkidd/core':
-        specifier: workspace:*
-        version: link:../core
-      '@jkidd/tokens':
-        specifier: workspace:*
-        version: link:../tokens
-      '@jkidd/ui':
-        specifier: workspace:*
-        version: link:../ui
-      lucide-react:
-        specifier: ^0.469.0
-        version: 0.469.0(react@19.3.0)
-    devDependencies:
-      react:
-        specifier: ^19.0.0
-        version: 19.3.0
-
   packages/tokens: {}
 
   packages/ui:
@@ -146,9 +124,19 @@ importers:
       '@fontsource/jetbrains-mono':
         specifier: ^5.2.0
         version: 5.3.0
+      '@jkidd/core':
+        specifier: workspace:*
+        version: link:../core
       '@jkidd/tokens':
         specifier: workspace:*
         version: link:../tokens
+      lucide-react:
+        specifier: ^0.469.0
+        version: 0.469.0(react@19.3.0)
+    devDependencies:
+      react:
+        specifier: ^19.0.0
+        version: 19.3.0
 
 packages:
 
