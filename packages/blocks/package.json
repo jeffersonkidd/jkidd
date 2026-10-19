@@ -10,7 +10,8 @@
   },
   "scripts": {
     "front": "node scripts/front-intake.mjs",
-    "front-inks": "node scripts/front-inks.mjs"
+    "front-inks": "node scripts/front-inks.mjs",
+    "stock": "node scripts/stock.mjs"
   },
   "dependencies": {
     "@jkidd/core": "workspace:*",

@@ -22,6 +22,7 @@ A pnpm workspace, layered like the Figma libraries: `@jkidd/tokens` → `@jkidd/
 - Tokens flow one way: `packages/tokens/sources/*.json` → `pnpm tokens` → `packages/tokens/src/tokens.css` and `src/tokens.gen.ts`. Never edit the generated files.
 - `packages/tokens/sources/figma/*.json` are snapshots of the Figma libraries (checked by the tokens drift test and `packages/core/scripts/figma-nodes.test.mjs`), written by `packages/tokens/scripts/figma/export.js` (dev plugin, or run through the Figma MCP; returns over 20KB need splitting by collection). Never hand-edit them. Drift from them gets fixed in the sources, or waived in `sources/figma-waivers.json` with a reason the user agreed to.
 - The emblem flows one way too: `packages/core/vendor/emblem/emblem.source.svg` (the master, as exported) → `pnpm emblem` → `emblem.json` and the apps' `public/` icons. Never edit those; replace the master and rerun.
+- The card stock flows one way too: `packages/blocks/vendor/stock/paper.source.jpg` (the 3:2 master) → `pnpm stock` → `packages/blocks/src/assets/stock/paper-*.jpg`, one per shape. Never edit those; replace the master and rerun.
 - Components read CSS variables only. No hex values in `packages/ui`, `packages/react` or `packages/blocks`.
 - Cards keep their Figma canvas size and are scaled, not reflowed.
 - A card rule from `POSTCARDS.md` belongs in `apps/site/src/app/lint.ts`, with its source.

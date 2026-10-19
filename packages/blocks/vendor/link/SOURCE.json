@@ -1,0 +1,14 @@
+{
+  "imagery": "The link page's photographs as originals, before they were compressed for the web. Kept here, outside src/, so they're never bundled.",
+  "files": {
+    "palm-sky.source.png": {
+      "what": "Palm against a teal sky, 1920×1080 PNG, about 1.9 MB",
+      "figma": {
+        "file": "ADhu9noVbgFbtapMZivOHw",
+        "node": "99:3598",
+        "where": "JKidd - Foundations › Imagery › Image, a loose rectangle beside the Imagery section; deleted 2026-10-19 once this copy was saved"
+      },
+      "ships_as": "packages/blocks/src/assets/link/palm-sky.jpg (JPEG, about 270 KB; Figma style Imagery/Palm Sky)"
+    }
+  }
+}

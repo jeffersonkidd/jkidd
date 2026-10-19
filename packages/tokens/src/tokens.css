@@ -684,6 +684,24 @@
   letter-spacing: -0.01em;
 }
 
+/* Doc/Body */
+.jk-text-doc-body {
+  font-family: var(--jk-font-body);
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.5;
+  letter-spacing: 0em;
+}
+
+/* Doc/Body Strong */
+.jk-text-doc-body-strong {
+  font-family: var(--jk-font-body);
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 1.5;
+  letter-spacing: 0em;
+}
+
 /* Doc/Caption */
 .jk-text-doc-caption {
   font-family: var(--jk-font-mono);

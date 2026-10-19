@@ -12,7 +12,7 @@
   background: var(--lk-backdrop) center / cover no-repeat fixed, var(--md-sys-color-primary-container);
 }
 
-/* The paper raster is stretched to the sheet, as the Shell frame does in Figma. */
+/* The card stock's vertical cut is stretched to the sheet, as the Shell frame does in Figma. */
 .lk-sheet {
   width: 100%;
   min-width: 0;

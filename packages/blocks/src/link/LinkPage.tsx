@@ -13,7 +13,7 @@ import {
 import commandSvg from "../assets/link/command.svg";
 import chevronSvg from "../assets/link/chevron-right.svg";
 import palmSky from "../assets/link/palm-sky.jpg";
-import paper from "../assets/link/paper.jpg";
+import paper from "../assets/stock/paper-2x3.jpg";
 import { LINK_NODES } from "@jkidd/core";
 
 /**

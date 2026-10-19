@@ -6,20 +6,20 @@ const STATS = [
   ["182", "Variables"],
   ["6", "Scheme modes"],
   ["5", "Post types"],
-  ["6", "Archetypes"],
+  ["26", "Text styles"],
 ] as const;
 
-/** The library's Cover (98:3432), as a responsive page. */
+/** The library's Cover (484:63), as a responsive page. */
 export function Overview({ navigate }: PageProps) {
   return (
     <div className="cover">
       <div className="cover__rail" aria-hidden />
       <section className="cover__title">
-        <p className="label">Design system library · v0.1 · 2026-09-24</p>
+        <p className="label">Foundations library · v0.1 · 2026-09-24</p>
         <Wordmark layout="stacked" />
         <p className="cover__lede">
-          Foundations, marks, the constant frame and six postcard archetypes for everything J.F. Kidd publishes. One
-          palette, five post types, one frame that never moves.
+          Foundations and marks for everything J.F. Kidd publishes: one palette, five post types, one type stack and the
+          emblem. The frame, card parts, archetypes and postcards build on it in four more libraries.
         </p>
         <dl className="cover__stats">
           {STATS.map(([n, l]) => (

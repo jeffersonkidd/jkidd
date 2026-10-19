@@ -4,9 +4,6 @@
     { "figma": "Layout/postcard/content-x", "reason": "Not read into code yet: no component sets the 128px content inset from a token." },
     { "figma": "Layout/postcard/content-y", "reason": "Not read into code yet: no component sets the 128px content inset from a token." },
     { "figma": "Layout/postcard/thumbnail", "reason": "Code keeps the 320px thumbnail as a rule (canvas.$description, Principle 4), not a variable." },
-    { "figma": "textStyles/Card/Title", "reason": "Font is Anime Ace 2.0 (not BB) and not bound to a Type variable. Fix in Figma first." },
-    { "figma": "textStyles/Doc/Body", "reason": "Font is Patrick Hand SC and not bound to a Type variable. Fix in Figma first." },
-    { "figma": "textStyles/Doc/Small", "reason": "Font is Architects Daughter and not bound to a Type variable. Fix in Figma first." },
-    { "figma": "textStyles/Doc/Body Strong", "reason": "Set in Inter Regular, so not strong. Fix in Figma first." }
+    { "figma": "textStyles/Card/Title", "reason": "Font is Anime Ace 2.0 (not BB) and not bound to a Type variable. Fix in Figma first." }
   ]
 }

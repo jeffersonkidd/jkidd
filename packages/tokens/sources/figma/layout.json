@@ -98,7 +98,7 @@
           ]
         }
       },
-      "description": "The paper sheet a web page sits on: Imagery/Paper stretched over tertiary-container, pinned to the Light scheme (the paper is a light raster). Desktop: an 800px column, a 4px on-secondary border, 20/24/16 padding. Mobile (below 640px): full width, 16px padding, no border. Put the page into Content; children stack 20px apart. .lk-sheet.",
+      "description": "The paper sheet a web page sits on: the card stock's tall cut, Imagery/Paper 2:3, stretched over tertiary-container, pinned to the Light scheme (the paper is a light raster). Desktop: an 800px column, a 4px on-secondary border, 20/24/16 padding. Mobile (below 640px): full width, 16px padding, no border. Put the page into Content; children stack 20px apart. .lk-sheet.",
       "key": "a260b70bed6e88fecd8b4de894ce0fce28174150"
     },
     "29:35": {

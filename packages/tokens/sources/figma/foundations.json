@@ -2,7 +2,7 @@
   "$description": "Snapshot of a Figma library, written by packages/tokens/scripts/figma/export.js. Don't edit by hand: refresh it from Figma. The drift tests check the token sources and figma.ts against it.",
   "file": "JKidd - Foundations",
   "fileKey": "ADhu9noVbgFbtapMZivOHw",
-  "readAt": "2026-10-14",
+  "readAt": "2026-10-19",
   "pages": [
     {
       "id": "0:1",
@@ -37,12 +37,12 @@
       "name": "Color"
     },
     {
-      "id": "4:207",
-      "name": "Type"
-    },
-    {
       "id": "4:206",
       "name": "Post Types"
+    },
+    {
+      "id": "4:207",
+      "name": "Type"
     },
     {
       "id": "4:208",
@@ -2651,32 +2651,23 @@
       "key": "b355f0d1e060ba99943186940770e8f65f8f1e7f"
     },
     "Doc/Body": {
-      "family": "Patrick Hand SC",
+      "family": "Inter",
       "style": "Regular",
-      "fontVariable": null,
+      "fontVariable": "font/body",
       "size": 16,
       "lineHeight": "150%",
       "letterSpacing": "0%",
       "case": "ORIGINAL",
+      "boundVariables": {
+        "fontFamily": "{Type.font/body}"
+      },
       "description": "Documentation body.",
       "id": "S:a9e02439a0adde5bdf4be976d8b1bedc38e00899",
       "key": "a9e02439a0adde5bdf4be976d8b1bedc38e00899"
     },
-    "Doc/Small": {
-      "family": "Architects Daughter",
-      "style": "Regular",
-      "fontVariable": null,
-      "size": 16,
-      "lineHeight": "150%",
-      "letterSpacing": "0%",
-      "case": "ORIGINAL",
-      "description": "Documentation body.",
-      "id": "S:7d95cf41a3126cdc9293486626d3a4989fb758da",
-      "key": "7d95cf41a3126cdc9293486626d3a4989fb758da"
-    },
     "Doc/Body Strong": {
       "family": "Inter",
-      "style": "Regular",
+      "style": "Semi Bold",
       "fontVariable": "font/body",
       "size": 16,
       "lineHeight": "150%",
@@ -2941,17 +2932,6 @@
     }
   },
   "paintStyles": {
-    "background": {
-      "paints": [
-        {
-          "type": "IMAGE",
-          "scaleMode": "CROP",
-          "imageHash": "a0ce5a4bcb558b0a6e86c43d4def0c6e65878e91"
-        }
-      ],
-      "id": "S:52a2a72719f3690edb1d016038558c47ce021338",
-      "key": "52a2a72719f3690edb1d016038558c47ce021338"
-    },
     "Imagery/Palm Sky": {
       "paints": [
         {
@@ -2964,17 +2944,77 @@
       "id": "S:5eaba8f1c61c142a62bc96f283e10b7993d0e3e6",
       "key": "5eaba8f1c61c142a62bc96f283e10b7993d0e3e6"
     },
-    "Imagery/Paper": {
+    "Imagery/Paper 3:2 Master": {
       "paints": [
         {
           "type": "IMAGE",
-          "scaleMode": "FILL",
+          "scaleMode": "CROP",
           "imageHash": "75f537eac43d259287dbf433f7278c1844ffb96c"
         }
       ],
-      "description": "Link page sheet: a warm parchment raster, 2048×1366, stretched to the sheet (not cropped). packages/blocks/src/assets/link/paper.jpg. The sheet stays on the Light scheme over it.",
+      "description": "The card stock: a warm parchment sheet, 3:2, 2048×1366, always stretched to its frame, never cropped, so the burnt edges show. Master: packages/blocks/vendor/stock/paper.source.jpg; pnpm stock cuts it to every shape in src/assets/stock (3:2, 1536×1024, 2:3 turned 90°, 16:9, 1:1, 4:5). Under the link page sheet, every dressed postcard back and the stage postcards; whatever prints on it takes the Light scheme.",
       "id": "S:44e99cf8993ea379d9f6241c31dc5e88e97d9b8d",
       "key": "44e99cf8993ea379d9f6241c31dc5e88e97d9b8d"
+    },
+    "Imagery/Paper 1536": {
+      "paints": [
+        {
+          "type": "IMAGE",
+          "scaleMode": "CROP",
+          "imageHash": "c2530d8c0624ba14336e07766dd938bb93ae0e32"
+        }
+      ],
+      "description": "The card stock at 1536×1024: the 3:2 sheet at the postcard canvas size, pixel for pixel. src/assets/stock/paper-1536.jpg (pnpm stock).",
+      "id": "S:7a15b9d2f33b799b165b18a37cba6329d16d8b93",
+      "key": "7a15b9d2f33b799b165b18a37cba6329d16d8b93"
+    },
+    "Imagery/Paper 16:9": {
+      "paints": [
+        {
+          "type": "IMAGE",
+          "scaleMode": "CROP",
+          "imageHash": "4cd86b66e20045325b45b8c9951be43c7b52e746"
+        }
+      ],
+      "description": "The card stock cut to 16:9, 2428×1366: nine-sliced from the 3:2 master so the burnt edge stays even. 16:9 backs and card anatomy. src/assets/stock/paper-16x9.jpg (pnpm stock).",
+      "id": "S:7e446a306d69785bb47e019d5877d862bf9be33f",
+      "key": "7e446a306d69785bb47e019d5877d862bf9be33f"
+    },
+    "Imagery/Paper 1:1": {
+      "paints": [
+        {
+          "type": "IMAGE",
+          "scaleMode": "CROP",
+          "imageHash": "85846097b38f681134a2b8ae646e7448f8e0e1dc"
+        }
+      ],
+      "description": "The card stock cut to 1:1, 1366×1366: nine-sliced from the 3:2 master. 1:1 backs. src/assets/stock/paper-1x1.jpg (pnpm stock).",
+      "id": "S:6085b350b4fdcc9e359f7056e621f4e0106a2a08",
+      "key": "6085b350b4fdcc9e359f7056e621f4e0106a2a08"
+    },
+    "Imagery/Paper 4:5": {
+      "paints": [
+        {
+          "type": "IMAGE",
+          "scaleMode": "CROP",
+          "imageHash": "3639e9ad217fa8879148b42d15dae417aca3a60d"
+        }
+      ],
+      "description": "The card stock cut to 4:5, 1366×1708: nine-sliced from the 2:3 cut. 4:5 backs. src/assets/stock/paper-4x5.jpg (pnpm stock).",
+      "id": "S:5bc29f68ce32213db51cbf9bf67cd0ba4d126a31",
+      "key": "5bc29f68ce32213db51cbf9bf67cd0ba4d126a31"
+    },
+    "Imagery/Paper 2:3": {
+      "paints": [
+        {
+          "type": "IMAGE",
+          "scaleMode": "CROP",
+          "imageHash": "2085959759ad0cb249bf56316567d2bf502bcd5e"
+        }
+      ],
+      "description": "The card stock turned 90°, 2:3, 1366×2048. The link page sheet. src/assets/stock/paper-2x3.jpg (pnpm stock).",
+      "id": "S:14ba865bb4e69ac20fed6a6940387f600df6f6f7",
+      "key": "14ba865bb4e69ac20fed6a6940387f600df6f6f7"
     },
     "Imagery/Portrait": {
       "paints": [
@@ -2991,6 +3031,54 @@
   },
   "gridStyles": {},
   "components": {
+    "611:128": {
+      "name": "Emblem",
+      "type": "COMPONENT_SET",
+      "page": "Marks",
+      "width": 713.6,
+      "height": 224,
+      "variants": 4,
+      "properties": {
+        "Variant": {
+          "type": "VARIANT",
+          "default": "Badge",
+          "options": [
+            "Badge",
+            "Figure"
+          ]
+        },
+        "Tone": {
+          "type": "VARIANT",
+          "default": "Original",
+          "options": [
+            "Original",
+            "Mono"
+          ]
+        }
+      },
+      "description": "The winged seahorse: J.F. Kidd's logo, favicon and avatar, drawn from the master's own geometry (Illustrations › Logo Assets › asset 3; code: Emblem in @jkidd/react, EMBLEM in @jkidd/core). Badge is the whole emblem in its ring; Figure is the seahorse alone, boxed tight. Original is the master's black, grey and white (neutral 0, 70, 100) and holds on light or dark because the badge brings its own field. Mono is one ink (Scheme on-surface), with the halo's outline knocked out of the body and ring, for one-colour print and stamps. Resize an instance to scale it.",
+      "key": "1f74b884999d8c03ab60e0436aa1c571466d6c5e"
+    },
+    "7:27": {
+      "name": "Wordmark",
+      "type": "COMPONENT_SET",
+      "page": "Marks",
+      "width": 815,
+      "height": 170,
+      "variants": 2,
+      "properties": {
+        "Layout": {
+          "type": "VARIANT",
+          "default": "Inline",
+          "options": [
+            "Inline",
+            "Stacked"
+          ]
+        }
+      },
+      "description": "Typeset wordmark. PLACEHOLDER until the marks are designed. The surname carries the brand colour.",
+      "key": "97ab8b156a94373ab8b7b8231e83d1757eb5a51c"
+    },
     "7:20": {
       "name": "Monogram",
       "type": "COMPONENT_SET",
@@ -3020,26 +3108,6 @@
       },
       "description": "JK monogram. PLACEHOLDER: typeset in font/display until the real marks are designed (JKIDD.md §6 step 3). Brand on light or dark; Ink for the Principle card and print; Outline over photos.",
       "key": "56ac5bbe3920ca5d63dde4a2ed8d4cc259769c8f"
-    },
-    "7:27": {
-      "name": "Wordmark",
-      "type": "COMPONENT_SET",
-      "page": "Marks",
-      "width": 815,
-      "height": 170,
-      "variants": 2,
-      "properties": {
-        "Layout": {
-          "type": "VARIANT",
-          "default": "Inline",
-          "options": [
-            "Inline",
-            "Stacked"
-          ]
-        }
-      },
-      "description": "Typeset wordmark. PLACEHOLDER until the marks are designed. The surname carries the brand colour.",
-      "key": "97ab8b156a94373ab8b7b8231e83d1757eb5a51c"
     },
     "7:28": {
       "name": "Project Mark",
@@ -3077,14 +3145,7 @@
     }
   },
   "frames": {
-    "98:3432": {
-      "name": "Cover",
-      "type": "FRAME",
-      "page": "Cover",
-      "width": 1920,
-      "height": 1080
-    },
-    "100:3600": {
+    "484:63": {
       "name": "Cover",
       "type": "FRAME",
       "page": "Cover",
@@ -3096,21 +3157,28 @@
       "type": "FRAME",
       "page": "Getting Started",
       "width": 1294,
-      "height": 2456
+      "height": 2552
     },
     "399:2953": {
       "name": "Marks",
       "type": "FRAME",
       "page": "Marks",
-      "width": 1387,
-      "height": 1166
+      "width": 1088,
+      "height": 1511
+    },
+    "7:37": {
+      "name": "On dark",
+      "type": "FRAME",
+      "page": "Marks",
+      "width": 1088,
+      "height": 170
     },
     "298:1440": {
-      "name": "Link Page imagery",
+      "name": "Imagery",
       "type": "SECTION",
       "page": "Imagery",
-      "width": 1390,
-      "height": 557
+      "width": 1651,
+      "height": 981
     },
     "379:1426": {
       "name": "jkidd-stage (1) 1",
@@ -3126,25 +3194,11 @@
       "width": 1536,
       "height": 1024
     },
-    "382:2395": {
-      "name": "51236a7d-7a49-4f20-bd6c-72ef5c9a638d 2 [Vectorized]",
+    "431:3702": {
+      "name": "Logo Assets",
       "type": "FRAME",
       "page": "Illustrations",
-      "width": 1536,
-      "height": 1024
-    },
-    "382:1894": {
-      "name": "51236a7d-7a49-4f20-bd6c-72ef5c9a638d 2 [Vectorized]",
-      "type": "FRAME",
-      "page": "Illustrations",
-      "width": 1536,
-      "height": 1024
-    },
-    "425:3522": {
-      "name": "favicon 2",
-      "type": "FRAME",
-      "page": "Illustrations",
-      "width": 400,
+      "width": 1406,
       "height": 400
     },
     "5:2": {
@@ -3154,13 +3208,6 @@
       "width": 1852,
       "height": 2861
     },
-    "5:698": {
-      "name": "Type",
-      "type": "FRAME",
-      "page": "Type",
-      "width": 2767,
-      "height": 3718
-    },
     "5:597": {
       "name": "Post Types",
       "type": "FRAME",
@@ -3168,12 +3215,19 @@
       "width": 1648,
       "height": 1578
     },
+    "5:698": {
+      "name": "Type",
+      "type": "FRAME",
+      "page": "Type",
+      "width": 2767,
+      "height": 3910
+    },
     "6:2": {
       "name": "Layout",
       "type": "FRAME",
       "page": "Layout",
       "width": 1307,
-      "height": 1568
+      "height": 1591
     }
   }
 }

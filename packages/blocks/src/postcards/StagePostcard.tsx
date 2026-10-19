@@ -3,11 +3,11 @@ import rough from "roughjs";
 import { NOTEBOOK_NODES } from "@jkidd/core";
 import { figureBoxFor, figurePose, figureTransform, type FigureCycle, type FigureLine } from "@jkidd/core";
 import { FigureStrokes } from "@jkidd/react";
-import stock from "../assets/link/paper.jpg";
+import stock from "../assets/stock/paper-3x2.jpg";
 
 /**
  * The stage postcard: a theatre stage drawn in one-point perspective on graph paper
- * ruled over the card stock (the paper raster, 3:2 like the canvas, so never stretched),
+ * ruled over the card stock (its 3:2 cut, the shape of the canvas, so never stretched),
  * in the Architect's Notebook hand, with stick figures at three depths. Not in
  * Workbench yet. Drawn on a 1536×1024 canvas and scaled, never reflowed.
  *

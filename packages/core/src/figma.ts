@@ -18,15 +18,15 @@ export type FigmaNode = readonly [fileKey: string, node: string];
 
 /** Where each code component lives in the libraries. Its ID is rendered as data-figma on the root element. */
 export const FIGMA_NODES = {
-  // Foundations (Cover page; marks on Marks; the emblem on Illustrations)
-  /** The Cover frame; its Scheme mode switches it between light and dark. */
-  Cover: [LIBRARIES.Foundations, "98:3432"],
+  // Foundations (Cover page; marks and the emblem on Marks; the emblem's master on Illustrations)
+  /** The Cover frame, on the palm sky (Imagery/Palm Sky). The light and dark covers were deleted 2026-10-19. */
+  Cover: [LIBRARIES.Foundations, "484:63"],
   Monogram: [LIBRARIES.Foundations, "7:20"],
   Wordmark: [LIBRARIES.Foundations, "7:27"],
   ProjectMark: [LIBRARIES.Foundations, "7:28"],
   HandleLockup: [LIBRARIES.Foundations, "7:30"],
-  /** The vector of the three Logo Assets (asset 3). A frame for now, not yet a component. */
-  Emblem: [LIBRARIES.Foundations, "425:3522"],
+  /** Variant Badge/Figure × Tone Original/Mono, built from the master (Illustrations › Logo Assets › asset 3, 425:3522). */
+  Emblem: [LIBRARIES.Foundations, "611:128"],
   // Primitives (Card Parts page)
   Kicker: [LIBRARIES.Primitives, "65:62"],
   CheckRow: [LIBRARIES.Primitives, "65:65"],

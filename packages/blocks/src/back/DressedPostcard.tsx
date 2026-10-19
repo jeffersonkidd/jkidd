@@ -3,7 +3,9 @@ import { CANVAS } from "@jkidd/tokens";
 import { Postcard, type CardSpec } from "../Postcard";
 import grain from "../assets/press/grain.png";
 import specks from "../assets/press/specks.png";
-import stock from "../assets/link/paper.jpg";
+import stock16x9 from "../assets/stock/paper-16x9.jpg";
+import stock1x1 from "../assets/stock/paper-1x1.jpg";
+import stock4x5 from "../assets/stock/paper-4x5.jpg";
 import { CATALOG } from "./catalog";
 import { readCard, type CardSource, type Reading } from "./read";
 import { pickDressing, rng, type DressOptions, type Dressing } from "./pick";
@@ -17,8 +19,8 @@ import { Airmail, Cachet, ColorBar, Imprint, PhotoCorners, Registration, RubberS
  *   intake (CardSpec) → lint (apps/site lint.ts) → read (read.ts) → pick (pick.ts)
  *   → place (place.ts, measured here) → check (dropped shapes, contrast) → export
  *
- * The frame and the content render as the plain Postcard does, printed on the card stock (the
- * paper raster the link page uses) in the light scheme; the dressing only lies under it
+ * The frame and the content render as the plain Postcard does, printed on the card stock (cut
+ * to the card's ratio) in the light scheme; the dressing only lies under it
  * (texture), faintly over it (overlays), and beside it (shapes).
  */
 export function dressBack(spec: CardSpec, options: DressOptions & { source?: CardSource | null } = {}): { reading: Reading; dressing: Dressing } {
@@ -39,10 +41,13 @@ function foxing(seed: number) {
   }).join(", ");
 }
 
-/** The variables the back reads: the card stock, the press images and this seed's foxing. */
-export const backVars = (seed: number) =>
+/** The card stock cut to each canvas, so the burnt edge is even all round (scripts/stock.mjs). */
+const STOCK = { "16:9": stock16x9, "1:1": stock1x1, "4:5": stock4x5 } as const;
+
+/** The variables the back reads: the card stock for its ratio, the press images and this seed's foxing. */
+export const backVars = (seed: number, ratio: keyof typeof STOCK = "16:9") =>
   ({
-    "--back-stock": `url("${stock}")`,
+    "--back-stock": `url("${STOCK[ratio]}")`,
     "--back-grain": `url("${grain}")`,
     "--back-specks": `url("${specks}")`,
     "--back-foxing": foxing(seed),
@@ -114,7 +119,7 @@ export const DressedPostcard = forwardRef<
   const style = {
     width: canvas.width,
     height: canvas.height,
-    ...backVars(dressing.seed),
+    ...backVars(dressing.seed, card.ratio ?? "16:9"),
     ...(dressing.dress && {
       "--dress-paper": `var(--jk-genre-picture-${dressing.dress}-cream)`,
       "--dress-ink": `var(--jk-genre-picture-${dressing.dress}-ink)`,
