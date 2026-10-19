@@ -59,7 +59,7 @@ designed ahead of it.
      the link page takes `apps/links/src/links.ts`;
    - each client keeps their own lessons for their own modules.
 4. **When the postcard tools reach a client:** lesson 5 gets written from the
-   picture postcard and archetype makers in `apps/site`, using
+   picture postcard and archetype makers in `apps/studio`, using
    `POSTCARDS.md` for the rules.
 
 Before step 3, Tibbie's Studio and this repo need to share a stack. Tibbie X

@@ -1,11 +1,11 @@
 # Dressing the back
 
-The archetype card is the message side of the postcard. This workflow turns its JSON into a back made for that card. The site shows it at `#/backs`, and the Studio applies it under **Back → Dressed**.
+The archetype card is the message side of the postcard. This workflow turns its JSON into a back made for that card. The Studio app shows it at `#/backs`, and the Studio applies it under **Back → Dressed**.
 
 | Node | Where | What it does |
 |---|---|---|
 | Intake | `CardSpec` (+ `CardSource` from a template) | The card as data. A template also brings its idea-bank row and journal event |
-| Lint | `apps/site/src/app/lint.ts` | The POSTCARDS.md rules. Dressing never covers for a card that fails them |
+| Lint | `apps/studio/src/app/lint.ts` | The POSTCARDS.md rules. Dressing never covers for a card that fails them |
 | Read | `read.ts` | Tone, topics, figures, a verdict word, the arrows' verbs, each with its JSON path |
 | Pick | `pick.ts` + `catalog.ts` | Scores the stock catalog against the reading. Seeded, budgeted (3), every pick with its reasons |
 | Place | `place.ts`, measured in `DressedPostcard.tsx` | Finds each shape the free space nearest its spot, shrinking to 0.8 or 0.64 before dropping it |

@@ -1,9 +1,9 @@
 // pnpm emblem (after the core step): the apps' browser icons, from the emblem.
 //
 //   packages/core/vendor/emblem/emblem.json + packages/tokens/src/tokens.css
-//     → apps/{site,links}/public/favicon.svg          any modern browser
-//       apps/{site,links}/public/favicon.ico          32px, for everything else
-//       apps/{site,links}/public/apple-touch-icon.png 180px on an opaque field
+//     → apps/{studio,links}/public/favicon.svg          any modern browser
+//       apps/{studio,links}/public/favicon.ico          32px, for everything else
+//       apps/{studio,links}/public/apple-touch-icon.png 180px on an opaque field
 //
 // The badge in its original tone: the same layers, in the same order, as the Emblem
 // component, with colours read from the generated tokens so they stay the palette's.
@@ -16,7 +16,7 @@ import { fileURLToPath } from "node:url";
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), "..");
 const { Resvg } = createRequire(import.meta.url)("@resvg/resvg-js");
-const APPS = ["apps/site", "apps/links"];
+const APPS = ["apps/studio", "apps/links"];
 
 const e = JSON.parse(readFileSync(join(root, "packages/core/vendor/emblem/emblem.json"), "utf8"));
 const css = readFileSync(join(root, "packages/tokens/src/tokens.css"), "utf8");

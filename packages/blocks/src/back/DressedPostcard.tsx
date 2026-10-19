@@ -16,7 +16,7 @@ import { Airmail, Cachet, ColorBar, Imprint, PhotoCorners, Registration, RubberS
  * Dressing the back: an archetype card's JSON, read for meaning, dressed from the stock catalog,
  * placed in the room the content leaves. The workflow, node by node:
  *
- *   intake (CardSpec) → lint (apps/site lint.ts) → read (read.ts) → pick (pick.ts)
+ *   intake (CardSpec) → lint (apps/studio lint.ts) → read (read.ts) → pick (pick.ts)
  *   → place (place.ts, measured here) → check (dropped shapes, contrast) → export
  *
  * The frame and the content render as the plain Postcard does, printed on the card stock (cut

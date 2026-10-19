@@ -1,9 +1,9 @@
 {
-  "name": "@jkidd/site",
+  "name": "@jkidd/studio",
   "version": "0.1.0",
   "private": true,
   "type": "module",
-  "description": "The demo site and postcard makers, on :5178.",
+  "description": "The Studio: the design system's pages and the postcard makers, on :5178.",
   "scripts": {
     "dev": "vite",
     "build": "vite build",

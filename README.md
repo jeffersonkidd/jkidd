@@ -6,7 +6,7 @@ A card is data. Write the frame settings and one archetype's content as JSON, re
 
 ```
 pnpm install
-pnpm dev        # demo on http://localhost:5178, links on :5179 (runs pnpm tokens first)
+pnpm dev        # the Studio on http://localhost:5178, links on :5179 (runs pnpm tokens first)
 pnpm check      # tokens → contrast audit → tests → typecheck → build
 ```
 
@@ -24,7 +24,7 @@ Four packages in a pnpm workspace, stacked like the Figma libraries. Each uses o
 | `@jkidd/core` · `packages/core/` | Framework-free: the Figma node map and library keys (`src/figma.ts`), the stick-figure rig, contrast math, the export helper. `vendor/architects-notebook/` holds what `pnpm notebook` copies from the kit, with `SOURCE.json`. Never edit it by hand | — |
 | `@jkidd/ui` · `packages/ui/` | **JKidd UI**: the component library, the React components beside their CSS, in folders named for the libraries (`foundations/`, `primitives/`, `compositions/`): marks, card parts, the dressing shapes, stick figure, card frame, the six archetypes. Importing it loads the CSS (alone: `@jkidd/ui/styles.css`); the fonts are `@jkidd/ui/fonts` (`fonts/`, `src/fonts.ts`). Needs `@jkidd/tokens/tokens.css` first | Foundations, Primitives, Compositions |
 | `@jkidd/blocks` · `packages/blocks/` | **JK Blocks**: finished things. Postcard (the archetypes), the picture and stage postcards, the link page, sample copy and art | JKidd - Blocks |
-| `apps/site/` | The demo site and the postcard makers. `src/ds.ts` re-exports all four packages for the pages | — |
+| `apps/studio/` | **The Studio**: the design system's pages and the postcard makers. `src/ds.ts` re-exports all four packages for the pages | — |
 
 The Figma library keys are `LIBRARIES` in `packages/core/src/figma.ts`. The three libraries split out of JKidd - Foundations (Primitives, Compositions, Blocks; a fourth, Layout, was merged into Compositions on 2026-10-19) start empty and fill as components are moved across in Figma. Until a component moves, its node ID still points into JKidd - Foundations.
 
@@ -65,7 +65,7 @@ Cards are drawn at their Figma canvas size (1600×900, 1080×1080, 1080×1350) a
 
 - archetype, post type, scheme, ratio, day, series, project slot, and the content as JSON
 - a live preview, plus the same card at **320px** (Principle 4: design full size, judge at thumbnail)
-- **card rules**: the rules from `POSTCARDS.md` and the Figma component descriptions, run as checks on every edit (`apps/site/src/app/lint.ts`). Manifesto 3–5 lines, Ledger 6 rows at most and uneven lengths, Pipeline highlights exactly one line, Before / After at equal weight, one arrow per diagram, day and series together or not at all, archetype vs. its best-for types
+- **card rules**: the rules from `POSTCARDS.md` and the Figma component descriptions, run as checks on every edit (`apps/studio/src/app/lint.ts`). Manifesto 3–5 lines, Ledger 6 rows at most and uneven lengths, Pipeline highlights exactly one line, Before / After at equal weight, one arrow per diagram, day and series together or not at all, archetype vs. its best-for types
 - **Export PNG** at canvas size (or @2x), named `jkidd-day-18-manifesto-principle-16x9.png`
 - **Copy JSON** (the `CardSpec`, ready for a post file) and **Copy link** (the card encoded in the URL)
 
@@ -152,7 +152,7 @@ const spec: StageSpec = {
 - Geometry is exported as `STAGE` (each depth's squares, feet line, floor and wings), `STAGE_SQUARE` and `STAGE_CANVAS`, so other components can stand things on the same lines.
 - Colours are the `stage` genre in `packages/tokens/sources/jkidd.tokens.json` (`--jk-genre-stage-*`): the Architect's Notebook light ink and paper. Line work is rough.js with the kit's pen settings and a fixed seed, so the stage draws identically every time.
 
-Files: `packages/blocks/src/postcards/StagePostcard.tsx`, `stagepostcard.css`, `stageSvg.ts`, and the maker in `apps/site/src/app/pages/StagePage.tsx`.
+Files: `packages/blocks/src/postcards/StagePostcard.tsx`, `stagepostcard.css`, `stageSvg.ts`, and the maker in `apps/studio/src/app/pages/StagePage.tsx`.
 
 ## The stick figure
 

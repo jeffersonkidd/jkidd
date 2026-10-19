@@ -6,7 +6,7 @@ import assert from "node:assert/strict";
 import { readFileSync } from "node:fs";
 
 const read = (p, enc) => readFileSync(new URL(`../${p}`, import.meta.url), enc);
-const APPS = ["apps/site", "apps/links"];
+const APPS = ["apps/studio", "apps/links"];
 const FILES = ["favicon.svg", "favicon.ico", "apple-touch-icon.png"];
 const emblem = JSON.parse(read("packages/core/vendor/emblem/emblem.json", "utf8"));
 const css = read("packages/tokens/src/tokens.css", "utf8");

@@ -88,7 +88,7 @@ const css = [
 
 writeFileSync(`${root}src/tokens.css`, css + "\n");
 
-// Typed mirror for components and the demo app.
+// Typed mirror for components and the Studio app.
 const canvas = Object.fromEntries(
   Object.entries(tokens.canvas).filter(([k]) => !k.startsWith("$")).map(([k, c]) => [k, { width: c.width, height: c.height, figma: c.figma }]),
 );
