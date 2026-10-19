@@ -508,7 +508,7 @@
           "default": "199:48"
         }
       },
-      "description": "The post type's stamp, cancelled (catalog: cachet). A perforated stamp in type/accent with the type's icon (Flag progress, Signpost decision, Skull failure, Sun principle, Bell teaching), its label and the 2¢ value from Entry 001-C; a ring postmark with the handle or series over the day or date, the card's topic glyph, and five machine waves. Ink is on-surface at 62%. Code adds speckled wear (an SVG noise mask) that Figma doesn't draw. 400×220. Edit the ring text on the curve directly (text on a path takes no component property). Sample: the figma-variables card. Dressing.tsx Cachet (@jkidd/react).",
+      "description": "The post type's stamp, cancelled (catalog: cachet). A perforated stamp in type/accent with the type's icon (Flag progress, Signpost decision, Skull failure, Sun principle, Bell teaching), its label and the 2¢ value from Entry 001-C; a ring postmark with the handle or series over the day or date, the card's topic glyph, and five machine waves. Ink is on-surface at 62%. Code adds speckled wear (an SVG noise mask) that Figma doesn't draw. 400×220. Edit the ring text on the curve directly (text on a path takes no component property). Sample: the figma-variables card. Dressing.tsx Cachet (@jkidd/ui).",
       "key": "fbe109d5154deee032951998dbd12f8193e776b3"
     },
     "205:6": {
@@ -523,7 +523,7 @@
           "default": "SHIPPED"
         }
       },
-      "description": "One verdict word the card itself says (catalog: rubber), boxed twice in type/ink at 80% and tilted 4–10°; the code sizes it 64 + 34px a letter by 92. Only when the card has a verdict. Code adds speckled wear that Figma doesn't draw. Sample: the link-page-weight card. Dressing.tsx RubberStamp (@jkidd/react).",
+      "description": "One verdict word the card itself says (catalog: rubber), boxed twice in type/ink at 80% and tilted 4–10°; the code sizes it 64 + 34px a letter by 92. Only when the card has a verdict. Code adds speckled wear that Figma doesn't draw. Sample: the link-page-weight card. Dressing.tsx RubberStamp (@jkidd/ui).",
       "key": "1a7646e8f6bac7e9c758ba33bef3f33b02ec7261"
     },
     "205:10": {
@@ -538,7 +538,7 @@
           "default": "IDEA 2026-09-24-02 · JOURNAL 2026-09-24 03:20"
         }
       },
-      "description": "The divided back's centre rule (catalog: imprint), with the card's source printed up it like a publisher's number: IDEA <id> · JOURNAL <event>, in on-surface-variant at 70%. Only when the card has a source. Sample: the figma-variables card. Dressing.tsx Imprint (@jkidd/react).",
+      "description": "The divided back's centre rule (catalog: imprint), with the card's source printed up it like a publisher's number: IDEA <id> · JOURNAL <event>, in on-surface-variant at 70%. Only when the card has a source. Sample: the figma-variables card. Dressing.tsx Imprint (@jkidd/ui).",
       "key": "295bfb17bb71b821242ad9b55f411e34750976a6"
     },
     "205:16": {
@@ -547,7 +547,7 @@
       "page": "Dressing",
       "width": 32,
       "height": 32,
-      "description": "A crosshair target, the printer's mark (catalog: registration): one in each corner, 24px in from the edges and the rail, in on-surface at 45%, for a build that runs through a press. Dressing.tsx Target (@jkidd/react).",
+      "description": "A crosshair target, the printer's mark (catalog: registration): one in each corner, 24px in from the edges and the rail, in on-surface at 45%, for a build that runs through a press. Dressing.tsx Target (@jkidd/ui).",
       "key": "39ff891d7d664bfff636cee05ccf8c877936f9d2"
     },
     "205:19": {
@@ -578,7 +578,7 @@
           ]
         }
       },
-      "description": "Album corners on each zone, so two halves sit like mounted prints (catalog: corners): on-surface at 82%, set 6px out from the zone's corners. Parity cards. Dressing.tsx PhotoCorners (@jkidd/react).",
+      "description": "Album corners on each zone, so two halves sit like mounted prints (catalog: corners): on-surface at 82%, set 6px out from the zone's corners. Parity cards. Dressing.tsx PhotoCorners (@jkidd/ui).",
       "key": "c287f3909d2346ea71b3f34ba1cb9103c1c13f25"
     },
     "205:13": {

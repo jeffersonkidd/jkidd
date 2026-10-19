@@ -3126,7 +3126,7 @@
           ]
         }
       },
-      "description": "The winged seahorse: J.F. Kidd's logo, favicon and avatar, drawn from the master's own geometry (Illustrations › Logo Assets › asset 3; code: Emblem in @jkidd/react, EMBLEM in @jkidd/core). Badge is the whole emblem in its ring; Figure is the seahorse alone, boxed tight. Original is the master's black, grey and white (neutral 0, 70, 100) and holds on light or dark because the badge brings its own field. Mono is one ink (Scheme on-surface), with the halo's outline knocked out of the body and ring, for one-colour print and stamps. Resize an instance to scale it.",
+      "description": "The winged seahorse: J.F. Kidd's logo, favicon and avatar, drawn from the master's own geometry (Illustrations › Logo Assets › asset 3; code: Emblem in @jkidd/ui, EMBLEM in @jkidd/core). Badge is the whole emblem in its ring; Figure is the seahorse alone, boxed tight. Original is the master's black, grey and white (neutral 0, 70, 100) and holds on light or dark because the badge brings its own field. Mono is one ink (Scheme on-surface), with the halo's outline knocked out of the body and ring, for one-colour print and stamps. Resize an instance to scale it.",
       "key": "1f74b884999d8c03ab60e0436aa1c571466d6c5e"
     },
     "7:27": {
