@@ -2,23 +2,27 @@
   "$description": "Snapshot of a Figma library, written by packages/tokens/scripts/figma/export.js. Don't edit by hand: refresh it from Figma. The drift tests check the token sources and figma.ts against it.",
   "file": "JKidd - Primitives",
   "fileKey": "jm9r6k7bY7JuaJup8EWKgQ",
-  "readAt": "2026-10-14",
+  "readAt": "2026-10-19",
   "pages": [
     {
       "id": "0:1",
       "name": "Cover"
     },
     {
-      "id": "1:9",
-      "name": "Card Parts"
-    },
-    {
       "id": "35:2",
       "name": "Icons"
     },
     {
+      "id": "1:9",
+      "name": "Card Parts"
+    },
+    {
       "id": "35:3",
       "name": "Controls"
+    },
+    {
+      "id": "201:93",
+      "name": "Dressing"
     }
   ],
   "collections": {},
@@ -27,6 +31,195 @@
   "paintStyles": {},
   "gridStyles": {},
   "components": {
+    "35:38": {
+      "name": "Icon/Chevron Right",
+      "type": "COMPONENT",
+      "page": "Icons",
+      "width": 24,
+      "height": 24,
+      "description": "Lucide Chevron Right (lucide-react 0.469), 24 grid, 2px stroke bound to on-surface: override the stroke colour per use. Link Row go button.",
+      "key": "b39d0ec783c422177d30d352128b356babe94af5"
+    },
+    "35:39": {
+      "name": "Icon/Command",
+      "type": "COMPONENT",
+      "page": "Icons",
+      "width": 24,
+      "height": 24,
+      "description": "Lucide Command (lucide-react 0.469), 24 grid, 2px stroke bound to on-surface: override the stroke colour per use. Studio kicker (Link Row draws Studio with the Command glyph).",
+      "key": "5eacc2c6e645dbd834a67dcd3919bf7e216869e5"
+    },
+    "35:40": {
+      "name": "Icon/Facebook",
+      "type": "COMPONENT",
+      "page": "Icons",
+      "width": 24,
+      "height": 24,
+      "description": "Lucide Facebook (lucide-react 0.469), 24 grid, 2px stroke bound to on-surface: override the stroke colour per use. Social link.",
+      "key": "fb42752af8c38272831efc6937a3a2aede3c38af"
+    },
+    "35:41": {
+      "name": "Icon/Feather",
+      "type": "COMPONENT",
+      "page": "Icons",
+      "width": 24,
+      "height": 24,
+      "description": "Lucide Feather (lucide-react 0.469), 24 grid, 2px stroke bound to on-surface: override the stroke colour per use. Blog category and tab. Postmark glyph for a card about weight.",
+      "key": "94e8f454444b7ec947f81e7885a245df7a2e5f98"
+    },
+    "35:42": {
+      "name": "Icon/Github",
+      "type": "COMPONENT",
+      "page": "Icons",
+      "width": 24,
+      "height": 24,
+      "description": "Lucide Github (lucide-react 0.469), 24 grid, 2px stroke bound to on-surface: override the stroke colour per use. Social link.",
+      "key": "4a9c47c7b408089c308247f9346b930028b359ec"
+    },
+    "35:43": {
+      "name": "Icon/Instagram",
+      "type": "COMPONENT",
+      "page": "Icons",
+      "width": 24,
+      "height": 24,
+      "description": "Lucide Instagram (lucide-react 0.469), 24 grid, 2px stroke bound to on-surface: override the stroke colour per use. Social link.",
+      "key": "d11cb4158e15cc132cc2b7537c1142c88ab4ed1e"
+    },
+    "35:44": {
+      "name": "Icon/Layout Grid",
+      "type": "COMPONENT",
+      "page": "Icons",
+      "width": 24,
+      "height": 24,
+      "description": "Lucide Layout Grid (lucide-react 0.469), 24 grid, 2px stroke bound to on-surface: override the stroke colour per use. All tab; Shop and Support categories. Postmark glyph for a card about layout.",
+      "key": "13dd1a4ce176d52a2e887939e0b22b66458ea690"
+    },
+    "35:45": {
+      "name": "Icon/Message Circle",
+      "type": "COMPONENT",
+      "page": "Icons",
+      "width": 24,
+      "height": 24,
+      "description": "Lucide Message Circle (lucide-react 0.469), 24 grid, 2px stroke bound to on-surface: override the stroke colour per use. Social link: message.",
+      "key": "0455361af76e54b9d5c225aff8254568a4fa18dc"
+    },
+    "35:46": {
+      "name": "Icon/Wrench",
+      "type": "COMPONENT",
+      "page": "Icons",
+      "width": 24,
+      "height": 24,
+      "description": "Lucide Wrench (lucide-react 0.469), 24 grid, 2px stroke bound to on-surface: override the stroke colour per use. Studio tab.",
+      "key": "4f19f690bc3d79ab33c474967a73fadcb2e20793"
+    },
+    "35:47": {
+      "name": "Icon/Youtube",
+      "type": "COMPONENT",
+      "page": "Icons",
+      "width": 24,
+      "height": 24,
+      "description": "Lucide Youtube (lucide-react 0.469), 24 grid, 2px stroke bound to on-surface: override the stroke colour per use. Social link.",
+      "key": "eed1d8205d64973558e8ffc2d9a23a7e9dc61415"
+    },
+    "199:3": {
+      "name": "Icon/Flag",
+      "type": "COMPONENT",
+      "page": "Icons",
+      "width": 24,
+      "height": 24,
+      "description": "Lucide Flag (lucide-react 0.469), 24 grid, 2px stroke bound to on-surface: override the stroke colour per use. Progress stamp on a dressed back.",
+      "key": "7e449d057c9b4cc03317e85224c72ffdceeaecb8"
+    },
+    "199:10": {
+      "name": "Icon/Signpost",
+      "type": "COMPONENT",
+      "page": "Icons",
+      "width": 24,
+      "height": 24,
+      "description": "Lucide Signpost (lucide-react 0.469), 24 grid, 2px stroke bound to on-surface: override the stroke colour per use. Decision stamp on a dressed back.",
+      "key": "6273d647f110ec898aba281c47fa3e32cf53324e"
+    },
+    "199:18": {
+      "name": "Icon/Skull",
+      "type": "COMPONENT",
+      "page": "Icons",
+      "width": 24,
+      "height": 24,
+      "description": "Lucide Skull (lucide-react 0.469), 24 grid, 2px stroke bound to on-surface: override the stroke colour per use. Failure stamp on a dressed back.",
+      "key": "245865987bd8f70bd88ab6654c6f702d81edee78"
+    },
+    "199:27": {
+      "name": "Icon/Sun",
+      "type": "COMPONENT",
+      "page": "Icons",
+      "width": 24,
+      "height": 24,
+      "description": "Lucide Sun (lucide-react 0.469), 24 grid, 2px stroke bound to on-surface: override the stroke colour per use. Principle stamp on a dressed back.",
+      "key": "43de868ef18ea8a618477385e3542adaa4047cde"
+    },
+    "199:41": {
+      "name": "Icon/Bell",
+      "type": "COMPONENT",
+      "page": "Icons",
+      "width": 24,
+      "height": 24,
+      "description": "Lucide Bell (lucide-react 0.469), 24 grid, 2px stroke bound to on-surface: override the stroke colour per use. Teaching stamp on a dressed back.",
+      "key": "4371b16a0c80f6835624f2b1f8d179ae8799223c"
+    },
+    "199:48": {
+      "name": "Icon/Braces",
+      "type": "COMPONENT",
+      "page": "Icons",
+      "width": 24,
+      "height": 24,
+      "description": "Lucide Braces (lucide-react 0.469), 24 grid, 2px stroke bound to on-surface: override the stroke colour per use. Postmark glyph for a card about tokens.",
+      "key": "810f3134e4813f5bd6492ff6b376403b01b3a04d"
+    },
+    "199:55": {
+      "name": "Icon/Type",
+      "type": "COMPONENT",
+      "page": "Icons",
+      "width": 24,
+      "height": 24,
+      "description": "Lucide Type (lucide-react 0.469), 24 grid, 2px stroke bound to on-surface: override the stroke colour per use. Postmark glyph for a card about type.",
+      "key": "e359bc97a28066d302e337bd5cbed9d3e21a7b26"
+    },
+    "199:63": {
+      "name": "Icon/Contrast",
+      "type": "COMPONENT",
+      "page": "Icons",
+      "width": 24,
+      "height": 24,
+      "description": "Lucide Contrast (lucide-react 0.469), 24 grid, 2px stroke bound to on-surface: override the stroke colour per use. Postmark glyph for a card about colour.",
+      "key": "a0e6bb5232d714c28e652ae71435d1ea4378ab6a"
+    },
+    "199:70": {
+      "name": "Icon/Component",
+      "type": "COMPONENT",
+      "page": "Icons",
+      "width": 24,
+      "height": 24,
+      "description": "Lucide Component (lucide-react 0.469), 24 grid, 2px stroke bound to on-surface: override the stroke colour per use. Postmark glyph for a card about Figma.",
+      "key": "30b53d3d4a6c2af0ecf938f04bb33db5f2bb0e5e"
+    },
+    "199:79": {
+      "name": "Icon/Square Terminal",
+      "type": "COMPONENT",
+      "page": "Icons",
+      "width": 24,
+      "height": 24,
+      "description": "Lucide Square Terminal (lucide-react 0.469), 24 grid, 2px stroke bound to on-surface: override the stroke colour per use. Postmark glyph for a card about code.",
+      "key": "b064de312e4baf5f401530c73b08491c7683eee6"
+    },
+    "199:87": {
+      "name": "Icon/Package",
+      "type": "COMPONENT",
+      "page": "Icons",
+      "width": 24,
+      "height": 24,
+      "description": "Lucide Package (lucide-react 0.469), 24 grid, 2px stroke bound to on-surface: override the stroke colour per use. Postmark glyph for a card about shipping.",
+      "key": "0214542f56602fbf543af6ad008fe0e2b1d1de70"
+    },
     "65:62": {
       "name": "Kicker",
       "type": "COMPONENT",
@@ -66,19 +259,19 @@
           ]
         }
       },
-      "description": "One line of a Ledger or Before / After card. Check (type ink) for shipped, Cross (error) for the mistake, Dot for a note. Struck=Yes is the subtraction ledger: what was cut. Real item names at uneven lengths; 6 rows at most.",
+      "description": "One line of a Ledger or Before / After card. Check (type ink) for shipped, Cross (error) for the mistake, Dot for a note. Struck=Yes is the subtraction ledger, what was cut: the text drops to on-surface-variant and a 3px on-surface-variant strike runs exactly the length of the text, its own layer (.jk-row__strike). Real item names at uneven lengths; 6 rows at most.",
       "key": "f2407573b19ab5907681c1ece10e3530f6451741"
     },
     "65:86": {
       "name": "Token Chip",
       "type": "COMPONENT",
       "page": "Card Parts",
-      "width": 384,
+      "width": 423,
       "height": 73,
       "properties": {
         "Token": {
           "type": "TEXT",
-          "default": "surface-primary"
+          "default": "primary-container"
         },
         "Show swatch": {
           "type": "BOOLEAN",
@@ -121,7 +314,7 @@
       "properties": {
         "Command": {
           "type": "TEXT",
-          "default": "npm run tokens"
+          "default": "pnpm tokens"
         }
       },
       "description": "The hero of a Pipeline card: one real command. Content never invents: use the command that actually ran.",
@@ -141,96 +334,6 @@
       },
       "description": "Sits on the top edge of a dashed zone (absolute, y = -18). Names the zone: PRIMITIVES, FIGMA, BEFORE…",
       "key": "85475a273c5eaeb224c753ce189cf558765d3c6a"
-    },
-    "35:38": {
-      "name": "Icon/Chevron Right",
-      "type": "COMPONENT",
-      "page": "Icons",
-      "width": 24,
-      "height": 24,
-      "description": "Lucide Chevron Right (lucide-react 0.469), 24 grid, 2px stroke bound to on-surface: override the stroke colour per use. Link Row go button.",
-      "key": "b39d0ec783c422177d30d352128b356babe94af5"
-    },
-    "35:39": {
-      "name": "Icon/Command",
-      "type": "COMPONENT",
-      "page": "Icons",
-      "width": 24,
-      "height": 24,
-      "description": "Lucide Command (lucide-react 0.469), 24 grid, 2px stroke bound to on-surface: override the stroke colour per use. Studio kicker (Link Row draws Studio with the Command glyph).",
-      "key": "5eacc2c6e645dbd834a67dcd3919bf7e216869e5"
-    },
-    "35:40": {
-      "name": "Icon/Facebook",
-      "type": "COMPONENT",
-      "page": "Icons",
-      "width": 24,
-      "height": 24,
-      "description": "Lucide Facebook (lucide-react 0.469), 24 grid, 2px stroke bound to on-surface: override the stroke colour per use. Social link.",
-      "key": "fb42752af8c38272831efc6937a3a2aede3c38af"
-    },
-    "35:41": {
-      "name": "Icon/Feather",
-      "type": "COMPONENT",
-      "page": "Icons",
-      "width": 24,
-      "height": 24,
-      "description": "Lucide Feather (lucide-react 0.469), 24 grid, 2px stroke bound to on-surface: override the stroke colour per use. Blog category and tab.",
-      "key": "94e8f454444b7ec947f81e7885a245df7a2e5f98"
-    },
-    "35:42": {
-      "name": "Icon/Github",
-      "type": "COMPONENT",
-      "page": "Icons",
-      "width": 24,
-      "height": 24,
-      "description": "Lucide Github (lucide-react 0.469), 24 grid, 2px stroke bound to on-surface: override the stroke colour per use. Social link.",
-      "key": "4a9c47c7b408089c308247f9346b930028b359ec"
-    },
-    "35:43": {
-      "name": "Icon/Instagram",
-      "type": "COMPONENT",
-      "page": "Icons",
-      "width": 24,
-      "height": 24,
-      "description": "Lucide Instagram (lucide-react 0.469), 24 grid, 2px stroke bound to on-surface: override the stroke colour per use. Social link.",
-      "key": "d11cb4158e15cc132cc2b7537c1142c88ab4ed1e"
-    },
-    "35:44": {
-      "name": "Icon/Layout Grid",
-      "type": "COMPONENT",
-      "page": "Icons",
-      "width": 24,
-      "height": 24,
-      "description": "Lucide Layout Grid (lucide-react 0.469), 24 grid, 2px stroke bound to on-surface: override the stroke colour per use. All tab; Shop and Support categories.",
-      "key": "13dd1a4ce176d52a2e887939e0b22b66458ea690"
-    },
-    "35:45": {
-      "name": "Icon/Message Circle",
-      "type": "COMPONENT",
-      "page": "Icons",
-      "width": 24,
-      "height": 24,
-      "description": "Lucide Message Circle (lucide-react 0.469), 24 grid, 2px stroke bound to on-surface: override the stroke colour per use. Social link: message.",
-      "key": "0455361af76e54b9d5c225aff8254568a4fa18dc"
-    },
-    "35:46": {
-      "name": "Icon/Wrench",
-      "type": "COMPONENT",
-      "page": "Icons",
-      "width": 24,
-      "height": 24,
-      "description": "Lucide Wrench (lucide-react 0.469), 24 grid, 2px stroke bound to on-surface: override the stroke colour per use. Studio tab.",
-      "key": "4f19f690bc3d79ab33c474967a73fadcb2e20793"
-    },
-    "35:47": {
-      "name": "Icon/Youtube",
-      "type": "COMPONENT",
-      "page": "Icons",
-      "width": 24,
-      "height": 24,
-      "description": "Lucide Youtube (lucide-react 0.469), 24 grid, 2px stroke bound to on-surface: override the stroke colour per use. Social link.",
-      "key": "eed1d8205d64973558e8ffc2d9a23a7e9dc61415"
     },
     "36:31": {
       "name": "Tag",
@@ -296,7 +399,7 @@
           ]
         }
       },
-      "description": "Header link (Ghost) and Follow (Outlined). Mono 11px, full radius. .lk-header__link, .lk-follow. Focus draws a 2px primary ring; code has none yet. Ghost hides below 640px in the header.",
+      "description": "Header link (Ghost) and Follow (Outlined). Mono 11px, full radius. .lk-header__link, .lk-follow. Hover: Ghost takes surface-container-lowest at 40%, Outlined surface-container-high. Focus draws a 2px primary ring (:focus-visible). Ghost hides below 640px in the header.",
       "key": "f80a2210533127274fb20a7fd6ccf522e9de587f"
     },
     "36:67": {
@@ -328,7 +431,7 @@
           ]
         }
       },
-      "description": "32px round button on inverse-surface; the icon takes inverse-on-surface. Social: 18px icon (.lk-social). Go: 20px chevron at the end of a Link Row (.lk-row__go). Hover lifts to primary; code has no hover yet. Needs an aria-label in code (the social kind).",
+      "description": "32px round button on inverse-surface; the icon takes inverse-on-surface. Social: 18px icon (.lk-social). Go: 20px chevron at the end of a Link Row (.lk-row__go). Hover lifts to primary (on a Link Row, hovering the row lifts its Go). Needs an aria-label in code (the social kind).",
       "key": "aefc058e41f4b0e19123a72a9d42b63d80ab2f7e"
     },
     "36:96": {
@@ -358,7 +461,7 @@
           ]
         }
       },
-      "description": "Filter tab: a toggle button (aria-pressed), 46px tall, 10px radius, comic lettering. .lk-tab. Selected sits on surface-container-lowest with an outline. Fills its grid cell (FILL width) in a row of five.",
+      "description": "Filter tab: a toggle button (aria-pressed), 46px tall, 10px radius, comic lettering. .lk-tab. Hover takes surface-container-lowest at 40%; Selected sits on surface-container-lowest with an outline; Focus draws a 2px primary ring. Fills its grid cell (FILL width) in a row of five.",
       "key": "0c2e4940d155c0c37f20c80f40a938a595dfb9b1"
     },
     "36:107": {
@@ -384,6 +487,126 @@
       },
       "description": "Round profile photo with a 1px on-surface ring over tertiary-98 (shown when there is no photo). Large 172px; Compact 120px below 640px. .lk-avatar. Photo fill: Imagery/Portrait.",
       "key": "619bc9e96f6109bfa927e39f3b3309d241f3a9f9"
+    },
+    "203:2": {
+      "name": "Stamp and Postmark",
+      "type": "COMPONENT",
+      "page": "Dressing",
+      "width": 400,
+      "height": 220,
+      "properties": {
+        "Label": {
+          "type": "TEXT",
+          "default": "PROGRESS"
+        },
+        "Stamp icon": {
+          "type": "INSTANCE_SWAP",
+          "default": "199:3"
+        },
+        "Postmark glyph": {
+          "type": "INSTANCE_SWAP",
+          "default": "199:48"
+        }
+      },
+      "description": "The post type's stamp, cancelled (catalog: cachet). A perforated stamp in type/accent with the type's icon (Flag progress, Signpost decision, Skull failure, Sun principle, Bell teaching), its label and the 2¢ value from Entry 001-C; a ring postmark with the handle or series over the day or date, the card's topic glyph, and five machine waves. Ink is on-surface at 62%. Code adds speckled wear (an SVG noise mask) that Figma doesn't draw. 400×220. Edit the ring text on the curve directly (text on a path takes no component property). Sample: the figma-variables card. Dressing.tsx Cachet (@jkidd/react).",
+      "key": "fbe109d5154deee032951998dbd12f8193e776b3"
+    },
+    "205:6": {
+      "name": "Rubber Stamp",
+      "type": "COMPONENT",
+      "page": "Dressing",
+      "width": 302,
+      "height": 92,
+      "properties": {
+        "Word": {
+          "type": "TEXT",
+          "default": "SHIPPED"
+        }
+      },
+      "description": "One verdict word the card itself says (catalog: rubber), boxed twice in type/ink at 80% and tilted 4–10°; the code sizes it 64 + 34px a letter by 92. Only when the card has a verdict. Code adds speckled wear that Figma doesn't draw. Sample: the link-page-weight card. Dressing.tsx RubberStamp (@jkidd/react).",
+      "key": "1a7646e8f6bac7e9c758ba33bef3f33b02ec7261"
+    },
+    "205:10": {
+      "name": "Divider Imprint",
+      "type": "COMPONENT",
+      "page": "Dressing",
+      "width": 40,
+      "height": 470,
+      "properties": {
+        "Source": {
+          "type": "TEXT",
+          "default": "IDEA 2026-09-24-02 · JOURNAL 2026-09-24 03:20"
+        }
+      },
+      "description": "The divided back's centre rule (catalog: imprint), with the card's source printed up it like a publisher's number: IDEA <id> · JOURNAL <event>, in on-surface-variant at 70%. Only when the card has a source. Sample: the figma-variables card. Dressing.tsx Imprint (@jkidd/react).",
+      "key": "295bfb17bb71b821242ad9b55f411e34750976a6"
+    },
+    "205:16": {
+      "name": "Registration Mark",
+      "type": "COMPONENT",
+      "page": "Dressing",
+      "width": 32,
+      "height": 32,
+      "description": "A crosshair target, the printer's mark (catalog: registration): one in each corner, 24px in from the edges and the rail, in on-surface at 45%, for a build that runs through a press. Dressing.tsx Target (@jkidd/react).",
+      "key": "39ff891d7d664bfff636cee05ccf8c877936f9d2"
+    },
+    "205:19": {
+      "name": "Colour Bar",
+      "type": "COMPONENT",
+      "page": "Dressing",
+      "width": 90,
+      "height": 14,
+      "description": "The five post type accents as a printer's colour bar along the foot of the card (catalog: colorbar), centred 17px up: each swatch is type/accent fixed to its own Post Type mode, so it shows all five whatever the card's type. dressing.css .jk-back__colorbar (@jkidd/ui).",
+      "key": "a2be98e926dd58ca1058176cf87f81fc5537f62a"
+    },
+    "205:33": {
+      "name": "Photo Corner",
+      "type": "COMPONENT_SET",
+      "page": "Dressing",
+      "width": 216,
+      "height": 66,
+      "variants": 4,
+      "properties": {
+        "Position": {
+          "type": "VARIANT",
+          "default": "Top Left",
+          "options": [
+            "Top Left",
+            "Top Right",
+            "Bottom Left",
+            "Bottom Right"
+          ]
+        }
+      },
+      "description": "Album corners on each zone, so two halves sit like mounted prints (catalog: corners): on-surface at 82%, set 6px out from the zone's corners. Parity cards. Dressing.tsx PhotoCorners (@jkidd/react).",
+      "key": "c287f3909d2346ea71b3f34ba1cb9103c1c13f25"
+    },
+    "205:13": {
+      "name": "Airmail Edge",
+      "type": "COMPONENT",
+      "page": "Dressing",
+      "width": 1584,
+      "height": 14,
+      "description": "Bands of type/accent and on-surface chevrons along the top and bottom edges (catalog: airmail), 14px tall from the rail to the right edge, at 85%: one dispatch in a run, so only on series posts. Stretch it to the card's width; it clips. dressing.css .jk-back__airmail (@jkidd/ui).",
+      "key": "610aa0d4e7c93fd4fc0692f421de3067d214b7ee"
+    },
+    "215:33": {
+      "name": "Graph Paper",
+      "type": "COMPONENT",
+      "page": "Dressing",
+      "width": 1600,
+      "height": 900,
+      "description": "Graph paper (catalog: grid): a 24px minor grid at 9% and a 120px major grid at 20%, in type/accent, so it takes the card's Post Type mode; the stage postcards' paper. A texture: lay it over the stock, under the content, one per card. Resize it to the card (it clips; drawn to 1600×1350). Code: back.css [data-texture=grid].",
+      "key": "58870bc649461c41219db2497ed9a10b517c4e21"
+    },
+    "215:36": {
+      "name": "Ledger Ruling",
+      "type": "COMPONENT",
+      "page": "Dressing",
+      "width": 1600,
+      "height": 900,
+      "description": "Ledger ruling (catalog: ledger): feint rules every 56px in on-surface at 9% and a double margin line at 96px and 104px in type/accent at 14%, left of the content. A texture for Ledger cards: lay it over the stock, under the content. Resize it to the card (it clips; drawn to 1600×1350). Code: back.css [data-texture=ledger].",
+      "key": "a6aa1a909834674094e6a5befe3f0c72064b89d1"
     }
   },
   "frames": {
@@ -391,8 +614,15 @@
       "name": "Cover",
       "type": "FRAME",
       "page": "Cover",
-      "width": 1600,
-      "height": 900
+      "width": 1920,
+      "height": 1080
+    },
+    "36:129": {
+      "name": "Icons",
+      "type": "FRAME",
+      "page": "Icons",
+      "width": 720,
+      "height": 763
     },
     "1:11": {
       "name": "Card Parts",
@@ -401,19 +631,19 @@
       "width": 1074,
       "height": 1422
     },
-    "36:129": {
-      "name": "Icons",
-      "type": "FRAME",
-      "page": "Icons",
-      "width": 720,
-      "height": 358
-    },
     "36:108": {
       "name": "Controls",
       "type": "FRAME",
       "page": "Controls",
       "width": 1108,
-      "height": 642
+      "height": 684
+    },
+    "201:94": {
+      "name": "Dressing",
+      "type": "FRAME",
+      "page": "Dressing",
+      "width": 3248,
+      "height": 2140
     }
   }
 }

@@ -125,6 +125,9 @@ importers:
       '@jkidd/ui':
         specifier: workspace:*
         version: link:../ui
+      lucide-react:
+        specifier: ^0.469.0
+        version: 0.469.0(react@19.3.0)
     devDependencies:
       react:
         specifier: ^19.0.0

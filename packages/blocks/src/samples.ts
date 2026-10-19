@@ -38,8 +38,8 @@ export const SAMPLES: Record<Archetype, CardSpec> = {
     project: "TIBBIE X",
     content: {
       source: { label: "FIGMA VARIABLES", chips: ["primary", "surface", "outline"] },
-      transform: { label: "SCRIPT", command: "npm run tokens" },
-      output: { label: "THEME.CSS", lines: ["--surface: …;", "--primary: …;", "--outline: …;"], highlight: 1 },
+      transform: { label: "SCRIPT", command: "pnpm tokens" },
+      output: { label: "TOKENS.CSS", lines: ["surface", "primary", "outline"], highlight: 1 },
       arrows: ["export", "writes"],
     },
   },
@@ -60,7 +60,7 @@ export const SAMPLES: Record<Archetype, CardSpec> = {
     project: "TIBBIE X",
     content: {
       before: { items: ["--gray-100", "--gray-200", "--blue-500"] },
-      after: { items: ["surface-primary", "surface-secondary", "accent-brand"] },
+      after: { items: ["surface", "surface-container", "primary"] },
     },
   },
   ledger: {

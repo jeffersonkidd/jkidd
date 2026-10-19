@@ -35,6 +35,14 @@ export const FIGMA_NODES = {
   EqualsBadge: [LIBRARIES.Primitives, "65:94"],
   Terminal: [LIBRARIES.Primitives, "65:96"],
   ZoneLabel: [LIBRARIES.Primitives, "65:99"],
+  // Primitives (Dressing page): the stock catalog's shapes, @jkidd/react primitives/Dressing.tsx
+  Cachet: [LIBRARIES.Primitives, "203:2"],
+  RubberStamp: [LIBRARIES.Primitives, "205:6"],
+  Imprint: [LIBRARIES.Primitives, "205:10"],
+  Airmail: [LIBRARIES.Primitives, "205:13"],
+  Registration: [LIBRARIES.Primitives, "205:16"],
+  ColorBar: [LIBRARIES.Primitives, "205:19"],
+  PhotoCorners: [LIBRARIES.Primitives, "205:33"],
   // Layout (Frame page)
   CardFrame: [LIBRARIES.Layout, "67:72"],
   ContentEmpty: [LIBRARIES.Layout, "67:70"],

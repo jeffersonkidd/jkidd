@@ -5,7 +5,8 @@
  * Pure: the browser measures the card (DressedPostcard), this decides. No runtime imports.
  */
 
-export type Rect = { x: number; y: number; w: number; h: number };
+import type { Rect } from "@jkidd/react";
+export type { Rect };
 export type Box = { id: string; w: number; h: number; prefer: [number, number] };
 export type Placement = { x: number; y: number; scale: number } | null;
 

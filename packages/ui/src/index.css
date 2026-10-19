@@ -4,5 +4,6 @@
 @import "./foundations/marks.css";
 @import "./primitives/parts.css";
 @import "./primitives/figure.css";
+@import "./primitives/dressing.css";
 @import "./layout/frame.css";
 @import "./compositions/archetypes.css";

@@ -100,12 +100,13 @@
 .jk-row[data-mark="cross"] .jk-row__mark { font-size: 40px; color: var(--md-sys-color-error); }
 .jk-row[data-mark="dot"] .jk-row__mark { font-size: 20px; }
 .jk-row[data-mark-tone="primary"] .jk-row__mark { color: var(--md-sys-color-primary); }
-.jk-row__text { color: var(--md-sys-color-on-surface); white-space: nowrap; }
+.jk-row__text { position: relative; color: var(--md-sys-color-on-surface); white-space: nowrap; }
 .jk-row[data-struck] .jk-row__text { color: var(--md-sys-color-on-surface-variant); }
-/* The strike is its own layer, not text-decoration (the shared TEXT property lesson). */
+/* The strike is its own layer, not text-decoration (the shared TEXT property lesson),
+   inside the text so it is exactly as long as the words. */
 .jk-row__strike {
   position: absolute;
-  left: 64px;
+  left: 0;
   right: 0;
   top: calc(50% + 2.5px);
   height: 3px;

@@ -1,5 +1,5 @@
 // pnpm tokens: sources/*.json → src/tokens.css + src/tokens.gen.ts
-// The Pipeline postcard's sample ("Figma variables → npm run tokens → theme.css") is this script.
+// The Pipeline postcard's sample ("Figma variables → pnpm tokens → tokens.css") is this script.
 
 import { writeFileSync } from "node:fs";
 import { palette, tokens, SCHEMES, POST_TYPES, GENRES, root } from "./lib/tokens.mjs";

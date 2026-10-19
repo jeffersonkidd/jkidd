@@ -93,49 +93,8 @@
   opacity: 0.4;
 }
 
-/* ── Shapes ── */
+/* ── Shapes: placed here; drawn by @jkidd/react primitives/Dressing.tsx, styled in
+   @jkidd/ui primitives/dressing.css ── */
 
 .jk-back__shapes { position: absolute; inset: 0; z-index: 3; pointer-events: none; }
 .jk-back__shapes svg { display: block; overflow: visible; }
-
-.jk-back__stamp-paper { fill: var(--md-sys-color-surface-container-highest); }
-.jk-back__stamp-face { fill: var(--jk-type-accent); }
-.jk-back__stamp-ink { color: var(--jk-type-on-accent); stroke: currentColor; }
-.jk-back__stamp-ink text { stroke: none; fill: currentColor; }
-.jk-back__stamp-value { font: 400 22px var(--jk-font-display); }
-.jk-back__stamp-label { font: 500 12px var(--jk-font-mono); letter-spacing: 0.16em; }
-
-.jk-back__ink { color: var(--md-sys-color-on-surface); stroke: currentColor; opacity: 0.62; }
-.jk-back__ink text { stroke: none; fill: currentColor; }
-.jk-back__ink circle[r="4"] { fill: currentColor; }
-.jk-back__ring-text { font: 500 15px var(--jk-font-mono); letter-spacing: 0.18em; }
-
-.jk-back__rubber { color: var(--jk-type-ink); stroke: currentColor; opacity: 0.8; }
-.jk-back__rubber-word { stroke: none; fill: currentColor; font: 400 46px var(--jk-font-display); letter-spacing: 0.08em; }
-
-.jk-back__imprint { color: var(--md-sys-color-on-surface-variant); stroke: currentColor; opacity: 0.7; }
-.jk-back__imprint-text { stroke: none; fill: currentColor; font: 500 13px var(--jk-font-mono); letter-spacing: 0.22em; }
-
-.jk-back__airmail {
-  position: absolute;
-  left: var(--jk-card-rail);
-  right: 0;
-  height: 14px;
-  background: repeating-linear-gradient(
-    -45deg,
-    var(--jk-type-accent) 0 22px,
-    transparent 22px 34px,
-    var(--md-sys-color-on-surface) 34px 56px,
-    transparent 56px 68px
-  );
-  opacity: 0.85;
-}
-.jk-back__airmail[data-edge="top"] { top: 0; }
-.jk-back__airmail[data-edge="bottom"] { bottom: 0; }
-
-.jk-back__target { position: absolute; color: var(--md-sys-color-on-surface); stroke: currentColor; opacity: 0.45; }
-
-.jk-back__colorbar { position: absolute; left: 50%; bottom: 17px; display: flex; transform: translateX(-50%); }
-.jk-back__colorbar i { width: 18px; height: 14px; background: var(--jk-type-accent); }
-
-.jk-back__corner { position: absolute; fill: var(--md-sys-color-on-surface); opacity: 0.82; }

@@ -10,7 +10,7 @@ import { CATALOG } from "./catalog";
 import { readCard, type CardSource, type Reading } from "./read";
 import { pickDressing, rng, type DressOptions, type Dressing } from "./pick";
 import { place, type Placement, type Rect } from "./place";
-import { Airmail, Cachet, ColorBar, Imprint, PhotoCorners, Registration, RubberStamp } from "./Shapes";
+import { Airmail, Cachet, ColorBar, Imprint, PhotoCorners, Registration, RubberStamp, type StampIcon, type TopicGlyph } from "@jkidd/react";
 
 /**
  * Dressing the back: an archetype card's JSON, read for meaning, dressed from the stock catalog,
@@ -145,11 +145,24 @@ export const DressedPostcard = forwardRef<
           const pos = p ? ({ position: "absolute", left: p.x, top: p.y, transform: `scale(${p.scale})`, transformOrigin: "0 0" } as const) : null;
           switch (s.id) {
             case "cachet":
-              return pos ? <div key={s.id} style={pos}><Cachet params={s.params} /></div> : null;
+              return pos ? (
+                <div key={s.id} style={pos}>
+                  <Cachet
+                    icon={s.params.icon as StampIcon}
+                    glyph={(s.params.glyph as TopicGlyph) || null}
+                    label={String(s.params.label)}
+                    ringTop={String(s.params.ringTop)}
+                    ringBottom={String(s.params.ringBottom) || null}
+                    stampTilt={Number(s.params.stampTilt)}
+                    markTilt={Number(s.params.markTilt)}
+                    wavePhase={Number(s.params.wavePhase)}
+                  />
+                </div>
+              ) : null;
             case "rubber":
-              return pos ? <div key={s.id} style={pos}><RubberStamp params={s.params} size={s.size} /></div> : null;
+              return pos ? <div key={s.id} style={pos}><RubberStamp word={String(s.params.word)} tilt={Number(s.params.tilt)} size={s.size} /></div> : null;
             case "imprint":
-              return pos ? <div key={s.id} style={pos}><Imprint params={s.params} size={s.size} /></div> : null;
+              return pos ? <div key={s.id} style={pos}><Imprint idea={String(s.params.idea)} event={String(s.params.event)} size={s.size} /></div> : null;
             case "airmail":
               return <Airmail key={s.id} />;
             case "registration":

@@ -17,7 +17,7 @@ const ROLE_GROUPS: [string, string[]][] = [
 const TEXT_STYLES = [
   ["Card/Statement", "jk-text-card-statement", "One idea per card."],
   ["Card/Body", "jk-text-card-body", "Six archetypes as components"],
-  ["Card/Code", "jk-text-card-code", "npm run tokens"],
+  ["Card/Code", "jk-text-card-code", "pnpm tokens"],
   ["Card/Kicker", "jk-text-card-kicker", "Library v0.1 shipped"],
   ["Card/Chrome", "jk-text-card-chrome", "21 days of dev"],
   ["Doc/H1", "jk-text-doc-h1", "Foundations"],

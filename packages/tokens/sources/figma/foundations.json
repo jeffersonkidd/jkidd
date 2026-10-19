@@ -3015,6 +3015,88 @@
       "description": "Jefferson Kidd portrait, 344×344, for the profile avatar (172px at 2×). packages/blocks/src/assets/profile/jeffersonkidd-portrait.jpg.",
       "id": "S:18d96a12f477f6f2164661dcba1bce1f2dca5556",
       "key": "18d96a12f477f6f2164661dcba1bce1f2dca5556"
+    },
+    "Imagery/Texture/Fibres": {
+      "paints": [
+        {
+          "type": "IMAGE",
+          "scaleMode": "TILE",
+          "imageHash": "5f7217fbb5f8f722f073f0d2ce45dd2d2bffbb1a"
+        }
+      ],
+      "description": "The card stock's fibres: fine fractal grain and long paper fibres in on-surface at 8%, a 640px tile. Stack over a stock fill. Code: back.css [data-texture=fiber], the floor texture.",
+      "id": "S:dc1f12989b5c58170a0b9c2a6aa13a0a1fe6fb9c",
+      "key": "dc1f12989b5c58170a0b9c2a6aa13a0a1fe6fb9c"
+    },
+    "Imagery/Texture/Laid Paper": {
+      "paints": [
+        {
+          "type": "IMAGE",
+          "scaleMode": "TILE",
+          "imageHash": "3137d5769897e3e84ff220730e4f99e32d03f878"
+        }
+      ],
+      "description": "Laid paper: chain lines every 104px at 9% and laid lines every 6px at 6%, in on-surface, tiled. Stack over a stock fill. Code: back.css [data-texture=laid].",
+      "id": "S:b8b433842e61d5ad0d22a78d85d2a93cfee93fbd",
+      "key": "b8b433842e61d5ad0d22a78d85d2a93cfee93fbd"
+    },
+    "Imagery/Texture/Halftone Screen": {
+      "paints": [
+        {
+          "type": "IMAGE",
+          "scaleMode": "CROP",
+          "imageHash": "37fa5579bd2b5d9e0430916b077c86eee7cda902"
+        }
+      ],
+      "description": "Halftone: a 14px dot screen in on-surface at 20%, fading in from 38% across to the right edge; one card's worth, stretched to the frame. Stack over a stock fill. Code: back.css [data-texture=halftone].",
+      "id": "S:38df42ae88e84603a0d17116e7a14e9206e25164",
+      "key": "38df42ae88e84603a0d17116e7a14e9206e25164"
+    },
+    "Imagery/Overlay/Western Press": {
+      "paints": [
+        {
+          "type": "IMAGE",
+          "opacity": 0.45,
+          "blendMode": "OVERLAY",
+          "scaleMode": "TILE",
+          "imageHash": "fd58d05bc38c34030a6871559997082ef1b4b0cc"
+        }
+      ],
+      "description": "The western press: the western master's grain, a 512px tile, overlay blend at 45%. The topmost fill, over the content too. Code: back.css [data-overlays~=press], assets/press/grain.png.",
+      "id": "S:a2d487b88349b524d67830bef4ce125cd907741c",
+      "key": "a2d487b88349b524d67830bef4ce125cd907741c"
+    },
+    "Imagery/Overlay/Foxing": {
+      "paints": [
+        {
+          "type": "GRADIENT_RADIAL",
+          "opacity": 0.16,
+          "blendMode": "MULTIPLY"
+        },
+        {
+          "type": "GRADIENT_RADIAL",
+          "opacity": 0.16,
+          "blendMode": "MULTIPLY"
+        },
+        {
+          "type": "GRADIENT_RADIAL",
+          "opacity": 0.16,
+          "blendMode": "MULTIPLY"
+        },
+        {
+          "type": "GRADIENT_RADIAL",
+          "opacity": 0.16,
+          "blendMode": "MULTIPLY"
+        },
+        {
+          "type": "GRADIENT_RADIAL",
+          "opacity": 0.16,
+          "blendMode": "MULTIPLY"
+        }
+      ],
+      "description": "Foxing: five soft age spots in tertiary at 55%, multiplied at 16%, at seed 7's places on a 1600×900 card. The topmost fill. In code each card's seed places them. Code: back.css [data-overlays~=foxing].",
+      "id": "S:ef39d8c1eeadbed7b2c841873ed82077af052ef0",
+      "key": "ef39d8c1eeadbed7b2c841873ed82077af052ef0"
     }
   },
   "gridStyles": {},
@@ -3145,7 +3227,7 @@
       "type": "FRAME",
       "page": "Getting Started",
       "width": 1294,
-      "height": 2552
+      "height": 2696
     },
     "399:2953": {
       "name": "Marks",
@@ -3165,8 +3247,8 @@
       "name": "Imagery",
       "type": "SECTION",
       "page": "Imagery",
-      "width": 1390,
-      "height": 963
+      "width": 2624,
+      "height": 1383
     },
     "379:1426": {
       "name": "jkidd-stage (1) 1",

@@ -81,7 +81,8 @@ const GLYPH: Record<RowMark, string> = { check: "✓", cross: "✕", dot: "●" 
 
 /**
  * One line of a Ledger or Before / After card. Check for shipped, Cross (error) for
- * the mistake, Dot for a note. struck draws the subtraction ledger's strike line.
+ * the mistake, Dot for a note. struck draws the subtraction ledger's strike line, as
+ * long as the text.
  */
 export function CheckRow({
   mark = "check",
@@ -109,8 +110,8 @@ export function CheckRow({
       </span>
       <span className={`jk-row__text ${text === "code" ? "jk-text-card-code" : "jk-text-card-body"}`}>
         {struck ? <s style={{ textDecoration: "none" }}>{children}</s> : children}
+        {struck ? <span className="jk-row__strike" aria-hidden /> : null}
       </span>
-      {struck ? <span className="jk-row__strike" aria-hidden /> : null}
     </div>
   );
 }
