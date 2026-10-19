@@ -9,7 +9,7 @@ import { readFileSync } from "node:fs";
 
 const source = readFileSync(new URL("../src/figma.ts", import.meta.url), "utf8");
 const snapshot = (name) => JSON.parse(readFileSync(new URL(`../../tokens/sources/figma/${name}.json`, import.meta.url), "utf8"));
-const SNAPSHOTS = { Foundations: "foundations", Primitives: "primitives", Layout: "layout", Compositions: "compositions", Blocks: "blocks" };
+const SNAPSHOTS = { Foundations: "foundations", Primitives: "primitives", Compositions: "compositions", Blocks: "blocks" };
 
 /** The body of `export const NAME = { ... }` in figma.ts. */
 function block(name) {

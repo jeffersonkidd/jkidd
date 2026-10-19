@@ -22,11 +22,11 @@ Four packages in a pnpm workspace, stacked like the Figma libraries. Each uses o
 |---|---|---|
 | `@jkidd/tokens` · `packages/tokens/` | The variables. `sources/*.json` (the palette export, post types, layout, canvases, fonts, text styles, contrast waivers) → `pnpm tokens` → `src/tokens.css` + `src/tokens.gen.ts`. Also the contrast check and its tests | JKidd - Foundations |
 | `@jkidd/core` · `packages/core/` | Framework-free: the Figma node map and library keys (`src/figma.ts`), the stick-figure rig, contrast math, the export helper. `vendor/architects-notebook/` holds what `pnpm notebook` copies from the kit, with `SOURCE.json`. Never edit it by hand | — |
-| `@jkidd/ui` · `packages/ui/` | **JKidd UI**: the component library, the React components beside their CSS, in folders named for the libraries (`foundations/`, `primitives/`, `layout/`, `compositions/`): marks, card parts, the dressing shapes, stick figure, card frame, the six archetypes. Importing it loads the CSS (alone: `@jkidd/ui/styles.css`); the fonts are `@jkidd/ui/fonts` (`fonts/`, `src/fonts.ts`). Needs `@jkidd/tokens/tokens.css` first | Foundations, Primitives, Layout, Compositions |
+| `@jkidd/ui` · `packages/ui/` | **JKidd UI**: the component library, the React components beside their CSS, in folders named for the libraries (`foundations/`, `primitives/`, `compositions/`): marks, card parts, the dressing shapes, stick figure, card frame, the six archetypes. Importing it loads the CSS (alone: `@jkidd/ui/styles.css`); the fonts are `@jkidd/ui/fonts` (`fonts/`, `src/fonts.ts`). Needs `@jkidd/tokens/tokens.css` first | Foundations, Primitives, Compositions |
 | `@jkidd/blocks` · `packages/blocks/` | **JK Blocks**: finished things. Postcard (the archetypes), the picture and stage postcards, the link page, sample copy and art | JKidd - Blocks |
 | `apps/site/` | The demo site and the postcard makers. `src/ds.ts` re-exports all four packages for the pages | — |
 
-The Figma library keys are `LIBRARIES` in `packages/core/src/figma.ts`. The four libraries split out of JKidd - Foundations (Primitives, Layout, Compositions, Blocks) start empty and fill as components are moved across in Figma. Until a component moves, its node ID still points into JKidd - Foundations.
+The Figma library keys are `LIBRARIES` in `packages/core/src/figma.ts`. The three libraries split out of JKidd - Foundations (Primitives, Compositions, Blocks; a fourth, Layout, was merged into Compositions on 2026-10-19) start empty and fill as components are moved across in Figma. Until a component moves, its node ID still points into JKidd - Foundations.
 
 ### Components → Figma nodes
 

@@ -2,11 +2,23 @@
   "$description": "Snapshot of a Figma library, written by packages/tokens/scripts/figma/export.js. Don't edit by hand: refresh it from Figma. The drift tests check the token sources and figma.ts against it.",
   "file": "JKidd - Compositions",
   "fileKey": "N62b8rJJLQ4MT339QUVpr9",
-  "readAt": "2026-10-14",
+  "readAt": "2026-10-19",
   "pages": [
     {
       "id": "0:1",
       "name": "Cover"
+    },
+    {
+      "id": "251:247",
+      "name": "Frame"
+    },
+    {
+      "id": "251:248",
+      "name": "Canvases"
+    },
+    {
+      "id": "251:249",
+      "name": "Web"
     },
     {
       "id": "1:9",
@@ -23,6 +35,103 @@
   "paintStyles": {},
   "gridStyles": {},
   "components": {
+    "252:521": {
+      "name": "Card Frame",
+      "type": "COMPONENT_SET",
+      "page": "Frame",
+      "width": 5890,
+      "height": 1510,
+      "variants": 4,
+      "properties": {
+        "Day": {
+          "type": "TEXT",
+          "default": "DAY 01"
+        },
+        "Show day": {
+          "type": "BOOLEAN",
+          "default": true
+        },
+        "Series": {
+          "type": "TEXT",
+          "default": "21 DAYS OF DEV"
+        },
+        "Show series": {
+          "type": "BOOLEAN",
+          "default": true
+        },
+        "Content": {
+          "type": "INSTANCE_SWAP",
+          "default": "252:574"
+        },
+        "Ratio": {
+          "type": "VARIANT",
+          "default": "16:9",
+          "options": [
+            "16:9",
+            "1:1",
+            "4:5",
+            "5:4"
+          ]
+        }
+      },
+      "description": "The constant frame (POSTCARDS.md §1). Only the Content Zone changes between cards. Accent rail and tick bind to type/accent: set the instance's Post Type mode to set the type. Series posts show Day and Series (\"21 DAYS OF DEV\"); regular posts turn both off. Swap Content to a Content/* archetype. Judge at 320px (Thumbnail Test page).",
+      "key": "a271ac9e819d9d579ce536ea757f3bf50e63567e"
+    },
+    "252:574": {
+      "name": "Content/Empty",
+      "type": "COMPONENT",
+      "page": "Frame",
+      "width": 1360,
+      "height": 644,
+      "description": "Default content for Card Frame. Swap the frame's Content property to a Content/* archetype.",
+      "key": "5868de0b42c0ad610d01332790b6db25be1a30a5"
+    },
+    "252:635": {
+      "name": "Sheet",
+      "type": "COMPONENT_SET",
+      "page": "Web",
+      "width": 1310,
+      "height": 484,
+      "variants": 2,
+      "properties": {
+        "Content": {
+          "type": "SLOT"
+        },
+        "Breakpoint": {
+          "type": "VARIANT",
+          "default": "Desktop",
+          "options": [
+            "Desktop",
+            "Mobile"
+          ]
+        }
+      },
+      "description": "The paper sheet a web page sits on: the card stock's tall cut, Imagery/Paper 2:3, stretched over tertiary-container, pinned to the Light scheme (the paper is a light raster). Desktop: an 800px column, a 4px on-secondary border, 20/24/16 padding. Mobile (below 640px): full width, 16px padding, no border. Put the page into Content; children stack 20px apart. .lk-sheet.",
+      "key": "3c3ac63de2afaa5a9af7a17c8ca999a1a0c9cbe6"
+    },
+    "252:642": {
+      "name": "Stage",
+      "type": "COMPONENT_SET",
+      "page": "Web",
+      "width": 1790,
+      "height": 980,
+      "variants": 2,
+      "properties": {
+        "Page": {
+          "type": "SLOT"
+        },
+        "Breakpoint": {
+          "type": "VARIANT",
+          "default": "Desktop",
+          "options": [
+            "Desktop",
+            "Mobile"
+          ]
+        }
+      },
+      "description": "A full-bleed web backdrop: Imagery/Palm Sky, cover, over primary-container. Desktop centres its Page 32px from the top with 16px sides; Mobile runs the page edge to edge. Holds a Sheet. .lk-stage.",
+      "key": "1680dfbfebd119b491397bf47cde392106670050"
+    },
     "81:239": {
       "name": "Content/Manifesto",
       "type": "COMPONENT",
@@ -246,7 +355,35 @@
       "type": "FRAME",
       "page": "Cover",
       "width": 1600,
-      "height": 900
+      "height": 692
+    },
+    "252:663": {
+      "name": "Cover",
+      "type": "FRAME",
+      "page": "Cover",
+      "width": 1920,
+      "height": 1080
+    },
+    "252:516": {
+      "name": "Frame",
+      "type": "FRAME",
+      "page": "Frame",
+      "width": 5890,
+      "height": 2516
+    },
+    "252:607": {
+      "name": "Canvases",
+      "type": "FRAME",
+      "page": "Canvases",
+      "width": 1514,
+      "height": 582
+    },
+    "252:649": {
+      "name": "Header",
+      "type": "FRAME",
+      "page": "Web",
+      "width": 900,
+      "height": 153
     },
     "1:11": {
       "name": "Archetypes",

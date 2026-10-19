@@ -21,7 +21,7 @@ export function Cards(_: PageProps) {
     scheme,
     ratio,
     project: project.trim() || null,
-    // Series posts show day and series; regular posts neither (Card Frame 67:72).
+    // Series posts show day and series; regular posts neither (Card Frame 252:521).
     ...(series === "series" && { day: s.day ?? "DAY 01", series: "21 DAYS OF DEV" }),
     ...(series === "regular" && { day: null, series: null }),
   });

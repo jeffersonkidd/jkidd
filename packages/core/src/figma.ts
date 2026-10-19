@@ -2,13 +2,13 @@ import { FIGMA_FILE_KEY } from "@jkidd/tokens";
 
 /**
  * The JKidd design libraries, in layer order; each uses only the ones before it, as
- * the packages do. Foundations was JKidd - DS. The other four were split out of
- * it on 2026-10-12, and the components moved across on 2026-10-14.
+ * the packages do. Foundations was JKidd - DS. The others were split out of it on
+ * 2026-10-12, and the components moved across on 2026-10-14. Layout was merged into
+ * Compositions on 2026-10-19 (its Frame, Canvases and Web pages).
  */
 export const LIBRARIES = {
   Foundations: FIGMA_FILE_KEY,
   Primitives: "jm9r6k7bY7JuaJup8EWKgQ",
-  Layout: "JzxtC4giYrjWyiJbeNn7lY",
   Compositions: "N62b8rJJLQ4MT339QUVpr9",
   Blocks: "1qe9bxB8lEeLhFolzYd5sI",
 } as const;
@@ -43,9 +43,9 @@ export const FIGMA_NODES = {
   Registration: [LIBRARIES.Primitives, "205:16"],
   ColorBar: [LIBRARIES.Primitives, "205:19"],
   PhotoCorners: [LIBRARIES.Primitives, "205:33"],
-  // Layout (Frame page)
-  CardFrame: [LIBRARIES.Layout, "67:72"],
-  ContentEmpty: [LIBRARIES.Layout, "67:70"],
+  // Compositions (Frame page)
+  CardFrame: [LIBRARIES.Compositions, "252:521"],
+  ContentEmpty: [LIBRARIES.Compositions, "252:574"],
   // Compositions (Archetypes page)
   Manifesto: [LIBRARIES.Compositions, "81:239"],
   ArchitectureDiagram: [LIBRARIES.Compositions, "81:247"],
@@ -81,7 +81,7 @@ export const WORKBENCH_NODES = {
 } as const;
 
 /**
- * The link page as live layers across the five libraries (rebuilt 2026-10-13 from the
+ * The link page as live layers across the four libraries (rebuilt 2026-10-13 from the
  * Workbench mockup above, at web size: the 800px sheet, not the 1600 canvas). Each
  * entry is [file key, node].
  */
@@ -93,9 +93,9 @@ export const LINK_NODES = {
   IconButton: [LIBRARIES.Primitives, "36:67"],
   Tab: [LIBRARIES.Primitives, "36:96"],
   Avatar: [LIBRARIES.Primitives, "36:107"],
-  // Layout (Web page)
-  Stage: [LIBRARIES.Layout, "29:35"],
-  Sheet: [LIBRARIES.Layout, "29:28"],
+  // Compositions (Web page)
+  Stage: [LIBRARIES.Compositions, "252:642"],
+  Sheet: [LIBRARIES.Compositions, "252:635"],
   // Compositions (Link page)
   LinkHeader: [LIBRARIES.Compositions, "42:141"],
   LinkProfile: [LIBRARIES.Compositions, "42:241"],

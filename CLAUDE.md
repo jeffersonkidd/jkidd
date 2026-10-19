@@ -1,6 +1,6 @@
 # CLAUDE.md
 
-Jefferson Kidd design system in code, built from the Figma libraries: *JKidd - Foundations* (`ADhu9noVbgFbtapMZivOHw`, formerly *JKidd - DS*) and the four split out of it (Primitives, Layout, Compositions, Blocks; keys in `packages/core/src/figma.ts`). The charter and the rules it implements live in the Workbench: `~/Desktop/Workbench/projects/jkidd/` (`JKIDD.md`, `content/POSTCARDS.md`, `content/CONTENT-SYSTEM.md`).
+Jefferson Kidd design system in code, built from the Figma libraries: *JKidd - Foundations* (`ADhu9noVbgFbtapMZivOHw`, formerly *JKidd - DS*) and the three split out of it (Primitives, Compositions, Blocks; keys in `packages/core/src/figma.ts`). The charter and the rules it implements live in the Workbench: `~/Desktop/Workbench/projects/jkidd/` (`JKIDD.md`, `content/POSTCARDS.md`, `content/CONTENT-SYSTEM.md`).
 
 ## Commands
 
@@ -15,7 +15,7 @@ Jefferson Kidd design system in code, built from the Figma libraries: *JKidd - F
 
 ## Packages
 
-A pnpm workspace, layered like the Figma libraries: `@jkidd/tokens` → `@jkidd/core` → `@jkidd/ui` (JKidd UI: the React components with their CSS) → `@jkidd/blocks` (JK Blocks), plus two apps that consume them through `workspace:*`: the demo in `apps/site` and the link-in-bio site in `apps/links`, which renders the Link Page block from `@jkidd/blocks/link` and keeps its live copy (hrefs) in `apps/links/src/links.ts`. A package imports only the layers before it and declares them in its `package.json`; `scripts/layers.test.mjs` enforces this. Inside `ui`, folders are named for the Figma library a piece lives in (`foundations/`, `primitives/`, `layout/`, `compositions/`): when a component moves library in Figma, move its code to match.
+A pnpm workspace, layered like the Figma libraries: `@jkidd/tokens` → `@jkidd/core` → `@jkidd/ui` (JKidd UI: the React components with their CSS) → `@jkidd/blocks` (JK Blocks), plus two apps that consume them through `workspace:*`: the demo in `apps/site` and the link-in-bio site in `apps/links`, which renders the Link Page block from `@jkidd/blocks/link` and keeps its live copy (hrefs) in `apps/links/src/links.ts`. A package imports only the layers before it and declares them in its `package.json`; `scripts/layers.test.mjs` enforces this. Inside `ui`, folders are named for the Figma library a piece lives in (`foundations/`, `primitives/`, `compositions/`): when a component moves library in Figma, move its code to match.
 
 ## Rules
 

@@ -21,7 +21,7 @@ export function lintCard(spec: CardSpec): Finding[] {
     out.push({
       level: "warn",
       message: "Series posts show both the day and the series; regular posts show neither.",
-      source: "Card Frame 67:72",
+      source: "Card Frame 252:521",
     });
   }
   if (spec.ratio && spec.ratio !== "16:9" && spec.archetype !== "manifesto" && spec.archetype !== "ledger") {

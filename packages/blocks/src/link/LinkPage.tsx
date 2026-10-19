@@ -18,9 +18,9 @@ import { LINK_NODES } from "@jkidd/core";
 
 /**
  * The link-in-bio page: a paper sheet on the palm sky. Drawn as live layers across the
- * five libraries (LINK_NODES): Primitives (Tag, Icon Kicker, Pill Button, Icon Button,
- * Tab, Avatar), Layout (Stage, Sheet), Compositions (Link Header, Link Profile, Tab Bar,
- * Link Row, Link Tile) and the Link Page block. Figma draws it at web size, so sizes
+ * four libraries (LINK_NODES): Primitives (Tag, Icon Kicker, Pill Button, Icon Button,
+ * Tab, Avatar), Compositions (Stage, Sheet, Link Header, Link Profile, Tab Bar, Link Row,
+ * Link Tile) and the Link Page block. Figma draws it at web size, so sizes
  * here match it 1:1. First sketched in JKidd - Workbench (Linktrees, 120:1335).
  */
 
