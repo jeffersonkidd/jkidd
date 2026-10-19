@@ -1,7 +1,7 @@
-import "./link/link.css";
-import "./postcards/picture.css";
-import "./postcards/stage.css";
-import "./back/back.css";
+import "./link/linkpage.css";
+import "./postcards/picturepostcard.css";
+import "./postcards/stagepostcard.css";
+import "./back/dressedpostcard.css";
 
 export * from "./Postcard";
 export * from "./back/catalog";

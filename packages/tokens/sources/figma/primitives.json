@@ -596,7 +596,7 @@
       "page": "Dressing",
       "width": 1600,
       "height": 900,
-      "description": "Graph paper (catalog: grid): a 24px minor grid at 9% and a 120px major grid at 20%, in type/accent, so it takes the card's Post Type mode; the stage postcards' paper. A texture: lay it over the stock, under the content, one per card. Resize it to the card (it clips; drawn to 1600×1350). Code: back.css [data-texture=grid].",
+      "description": "Graph paper (catalog: grid): a 24px minor grid at 9% and a 120px major grid at 20%, in type/accent, so it takes the card's Post Type mode; the stage postcards' paper. A texture: lay it over the stock, under the content, one per card. Resize it to the card (it clips; drawn to 1600×1350). Code: dressedpostcard.css [data-texture=grid].",
       "key": "58870bc649461c41219db2497ed9a10b517c4e21"
     },
     "215:36": {
@@ -605,7 +605,7 @@
       "page": "Dressing",
       "width": 1600,
       "height": 900,
-      "description": "Ledger ruling (catalog: ledger): feint rules every 56px in on-surface at 9% and a double margin line at 96px and 104px in type/accent at 14%, left of the content. A texture for Ledger cards: lay it over the stock, under the content. Resize it to the card (it clips; drawn to 1600×1350). Code: back.css [data-texture=ledger].",
+      "description": "Ledger ruling (catalog: ledger): feint rules every 56px in on-surface at 9% and a double margin line at 96px and 104px in type/accent at 14%, left of the content. A texture for Ledger cards: lay it over the stock, under the content. Resize it to the card (it clips; drawn to 1600×1350). Code: dressedpostcard.css [data-texture=ledger].",
       "key": "a6aa1a909834674094e6a5befe3f0c72064b89d1"
     }
   },

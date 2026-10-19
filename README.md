@@ -152,7 +152,7 @@ const spec: StageSpec = {
 - Geometry is exported as `STAGE` (each depth's squares, feet line, floor and wings), `STAGE_SQUARE` and `STAGE_CANVAS`, so other components can stand things on the same lines.
 - Colours are the `stage` genre in `packages/tokens/sources/jkidd.tokens.json` (`--jk-genre-stage-*`): the Architect's Notebook light ink and paper. Line work is rough.js with the kit's pen settings and a fixed seed, so the stage draws identically every time.
 
-Files: `packages/blocks/src/postcards/StagePostcard.tsx`, `stage.css`, `stageSvg.ts`, and the maker in `apps/site/src/app/pages/StagePage.tsx`.
+Files: `packages/blocks/src/postcards/StagePostcard.tsx`, `stagepostcard.css`, `stageSvg.ts`, and the maker in `apps/site/src/app/pages/StagePage.tsx`.
 
 ## The stick figure
 

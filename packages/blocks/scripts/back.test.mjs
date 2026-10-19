@@ -164,7 +164,7 @@ test("dressed in a series, the text still reads at 4.5:1 on the series' cream", 
     const [ink, cream] = [token(`${s}-ink`), token(`${s}-cream`)];
     assert.ok(ink && cream, `${s}: ink and cream tokens`);
     assert.ok(ratio(ink, cream) >= 4.5, `${s}: ink on cream ${ratio(ink, cream).toFixed(2)}`);
-    // on-surface-variant: 82% ink (back.css). Chrome, zone labels and attributions.
+    // on-surface-variant: 82% ink (dressedpostcard.css). Chrome, zone labels and attributions.
     const variant = mix(ink, cream, 0.82);
     assert.ok(ratio(variant, cream) >= 4.5, `${s}: on-surface-variant ${ratio(variant, cream).toFixed(2)}`);
     for (const [type, t] of Object.entries(POST_TYPE_TOKENS)) {
