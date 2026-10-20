@@ -25,24 +25,30 @@ Four packages in a pnpm workspace, stacked in layers. Each uses only the ones ab
 | `@jkidd/ui` · `packages/ui/` | **JKidd UI**: the component library, the React components beside their CSS, in two lanes, each flat: `src/postcards/` (marks, parts, the dressing shapes, stick figure, card frame, the six archetypes) and `src/web/` (the controls, the page shells, the link pieces). Importing a lane loads its CSS (alone: `@jkidd/ui/postcards/styles.css`, `@jkidd/ui/web/styles.css`); the fonts are `@jkidd/ui/fonts` (`fonts/`, `src/fonts.ts`), and the Foundations imagery `@jkidd/ui/imagery/<file>` (`src/imagery/`: the card stocks, paper and palm sky, that `pnpm stock` cuts to every card shape from `vendor/stock/`, the portrait, the press). Needs `@jkidd/tokens/tokens.css` first | Foundations, Postcards, Web |
 | `@jkidd/blocks` · `packages/blocks/` | **JK Blocks**: finished things. Postcard (the archetypes), the picture and stage postcards, the link page, sample copy and the fronts | Postcards, Web |
 | `apps/studio/` | **The Studio**: the design system's pages and the postcard makers. `src/ds.ts` re-exports all four packages for the pages | — |
+| `apps/links/` | **The link-in-bio site**: renders the Link Page block from `@jkidd/blocks/web`; its live copy (hrefs) is `src/links.ts`. `pnpm links` runs it on :5179 | Web |
 
-The Figma library keys are `LIBRARIES` in `packages/core/src/figma.ts`. Since 2026-10-20 there are three: JKidd - Foundations, and one file per lane, JKidd - Postcards (formerly Compositions, which had absorbed Layout on 2026-10-19) and JKidd - Web. JKidd - Primitives and JKidd - Blocks, split out of Foundations on 2026-10-12, are being emptied into them: their card pages to Postcards, their web pages to Web, Icons to Foundations. Until a component moves, its node ID still points into the file it's in now.
+The Figma library keys are `LIBRARIES` in `packages/core/src/figma.ts`. Since 2026-10-20 there are three: JKidd - Foundations, and one file per lane, JKidd - Postcards (formerly Compositions, which had absorbed Layout on 2026-10-19) and JKidd - Web. JKidd - Primitives and JKidd - Blocks were split out of Foundations on 2026-10-12. Blocks was emptied into the three and deleted 2026-10-20; Primitives is being emptied (Icons to Foundations) and goes once it is.
 
 ### Components → Figma nodes
 
-Every component renders `data-figma="<node id>"` on its root, so you can inspect an element and jump to its source. The full map is `packages/core/src/figma.ts`.
+Every component renders `data-figma="<node id>"` on its root, so you can inspect an element and jump to its source. The full map is `packages/core/src/figma.ts`: `FIGMA_NODES` for the marks and postcards, `LINK_NODES` for the web lane.
 
-| Component | Node | Notes |
+| Component | Library · node | Notes |
 |---|---|---|
-| `Monogram` | `7:20` | tone brand / ink / outline × size L / M / S. Placeholder |
-| `Wordmark` | `7:27` | inline / stacked. Placeholder |
-| `HandleLockup`, `ProjectMark` | `7:30`, `7:28` | `project={null}` hides the slot (decision 3a) |
-| `CardFrame` | `8:60` | ratio 16:9 / 1:1 / 4:5, `postType`, `scheme`, `day`, `series`, `project` |
-| `Kicker` | `9:3` | Empty by default: reads the type's label from CSS (`content: var(--jk-type-label)`), like the Figma text bound to `type/label` |
-| `CheckRow` | `9:24` | mark check / cross / dot × struck. The strike is its own layer, not `text-decoration` |
-| `TokenChip`, `Arrow`, `EqualsBadge`, `Terminal`, `Zone` | `9:25`, `9:28`, `9:33`, `9:35`, `9:38` | `Arrow` uses the Figma SVG asset as a mask, so it takes `type/ink` in every mode |
-| `Manifesto`, `ArchitectureDiagram`, `Pipeline`, `Parity`, `BeforeAfter`, `Ledger` | `11:3` … `11:123` | Content components; each takes plain data |
-| `Postcard` + `SAMPLES` | `11:184` … `11:397` | Frame + archetype from one `CardSpec`; the six Postcard/* samples as data |
+| `Monogram` | Foundations `7:20` | tone brand / ink / outline × size L / M / S. Placeholder |
+| `Wordmark` | Foundations `7:27` | inline / stacked. Placeholder |
+| `HandleLockup`, `ProjectMark` | Foundations `7:30`, `7:28` | `project={null}` hides the slot (decision 3a) |
+| `Emblem` | Foundations `611:128` | Badge / Figure × Original / Mono, from the master (`pnpm emblem`) |
+| `CardFrame`, `ContentEmpty` | Postcards `252:521`, `252:574` | ratio 16:9 / 1:1 / 4:5, `postType`, `scheme`, `day`, `series`, `project` |
+| `Kicker` | Postcards `266:258` | Empty by default: reads the type's label from CSS (`content: var(--jk-type-label)`), like the Figma text bound to `type/label` |
+| `CheckRow` | Postcards `266:261` | mark check / cross / dot × struck. The strike is its own layer, not `text-decoration` |
+| `TokenChip`, `Arrow`, `EqualsBadge`, `Terminal`, `Zone` | Postcards `266:287`, `266:290`, `266:295`, `266:297`, `266:300` | `Arrow` uses the Figma SVG asset as a mask, so it takes `type/ink` in every mode |
+| The dressing shapes: `Cachet`, `RubberStamp`, `Imprint`, `Airmail`, `Registration`, `ColorBar`, `PhotoCorners` | Postcards `266:320` … `266:380` | What the back's dressing places; all on `#/stock` |
+| `Manifesto`, `ArchitectureDiagram`, `Pipeline`, `Parity`, `BeforeAfter`, `Ledger` | Postcards `81:239` … `81:305` | Content components; each takes plain data |
+| `Postcard` + `SAMPLES` | Postcards `266:482` … `266:492` | Frame + archetype from one `CardSpec`; the six Postcard/* samples as data |
+| `PicturePostcard` | Postcards `279:157` | A Front variant per front, each in its series' inks |
+| `StagePostcard` | Postcards `307:29` | Built from its parts (see Stage postcards) |
+| The link page and its controls | Web `5:113` … `5:612` | `LINK_NODES` |
 
 ### How theming works
 
@@ -69,7 +75,7 @@ Postcards are drawn at their Figma canvas size (1600×900, 1080×1080, 1080×135
 - **the thumbnail test** at the bottom, collapsed: every archetype × every post type at 320px in the Studio's scheme and ratio (`#/thumbnails` opens it)
 - **card rules**: the rules from `POSTCARDS.md` and the Figma component descriptions, run as checks on every edit (`apps/studio/src/app/lint.ts`). Manifesto 3–5 lines, Ledger 6 rows at most and uneven lengths, Pipeline highlights exactly one line, Before / After at equal weight, one arrow per diagram, day and series together or not at all, archetype vs. its best-for types
 - **Export PNG** at canvas size (or @2x), named `jkidd-day-18-manifesto-principle-16x9.png`, or **SVG**, for the card and for the dressed back. The SVG is editable in Figma or Illustrator (`vectorSvg` in `@jkidd/core`): text as text, one `<text>` per line as it wraps; boxes, borders, icons, the arrow, the stamp and postmark as vectors; layers named for their classes. Only the card stock, the palm sky and the CSS-gradient textures and overlays are embedded images. Fonts are named, not embedded, so install them to edit the type
-- **the back, dressed** on every card (`packages/blocks/src/back/WORKFLOW.md`): the default rendering and the dressed back stacked in one column, printed on paper or the palm sky, a series' inks (paper only), another take, and **Why this dressing** (what the card says, what it's dressed in, what was left out or dropped). Everything the dressing can use is on `#/stock`
+- **the back, dressed** on every card (`packages/blocks/src/postcards/back/WORKFLOW.md`): the default rendering and the dressed back stacked in one column, printed on paper or the palm sky, a series' inks (paper only), another take, and **Why this dressing** (what the card says, what it's dressed in, what was left out or dropped). Everything the dressing can use is on `#/stock`
 - **Copy JSON** (the `CardSpec`, ready for a post file), **Export dressed PNG**, **Copy dressing receipt**, and **Copy link** (`?c=` the card, `t=` its tile, plus `stock`, `dress` and `take`)
 
 ---
@@ -194,7 +200,7 @@ The figures are the Architect's Notebook kit's own animation loops (Figma *Archi
 
 The token sources are written by hand, because they carry what Figma doesn't hold (font fallbacks, the reason for each choice, contrast waivers). What keeps them honest is a snapshot of Figma and a test that compares the two.
 
-- **`packages/tokens/sources/figma/*.json`** are the snapshots, one per library (`foundations.json` is *JKidd - Foundations*, `postcards.json` *JKidd - Postcards*; `primitives` and `blocks` are the libraries being emptied, and `web.json` comes with the first export of *JKidd - Web*). Each holds the pages, every variable in every mode (with scopes, descriptions, IDs and keys), the text, effect, paint and grid styles with their bound variables and descriptions, every component and component set (size, properties, variant count, description), and each page's top-level frames. Committed, so `git diff` shows what changed in Figma. Don't edit them by hand.
+- **`packages/tokens/sources/figma/*.json`** are the snapshots, one per library (`foundations.json` is *JKidd - Foundations*, `postcards.json` *JKidd - Postcards*, `web.json` *JKidd - Web*, and `primitives.json` the library being emptied). Each holds the pages, every variable in every mode (with scopes, descriptions, IDs and keys), the text, effect, paint and grid styles with their bound variables and descriptions, every component and component set (size, properties, variant count, description), and each page's top-level frames. Committed, so `git diff` shows what changed in Figma. Don't edit them by hand.
 - **`packages/tokens/scripts/figma/export.js`** writes it. It's read-only, and runs two ways: as a development plugin (in Figma, Plugins → Development → Import plugin from manifest, pick `packages/tokens/scripts/figma/manifest.json`, then run *JKidd Figma Snapshot* and download the file), or by asking Claude to refresh the snapshot through the Figma MCP. Figma's variables REST API needs an Enterprise plan, so the Plugin API is the way in.
 - **`packages/tokens/scripts/figma-drift.test.mjs`** runs in `pnpm check`. It compares the snapshot with `jkidd.tokens.json` and `jkxo-tertiary.json` (palette, all scheme modes, post types, layout, fonts, text styles, shadows) and lists everything out of step. Fix the source, or waive the item in `packages/tokens/sources/figma-waivers.json` with a reason; a waiver that stops applying fails the test too.
 - **`packages/core/scripts/figma-nodes.test.mjs`** checks every node ID in `packages/core/src/figma.ts` (`FIGMA_NODES`, `LINK_NODES`) is still a component, component set or top-level frame in its library's snapshot, so a deleted or moved node fails `pnpm check` instead of leaving a dead link.
