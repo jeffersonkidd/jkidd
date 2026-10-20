@@ -1,17 +1,17 @@
 // pnpm stock: the card stock in every shape a card comes in, from one master.
 //
 //   vendor/stock/paper.source.jpg (3:2, landscape)
-//     → src/assets/stock/paper-3x2.jpg   the master, unchanged    stage postcards
-//       src/assets/stock/paper-2x3.jpg   the master turned 90°    link page sheet
-//       src/assets/stock/paper-16x9.jpg  from 3:2                 16:9 backs
-//       src/assets/stock/paper-1x1.jpg   from 3:2                 1:1 backs
-//       src/assets/stock/paper-4x5.jpg   from 2:3                 4:5 backs
+//     → src/imagery/stock/paper-3x2.jpg   the master, unchanged    stage postcards
+//       src/imagery/stock/paper-2x3.jpg   the master turned 90°    link page sheet
+//       src/imagery/stock/paper-16x9.jpg  from 3:2                 16:9 backs
+//       src/imagery/stock/paper-1x1.jpg   from 3:2                 1:1 backs
+//       src/imagery/stock/paper-4x5.jpg   from 2:3                 4:5 backs
 //
 // The other shapes are nine-sliced, not stretched: the corners keep their size, the
 // edges stretch only along their length, and only the plain middle takes the change
 // of shape, so the burnt edge is the same thickness all the way round.
 // Rendering is resvg (as scripts/icons.mjs); JPEG encoding is macOS sips.
-// Generated: don't edit src/assets/stock/, replace the master and run this again.
+// Generated: don't edit src/imagery/stock/, replace the master and run this again.
 
 import { execFileSync } from "node:child_process";
 import { copyFileSync, mkdirSync, mkdtempSync, readFileSync, rmSync, writeFileSync } from "node:fs";
@@ -23,7 +23,7 @@ import { fileURLToPath } from "node:url";
 const pkg = resolve(dirname(fileURLToPath(import.meta.url)), "..");
 const { Resvg } = createRequire(import.meta.url)("@resvg/resvg-js");
 const MASTER = join(pkg, "vendor/stock/paper.source.jpg");
-const OUT = join(pkg, "src/assets/stock");
+const OUT = join(pkg, "src/imagery/stock");
 /** The burnt edge and its shading, as a share of the short side; nine-slicing keeps this band as it is. */
 const EDGE = 0.1;
 const QUALITY = "82";
@@ -71,4 +71,4 @@ for (const [name, src, s, w, h] of shapes) {
   jpeg(png, join(OUT, name));
 }
 rmSync(tmp, { recursive: true, force: true });
-console.log(`stock: paper-3x2, paper-2x3, ${shapes.map(([n]) => n.replace(".jpg", "")).join(", ")} → src/assets/stock`);
+console.log(`stock: paper-3x2, paper-2x3, ${shapes.map(([n]) => n.replace(".jpg", "")).join(", ")} → src/imagery/stock`);

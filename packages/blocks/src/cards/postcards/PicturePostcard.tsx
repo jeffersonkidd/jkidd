@@ -3,8 +3,8 @@ import { FIGMA_NODES, NOTEBOOK_NODES } from "@jkidd/core";
 import { figurePose, type FigureSpec } from "@jkidd/core";
 import { FigureStrokes } from "@jkidd/ui/cards";
 import type { SeriesId } from "./fronts";
-import grain from "../../assets/press/grain.png";
-import specks from "../../assets/press/specks.png";
+import grain from "@jkidd/ui/imagery/press/grain.png";
+import specks from "@jkidd/ui/imagery/press/specks.png";
 
 /**
  * The picture postcard, one of the postcard's two types (the other is the archetype

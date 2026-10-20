@@ -100,7 +100,7 @@ export const CATALOG: CatalogEntry[] = [
     look: "The western master's grain and ink dropout: the picture postcards' press (Front.press).",
     tags: ["style:series"],
     maxAlpha: 0.45,
-    source: "packages/blocks/src/assets/press, sampled from the western master's flat sky (2026-10-14)",
+    source: "packages/ui/src/imagery/press, sampled from the western master's flat sky (2026-10-14)",
     license: OWN,
   },
   {

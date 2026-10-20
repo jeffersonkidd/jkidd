@@ -1,7 +1,7 @@
 import { forwardRef, useId, type CSSProperties } from "react";
 import rough from "roughjs";
 import { LIBRARIES, NOTEBOOK_SHAPES, type NotebookShapeName } from "@jkidd/core";
-import stock from "../../assets/stock/paper-3x2.jpg";
+import stock from "@jkidd/ui/imagery/stock/paper-3x2.jpg";
 
 /**
  * The library pipeline card: the four Figma files, in layer order, drawn as a sheet in

@@ -58,8 +58,8 @@ for (const [pkg, allowed] of Object.entries(ALLOWED)) {
 
 // Across the layers run two lanes: cards (drawn at the Figma canvas size and scaled) and
 // web (drawn at web size and reflowed). In ui and blocks they're src/cards and src/web,
-// entered as @jkidd/<pkg>/cards and @jkidd/<pkg>/web; anything else in src (the fonts,
-// the art in blocks/src/assets) is shared. A lane uses only its own side and what's shared.
+// entered as @jkidd/<pkg>/cards and @jkidd/<pkg>/web; anything else in src (ui's fonts and
+// imagery, the fronts in blocks/src/assets) is shared. A lane uses only its own side and what's shared.
 const LANE_NAMES = ["cards", "web"];
 const laneOf = (rel) => (LANE_NAMES.includes(rel.split("/")[0]) ? rel.split("/")[0] : "shared");
 
@@ -88,7 +88,7 @@ test("ui and blocks are entered by lane only", () => {
     const { exports } = JSON.parse(readFileSync(join(root, "packages", pkg, "package.json"), "utf8"));
     for (const key of Object.keys(exports)) {
       const lane = key.split("/")[1];
-      assert.ok(LANE_NAMES.includes(lane) || key === "./fonts", `@jkidd/${pkg} exports ${key}: entries are ./cards or ./web (or ui's shared ./fonts)`);
+      assert.ok(LANE_NAMES.includes(lane) || (pkg === "ui" && ["./fonts", "./imagery/*"].includes(key)), `@jkidd/${pkg} exports ${key}: entries are ./cards or ./web (or ui's shared ./fonts and ./imagery/*)`);
     }
   }
 });

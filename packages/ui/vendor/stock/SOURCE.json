@@ -2,9 +2,9 @@
   "stock": "The card stock: the warm parchment sheet every dressed back, stage postcard and the link page sheet is printed on.",
   "files": {
     "paper.source.jpg": {
-      "what": "The master, 3:2 landscape, 2048×1366 JPEG (was src/assets/link/paper.jpg)",
+      "what": "The master, 3:2 landscape, 2048×1366 JPEG (was packages/blocks/src/assets/link/paper.jpg)",
       "original": "A 4096×2732 PNG, 18.4 MB, kept in Figma only (JKidd - Workbench, Stage and Linktrees pages). Too big for plain git; swap it in here through Git LFS for sharper cuts.",
-      "generates": "pnpm stock → src/assets/stock/paper-3x2 (unchanged), paper-2x3 (turned 90°), paper-16x9, paper-1x1, paper-4x5 (nine-sliced so the burnt edge stays even)"
+      "generates": "pnpm stock → src/imagery/stock/paper-3x2 (unchanged), paper-2x3 (turned 90°), paper-16x9, paper-1x1, paper-4x5 (nine-sliced so the burnt edge stays even)"
     }
   }
 }
