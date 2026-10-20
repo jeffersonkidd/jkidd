@@ -31,7 +31,7 @@ function at(spec, source, path) {
 const SERIES_POST = { archetype: "parity", postType: "progress", day: "DAY 04", series: "21 DAYS OF DEV", content: { left: { label: "FIGMA", specimen: "A" }, right: { label: "CODE", specimen: "A" } } };
 
 const ALL = [...TEMPLATES, { id: "series-post", idea: "fixture", event: "fixture", spec: SERIES_POST }];
-const SERIES = ["western", "build-in-public", "miami", "spy", "treasure", "pirate", "christmas", "space"];
+const SERIES = ["western", "cosmopol", "miami", "spy", "treasure", "pirate", "christmas", "space"];
 
 test("the catalog: unique ids, every element sourced and licensed, under-text inks kept faint", () => {
   assert.equal(new Set(CATALOG.map((c) => c.id)).size, CATALOG.length);

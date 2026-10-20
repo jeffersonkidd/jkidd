@@ -102,7 +102,7 @@
       "ribbons": {}
     },
     "picture-western": {
-      "$description": "Western series (Postcard Image Algo 147:933; Postcards board 266:760): master 'western', with 'greetings-western' and 'desert' on the same press. 'build-in-public-western' (Frontier Town) is the same theme in drifted inks and is left out of the sample. Ink, cream, orange, gold, brown and red were read by hand from the master and match `pnpm front-inks` on the three cards within a few points; teal and dark teal are from `pnpm front-inks` (2026-10-13), replacing the earlier #21a291 and #105a5b, which came from Frontier Town. Accent red is a colour, not a ribbon: neither cream (4.00) nor ink (3.6) reaches 4.5:1 on it. The spec's ink library: orange, cream, cyan, teal, brown, black, olive, accent red.",
+      "$description": "Western series (Postcard Image Algo 147:933; Postcards Picture page 281:37): master 'western-master', the #BUILD IN PUBLIC desert (2026-10-20); the plate 'western-plate' was extracted from it, lettering first ('western-printed', the plate as printed) and then the print. On the same press: 'western-jk' (the gunslinger card these inks were first read from), 'western-jk-greetings' and 'western-build-in-public-badges'. The master reads the same ink, cream and orange within a few points (`pnpm front-inks`, 2026-10-20). Every Western front's id starts western-. 'western-build-in-public-warped' (Frontier Town) is the same theme in drifted inks and is left out of the sample. Ink, cream, orange, gold, brown and red were read by hand from the gunslinger card and match `pnpm front-inks` on the first three Western cards within a few points; teal and dark teal are from `pnpm front-inks` (2026-10-13), replacing the earlier #21a291 and #105a5b, which came from Frontier Town. Accent red is a colour, not a ribbon: neither cream (4.00) nor ink (3.6) reaches 4.5:1 on it. The spec's ink library: orange, cream, cyan, teal, brown, black, olive, accent red.",
       "colors": {
         "ink": "#1b1209",
         "cream": "#f8e2a1",
@@ -116,8 +116,8 @@
         "brown": { "fill": "#582305", "on": "cream", "figma": "266:804" }
       }
     },
-    "picture-build-in-public": {
-      "$description": "Build in Public series: master 'greetings-build-in-public', with 'build-crew'. Inks from `pnpm front-inks` on greetings-build-in-public.jpg, build-crew.jpg (2026-10-13): ink is the darkest 3%, cream the lightest pale 5%, each ribbon the purest quarter of a hue that covers the card and carries text at 4.5:1.",
+    "picture-cosmopol": {
+      "$description": "Cosmopol series (was Build in Public, renamed 2026-10-20; every id starts cosmopol-): master 'cosmopol-master', with 'cosmopol-jk', 'cosmopol-layer' and the plate 'cosmopol-plate' (clean, grain 0.8 against the printed cards' 8, so press 1; left out of the ink sample). Inks from `pnpm front-inks` on cosmopol-master.jpg, cosmopol-jk.jpg (2026-10-13): ink is the darkest 3%, cream the lightest pale 5%, each ribbon the purest quarter of a hue that covers the card and carries text at 4.5:1.",
       "colors": {
         "ink": "#14181f",
         "cream": "#f0e2ae"

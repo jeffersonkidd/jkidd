@@ -61,10 +61,11 @@ export const FIGMA_NODES = {
   "Postcard/Parity": [LIBRARIES.Postcards, "266:488"],
   "Postcard/Before After": [LIBRARIES.Postcards, "266:490"],
   "Postcard/Ledger": [LIBRARIES.Postcards, "266:492"],
-  // Postcards (Picture page): the component, and the board with the brief and the Western inks.
-  // The component was rebuilt here from its instance on 2026-10-20, when Blocks was deleted.
-  PicturePostcard: [LIBRARIES.Postcards, "275:48"],
-  PictureBoard: [LIBRARIES.Postcards, "266:760"],
+  // Postcards (Picture page): the component set (a Front variant per front in FRONTS, each in
+  // its series' inks), and the page's section with the brief and the Western inks. Rebuilt here
+  // 2026-10-20, when Blocks was deleted.
+  PicturePostcard: [LIBRARIES.Postcards, "279:157"],
+  PictureBoard: [LIBRARIES.Postcards, "281:37"],
 } as const satisfies Record<string, FigmaNode>;
 
 export type FigmaNodeName = keyof typeof FIGMA_NODES;

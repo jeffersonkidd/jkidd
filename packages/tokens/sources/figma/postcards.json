@@ -461,12 +461,13 @@
       "description": "Ledger archetype in the 16:9 constant frame. Default type: Progress (best for Progress, recaps). Shown as a 21 Days of Dev post. Change the type by setting this instance's Post Type mode; change the scheme with its Scheme mode.",
       "key": "a9fc7304438721837b8fb15214e4405e35956d6e"
     },
-    "275:48": {
+    "279:157": {
       "name": "Picture Postcard",
-      "type": "COMPONENT",
+      "type": "COMPONENT_SET",
       "page": "Picture",
-      "width": 1536,
-      "height": 1024,
+      "width": 6336,
+      "height": 5696,
+      "variants": 17,
       "properties": {
         "Title": {
           "type": "TEXT",
@@ -491,10 +492,33 @@
         "Show location": {
           "type": "BOOLEAN",
           "default": true
+        },
+        "Front": {
+          "type": "VARIANT",
+          "default": "western-master",
+          "options": [
+            "miami",
+            "spy",
+            "treasure",
+            "pirate",
+            "christmas",
+            "space",
+            "western-plate",
+            "western-master",
+            "western-jk",
+            "western-build-in-public-badges",
+            "western-jk-greetings",
+            "western-build-in-public-warped",
+            "western-printed",
+            "cosmopol-master",
+            "cosmopol-jk",
+            "cosmopol-layer",
+            "cosmopol-plate"
+          ]
         }
       },
-      "description": "Picture postcard: one of the postcard's two types (the archetype Postcard/* are the other). A generated front (swap Front's image fill) in a cream mat (--jk-genre-picture-mat) and a 10px ink border, 1536×1024, scaled not reflowed. Live type on top: a title (Inter Black 148, cream, hard ink shadow) only on art-only fronts; a location ribbon; a story label tilted 2° in the bottom corner the hero isn't standing in (mirror to the left). With a title on, code moves the ribbon under the title. Ink, cream and ribbon are the front's series' own (--jk-genre-picture-<series>-*), shown here in Western with the orange ribbon; Dark Teal and Brown ribbons take cream text. Story and location copy is the library's own (STORY_STARTERS). Code: PicturePostcard (jkidd-ds, #/postcards).",
-      "key": "f18f6d78528b1a4084321ffcfdcfeedc76286579"
+      "description": "Picture postcard: one of the postcard's two types (the archetype Postcard/* are the other). Pick the front with Front: one variant per front in code (FRONTS, fronts.ts), grouped by series, each inked in its series' own ink, cream and first ribbon (--jk-genre-picture-<series>-*), so a front never wears another series' ribbon. The mat (--jk-genre-picture-mat) and the 10px ink border are on every card, 1536×1024, scaled not reflowed. Live type on top: a title (Inter Black 148, cream, hard ink shadow) only on art-only fronts (western-printed, western-plate, cosmopol-plate: turn Show title on); a location ribbon; a story label tilted 2° in the bottom corner the hero isn't standing in (mirror to the left). With a title on, code moves the ribbon under the title. The series' other ribbons are a fill override on Location ribbon; Dark and Brown ribbons take cream text. Story and location copy is the library's own (STORY_STARTERS). Code: PicturePostcard (jkidd-ds, #/postcards).",
+      "key": "4caf703f0f4f4da14f8c66a8b5ad702bd5bf8a04"
     },
     "266:820": {
       "name": "Story Label (draft)",
@@ -567,12 +591,12 @@
       "width": 3440,
       "height": 3020
     },
-    "266:760": {
-      "name": "Picture Postcard",
-      "type": "FRAME",
+    "281:37": {
+      "name": "Picture",
+      "type": "SECTION",
       "page": "Picture",
-      "width": 1936,
-      "height": 2092
+      "width": 6496,
+      "height": 7614
     }
   }
 }

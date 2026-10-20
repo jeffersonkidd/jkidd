@@ -60,7 +60,7 @@ export const CANVAS = {
 } as const;
 export type Ratio = keyof typeof CANVAS;
 
-export const GENRE_RIBBONS = {"picture":[],"picture-western":["orange","gold","teal","dark-teal","brown"],"picture-build-in-public":["orange","teal","red","gold","yellow"],"picture-miami":["pink","dark-violet","dark-purple","red","dark-pink"],"picture-spy":["orange","gold","brown","red","dark-pink"],"picture-treasure":["yellow","gold","brown","orange","green"],"picture-pirate":["brown","orange","gold","yellow","red"],"picture-christmas":["yellow","brown","gold","orange","green"],"picture-space":["dark-violet","dark-blue","pink","dark-purple","orange"],"stage":[]} as const;
+export const GENRE_RIBBONS = {"picture":[],"picture-western":["orange","gold","teal","dark-teal","brown"],"picture-cosmopol":["orange","teal","red","gold","yellow"],"picture-miami":["pink","dark-violet","dark-purple","red","dark-pink"],"picture-spy":["orange","gold","brown","red","dark-pink"],"picture-treasure":["yellow","gold","brown","orange","green"],"picture-pirate":["brown","orange","gold","yellow","red"],"picture-christmas":["yellow","brown","gold","orange","green"],"picture-space":["dark-violet","dark-blue","pink","dark-purple","orange"],"stage":[]} as const;
 
 export const SCHEME_COLORS: Record<Scheme, Record<string, string>> = {
   "light": {
