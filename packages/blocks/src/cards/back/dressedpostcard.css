@@ -9,14 +9,14 @@
    page's sheet does. It's a light raster, so the back takes the light scheme (pick.ts). */
 .jk-back .jk-card { background: var(--back-stock) 0 0 / 100% 100% no-repeat, var(--md-sys-color-surface); }
 
-/* Or on the palm sky (Imagery/Palm Sky), cropped to keep the palm, under a wash of the dark
+/* Or on the palm sky (Imagery/Palm Sky), cut to the card with the palm kept, under a wash of the dark
    scheme's surface. 75% is the least that keeps every dark-scheme ink, type inks included, at
    4.5:1 on every pixel of the photo, clouds too; a light wash would need 90%. So this stock takes
    the dark scheme (pick.ts). */
 .jk-back[data-stock="palm-sky"] .jk-card {
   background:
     linear-gradient(color-mix(in srgb, var(--md-sys-color-surface) 75%, transparent) 0 0),
-    var(--back-palm-sky) right center / cover no-repeat,
+    var(--back-palm-sky) 0 0 / 100% 100% no-repeat,
     var(--md-sys-color-surface);
 }
 

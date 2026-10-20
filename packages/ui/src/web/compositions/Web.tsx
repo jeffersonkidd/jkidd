@@ -6,9 +6,12 @@ import { LINK_NODES } from "@jkidd/core";
  * sheet that holds the content. Unlike the card frame, these reflow.
  */
 
-/** Stage: the backdrop image, full bleed, with the sheet centred on it. */
-export function Stage({ backdrop, children }: { backdrop?: string; children: ReactNode }) {
-  const style = (backdrop ? { "--web-backdrop": `url("${backdrop}")` } : {}) as CSSProperties;
+/** Stage: the backdrop image, full bleed, with the sheet centred on it. `narrow` is a tall cut of it for phones. */
+export function Stage({ backdrop, narrow, children }: { backdrop?: string; narrow?: string; children: ReactNode }) {
+  const style = {
+    ...(backdrop ? { "--web-backdrop": `url("${backdrop}")` } : {}),
+    ...(narrow ? { "--web-backdrop-narrow": `url("${narrow}")` } : {}),
+  } as CSSProperties;
   return (
     <div className="web-stage" style={style} data-figma={LINK_NODES.Stage[1]}>
       {children}

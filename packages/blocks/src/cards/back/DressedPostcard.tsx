@@ -1,12 +1,14 @@
 import { forwardRef, useCallback, useLayoutEffect, useRef, useState, type CSSProperties } from "react";
 import { CANVAS } from "@jkidd/tokens";
 import { Postcard, type CardSpec } from "../Postcard";
-import palmSky from "@jkidd/ui/imagery/palm-sky.jpg";
 import grain from "@jkidd/ui/imagery/press/grain.png";
 import specks from "@jkidd/ui/imagery/press/specks.png";
 import stock16x9 from "@jkidd/ui/imagery/stock/paper-16x9.jpg";
 import stock1x1 from "@jkidd/ui/imagery/stock/paper-1x1.jpg";
 import stock4x5 from "@jkidd/ui/imagery/stock/paper-4x5.jpg";
+import sky16x9 from "@jkidd/ui/imagery/stock/palm-sky-16x9.jpg";
+import sky1x1 from "@jkidd/ui/imagery/stock/palm-sky-1x1.jpg";
+import sky4x5 from "@jkidd/ui/imagery/stock/palm-sky-4x5.jpg";
 import { CATALOG } from "./catalog";
 import { readCard, type CardSource, type Reading } from "./read";
 import { pickDressing, rng, type DressOptions, type Dressing } from "./pick";
@@ -42,14 +44,15 @@ function foxing(seed: number) {
   }).join(", ");
 }
 
-/** The card stock cut to each canvas, so the burnt edge is even all round (@jkidd/ui scripts/stock.mjs). */
+/** The card stocks cut to each canvas (@jkidd/ui scripts/stock.mjs): the paper so the burnt edge is even all round, the palm sky so the palm stays. */
 const STOCK = { "16:9": stock16x9, "1:1": stock1x1, "4:5": stock4x5 } as const;
+const PALM_SKY: Record<keyof typeof STOCK, string> = { "16:9": sky16x9, "1:1": sky1x1, "4:5": sky4x5 };
 
-/** The variables the back reads: the card stock for its ratio, the palm sky, the press images and this seed's foxing. */
+/** The variables the back reads: the card stock and the palm sky for its ratio, the press images and this seed's foxing. */
 export const backVars = (seed: number, ratio: keyof typeof STOCK = "16:9") =>
   ({
     "--back-stock": `url("${STOCK[ratio]}")`,
-    "--back-palm-sky": `url("${palmSky}")`,
+    "--back-palm-sky": `url("${PALM_SKY[ratio]}")`,
     "--back-grain": `url("${grain}")`,
     "--back-specks": `url("${specks}")`,
     "--back-foxing": foxing(seed),

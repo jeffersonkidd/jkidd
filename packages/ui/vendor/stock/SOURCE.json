@@ -1,10 +1,20 @@
 {
-  "stock": "The card stock: the warm parchment sheet every dressed back, stage postcard and the link page sheet is printed on.",
+  "stock": "The card stocks: the warm parchment sheet every dressed back, stage postcard and the link page sheet is printed on, and the palm sky, the link page backdrop and the dark stock for dressed backs. Originals, kept outside src/ so they're never bundled.",
   "files": {
     "paper.source.jpg": {
       "what": "The master, 3:2 landscape, 2048×1366 JPEG (was packages/blocks/src/assets/link/paper.jpg)",
       "original": "A 4096×2732 PNG, 18.4 MB, kept in Figma only (JKidd - Workbench, Stage and Linktrees pages). Too big for plain git; swap it in here through Git LFS for sharper cuts.",
       "generates": "pnpm stock → src/imagery/stock/paper-3x2 (unchanged), paper-2x3 (turned 90°), paper-16x9, paper-1x1, paper-4x5 (nine-sliced so the burnt edge stays even)"
+    },
+    "palm-sky.source.png": {
+      "what": "Palm against a teal sky, 1920×1080 PNG, about 1.9 MB",
+      "figma": {
+        "file": "ADhu9noVbgFbtapMZivOHw",
+        "node": "99:3598",
+        "where": "JKidd - Foundations › Imagery › Image, a loose rectangle beside the Imagery section; deleted 2026-10-19 once this copy was saved"
+      },
+      "ships_as": "pnpm stock → src/imagery/stock/palm-sky-16x9 (the master as JPEG, about 265 KB; Figma style Imagery/Palm Sky), palm-sky-3x2, palm-sky-2x3, palm-sky-1x1, palm-sky-4x5 (cropped at full height, held right so the palm stays)",
+      "also": "The link page backdrop (16:9; 2:3 on phones), and the palm sky stock for dressed backs (blocks: cards/back/DressedPostcard.tsx), under a 75% wash of the dark scheme's surface."
     }
   }
 }

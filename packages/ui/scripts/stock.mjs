@@ -1,4 +1,4 @@
-// pnpm stock: the card stock in every shape a card comes in, from one master.
+// pnpm stock: the card stocks in every shape a card comes in, one master each.
 //
 //   vendor/stock/paper.source.jpg (3:2, landscape)
 //     → src/imagery/stock/paper-3x2.jpg   the master, unchanged    stage postcards
@@ -7,9 +7,18 @@
 //       src/imagery/stock/paper-1x1.jpg   from 3:2                 1:1 backs
 //       src/imagery/stock/paper-4x5.jpg   from 2:3                 4:5 backs
 //
-// The other shapes are nine-sliced, not stretched: the corners keep their size, the
+//   vendor/stock/palm-sky.source.png (16:9, landscape)
+//     → src/imagery/stock/palm-sky-16x9.jpg  the master             link page backdrop, 16:9 backs
+//       src/imagery/stock/palm-sky-3x2.jpg   cropped
+//       src/imagery/stock/palm-sky-2x3.jpg   cropped
+//       src/imagery/stock/palm-sky-1x1.jpg   cropped                1:1 backs
+//       src/imagery/stock/palm-sky-4x5.jpg   cropped                4:5 backs
+//
+// The other paper shapes are nine-sliced, not stretched: the corners keep their size, the
 // edges stretch only along their length, and only the plain middle takes the change
 // of shape, so the burnt edge is the same thickness all the way round.
+// The palm sky has no edge to keep, so it's cropped instead: full height, held to the
+// right so the palm stays in every shape.
 // Rendering is resvg (as scripts/icons.mjs); JPEG encoding is macOS sips.
 // Generated: don't edit src/imagery/stock/, replace the master and run this again.
 
@@ -23,6 +32,7 @@ import { fileURLToPath } from "node:url";
 const pkg = resolve(dirname(fileURLToPath(import.meta.url)), "..");
 const { Resvg } = createRequire(import.meta.url)("@resvg/resvg-js");
 const MASTER = join(pkg, "vendor/stock/paper.source.jpg");
+const SKY = join(pkg, "vendor/stock/palm-sky.source.png");
 const OUT = join(pkg, "src/imagery/stock");
 /** The burnt edge and its shading, as a share of the short side; nine-slicing keeps this band as it is. */
 const EDGE = 0.1;
@@ -52,6 +62,18 @@ function nineSlice(src, sw, sh, w, h) {
   return `<svg xmlns="http://www.w3.org/2000/svg" width="${w}" height="${h}" viewBox="0 0 ${w} ${h}">${cells.join("")}</svg>`;
 }
 
+/** The source cropped to w×h at its full height, against its right edge, as an SVG resvg can render. */
+function cropRight(src, sw, sh, w, h) {
+  const href = `data:image/png;base64,${readFileSync(src).toString("base64")}`;
+  return `<svg xmlns="http://www.w3.org/2000/svg" width="${w}" height="${h}" viewBox="${sw - w} 0 ${w} ${h}"><image href="${href}" width="${sw}" height="${sh}"/></svg>`;
+}
+
+const render = (svg, name) => {
+  const png = join(tmp, name.replace(/\.jpg$/, ".png"));
+  writeFileSync(png, new Resvg(svg, { fitTo: { mode: "original" } }).render().asPng());
+  jpeg(png, join(OUT, name));
+};
+
 mkdirSync(OUT, { recursive: true });
 const land = size(MASTER);
 copyFileSync(MASTER, join(OUT, "paper-3x2.jpg"));
@@ -65,10 +87,11 @@ const shapes = [
   ["paper-1x1.jpg", MASTER, land, land.h, land.h],
   ["paper-4x5.jpg", portrait, port, port.w, Math.round((port.w * 5) / 4)],
 ];
-for (const [name, src, s, w, h] of shapes) {
-  const png = join(tmp, name.replace(/\.jpg$/, ".png"));
-  writeFileSync(png, new Resvg(nineSlice(src, s.w, s.h, w, h), { fitTo: { mode: "original" } }).render().asPng());
-  jpeg(png, join(OUT, name));
-}
+for (const [name, src, s, w, h] of shapes) render(nineSlice(src, s.w, s.h, w, h), name);
+
+// The palm sky keeps its height; the width follows the card's ratio.
+const sky = size(SKY);
+const skies = [["16x9", 16, 9], ["3x2", 3, 2], ["2x3", 2, 3], ["1x1", 1, 1], ["4x5", 4, 5]];
+for (const [cut, rw, rh] of skies) render(cropRight(SKY, sky.w, sky.h, Math.round((sky.h * rw) / rh), sky.h), `palm-sky-${cut}.jpg`);
 rmSync(tmp, { recursive: true, force: true });
-console.log(`stock: paper-3x2, paper-2x3, ${shapes.map(([n]) => n.replace(".jpg", "")).join(", ")} → src/imagery/stock`);
+console.log(`stock: paper-3x2, paper-2x3, ${shapes.map(([n]) => n.replace(".jpg", "")).join(", ")}, ${skies.map(([c]) => `palm-sky-${c}`).join(", ")} → src/imagery/stock`);

@@ -11,7 +11,8 @@ import {
   type LucideIcon,
 } from "lucide-react";
 import { CommandIcon, LinkHeader, LinkProfile, LinkRow, LinkTile, Sheet, Stage, TabBar, type TabSpec } from "@jkidd/ui/web";
-import palmSky from "@jkidd/ui/imagery/palm-sky.jpg";
+import palmSky from "@jkidd/ui/imagery/stock/palm-sky-16x9.jpg";
+import palmSkyTall from "@jkidd/ui/imagery/stock/palm-sky-2x3.jpg";
 import paper from "@jkidd/ui/imagery/stock/paper-2x3.jpg";
 import { LINK_NODES } from "@jkidd/core";
 
@@ -93,7 +94,7 @@ export function LinkPage({ spec }: { spec: LinkPageSpec }) {
   const { profile } = spec;
 
   return (
-    <Stage backdrop={palmSky}>
+    <Stage backdrop={palmSky} narrow={palmSkyTall}>
       <Sheet paper={paper}>
         <LinkHeader wordmark={spec.wordmark} nav={spec.nav} follow={spec.follow} />
         <LinkProfile

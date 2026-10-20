@@ -32,6 +32,7 @@
 }
 
 @media (max-width: 640px) {
-  .web-stage { padding: 0; background: var(--web-backdrop, none) center / cover no-repeat, var(--md-sys-color-primary-container); }
+  /* Phones stand on the tall cut, held right like the cuts are, so the palm stays in. */
+  .web-stage { padding: 0; background: var(--web-backdrop-narrow, var(--web-backdrop, none)) right center / cover no-repeat, var(--md-sys-color-primary-container); }
   .web-sheet { padding: var(--jk-space-4); border-width: 0; }
 }
