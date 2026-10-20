@@ -25,3 +25,18 @@ test("every vendored file records where it came from", () => {
   const { files } = read("SOURCE.json");
   assert.match(files["figure-frames.json"].sha256, /^[0-9a-f]{64}$/);
 });
+
+test("shapes: each a box and its paths, stroked with the kit's pens or filled solid", () => {
+  const shapes = read("shapes.json");
+  const { files } = read("SOURCE.json");
+  assert.ok(Object.keys(shapes).length > 0);
+  for (const [name, { w, h, paths }] of Object.entries(shapes)) {
+    assert.ok(w > 0 && h > 0, name);
+    assert.ok(paths.length > 0, name);
+    for (const p of paths) {
+      assert.match(p.d, /^M/, name);
+      assert.ok(p.solid || p.pen > 0, name);
+    }
+    assert.match(files["shapes.json"].sha256[name], /^[0-9a-f]{64}$/, name);
+  }
+});

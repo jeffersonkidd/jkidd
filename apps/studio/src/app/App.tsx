@@ -11,6 +11,7 @@ import { BacksPage } from "./pages/BacksPage";
 import { LinkPagePreview } from "./pages/LinkPagePreview";
 import { PicturePage } from "./pages/PicturePage";
 import { StagePage } from "./pages/StagePage";
+import { LibrariesPage } from "./pages/LibrariesPage";
 import { Select } from "./components/Controls";
 
 const ROUTES = [
@@ -24,6 +25,7 @@ const ROUTES = [
   { path: "backs", name: "Dressing the back", el: BacksPage },
   { path: "postcards", name: "Picture postcards", el: PicturePage },
   { path: "stage", name: "Stage postcards", el: StagePage },
+  { path: "libraries", name: "Library pipeline", el: LibrariesPage },
   { path: "link", name: "Link page", el: LinkPagePreview },
 ] as const;
 

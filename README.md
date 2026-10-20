@@ -154,6 +154,16 @@ const spec: StageSpec = {
 
 Files: `packages/blocks/src/postcards/StagePostcard.tsx`, `stagepostcard.css`, `stageSvg.ts`, and the maker in `apps/studio/src/app/pages/StagePage.tsx`.
 
+## Library pipeline
+
+`#/libraries` is one card: the four Figma files in layer order (Foundations → Primitives → Compositions → Blocks), drawn on the stage's graph paper with the Architect's Notebook kit's own shapes: a cylinder, a stack, a window frame and a document for the libraries, arrows between them, and a curved arrow back, struck out in red pen, for the layer rule. A pointing figure, a north arrow and a squiggle under the title are the kit's too. Export PNG at 1536×1024 or @2x. A draft in code: not in Workbench or the libraries yet.
+
+- **The shapes** come in by `pnpm notebook`, like the figures: it reads the kit's `shapes/<name>.svg` for the names in its `SHAPES` list and writes them to `vendor/architects-notebook/shapes.json` as each shape's box and paths, with the kit's pen, dash and solid fill, and a sha256 per shape in `SOURCE.json`. Code reads them as `NOTEBOOK_SHAPES` (`packages/core/src/notebook.ts`). To use another shape, add its name to `SHAPES` and rerun.
+- **Placing one.** A shape stretches to the box it's given; its line doesn't (`vector-effect: non-scaling-stroke`), so the kit's 1.6 pen always draws 3.2px, the stage's ink.
+- **The copy** is the repo's own: the libraries' pages from `packages/core/src/figma.ts`, the packages and the layer rule from this README, the file keys from `LIBRARIES`. When a page moves library in Figma, update `LIBRARY_PIPELINE`.
+
+Files: `packages/blocks/src/postcards/LibrariesPostcard.tsx`, `librariespostcard.css`, and the page in `apps/studio/src/app/pages/LibrariesPage.tsx`.
+
 ## The stick figure
 
 The figures are the Architect's Notebook kit's own animation loops (Figma *Architects Notebook*, Figures `37:2`), not redrawn here: walk, run and wave, 12 drawings each. The body moves by exactly what the planted foot sweeps back each drawing, so the feet never slide.

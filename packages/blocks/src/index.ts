@@ -1,6 +1,7 @@
 import "./link/linkpage.css";
 import "./postcards/picturepostcard.css";
 import "./postcards/stagepostcard.css";
+import "./postcards/librariespostcard.css";
 import "./back/dressedpostcard.css";
 
 export * from "./Postcard";
@@ -11,6 +12,7 @@ export * from "./back/place";
 export * from "./back/DressedPostcard";
 export * from "./link/LinkPage";
 export * from "./postcards/fronts";
+export * from "./postcards/LibrariesPostcard";
 export * from "./postcards/PicturePostcard";
 export * from "./postcards/StagePostcard";
 export * from "./postcards/stageSvg";

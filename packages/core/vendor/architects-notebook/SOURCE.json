@@ -8,6 +8,23 @@
       "generator": "gen-figure-anim.js",
       "sha256": "0dc01e5ee963c7ed1bd92a872148abba44bdf9c47d10cf9f9c06707bd847dab2",
       "transform": "numbers rounded to 2 decimal places"
+    },
+    "shapes.json": {
+      "from": "shapes/<name>.svg",
+      "generator": "gen-shapes.js",
+      "sha256": {
+        "cylinder": "ab9c02fd6995a10dfdfa6c5092b9b8d8cc7bb3418424fbf2bdf6088b12b9c66a",
+        "stack": "9a8f36fbebde051396c292b89eb0c7f8bbcb0855aaa1088c5652cad34be1c72c",
+        "window-frame": "77d156873b02dfbee924944f151e9da0c2b20770867bb5332d0ee5c4c9421387",
+        "document": "8e2b586e4fc74ab3695d665fda9ca3197aad7ca4befe83dbbe1cbb6be437c453",
+        "arrow-right": "8ede0dffa85f54f4b731d3e09c1d9c431d4402bda6e5243eb21f7edb5d9a6317",
+        "arrow-curved": "de1e38b6b5466c4e7e636f02fe898da79a716ba470bc08822fd95a0448bf6605",
+        "x-mark": "753f404f6bb3cf9ebd91960ba95e24c2900cde02ee2d47cc9402bd0ab72444df",
+        "north-arrow": "25e574330890f594085da773f054cd1a149435355d2b1d122c5d8def7e62fc31",
+        "underline-squiggle": "44ff76e2ba7d9a686f5313dae2272f3d808bcbc2ca6c03541481a78cff1b559b",
+        "figure-pointing": "7562d37c28fed0d146a3d2cc0078be889c53ed11a30af32646d32dd4ec9d6df2"
+      },
+      "transform": "paths with their pen, dash and solid fill; numbers rounded to 2 decimal places"
     }
   }
 }

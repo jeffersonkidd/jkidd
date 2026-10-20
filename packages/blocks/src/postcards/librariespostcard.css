@@ -1,0 +1,136 @@
+/* Library pipeline card. Canvas pixels: 1536×1024, scaled by the caller. The stage's
+   graph paper (32px squares, ruled heavier every 4) over the card stock, with the
+   Architect's Notebook shapes drawn on it. Colours are the stage genre's tokens, which
+   are the kit's light ink and paper (--jk-genre-stage-*); cream is the fallback under
+   the stock. */
+
+.jk-libraries {
+  --libraries-ink: var(--jk-genre-stage-ink);
+  --libraries-ink-soft: var(--jk-genre-stage-ink-soft);
+  --libraries-paper: var(--jk-genre-stage-cream);
+  position: relative;
+  width: 1536px;
+  height: 1024px;
+  border-radius: 18px;
+  overflow: hidden;
+  background-color: var(--libraries-paper);
+  background-image:
+    linear-gradient(var(--jk-genre-stage-grid-major) 2px, transparent 2px),
+    linear-gradient(90deg, var(--jk-genre-stage-grid-major) 2px, transparent 2px),
+    linear-gradient(var(--jk-genre-stage-grid) 1px, transparent 1px),
+    linear-gradient(90deg, var(--jk-genre-stage-grid) 1px, transparent 1px),
+    var(--libraries-stock, none);
+  background-size:
+    128px 128px,
+    128px 128px,
+    32px 32px,
+    32px 32px,
+    100% 100%;
+  background-position: -1px -1px, -1px -1px, -1px -1px, -1px -1px, 0 0;
+  background-repeat: repeat, repeat, repeat, repeat, no-repeat;
+  color: var(--libraries-ink);
+  font-synthesis: none;
+}
+
+.jk-libraries__drawing {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.jk-libraries__paper { fill: var(--libraries-stock-paint, var(--libraries-paper)); stroke: none; }
+.jk-libraries__rule { fill: none; stroke: var(--libraries-ink); stroke-width: 3.2; }
+
+/* The kit's shapes stroke with currentColor */
+.jk-libraries__shape { fill: none; stroke: currentColor; }
+.jk-libraries__shape--ink { color: var(--libraries-ink); }
+.jk-libraries__shape--blueprint { color: var(--jk-genre-stage-blueprint); }
+.jk-libraries__shape--red-pen { color: var(--jk-genre-stage-red-pen); }
+.jk-libraries__solid { fill: currentColor; stroke: none; }
+
+/* Type: display for the names, mono for the specs, as on the stage */
+.jk-libraries__kicker {
+  fill: var(--libraries-ink-soft);
+  font-family: var(--jk-font-mono);
+  font-size: 20px;
+  letter-spacing: 0.18em;
+}
+.jk-libraries__title {
+  fill: var(--libraries-ink);
+  font-family: var(--jk-font-display);
+  font-size: 72px;
+  letter-spacing: -0.02em;
+}
+.jk-libraries__index {
+  fill: var(--jk-genre-stage-blueprint);
+  font-family: var(--jk-font-mono);
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+}
+.jk-libraries__name {
+  fill: var(--libraries-ink);
+  font-family: var(--jk-font-display);
+  font-size: 26px;
+  letter-spacing: -0.02em;
+}
+.jk-libraries__holds {
+  fill: var(--libraries-ink);
+  font-family: var(--jk-font-mono);
+  font-size: 18px;
+}
+.jk-libraries__code {
+  fill: var(--jk-genre-stage-blueprint);
+  font-family: var(--jk-font-mono);
+  font-size: 18px;
+  font-weight: 700;
+}
+.jk-libraries__key {
+  fill: var(--libraries-ink-soft);
+  font-family: var(--jk-font-mono);
+  font-size: 14px;
+  letter-spacing: 0.04em;
+}
+.jk-libraries__rule-text {
+  fill: var(--libraries-ink);
+  font-family: var(--jk-font-display);
+  font-size: 40px;
+  letter-spacing: -0.02em;
+}
+
+/* Title strip: the bottom three squares, cells on the grid (32–608, 608–1184, 1184–1504) */
+.jk-libraries__strip {
+  position: absolute;
+  left: 32px;
+  top: 896px;
+  width: 1472px;
+  height: 96px;
+  display: grid;
+  grid-template-columns: 576px 576px 320px;
+}
+.jk-libraries__cell {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 6px;
+  padding: 0 var(--jk-space-6);
+  min-width: 0;
+}
+.jk-libraries__label {
+  font-family: var(--jk-font-mono);
+  font-size: 14px;
+  line-height: 1;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--libraries-ink-soft);
+}
+.jk-libraries__value {
+  font-family: var(--jk-font-mono);
+  font-size: 20px;
+  line-height: 1.15;
+  text-transform: uppercase;
+  overflow-wrap: anywhere;
+}
