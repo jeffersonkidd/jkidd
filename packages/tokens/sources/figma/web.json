@@ -1,0 +1,429 @@
+{
+  "$description": "Snapshot of a Figma library, written by packages/tokens/scripts/figma/export.js. Don't edit by hand: refresh it from Figma. The drift tests check the token sources and figma.ts against it.",
+  "file": "JKidd - Web",
+  "fileKey": "WESzLAXCcLo9RK4SfIt4Pa",
+  "readAt": "2026-10-20",
+  "pages": [
+    {
+      "id": "0:1",
+      "name": "Cover"
+    },
+    {
+      "id": "3:15",
+      "name": "Web"
+    },
+    {
+      "id": "3:9",
+      "name": "Controls"
+    },
+    {
+      "id": "3:21",
+      "name": "Link"
+    },
+    {
+      "id": "3:27",
+      "name": "Link Page"
+    }
+  ],
+  "collections": {},
+  "textStyles": {},
+  "effectStyles": {},
+  "paintStyles": {},
+  "gridStyles": {},
+  "components": {
+    "5:489": {
+      "name": "Sheet",
+      "type": "COMPONENT_SET",
+      "page": "Web",
+      "width": 1310,
+      "height": 484,
+      "variants": 2,
+      "properties": {
+        "Content": {
+          "type": "SLOT"
+        },
+        "Breakpoint": {
+          "type": "VARIANT",
+          "default": "Desktop",
+          "options": [
+            "Desktop",
+            "Mobile"
+          ]
+        }
+      },
+      "description": "The paper sheet a web page sits on: the card stock's tall cut, Imagery/Paper 2:3, stretched over tertiary-container, pinned to the Light scheme (the paper is a light raster). Desktop: an 800px column, a 4px on-secondary border, 20/24/16 padding. Mobile (below 640px): full width, 16px padding, no border. Put the page into Content; children stack 20px apart. .lk-sheet.",
+      "key": "84922988c9749b16f011c50eaa066e029adde9b1"
+    },
+    "5:496": {
+      "name": "Stage",
+      "type": "COMPONENT_SET",
+      "page": "Web",
+      "width": 1790,
+      "height": 980,
+      "variants": 2,
+      "properties": {
+        "Page": {
+          "type": "SLOT"
+        },
+        "Breakpoint": {
+          "type": "VARIANT",
+          "default": "Desktop",
+          "options": [
+            "Desktop",
+            "Mobile"
+          ]
+        }
+      },
+      "description": "A full-bleed web backdrop: Imagery/Palm Sky, cover, over primary-container. Desktop centres its Page 32px from the top with 16px sides; Mobile runs the page edge to edge. Holds a Sheet. .lk-stage.",
+      "key": "962d608cef82b45c2659ce39bfe315b12ded8dc2"
+    },
+    "5:395": {
+      "name": "Tag",
+      "type": "COMPONENT",
+      "page": "Controls",
+      "width": 130,
+      "height": 23,
+      "properties": {
+        "Label": {
+          "type": "TEXT",
+          "default": "Design Systems"
+        }
+      },
+      "description": "A short uppercase label chip. .lk-tag. Used in a wrapping row of 4px gaps (profile tags, Link Row tags).",
+      "key": "8574b9870d184ab4c7c404e6b812624579784a3a"
+    },
+    "5:399": {
+      "name": "Icon Kicker",
+      "type": "COMPONENT",
+      "page": "Controls",
+      "width": 82,
+      "height": 24,
+      "properties": {
+        "Icon": {
+          "type": "INSTANCE_SWAP",
+          "default": "5:93"
+        },
+        "Label": {
+          "type": "TEXT",
+          "default": "Studio"
+        }
+      },
+      "description": "Category label above a row or tile title: a 16px icon in a 4px box, then a mono uppercase label in scrim at 80%. .lk-kicker. Studio uses the Command glyph; Blog Feather; Shop and Support Layout Grid.",
+      "key": "0870e7a07df2872567332691421d95e06864bc6a"
+    },
+    "5:405": {
+      "name": "Pill Button",
+      "type": "COMPONENT_SET",
+      "page": "Controls",
+      "width": 330,
+      "height": 140,
+      "variants": 6,
+      "properties": {
+        "Label": {
+          "type": "TEXT",
+          "default": "Blog"
+        },
+        "Style": {
+          "type": "VARIANT",
+          "default": "Ghost",
+          "options": [
+            "Ghost",
+            "Outlined"
+          ]
+        },
+        "State": {
+          "type": "VARIANT",
+          "default": "Default",
+          "options": [
+            "Default",
+            "Hover",
+            "Focus"
+          ]
+        }
+      },
+      "description": "Header link (Ghost) and Follow (Outlined). Mono 11px, full radius. .lk-header__link, .lk-follow. Hover: Ghost takes surface-container-lowest at 40%, Outlined surface-container-high. Focus draws a 2px primary ring (:focus-visible). Ghost hides below 640px in the header.",
+      "key": "245250f43eb6f89545cd020b1f10fce26938b3cd"
+    },
+    "5:420": {
+      "name": "Icon Button",
+      "type": "COMPONENT_SET",
+      "page": "Controls",
+      "width": 136,
+      "height": 136,
+      "variants": 4,
+      "properties": {
+        "Icon": {
+          "type": "INSTANCE_SWAP",
+          "default": "5:61"
+        },
+        "Use": {
+          "type": "VARIANT",
+          "default": "Social",
+          "options": [
+            "Social",
+            "Go"
+          ]
+        },
+        "State": {
+          "type": "VARIANT",
+          "default": "Default",
+          "options": [
+            "Default",
+            "Hover"
+          ]
+        }
+      },
+      "description": "32px round button on inverse-surface; the icon takes inverse-on-surface. Social: 18px icon (.lk-social). Go: 20px chevron at the end of a Link Row (.lk-row__go). Hover lifts to primary (on a Link Row, hovering the row lifts its Go). Needs an aria-label in code (the social kind).",
+      "key": "d9200b01575e80511e67a09f3c9c970f0fffa598"
+    },
+    "5:432": {
+      "name": "Tab",
+      "type": "COMPONENT_SET",
+      "page": "Controls",
+      "width": 680,
+      "height": 94,
+      "variants": 4,
+      "properties": {
+        "Label": {
+          "type": "TEXT",
+          "default": "All"
+        },
+        "Icon": {
+          "type": "INSTANCE_SWAP",
+          "default": "5:76"
+        },
+        "State": {
+          "type": "VARIANT",
+          "default": "Default",
+          "options": [
+            "Default",
+            "Hover",
+            "Selected",
+            "Focus"
+          ]
+        }
+      },
+      "description": "Filter tab: a toggle button (aria-pressed), 46px tall, 10px radius, comic lettering. .lk-tab. Hover takes surface-container-lowest at 40%; Selected sits on surface-container-lowest with an outline; Focus draws a 2px primary ring. Fills its grid cell (FILL width) in a row of five.",
+      "key": "646914aa02c0ca3d595087fe01eb558271c67435"
+    },
+    "5:447": {
+      "name": "Avatar",
+      "type": "COMPONENT_SET",
+      "page": "Controls",
+      "width": 364,
+      "height": 220,
+      "variants": 2,
+      "properties": {
+        "Photo": {
+          "type": "BOOLEAN",
+          "default": true
+        },
+        "Size": {
+          "type": "VARIANT",
+          "default": "Large",
+          "options": [
+            "Large",
+            "Compact"
+          ]
+        }
+      },
+      "description": "Round profile photo with a 1px on-surface ring over tertiary-98 (shown when there is no photo). Large 172px; Compact 120px below 640px. .lk-avatar. Photo fill: Imagery/Portrait.",
+      "key": "bd0cbd5286a23818401e19d9e18aba55c5e196d3"
+    },
+    "5:233": {
+      "name": "Link Tile",
+      "type": "COMPONENT_SET",
+      "page": "Link",
+      "width": 604,
+      "height": 160,
+      "variants": 2,
+      "properties": {
+        "Label": {
+          "type": "TEXT",
+          "default": "Get in touch"
+        },
+        "State": {
+          "type": "VARIANT",
+          "default": "Default",
+          "options": [
+            "Default",
+            "Hover"
+          ]
+        }
+      },
+      "description": "A short link under the rows: kicker plus a burst label, centred, at least 80px tall. Three to a row on desktop, one per row on mobile. Hover is new here; code has none yet. .lk-tile. Copy: LINK_SAMPLE.tiles.",
+      "key": "ebb872f23d2d4eed6041fb02811da322e3efa82b"
+    },
+    "5:176": {
+      "name": "Link Row",
+      "type": "COMPONENT_SET",
+      "page": "Link",
+      "width": 1624,
+      "height": 718,
+      "variants": 4,
+      "properties": {
+        "Title": {
+          "type": "TEXT",
+          "default": "Creative Work"
+        },
+        "Description": {
+          "type": "TEXT",
+          "default": "Projects, experiments, products, music, and an ongoing exploration of what’s possible."
+        },
+        "Tags": {
+          "type": "SLOT"
+        },
+        "Breakpoint": {
+          "type": "VARIANT",
+          "default": "Desktop",
+          "options": [
+            "Desktop",
+            "Mobile"
+          ]
+        },
+        "State": {
+          "type": "VARIANT",
+          "default": "Default",
+          "options": [
+            "Default",
+            "Hover"
+          ]
+        }
+      },
+      "description": "One link: media, then kicker, title, description and tags, then the Go button. The whole row is the link (an <a> when it has an href). Desktop: media 210–280px wide, 160 tall, beside the text. Mobile: media full width, 180 tall, above the text. Media without an image shows scrim at 80%; put an image fill on Media to use one. Kicker is exposed: set its Icon (Studio Command, Blog Feather, Shop/Support Layout Grid) and Label. Hover lifts the row to surface-container-lowest and the Go button to primary. Was Workbench Link Row 118:515. .lk-row. Tags is a slot: fill it with Tag instances (Primitives), as many as the item has.",
+      "key": "3f3ce145ccedcd03a84092cfbd32e6e84601b9a4"
+    },
+    "5:161": {
+      "name": "Tab Bar",
+      "type": "COMPONENT_SET",
+      "page": "Link",
+      "width": 832,
+      "height": 232,
+      "variants": 2,
+      "properties": {
+        "Breakpoint": {
+          "type": "VARIANT",
+          "default": "Desktop",
+          "options": [
+            "Desktop",
+            "Mobile"
+          ]
+        }
+      },
+      "description": "Filters the Link Rows: All, Studio, Blog, Shop, Support (a role=\"group\" of toggle buttons). Desktop: five equal cells, 8px apart. Mobile: tabs hug their labels and the row scrolls sideways (scrollbar hidden). Swap a Tab to State=Selected to show the active filter. .lk-tabs.",
+      "key": "3dd8a6b80f66bebbe6788f749df5597ffc5adf65"
+    },
+    "5:128": {
+      "name": "Link Profile",
+      "type": "COMPONENT_SET",
+      "page": "Link",
+      "width": 832,
+      "height": 647,
+      "variants": 2,
+      "properties": {
+        "Name": {
+          "type": "TEXT",
+          "default": "Jefferson Kidd"
+        },
+        "Bio": {
+          "type": "TEXT",
+          "default": "Projects, experiments, products, music, and an ongoing exploration of what’s possible"
+        },
+        "Tags": {
+          "type": "SLOT"
+        },
+        "Breakpoint": {
+          "type": "VARIANT",
+          "default": "Desktop",
+          "options": [
+            "Desktop",
+            "Mobile"
+          ]
+        }
+      },
+      "description": "Profile: Avatar, the name as the page h1, tags, bio (scrim 60%) and social Icon Buttons, each needing an aria-label in code. Desktop sits side by side; Mobile stacks with the Compact avatar and a 38px name. .lk-profile. Copy: LINK_SAMPLE.profile. Tags is a slot: fill it with Tag instances (Primitives), as many as the item has.",
+      "key": "655d7c48f4e16f481b4070eb56b2323c029c8e21"
+    },
+    "5:113": {
+      "name": "Link Header",
+      "type": "COMPONENT_SET",
+      "page": "Link",
+      "width": 832,
+      "height": 192,
+      "variants": 2,
+      "properties": {
+        "Wordmark": {
+          "type": "TEXT",
+          "default": "Jefferson KIDD"
+        },
+        "Breakpoint": {
+          "type": "VARIANT",
+          "default": "Desktop",
+          "options": [
+            "Desktop",
+            "Mobile"
+          ]
+        }
+      },
+      "description": "Link page header: the wordmark, then Blog and Shop (Pill Button, Ghost) and Follow (Outlined) at the right. Mobile drops the ghost links and shrinks the wordmark to 26px. .lk-header. Copy: LINK_SAMPLE.wordmark, nav, follow.",
+      "key": "5f75f10c2c33d544dfee568947228149827e9809"
+    },
+    "5:612": {
+      "name": "Link Page",
+      "type": "COMPONENT_SET",
+      "page": "Link Page",
+      "width": 1830,
+      "height": 2567,
+      "variants": 2,
+      "properties": {
+        "Breakpoint": {
+          "type": "VARIANT",
+          "default": "Desktop",
+          "options": [
+            "Desktop",
+            "Mobile"
+          ]
+        }
+      },
+      "description": "The link-in-bio page (apps/links, :5179): Stage › Sheet › Link Header, Link Profile, Tab Bar, four Link Rows and three Link Tiles. Desktop is the 800px sheet on a 1280 stage; Mobile is 390, below the 640px breakpoint. Copy is LINK_SAMPLE (@jkidd/blocks/link sample.ts); live hrefs live in apps/links/src/links.ts and are never invented. Rebuilt from JKidd - Workbench Linktrees (120:1335 page, 118:515 row) as live layers through all five libraries. In code: <LinkPage spec={LINKS} /> from @jkidd/blocks/link.",
+      "key": "09bf5bb852db9f13e514782ea08c09ee7edd20c4"
+    }
+  },
+  "frames": {
+    "11:1429": {
+      "name": "Cover",
+      "type": "FRAME",
+      "page": "Cover",
+      "width": 1920,
+      "height": 1080
+    },
+    "3:16": {
+      "name": "Web · incoming",
+      "type": "SECTION",
+      "page": "Web",
+      "width": 1955,
+      "height": 1993
+    },
+    "3:10": {
+      "name": "Controls · incoming",
+      "type": "SECTION",
+      "page": "Controls",
+      "width": 1268,
+      "height": 900
+    },
+    "3:22": {
+      "name": "Link · incoming",
+      "type": "SECTION",
+      "page": "Link",
+      "width": 1784,
+      "height": 2656
+    },
+    "3:28": {
+      "name": "Link Page · incoming",
+      "type": "SECTION",
+      "page": "Link Page",
+      "width": 1990,
+      "height": 3851
+    }
+  }
+}

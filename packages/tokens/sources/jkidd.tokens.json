@@ -102,18 +102,18 @@
       "ribbons": {}
     },
     "picture-western": {
-      "$description": "Western series (Postcard Image Algo 147:933; Blocks board 77:1719): master 'western', with 'greetings-western' and 'desert' on the same press. 'build-in-public-western' (Frontier Town) is the same theme in drifted inks and is left out of the sample. Ink, cream, orange, gold, brown and red were read by hand from the master and match `pnpm front-inks` on the three cards within a few points; teal and dark teal are from `pnpm front-inks` (2026-10-13), replacing the earlier #21a291 and #105a5b, which came from Frontier Town. Accent red is a colour, not a ribbon: neither cream (4.00) nor ink (3.6) reaches 4.5:1 on it. The spec's ink library: orange, cream, cyan, teal, brown, black, olive, accent red.",
+      "$description": "Western series (Postcard Image Algo 147:933; Postcards board 266:760): master 'western', with 'greetings-western' and 'desert' on the same press. 'build-in-public-western' (Frontier Town) is the same theme in drifted inks and is left out of the sample. Ink, cream, orange, gold, brown and red were read by hand from the master and match `pnpm front-inks` on the three cards within a few points; teal and dark teal are from `pnpm front-inks` (2026-10-13), replacing the earlier #21a291 and #105a5b, which came from Frontier Town. Accent red is a colour, not a ribbon: neither cream (4.00) nor ink (3.6) reaches 4.5:1 on it. The spec's ink library: orange, cream, cyan, teal, brown, black, olive, accent red.",
       "colors": {
         "ink": "#1b1209",
         "cream": "#f8e2a1",
         "red": "#cc3605"
       },
       "ribbons": {
-        "orange": { "fill": "#f3740e", "on": "ink", "figma": "77:1738" },
-        "gold": { "fill": "#f9aa15", "on": "ink", "figma": "77:1743" },
-        "teal": { "fill": "#63a784", "on": "ink", "figma": "77:1748" },
-        "dark-teal": { "fill": "#236a57", "on": "cream", "figma": "77:1753" },
-        "brown": { "fill": "#582305", "on": "cream", "figma": "77:1758" }
+        "orange": { "fill": "#f3740e", "on": "ink", "figma": "266:784" },
+        "gold": { "fill": "#f9aa15", "on": "ink", "figma": "266:789" },
+        "teal": { "fill": "#63a784", "on": "ink", "figma": "266:794" },
+        "dark-teal": { "fill": "#236a57", "on": "cream", "figma": "266:799" },
+        "brown": { "fill": "#582305", "on": "cream", "figma": "266:804" }
       }
     },
     "picture-build-in-public": {

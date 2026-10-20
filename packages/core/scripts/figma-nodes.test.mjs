@@ -9,7 +9,7 @@ import { readFileSync } from "node:fs";
 
 const source = readFileSync(new URL("../src/figma.ts", import.meta.url), "utf8");
 const snapshot = (name) => JSON.parse(readFileSync(new URL(`../../tokens/sources/figma/${name}.json`, import.meta.url), "utf8"));
-const SNAPSHOTS = { Foundations: "foundations", Primitives: "primitives", Postcards: "postcards", Blocks: "blocks" };
+const SNAPSHOTS = { Foundations: "foundations", Primitives: "primitives", Postcards: "postcards", Web: "web" };
 
 /** The body of `export const NAME = { ... }` in figma.ts. */
 function block(name) {
@@ -18,7 +18,7 @@ function block(name) {
   return source.slice(start, source.indexOf("\n}", start));
 }
 
-// `Kicker: [LIBRARIES.Primitives, "65:62"],` or `"Postcard/Manifesto": [LIBRARIES.Blocks, "61:812"],`
+// `Kicker: [LIBRARIES.Primitives, "65:62"],` or `"Postcard/Manifesto": [LIBRARIES.Postcards, "266:482"],`
 const entries = (name) => [...block(name).matchAll(/^\s+"?([^":]+)"?:\s*\[LIBRARIES\.(\w+),\s*"(\d+:\d+)"\]/gm)].map(([, n, lib, id]) => [n, lib, id]);
 const FIGMA_NODES = entries("FIGMA_NODES");
 const LINK_NODES = entries("LINK_NODES");

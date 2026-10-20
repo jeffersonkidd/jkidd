@@ -1,8 +1,8 @@
 {
   "$description": "Snapshot of a Figma library, written by packages/tokens/scripts/figma/export.js. Don't edit by hand: refresh it from Figma. The drift tests check the token sources and figma.ts against it.",
-  "file": "JKidd - Compositions",
+  "file": "JKidd - Postcards",
   "fileKey": "N62b8rJJLQ4MT339QUVpr9",
-  "readAt": "2026-10-19",
+  "readAt": "2026-10-20",
   "pages": [
     {
       "id": "0:1",
@@ -13,20 +13,28 @@
       "name": "Frame"
     },
     {
-      "id": "251:248",
-      "name": "Canvases"
-    },
-    {
-      "id": "251:249",
-      "name": "Web"
+      "id": "266:250",
+      "name": "Parts"
     },
     {
       "id": "1:9",
       "name": "Archetypes"
     },
     {
-      "id": "42:2",
-      "name": "Link"
+      "id": "266:303",
+      "name": "Dressing"
+    },
+    {
+      "id": "266:402",
+      "name": "Postcards"
+    },
+    {
+      "id": "266:753",
+      "name": "Picture"
+    },
+    {
+      "id": "266:833",
+      "name": "Stage"
     }
   ],
   "collections": {},
@@ -86,51 +94,120 @@
       "description": "Default content for Card Frame. Swap the frame's Content property to a Content/* archetype.",
       "key": "5868de0b42c0ad610d01332790b6db25be1a30a5"
     },
-    "252:635": {
-      "name": "Sheet",
-      "type": "COMPONENT_SET",
-      "page": "Web",
-      "width": 1310,
-      "height": 484,
-      "variants": 2,
-      "properties": {
-        "Content": {
-          "type": "SLOT"
-        },
-        "Breakpoint": {
-          "type": "VARIANT",
-          "default": "Desktop",
-          "options": [
-            "Desktop",
-            "Mobile"
-          ]
-        }
-      },
-      "description": "The paper sheet a web page sits on: the card stock's tall cut, Imagery/Paper 2:3, stretched over tertiary-container, pinned to the Light scheme (the paper is a light raster). Desktop: an 800px column, a 4px on-secondary border, 20/24/16 padding. Mobile (below 640px): full width, 16px padding, no border. Put the page into Content; children stack 20px apart. .lk-sheet.",
-      "key": "3c3ac63de2afaa5a9af7a17c8ca999a1a0c9cbe6"
+    "266:258": {
+      "name": "Kicker",
+      "type": "COMPONENT",
+      "page": "Parts",
+      "width": 167,
+      "height": 24,
+      "description": "Post type label. Text is bound to type/label, so it reads the card's Post Type mode; no text property needed.",
+      "key": "d7a5a13c43f396dda9102e505312dce765ff33a9"
     },
-    "252:642": {
-      "name": "Stage",
+    "266:261": {
+      "name": "Check Row",
       "type": "COMPONENT_SET",
-      "page": "Web",
-      "width": 1790,
-      "height": 980,
-      "variants": 2,
+      "page": "Parts",
+      "width": 1074,
+      "height": 418,
+      "variants": 6,
       "properties": {
-        "Page": {
-          "type": "SLOT"
+        "Label": {
+          "type": "TEXT",
+          "default": "Wired the tokens into the site shell"
         },
-        "Breakpoint": {
+        "Mark": {
           "type": "VARIANT",
-          "default": "Desktop",
+          "default": "Check",
           "options": [
-            "Desktop",
-            "Mobile"
+            "Check",
+            "Cross",
+            "Dot"
+          ]
+        },
+        "Struck": {
+          "type": "VARIANT",
+          "default": "No",
+          "options": [
+            "No",
+            "Yes"
           ]
         }
       },
-      "description": "A full-bleed web backdrop: Imagery/Palm Sky, cover, over primary-container. Desktop centres its Page 32px from the top with 16px sides; Mobile runs the page edge to edge. Holds a Sheet. .lk-stage.",
-      "key": "1680dfbfebd119b491397bf47cde392106670050"
+      "description": "One line of a Ledger or Before / After card. Check (type ink) for shipped, Cross (error) for the mistake, Dot for a note. Struck=Yes is the subtraction ledger, what was cut: the text drops to on-surface-variant and a 3px on-surface-variant strike runs exactly the length of the text, its own layer (.jk-row__strike). Real item names at uneven lengths; 6 rows at most.",
+      "key": "e2f1750d38586552f6c418ebd05edb55ccabf9cd"
+    },
+    "266:287": {
+      "name": "Token Chip",
+      "type": "COMPONENT",
+      "page": "Parts",
+      "width": 423,
+      "height": 73,
+      "properties": {
+        "Token": {
+          "type": "TEXT",
+          "default": "primary-container"
+        },
+        "Show swatch": {
+          "type": "BOOLEAN",
+          "default": true
+        }
+      },
+      "description": "A component or token chip for Architecture Diagram zones and Pipeline outputs. Override the swatch fill with the real token.",
+      "key": "9c2f98f7f6ebd80b669807732704a85888e456e0"
+    },
+    "266:290": {
+      "name": "Arrow",
+      "type": "COMPONENT",
+      "page": "Parts",
+      "width": 144,
+      "height": 72,
+      "properties": {
+        "Annotation": {
+          "type": "TEXT",
+          "default": "imports"
+        }
+      },
+      "description": "One arrow per card. The annotation carries the rule. A diagram that needs two arrows is two cards.",
+      "key": "f8201386774f6f7f74ae5c0854d9e514707d51f6"
+    },
+    "266:295": {
+      "name": "Equals Badge",
+      "type": "COMPONENT",
+      "page": "Parts",
+      "width": 88,
+      "height": 88,
+      "description": "The whole argument of a Parity card. Sits on the hairline between the Figma half and the code half.",
+      "key": "9443e54d7fd9bdb45f7cd39c81a868249c4749d0"
+    },
+    "266:297": {
+      "name": "Terminal",
+      "type": "COMPONENT",
+      "page": "Parts",
+      "width": 368,
+      "height": 91,
+      "properties": {
+        "Command": {
+          "type": "TEXT",
+          "default": "pnpm tokens"
+        }
+      },
+      "description": "The hero of a Pipeline card: one real command. Content never invents: use the command that actually ran.",
+      "key": "3c87c34ef040d7d125f9eae9304fb1ec281e6971"
+    },
+    "266:300": {
+      "name": "Zone Label",
+      "type": "COMPONENT",
+      "page": "Parts",
+      "width": 180,
+      "height": 34,
+      "properties": {
+        "Label": {
+          "type": "TEXT",
+          "default": "PRIMITIVES"
+        }
+      },
+      "description": "Sits on the top edge of a dashed zone (absolute, y = -18). Names the zone: PRIMITIVES, FIGMA, BEFORE…",
+      "key": "effb95cc112bff43ce0ec344cdd28e2719695ac5"
     },
     "81:239": {
       "name": "Content/Manifesto",
@@ -210,153 +287,244 @@
       "description": "Ledger · best for Progress and recaps. A left-aligned checklist of real item names at uneven lengths, 6 lines at most. Subtraction variant: set rows to Struck=Yes for a ledger of what was cut. Sample rows are this library's own build, 2026-09-24.",
       "key": "20326baafbbe1e722f7a79be12b37fc82ed1f21b"
     },
-    "42:141": {
-      "name": "Link Header",
-      "type": "COMPONENT_SET",
-      "page": "Link",
-      "width": 832,
-      "height": 192,
-      "variants": 2,
-      "properties": {
-        "Wordmark": {
-          "type": "TEXT",
-          "default": "Jefferson KIDD"
-        },
-        "Breakpoint": {
-          "type": "VARIANT",
-          "default": "Desktop",
-          "options": [
-            "Desktop",
-            "Mobile"
-          ]
-        }
-      },
-      "description": "Link page header: the wordmark, then Blog and Shop (Pill Button, Ghost) and Follow (Outlined) at the right. Mobile drops the ghost links and shrinks the wordmark to 26px. .lk-header. Copy: LINK_SAMPLE.wordmark, nav, follow.",
-      "key": "0e5d3eb1d31dbf0d6bdd16f2a871541e80c3f8d7"
-    },
-    "42:241": {
-      "name": "Link Profile",
-      "type": "COMPONENT_SET",
-      "page": "Link",
-      "width": 832,
-      "height": 647,
-      "variants": 2,
-      "properties": {
-        "Name": {
-          "type": "TEXT",
-          "default": "Jefferson Kidd"
-        },
-        "Bio": {
-          "type": "TEXT",
-          "default": "Projects, experiments, products, music, and an ongoing exploration of what’s possible"
-        },
-        "Tags": {
-          "type": "SLOT"
-        },
-        "Breakpoint": {
-          "type": "VARIANT",
-          "default": "Desktop",
-          "options": [
-            "Desktop",
-            "Mobile"
-          ]
-        }
-      },
-      "description": "Profile: Avatar, the name as the page h1, tags, bio (scrim 60%) and social Icon Buttons, each needing an aria-label in code. Desktop sits side by side; Mobile stacks with the Compact avatar and a 38px name. .lk-profile. Copy: LINK_SAMPLE.profile. Tags is a slot: fill it with Tag instances (Primitives), as many as the item has.",
-      "key": "cce78d7b12bcc29e411c3adb33adba2ab046110a"
-    },
-    "42:354": {
-      "name": "Tab Bar",
-      "type": "COMPONENT_SET",
-      "page": "Link",
-      "width": 832,
-      "height": 232,
-      "variants": 2,
-      "properties": {
-        "Breakpoint": {
-          "type": "VARIANT",
-          "default": "Desktop",
-          "options": [
-            "Desktop",
-            "Mobile"
-          ]
-        }
-      },
-      "description": "Filters the Link Rows: All, Studio, Blog, Shop, Support (a role=\"group\" of toggle buttons). Desktop: five equal cells, 8px apart. Mobile: tabs hug their labels and the row scrolls sideways (scrollbar hidden). Swap a Tab to State=Selected to show the active filter. .lk-tabs.",
-      "key": "13d73dba823de7f30bffb1acf7785549538a7625"
-    },
-    "44:203": {
-      "name": "Link Row",
-      "type": "COMPONENT_SET",
-      "page": "Link",
-      "width": 1624,
-      "height": 718,
-      "variants": 4,
-      "properties": {
-        "Title": {
-          "type": "TEXT",
-          "default": "Creative Work"
-        },
-        "Description": {
-          "type": "TEXT",
-          "default": "Projects, experiments, products, music, and an ongoing exploration of what’s possible."
-        },
-        "Tags": {
-          "type": "SLOT"
-        },
-        "Breakpoint": {
-          "type": "VARIANT",
-          "default": "Desktop",
-          "options": [
-            "Desktop",
-            "Mobile"
-          ]
-        },
-        "State": {
-          "type": "VARIANT",
-          "default": "Default",
-          "options": [
-            "Default",
-            "Hover"
-          ]
-        }
-      },
-      "description": "One link: media, then kicker, title, description and tags, then the Go button. The whole row is the link (an <a> when it has an href). Desktop: media 210–280px wide, 160 tall, beside the text. Mobile: media full width, 180 tall, above the text. Media without an image shows scrim at 80%; put an image fill on Media to use one. Kicker is exposed: set its Icon (Studio Command, Blog Feather, Shop/Support Layout Grid) and Label. Hover lifts the row to surface-container-lowest and the Go button to primary. Was Workbench Link Row 118:515. .lk-row. Tags is a slot: fill it with Tag instances (Primitives), as many as the item has.",
-      "key": "c0b3bbbceeb85cee8a8060b6acd32164171e3bcc"
-    },
-    "44:218": {
-      "name": "Link Tile",
-      "type": "COMPONENT_SET",
-      "page": "Link",
-      "width": 604,
-      "height": 160,
-      "variants": 2,
+    "266:320": {
+      "name": "Stamp and Postmark",
+      "type": "COMPONENT",
+      "page": "Dressing",
+      "width": 400,
+      "height": 220,
       "properties": {
         "Label": {
           "type": "TEXT",
-          "default": "Get in touch"
+          "default": "PROGRESS"
         },
-        "State": {
+        "Stamp icon": {
+          "type": "INSTANCE_SWAP",
+          "default": "266:304"
+        },
+        "Postmark glyph": {
+          "type": "INSTANCE_SWAP",
+          "default": "266:307"
+        }
+      },
+      "description": "The post type's stamp, cancelled (catalog: cachet). A perforated stamp in type/accent with the type's icon (Flag progress, Signpost decision, Skull failure, Sun principle, Bell teaching), its label and the 2¢ value from Entry 001-C; a ring postmark with the handle or series over the day or date, the card's topic glyph, and five machine waves. Ink is on-surface at 62%. Code adds speckled wear (an SVG noise mask) that Figma doesn't draw. 400×220. Edit the ring text on the curve directly (text on a path takes no component property). Sample: the figma-variables card. Dressing.tsx Cachet (@jkidd/ui).",
+      "key": "652af5f74050dae072017f9c84c17dd5b59b01e6"
+    },
+    "266:343": {
+      "name": "Rubber Stamp",
+      "type": "COMPONENT",
+      "page": "Dressing",
+      "width": 302,
+      "height": 92,
+      "properties": {
+        "Word": {
+          "type": "TEXT",
+          "default": "SHIPPED"
+        }
+      },
+      "description": "One verdict word the card itself says (catalog: rubber), boxed twice in type/ink at 80% and tilted 4–10°; the code sizes it 64 + 34px a letter by 92. Only when the card has a verdict. Code adds speckled wear that Figma doesn't draw. Sample: the link-page-weight card. Dressing.tsx RubberStamp (@jkidd/ui).",
+      "key": "cbca997ef82e074e67d8db4cc924ef225c00c651"
+    },
+    "266:349": {
+      "name": "Divider Imprint",
+      "type": "COMPONENT",
+      "page": "Dressing",
+      "width": 40,
+      "height": 470,
+      "properties": {
+        "Source": {
+          "type": "TEXT",
+          "default": "IDEA 2026-09-24-02 · JOURNAL 2026-09-24 03:20"
+        }
+      },
+      "description": "The divided back's centre rule (catalog: imprint), with the card's source printed up it like a publisher's number: IDEA <id> · JOURNAL <event>, in on-surface-variant at 70%. Only when the card has a source. Sample: the figma-variables card. Dressing.tsx Imprint (@jkidd/ui).",
+      "key": "5f57a581854e21a645e976da569198de195fb325"
+    },
+    "266:355": {
+      "name": "Registration Mark",
+      "type": "COMPONENT",
+      "page": "Dressing",
+      "width": 32,
+      "height": 32,
+      "description": "A crosshair target, the printer's mark (catalog: registration): one in each corner, 24px in from the edges and the rail, in on-surface at 45%, for a build that runs through a press. Dressing.tsx Target (@jkidd/ui).",
+      "key": "f3c8ea10e1c6d0e1def807765485fd04f541b7c5"
+    },
+    "266:360": {
+      "name": "Colour Bar",
+      "type": "COMPONENT",
+      "page": "Dressing",
+      "width": 90,
+      "height": 14,
+      "description": "The five post type accents as a printer's colour bar along the foot of the card (catalog: colorbar), centred 17px up: each swatch is type/accent fixed to its own Post Type mode, so it shows all five whatever the card's type. dressing.css .jk-back__colorbar (@jkidd/ui).",
+      "key": "dd60c2255b02627f7fbcc0f0458e683cfb3f88a7"
+    },
+    "266:368": {
+      "name": "Photo Corner",
+      "type": "COMPONENT_SET",
+      "page": "Dressing",
+      "width": 216,
+      "height": 66,
+      "variants": 4,
+      "properties": {
+        "Position": {
           "type": "VARIANT",
-          "default": "Default",
+          "default": "Top Left",
           "options": [
-            "Default",
-            "Hover"
+            "Top Left",
+            "Top Right",
+            "Bottom Left",
+            "Bottom Right"
           ]
         }
       },
-      "description": "A short link under the rows: kicker plus a burst label, centred, at least 80px tall. Three to a row on desktop, one per row on mobile. Hover is new here; code has none yet. .lk-tile. Copy: LINK_SAMPLE.tiles.",
-      "key": "b91685186de8b7cee903bdd7aff3f61fd2982e45"
+      "description": "Album corners on each zone, so two halves sit like mounted prints (catalog: corners): on-surface at 82%, set 6px out from the zone's corners. Parity cards. Dressing.tsx PhotoCorners (@jkidd/ui).",
+      "key": "48b095505ac7893371e9236c6eae91c69a816ffc"
+    },
+    "266:380": {
+      "name": "Airmail Edge",
+      "type": "COMPONENT",
+      "page": "Dressing",
+      "width": 1584,
+      "height": 14,
+      "description": "Bands of type/accent and on-surface chevrons along the top and bottom edges (catalog: airmail), 14px tall from the rail to the right edge, at 85%: one dispatch in a run, so only on series posts. Stretch it to the card's width; it clips. dressing.css .jk-back__airmail (@jkidd/ui).",
+      "key": "ebd3b6de3d290f5379522b0648faa6965805fe63"
+    },
+    "266:388": {
+      "name": "Graph Paper",
+      "type": "COMPONENT",
+      "page": "Dressing",
+      "width": 1600,
+      "height": 900,
+      "description": "Graph paper (catalog: grid): a 24px minor grid at 9% and a 120px major grid at 20%, in type/accent, so it takes the card's Post Type mode; the stage postcards' paper. A texture: lay it over the stock, under the content, one per card. Resize it to the card (it clips; drawn to 1600×1350). Code: dressedpostcard.css [data-texture=grid].",
+      "key": "b279d9ba3086d565ccb32a9f597330e5ad26a161"
+    },
+    "266:394": {
+      "name": "Ledger Ruling",
+      "type": "COMPONENT",
+      "page": "Dressing",
+      "width": 1600,
+      "height": 900,
+      "description": "Ledger ruling (catalog: ledger): feint rules every 56px in on-surface at 9% and a double margin line at 96px and 104px in type/accent at 14%, left of the content. A texture for Ledger cards: lay it over the stock, under the content. Resize it to the card (it clips; drawn to 1600×1350). Code: dressedpostcard.css [data-texture=ledger].",
+      "key": "fd0ed57e49e99b0100307479e256f0b6d2758ca2"
+    },
+    "266:482": {
+      "name": "Postcard/Manifesto",
+      "type": "COMPONENT",
+      "page": "Postcards",
+      "width": 1600,
+      "height": 900,
+      "description": "Manifesto archetype in the 16:9 constant frame. Default type: Principle (best for Principle). Shown as a 21 Days of Dev post. Change the type by setting this instance's Post Type mode; change the scheme with its Scheme mode.",
+      "key": "3b647bd73599a433b0fc8aa82ee12111b227705d"
+    },
+    "266:484": {
+      "name": "Postcard/Architecture Diagram",
+      "type": "COMPONENT",
+      "page": "Postcards",
+      "width": 1600,
+      "height": 900,
+      "description": "Architecture Diagram archetype in the 16:9 constant frame. Default type: Decision (best for Decision, Principle). Shown as a 21 Days of Dev post. Change the type by setting this instance's Post Type mode; change the scheme with its Scheme mode.",
+      "key": "d6c9e1e613f6fa8c64ab6bf88d75b861af9e0ec4"
+    },
+    "266:486": {
+      "name": "Postcard/Pipeline",
+      "type": "COMPONENT",
+      "page": "Postcards",
+      "width": 1600,
+      "height": 900,
+      "description": "Pipeline archetype in the 16:9 constant frame. Default type: Teaching (best for Teaching). Shown as a regular post: day and series off. Change the type by setting this instance's Post Type mode; change the scheme with its Scheme mode.",
+      "key": "10ecd31fbddeb92d89310e67b7d0c68fa1ef0529"
+    },
+    "266:488": {
+      "name": "Postcard/Parity",
+      "type": "COMPONENT",
+      "page": "Postcards",
+      "width": 1600,
+      "height": 900,
+      "description": "Parity archetype in the 16:9 constant frame. Default type: Progress (best for Progress, Teaching). Shown as a 21 Days of Dev post. Change the type by setting this instance's Post Type mode; change the scheme with its Scheme mode.",
+      "key": "6d61ff71642c7fab03e2ccddbba8670995bf1320"
+    },
+    "266:490": {
+      "name": "Postcard/Before After",
+      "type": "COMPONENT",
+      "page": "Postcards",
+      "width": 1600,
+      "height": 900,
+      "description": "Before After archetype in the 16:9 constant frame. Default type: Failure (best for Failure). Shown as a regular post: day and series off. Change the type by setting this instance's Post Type mode; change the scheme with its Scheme mode.",
+      "key": "a25acbaec73111d469d3ab3b5ec9687069f5200c"
+    },
+    "266:492": {
+      "name": "Postcard/Ledger",
+      "type": "COMPONENT",
+      "page": "Postcards",
+      "width": 1600,
+      "height": 900,
+      "description": "Ledger archetype in the 16:9 constant frame. Default type: Progress (best for Progress, recaps). Shown as a 21 Days of Dev post. Change the type by setting this instance's Post Type mode; change the scheme with its Scheme mode.",
+      "key": "a9fc7304438721837b8fb15214e4405e35956d6e"
+    },
+    "275:48": {
+      "name": "Picture Postcard",
+      "type": "COMPONENT",
+      "page": "Picture",
+      "width": 1536,
+      "height": 1024,
+      "properties": {
+        "Title": {
+          "type": "TEXT",
+          "default": "Jefferson Kidd"
+        },
+        "Show title": {
+          "type": "BOOLEAN",
+          "default": false
+        },
+        "Story": {
+          "type": "TEXT",
+          "default": "THE 4:10 NEVER REACHED SILVER PASS"
+        },
+        "Location": {
+          "type": "TEXT",
+          "default": "COLORADO • HIGH COUNTRY"
+        },
+        "Show story": {
+          "type": "BOOLEAN",
+          "default": true
+        },
+        "Show location": {
+          "type": "BOOLEAN",
+          "default": true
+        }
+      },
+      "description": "Picture postcard: one of the postcard's two types (the archetype Postcard/* are the other). A generated front (swap Front's image fill) in a cream mat (--jk-genre-picture-mat) and a 10px ink border, 1536×1024, scaled not reflowed. Live type on top: a title (Inter Black 148, cream, hard ink shadow) only on art-only fronts; a location ribbon; a story label tilted 2° in the bottom corner the hero isn't standing in (mirror to the left). With a title on, code moves the ribbon under the title. Ink, cream and ribbon are the front's series' own (--jk-genre-picture-<series>-*), shown here in Western with the orange ribbon; Dark Teal and Brown ribbons take cream text. Story and location copy is the library's own (STORY_STARTERS). Code: PicturePostcard (jkidd-ds, #/postcards).",
+      "key": "f18f6d78528b1a4084321ffcfdcfeedc76286579"
+    },
+    "266:820": {
+      "name": "Story Label (draft)",
+      "type": "COMPONENT",
+      "page": "Picture",
+      "width": 1111,
+      "height": 678,
+      "properties": {
+        "Story": {
+          "type": "TEXT",
+          "default": "SOMEONE PARKED ON THE MOON BUGGY"
+        },
+        "Location": {
+          "type": "TEXT",
+          "default": "MARE TRANQUILLITATIS • 2164"
+        },
+        "Show story": {
+          "type": "BOOLEAN",
+          "default": true
+        },
+        "Show location": {
+          "type": "BOOLEAN",
+          "default": true
+        }
+      },
+      "description": "The picture postcard's story label. One of the postcard's two types (the archetypes are the other). Code: PicturePostcard in jkidd-ds (#/postcards).",
+      "key": "663b23442b1dbf1e5c111cfb8ecfe43ba5459753"
     }
   },
   "frames": {
-    "1:2": {
-      "name": "Cover",
-      "type": "FRAME",
-      "page": "Cover",
-      "width": 1600,
-      "height": 692
-    },
     "252:663": {
       "name": "Cover",
       "type": "FRAME",
@@ -364,40 +532,47 @@
       "width": 1920,
       "height": 1080
     },
-    "252:516": {
+    "268:861": {
       "name": "Frame",
-      "type": "FRAME",
+      "type": "SECTION",
       "page": "Frame",
-      "width": 5890,
-      "height": 2516
+      "width": 6050,
+      "height": 2676
     },
-    "252:607": {
-      "name": "Canvases",
-      "type": "FRAME",
-      "page": "Canvases",
-      "width": 1514,
-      "height": 582
+    "268:859": {
+      "name": "Card Parts",
+      "type": "SECTION",
+      "page": "Parts",
+      "width": 1234,
+      "height": 1582
     },
-    "252:649": {
-      "name": "Header",
-      "type": "FRAME",
-      "page": "Web",
-      "width": 900,
-      "height": 153
-    },
-    "1:11": {
+    "268:860": {
       "name": "Archetypes",
-      "type": "FRAME",
+      "type": "SECTION",
       "page": "Archetypes",
-      "width": 2960,
-      "height": 2562
+      "width": 3120,
+      "height": 2722
     },
-    "44:219": {
-      "name": "Link",
+    "269:862": {
+      "name": "Dressing",
+      "type": "SECTION",
+      "page": "Dressing",
+      "width": 3408,
+      "height": 2300
+    },
+    "266:481": {
+      "name": "Postcards",
       "type": "FRAME",
-      "page": "Link",
-      "width": 1624,
-      "height": 2496
+      "page": "Postcards",
+      "width": 3440,
+      "height": 3020
+    },
+    "266:760": {
+      "name": "Picture Postcard",
+      "type": "FRAME",
+      "page": "Picture",
+      "width": 1936,
+      "height": 2092
     }
   }
 }
