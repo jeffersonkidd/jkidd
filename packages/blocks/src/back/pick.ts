@@ -27,12 +27,17 @@ export type ShapePick = CatalogPick & {
   params: Record<string, string | number>;
 };
 
+/** What the back is printed on: the card stock, or the palm sky photo (Imagery/Palm Sky) under a dark wash. */
+export const STOCKS = ["paper", "palm-sky"] as const;
+export type Stock = (typeof STOCKS)[number];
+
 export type Dressing = {
   seed: number;
   take: number;
+  stock: Stock;
   /** A picture postcard series whose paper and inks the back is printed in; null keeps the card's scheme. */
   dress: string | null;
-  /** Every back prints on the card stock, a light raster, so it goes to the light scheme. */
+  /** Paper is a light raster, so it takes the light scheme; the palm sky's wash is dark, so it takes the dark one. */
   scheme: CardSpec["scheme"];
   texture: CatalogPick;
   overlays: CatalogPick[];
@@ -42,6 +47,8 @@ export type Dressing = {
 };
 
 export type DressOptions = {
+  /** Paper unless asked. */
+  stock?: Stock;
   /** Series to print in (picture-<series> inks), to pair the back with a picture postcard's front. */
   dress?: string | null;
   take?: number;
@@ -116,7 +123,9 @@ const STAMP_ICON: Record<CardSpec["postType"], string> = {
 
 export function pickDressing(spec: CardSpec, reading: Reading, catalog: CatalogEntry[], options: DressOptions = {}): Dressing {
   const take = options.take ?? 0;
-  const dress = options.dress ?? null;
+  const stock = options.stock ?? "paper";
+  // A series' inks are dark ink on cream paper; on the palm sky's dark wash that ink wouldn't read.
+  const dress = stock === "paper" ? (options.dress ?? null) : null;
   const seed = hash(JSON.stringify(spec)) ^ Math.imul(take + 1, 0x9e3779b1);
   const rand = rng(seed);
   // Ties break by the seed; a take can reorder near-ties but never beat a clear reading.
@@ -232,8 +241,9 @@ export function pickDressing(spec: CardSpec, reading: Reading, catalog: CatalogE
   return {
     seed,
     take,
+    stock,
     dress,
-    scheme: "light",
+    scheme: stock === "paper" ? "light" : "dark",
     texture,
     overlays,
     shapes,

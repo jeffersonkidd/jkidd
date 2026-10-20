@@ -1,6 +1,7 @@
 import { forwardRef, useCallback, useLayoutEffect, useRef, useState, type CSSProperties } from "react";
 import { CANVAS } from "@jkidd/tokens";
 import { Postcard, type CardSpec } from "../Postcard";
+import palmSky from "../assets/link/palm-sky.jpg";
 import grain from "../assets/press/grain.png";
 import specks from "../assets/press/specks.png";
 import stock16x9 from "../assets/stock/paper-16x9.jpg";
@@ -44,10 +45,11 @@ function foxing(seed: number) {
 /** The card stock cut to each canvas, so the burnt edge is even all round (scripts/stock.mjs). */
 const STOCK = { "16:9": stock16x9, "1:1": stock1x1, "4:5": stock4x5 } as const;
 
-/** The variables the back reads: the card stock for its ratio, the press images and this seed's foxing. */
+/** The variables the back reads: the card stock for its ratio, the palm sky, the press images and this seed's foxing. */
 export const backVars = (seed: number, ratio: keyof typeof STOCK = "16:9") =>
   ({
     "--back-stock": `url("${STOCK[ratio]}")`,
+    "--back-palm-sky": `url("${palmSky}")`,
     "--back-grain": `url("${grain}")`,
     "--back-specks": `url("${specks}")`,
     "--back-foxing": foxing(seed),
@@ -133,6 +135,7 @@ export const DressedPostcard = forwardRef<
       className="jk-back"
       data-scheme={card.scheme ?? "dark"}
       data-post-type={card.postType}
+      data-stock={dressing.stock}
       data-texture={dressing.texture.id}
       data-overlays={dressing.overlays.map((o) => o.id).join(" ") || undefined}
       data-dress={dressing.dress ?? undefined}

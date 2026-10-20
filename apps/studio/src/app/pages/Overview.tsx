@@ -33,7 +33,7 @@ export function Overview({ navigate }: PageProps) {
           <button className="btn btn--primary" onClick={() => navigate("studio")}>
             Open the Studio
           </button>
-          <button className="btn" onClick={() => navigate("thumbnails")}>
+          <button className="btn" onClick={() => navigate("studio?see=thumbnails")}>
             Run the thumbnail test
           </button>
           <a className="btn btn--ghost" href={figmaUrl(FIGMA_NODES.Cover)} target="_blank" rel="noreferrer">

@@ -8,7 +8,8 @@
         "node": "99:3598",
         "where": "JKidd - Foundations › Imagery › Image, a loose rectangle beside the Imagery section; deleted 2026-10-19 once this copy was saved"
       },
-      "ships_as": "packages/blocks/src/assets/link/palm-sky.jpg (JPEG, about 270 KB; Figma style Imagery/Palm Sky)"
+      "ships_as": "packages/blocks/src/assets/link/palm-sky.jpg (JPEG, about 270 KB; Figma style Imagery/Palm Sky)",
+      "also": "The palm sky stock for dressed backs (back/DressedPostcard.tsx), under a 75% wash of the dark scheme's surface."
     }
   }
 }

@@ -61,15 +61,16 @@ Cards are drawn at their Figma canvas size (1600×900, 1080×1080, 1080×1350) a
 
 ## The Studio
 
-`#/studio` builds one card from data:
+`#/studio` is the one place a card gets made: pick it, edit it, check it, dress its back, export it. (The Archetypes, Dressing the back and Thumbnail test pages were merged into it; `#/cards`, `#/backs` and `#/thumbnails` redirect here.)
 
+- a **picker** across the top: the six archetype samples and every template, drawn in the current frame (scheme, ratio, and for the samples the project, day and series), so the archetypes compare under one frame. Click one to load it. A template brings its idea and journal event, and the panel says when you've edited away from it
 - archetype, post type, scheme, ratio, day, series, project slot, and the content as JSON
-- a live preview, plus the same card at **320px** (Principle 4: design full size, judge at thumbnail)
+- a live preview, plus the same card at **320px** (Principle 4: design full size, judge at thumbnail), and a row of it in all five post types at 320px; click one to switch the card's type
+- **the thumbnail test** at the bottom, collapsed: every archetype × every post type at 320px in the Studio's scheme and ratio (`#/thumbnails` opens it)
 - **card rules**: the rules from `POSTCARDS.md` and the Figma component descriptions, run as checks on every edit (`apps/studio/src/app/lint.ts`). Manifesto 3–5 lines, Ledger 6 rows at most and uneven lengths, Pipeline highlights exactly one line, Before / After at equal weight, one arrow per diagram, day and series together or not at all, archetype vs. its best-for types
-- **Export PNG** at canvas size (or @2x), named `jkidd-day-18-manifesto-principle-16x9.png`
-- **Copy JSON** (the `CardSpec`, ready for a post file) and **Copy link** (the card encoded in the URL)
-
-Every card on the Archetypes page has an **Edit** link that opens it in the Studio.
+- **Export PNG** at canvas size (or @2x), named `jkidd-day-18-manifesto-principle-16x9.png`, or **SVG**, for the card and for the dressed back. The SVG is editable in Figma or Illustrator (`vectorSvg` in `@jkidd/core`): text as text, one `<text>` per line as it wraps; boxes, borders, icons, the arrow, the stamp and postmark as vectors; layers named for their classes. Only the card stock, the palm sky and the CSS-gradient textures and overlays are embedded images. Fonts are named, not embedded, so install them to edit the type
+- **the back, dressed** on every card (`packages/blocks/src/back/WORKFLOW.md`): the default rendering and the dressed back stacked in one column, printed on paper or the palm sky, a series' inks (paper only), another take, and **Why this dressing** (what the card says, what it's dressed in, what was left out or dropped). Everything the dressing can use is on `#/stock`
+- **Copy JSON** (the `CardSpec`, ready for a post file), **Export dressed PNG**, **Copy dressing receipt**, and **Copy link** (`?c=` the card, `t=` its tile, plus `stock`, `dress` and `take`)
 
 ---
 

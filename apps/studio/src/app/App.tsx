@@ -4,10 +4,8 @@ import { Overview } from "./pages/Overview";
 import { Foundations } from "./pages/Foundations";
 import { MarksPage } from "./pages/MarksPage";
 import { PartsPage } from "./pages/PartsPage";
-import { Cards } from "./pages/Cards";
-import { Thumbnails } from "./pages/Thumbnails";
 import { Studio } from "./pages/Studio";
-import { BacksPage } from "./pages/BacksPage";
+import { StockPage } from "./pages/StockPage";
 import { LinkPagePreview } from "./pages/LinkPagePreview";
 import { PicturePage } from "./pages/PicturePage";
 import { StagePage } from "./pages/StagePage";
@@ -19,10 +17,8 @@ const ROUTES = [
   { path: "foundations", name: "Foundations", el: Foundations },
   { path: "marks", name: "Marks", el: MarksPage },
   { path: "parts", name: "Card parts", el: PartsPage },
-  { path: "cards", name: "Archetypes", el: Cards },
-  { path: "thumbnails", name: "Thumbnail test", el: Thumbnails },
   { path: "studio", name: "Studio", el: Studio },
-  { path: "backs", name: "Dressing the back", el: BacksPage },
+  { path: "stock", name: "Stock catalog", el: StockPage },
   { path: "postcards", name: "Picture postcards", el: PicturePage },
   { path: "stage", name: "Stage postcards", el: StagePage },
   { path: "libraries", name: "Library pipeline", el: LibrariesPage },
@@ -31,9 +27,24 @@ const ROUTES = [
 
 export type PageProps = { scheme: Scheme; query: URLSearchParams; navigate: (to: string) => void };
 
+/** The Archetypes, Dressing the back and Thumbnail test pages merged into the Studio (2026-10-19); their old links land there. */
+function redirect(path: string, query: URLSearchParams): string | null {
+  if (path === "cards") return "studio";
+  if (path === "thumbnails") return "studio?see=thumbnails";
+  if (path !== "backs") return null;
+  const q = new URLSearchParams();
+  const card = query.get("card");
+  if (card) q.set("t", card);
+  for (const k of ["dress", "take"]) if (query.get(k)) q.set(k, query.get(k)!);
+  return `studio?${q}`;
+}
+
 function readHash() {
   const [path, qs = ""] = location.hash.replace(/^#\/?/, "").split("?");
-  return { path, query: new URLSearchParams(qs) };
+  const to = redirect(path, new URLSearchParams(qs));
+  if (to === null) return { path, query: new URLSearchParams(qs) };
+  history.replaceState(null, "", `#/${to}`);
+  return readHash();
 }
 
 function initialScheme(): Scheme {

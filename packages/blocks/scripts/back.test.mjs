@@ -182,3 +182,15 @@ test("components read CSS variables only: no hex in the back's code", () => {
     assert.doesNotMatch(text, /(?<![%&\w])#[0-9a-f]{3,8}\b(?![\w-])/i, `${f} has a hex value`);
   }
 });
+
+test("on the palm sky: the dark scheme, no series inks, and the same picks as on paper", () => {
+  for (const t of ALL) {
+    const paper = dress(t, { dress: "western", take: 2 }).dressing;
+    const sky = dress(t, { stock: "palm-sky", dress: "western", take: 2 }).dressing;
+    assert.equal(sky.stock, "palm-sky");
+    assert.equal(sky.scheme, "dark", `${t.id}: the wash is dark, so the back takes the dark scheme`);
+    assert.equal(sky.dress, null, `${t.id}: a series' dark ink wouldn't read on the wash`);
+    assert.equal(sky.seed, paper.seed, `${t.id}: the stock doesn't reshuffle the back`);
+  }
+  assert.match(readFileSync(src("back/dressedpostcard.css"), "utf8"), /surface\) 75%, transparent/, "the wash the 4.5:1 sums were run at");
+});

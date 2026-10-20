@@ -4,3 +4,4 @@ export * from "./notebook";
 export * from "./emblem";
 export * from "./contrast";
 export * from "./svgPaint";
+export * from "./vectorSvg";
