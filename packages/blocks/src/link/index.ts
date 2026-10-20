@@ -1,5 +1,5 @@
-// The link page on its own, for apps that only render it (apps/links): its CSS and
-// copy without the postcards'.
+// The web lane of JK Blocks: the link page, its CSS and copy, without the postcards'.
+// Built from @jkidd/ui/web; nothing here touches the cards lane.
 import "./linkpage.css";
 
 export * from "./LinkPage";

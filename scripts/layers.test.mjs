@@ -55,3 +55,34 @@ for (const [pkg, allowed] of Object.entries(ALLOWED)) {
     }
   });
 }
+
+// Across the layers run two lanes: cards (drawn at the Figma canvas size and scaled) and
+// web (drawn at web size and reflowed). In ui they're src/cards and src/web; in blocks
+// the link page (src/link) is web and the rest is cards, and the art (src/assets) is
+// shared: one paper stock for both. A lane uses only its own side and what's shared.
+const LANES = {
+  ui: (rel) => rel.split("/")[0],
+  blocks: (rel) => (rel.startsWith("link/") ? "web" : rel.startsWith("assets/") ? "shared" : "cards"),
+};
+const UI_ENTRY = { "@jkidd/ui/cards": "cards", "@jkidd/ui/web": "web" };
+
+for (const [pkg, laneOf] of Object.entries(LANES)) {
+  const src = join(root, "packages", pkg, "src");
+  test(`@jkidd/${pkg} keeps cards and web apart`, () => {
+    for (const file of files(src)) {
+      const rel = relative(src, file);
+      const lane = laneOf(rel);
+      if (!["cards", "web"].includes(lane)) continue;
+      for (const spec of specifiers(readFileSync(file, "utf8"))) {
+        const where = relative(root, file);
+        if (spec === "@jkidd/ui") assert.fail(`${where} imports @jkidd/ui: pick a lane, @jkidd/ui/cards or @jkidd/ui/web`);
+        if (spec in UI_ENTRY) assert.equal(UI_ENTRY[spec], lane, `${where} is ${lane}, but imports ${spec}`);
+        else if (spec.startsWith(".")) {
+          const target = relative(src, resolve(dirname(file), spec));
+          const other = laneOf(target);
+          if (["cards", "web"].includes(other)) assert.equal(other, lane, `${where} is ${lane}, but imports ${spec} from ${other}`);
+        }
+      }
+    }
+  });
+}

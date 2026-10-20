@@ -1,0 +1,139 @@
+/* ── Web controls (Primitives, Controls page) ──────────────────────
+   Drawn at web size (1:1 with Figma); they reflow. Every colour reads a token. */
+
+.web-mask-icon {
+  display: block;
+  flex-shrink: 0;
+  background: currentColor;
+  -webkit-mask: var(--web-icon-src) center / contain no-repeat;
+  mask: var(--web-icon-src) center / contain no-repeat;
+}
+
+/* ── Tag ───────────────────────────────────────────────── */
+
+.web-tag {
+  padding: 6px 10px;
+  border-radius: var(--jk-radius-full);
+  background: var(--md-sys-color-surface-container-high);
+  color: var(--md-sys-color-on-surface-variant);
+  font-family: var(--jk-font-mono);
+  font-weight: 500;
+  font-size: 11px;
+  line-height: 1;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+/* ── Icon Kicker (Card/Kicker at half size) ────────────── */
+
+.web-kicker { display: inline-flex; align-items: center; gap: 6px; color: color-mix(in srgb, var(--md-sys-color-scrim) 80%, transparent); }
+.web-kicker__icon { display: grid; place-items: center; padding: var(--jk-space-1); color: var(--md-sys-color-on-surface); }
+.web-kicker__label {
+  font-family: var(--jk-font-mono);
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 1;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+/* ── Pill Button ───────────────────────────────────────── */
+
+.web-pill {
+  font-family: var(--jk-font-mono);
+  font-weight: 500;
+  font-size: 11px;
+  line-height: 1;
+  letter-spacing: 0.04em;
+  padding: 11px 18px;
+  border-radius: var(--jk-radius-full);
+  color: inherit;
+  text-decoration: none;
+  white-space: nowrap;
+}
+.web-pill--outlined {
+  background: var(--md-sys-color-surface-container-lowest);
+  border: var(--jk-stroke-hairline) solid var(--md-sys-color-outline);
+  padding: 11px 24px;
+}
+/* Ghost hover is lowest at 40%, Outlined hover is container-high. */
+a.web-pill--ghost:hover { background: color-mix(in srgb, var(--md-sys-color-surface-container-lowest) 40%, transparent); }
+a.web-pill--outlined:hover { background: var(--md-sys-color-surface-container-high); }
+
+/* ── Icon Button ───────────────────────────────────────── */
+
+.web-icon-button {
+  display: grid;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  flex-shrink: 0;
+  border-radius: var(--jk-radius-full);
+  background: var(--md-sys-color-inverse-surface);
+  color: var(--md-sys-color-inverse-on-surface);
+}
+/* Hover lifts to primary. */
+a.web-icon-button:hover { background: var(--md-sys-color-primary); }
+
+/* ── Tab ───────────────────────────────────────────────── */
+
+.web-tab {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--jk-space-2);
+  height: 46px;
+  padding: 0 var(--jk-space-2);
+  border: var(--jk-stroke-hairline) solid transparent;
+  border-radius: 10px;
+  background: none;
+  color: var(--md-sys-color-on-surface);
+  font: 700 15px/1 var(--jk-font-lettering);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+.web-tab:hover { background: color-mix(in srgb, var(--md-sys-color-surface-container-lowest) 40%, transparent); }
+.web-tab[aria-pressed="true"] {
+  background: var(--md-sys-color-surface-container-lowest);
+  border-color: var(--md-sys-color-outline);
+}
+
+/* ── Avatar ────────────────────────────────────────────── */
+
+.web-avatar {
+  width: 172px;
+  aspect-ratio: 1;
+  flex-shrink: 0;
+  border-radius: var(--jk-radius-full);
+  border: var(--jk-stroke-hairline) solid var(--md-sys-color-on-surface);
+  background: var(--jk-palette-tertiary-98);
+  overflow: hidden;
+}
+.web-avatar img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+/* ── Focus and motion ──────────────────────────────────── */
+
+/* The Focus variant on Pill Button and Tab: a 2px primary ring outside the edge, on
+   every web link and button, for keyboard users. */
+a.web-pill:focus-visible,
+a.web-icon-button:focus-visible,
+.web-tab:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 2px var(--md-sys-color-primary);
+}
+
+.web-pill,
+.web-icon-button,
+.web-tab { transition: background-color 120ms ease-out; }
+
+@media (prefers-reduced-motion: reduce) {
+  .web-pill,
+  .web-icon-button,
+  .web-tab { transition: none; }
+}
+
+@media (max-width: 640px) {
+  .web-avatar { width: 120px; }
+}

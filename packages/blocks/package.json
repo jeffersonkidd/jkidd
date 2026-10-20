@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "type": "module",
-  "description": "JK Blocks: finished, postable things — the postcards, the stage, the link page — with their sample copy and art.",
+  "description": "JK Blocks: finished, postable things, in the same two lanes as @jkidd/ui. Cards (.): the postcards and the stage, with their sample copy and art. Web (./link): the link page.",
   "exports": {
     ".": "./src/index.ts",
     "./link": "./src/link/index.ts"

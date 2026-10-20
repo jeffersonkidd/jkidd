@@ -1,4 +1,4 @@
-import "./link/linkpage.css";
+// The cards lane of JK Blocks. The link page is the web lane, on its own at ./link.
 import "./postcards/picturepostcard.css";
 import "./postcards/stagepostcard.css";
 import "./postcards/librariespostcard.css";
@@ -10,7 +10,6 @@ export * from "./back/read";
 export * from "./back/pick";
 export * from "./back/place";
 export * from "./back/DressedPostcard";
-export * from "./link/LinkPage";
 export * from "./postcards/fronts";
 export * from "./postcards/LibrariesPostcard";
 export * from "./postcards/PicturePostcard";

@@ -1,5 +1,5 @@
 import { forwardRef } from "react";
-import { CardFrame, type FrameProps } from "@jkidd/ui";
+import { CardFrame, type FrameProps } from "@jkidd/ui/cards";
 import {
   ArchitectureDiagram,
   BeforeAfter,
@@ -13,7 +13,7 @@ import {
   type ManifestoContent,
   type ParityContent,
   type PipelineContent,
-} from "@jkidd/ui";
+} from "@jkidd/ui/cards";
 import type { PostType } from "@jkidd/tokens";
 import { FIGMA_NODES, type FigmaNode } from "@jkidd/core";
 
