@@ -5,7 +5,7 @@
  * Pure: the browser measures the card (DressedPostcard), this decides. No runtime imports.
  */
 
-import type { Rect } from "@jkidd/ui/cards";
+import type { Rect } from "@jkidd/ui/postcards";
 export type { Rect };
 export type Box = { id: string; w: number; h: number; prefer: [number, number] };
 export type Placement = { x: number; y: number; scale: number } | null;

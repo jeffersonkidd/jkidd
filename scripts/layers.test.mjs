@@ -1,6 +1,6 @@
-// node --test scripts/ : the packages stack in the order of the Figma libraries, and
-// each one may only use the packages beneath it. Foundations → Primitives → Layout →
-// Compositions → Blocks in Figma; tokens → core → ui → blocks in code.
+// node --test scripts/ : the packages stack in layers, and each one may only use the
+// packages beneath it: tokens → core → ui → blocks. Across them run the two lanes, postcards
+// and web, one Figma file each over JKidd - Foundations; neither imports the other.
 
 import { test } from "node:test";
 import assert from "node:assert/strict";
@@ -56,23 +56,23 @@ for (const [pkg, allowed] of Object.entries(ALLOWED)) {
   });
 }
 
-// Across the layers run two lanes: cards (drawn at the Figma canvas size and scaled) and
-// web (drawn at web size and reflowed). In ui and blocks they're src/cards and src/web,
-// entered as @jkidd/<pkg>/cards and @jkidd/<pkg>/web; anything else in src (ui's fonts and
+// Across the layers run two lanes: postcards (drawn at the Figma canvas size and scaled) and
+// web (drawn at web size and reflowed). In ui and blocks they're src/postcards and src/web,
+// entered as @jkidd/<pkg>/postcards and @jkidd/<pkg>/web; anything else in src (ui's fonts and
 // imagery, the fronts in blocks/src/assets) is shared. A lane uses only its own side and what's shared.
-const LANE_NAMES = ["cards", "web"];
+const LANE_NAMES = ["postcards", "web"];
 const laneOf = (rel) => (LANE_NAMES.includes(rel.split("/")[0]) ? rel.split("/")[0] : "shared");
 
 for (const pkg of ["ui", "blocks"]) {
   const src = join(root, "packages", pkg, "src");
-  test(`@jkidd/${pkg} keeps cards and web apart`, () => {
+  test(`@jkidd/${pkg} keeps postcards and web apart`, () => {
     for (const file of files(src)) {
       const lane = laneOf(relative(src, file));
       if (lane === "shared") continue;
       for (const spec of specifiers(readFileSync(file, "utf8"))) {
         const where = relative(root, file);
         const [, name, entry] = spec.match(/^@jkidd\/(ui|blocks)(?:\/([^/]+))?/) ?? [];
-        if (name && !entry) assert.fail(`${where} imports @jkidd/${name}: pick a lane, @jkidd/${name}/cards or @jkidd/${name}/web`);
+        if (name && !entry) assert.fail(`${where} imports @jkidd/${name}: pick a lane, @jkidd/${name}/postcards or @jkidd/${name}/web`);
         if (name && LANE_NAMES.includes(entry)) assert.equal(entry, lane, `${where} is ${lane}, but imports ${spec}`);
         else if (spec.startsWith(".")) {
           const other = laneOf(relative(src, resolve(dirname(file), spec)));
@@ -88,7 +88,7 @@ test("ui and blocks are entered by lane only", () => {
     const { exports } = JSON.parse(readFileSync(join(root, "packages", pkg, "package.json"), "utf8"));
     for (const key of Object.keys(exports)) {
       const lane = key.split("/")[1];
-      assert.ok(LANE_NAMES.includes(lane) || (pkg === "ui" && ["./fonts", "./imagery/*"].includes(key)), `@jkidd/${pkg} exports ${key}: entries are ./cards or ./web (or ui's shared ./fonts and ./imagery/*)`);
+      assert.ok(LANE_NAMES.includes(lane) || (pkg === "ui" && ["./fonts", "./imagery/*"].includes(key)), `@jkidd/${pkg} exports ${key}: entries are ./postcards or ./web (or ui's shared ./fonts and ./imagery/*)`);
     }
   }
 });

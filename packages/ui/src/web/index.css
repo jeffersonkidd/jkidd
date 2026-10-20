@@ -1,6 +1,6 @@
-/* JKidd UI · web lane: the look of the web components, as plain CSS, in the layers of
-   the Figma libraries (index.ts imports it). Needs @jkidd/tokens/tokens.css loaded
+/* JKidd UI · web lane: the look of the web components, as plain CSS, controls before
+   what's built from them (index.ts imports it). Needs @jkidd/tokens/tokens.css loaded
    first. On its own: @jkidd/ui/web/styles.css. */
-@import "./primitives/controls.css";
-@import "./compositions/web.css";
-@import "./compositions/link.css";
+@import "./controls.css";
+@import "./web.css";
+@import "./link.css";

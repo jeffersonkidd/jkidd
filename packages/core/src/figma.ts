@@ -1,15 +1,18 @@
 import { FIGMA_FILE_KEY } from "@jkidd/tokens";
 
 /**
- * The JKidd design libraries, in layer order; each uses only the ones before it, as
- * the packages do. Foundations was JKidd - DS. The others were split out of it on
- * 2026-10-12, and the components moved across on 2026-10-14. Layout was merged into
- * Compositions on 2026-10-19 (its Frame, Canvases and Web pages).
+ * The JKidd design libraries: Foundations, then one file per lane, Postcards and Web,
+ * each using Foundations and never the other, as the lanes do in code. Foundations was
+ * JKidd - DS. Postcards was JKidd - Compositions (renamed 2026-10-20, briefly JKidd -
+ * Cards); Web was made the same day. Primitives and Blocks are being emptied into them
+ * (Icons into Foundations) and go once they are; their pages become page groups in
+ * Postcards and Web.
  */
 export const LIBRARIES = {
   Foundations: FIGMA_FILE_KEY,
+  Postcards: "N62b8rJJLQ4MT339QUVpr9",
+  Web: "WESzLAXCcLo9RK4SfIt4Pa",
   Primitives: "jm9r6k7bY7JuaJup8EWKgQ",
-  Compositions: "N62b8rJJLQ4MT339QUVpr9",
   Blocks: "1qe9bxB8lEeLhFolzYd5sI",
 } as const;
 
@@ -35,7 +38,7 @@ export const FIGMA_NODES = {
   EqualsBadge: [LIBRARIES.Primitives, "65:94"],
   Terminal: [LIBRARIES.Primitives, "65:96"],
   ZoneLabel: [LIBRARIES.Primitives, "65:99"],
-  // Primitives (Dressing page): the stock catalog's shapes, @jkidd/ui cards/primitives/Dressing.tsx
+  // Primitives (Dressing page): the stock catalog's shapes, @jkidd/ui cards/Dressing.tsx
   Cachet: [LIBRARIES.Primitives, "203:2"],
   RubberStamp: [LIBRARIES.Primitives, "205:6"],
   Imprint: [LIBRARIES.Primitives, "205:10"],
@@ -43,16 +46,16 @@ export const FIGMA_NODES = {
   Registration: [LIBRARIES.Primitives, "205:16"],
   ColorBar: [LIBRARIES.Primitives, "205:19"],
   PhotoCorners: [LIBRARIES.Primitives, "205:33"],
-  // Compositions (Frame page)
-  CardFrame: [LIBRARIES.Compositions, "252:521"],
-  ContentEmpty: [LIBRARIES.Compositions, "252:574"],
-  // Compositions (Archetypes page)
-  Manifesto: [LIBRARIES.Compositions, "81:239"],
-  ArchitectureDiagram: [LIBRARIES.Compositions, "81:247"],
-  Pipeline: [LIBRARIES.Compositions, "81:262"],
-  Parity: [LIBRARIES.Compositions, "81:281"],
-  BeforeAfter: [LIBRARIES.Compositions, "81:294"],
-  Ledger: [LIBRARIES.Compositions, "81:305"],
+  // Postcards (Frame page)
+  CardFrame: [LIBRARIES.Postcards, "252:521"],
+  ContentEmpty: [LIBRARIES.Postcards, "252:574"],
+  // Postcards (Archetypes page)
+  Manifesto: [LIBRARIES.Postcards, "81:239"],
+  ArchitectureDiagram: [LIBRARIES.Postcards, "81:247"],
+  Pipeline: [LIBRARIES.Postcards, "81:262"],
+  Parity: [LIBRARIES.Postcards, "81:281"],
+  BeforeAfter: [LIBRARIES.Postcards, "81:294"],
+  Ledger: [LIBRARIES.Postcards, "81:305"],
   // Blocks (Postcards page)
   "Postcard/Manifesto": [LIBRARIES.Blocks, "61:812"],
   "Postcard/Architecture Diagram": [LIBRARIES.Blocks, "61:814"],
@@ -93,15 +96,15 @@ export const LINK_NODES = {
   IconButton: [LIBRARIES.Primitives, "36:67"],
   Tab: [LIBRARIES.Primitives, "36:96"],
   Avatar: [LIBRARIES.Primitives, "36:107"],
-  // Compositions (Web page)
-  Stage: [LIBRARIES.Compositions, "252:642"],
-  Sheet: [LIBRARIES.Compositions, "252:635"],
-  // Compositions (Link page)
-  LinkHeader: [LIBRARIES.Compositions, "42:141"],
-  LinkProfile: [LIBRARIES.Compositions, "42:241"],
-  TabBar: [LIBRARIES.Compositions, "42:354"],
-  LinkRow: [LIBRARIES.Compositions, "44:203"],
-  LinkTile: [LIBRARIES.Compositions, "44:218"],
+  // Postcards (Web page)
+  Stage: [LIBRARIES.Postcards, "252:642"],
+  Sheet: [LIBRARIES.Postcards, "252:635"],
+  // Postcards (Link page)
+  LinkHeader: [LIBRARIES.Postcards, "42:141"],
+  LinkProfile: [LIBRARIES.Postcards, "42:241"],
+  TabBar: [LIBRARIES.Postcards, "42:354"],
+  LinkRow: [LIBRARIES.Postcards, "44:203"],
+  LinkTile: [LIBRARIES.Postcards, "44:218"],
   // Blocks (Link Page page)
   LinkPage: [LIBRARIES.Blocks, "29:990"],
 } as const satisfies Record<string, FigmaNode>;

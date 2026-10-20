@@ -13,7 +13,7 @@ import { CATALOG } from "./catalog";
 import { readCard, type CardSource, type Reading } from "./read";
 import { pickDressing, rng, type DressOptions, type Dressing } from "./pick";
 import { place, type Placement, type Rect } from "./place";
-import { Airmail, Cachet, ColorBar, Imprint, PhotoCorners, Registration, RubberStamp, type StampIcon, type TopicGlyph } from "@jkidd/ui/cards";
+import { Airmail, Cachet, ColorBar, Imprint, PhotoCorners, Registration, RubberStamp, type StampIcon, type TopicGlyph } from "@jkidd/ui/postcards";
 
 /**
  * Dressing the back: an archetype card's JSON, read for meaning, dressed from the stock catalog,

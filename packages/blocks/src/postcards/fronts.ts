@@ -1,18 +1,18 @@
 import { GENRE_RIBBONS } from "@jkidd/tokens";
 import SPEC from "./front-spec.md?raw";
-import miami from "../../assets/fronts/miami.jpg";
-import buildCrew from "../../assets/fronts/build-crew.jpg";
-import western from "../../assets/fronts/western.jpg";
-import spy from "../../assets/fronts/spy.jpg";
-import greetingsWestern from "../../assets/fronts/greetings-western.jpg";
-import treasure from "../../assets/fronts/treasure.jpg";
-import pirate from "../../assets/fronts/pirate.jpg";
-import greetingsBuild from "../../assets/fronts/greetings-build-in-public.jpg";
-import buildWestern from "../../assets/fronts/build-in-public-western.jpg";
-import christmas from "../../assets/fronts/christmas.jpg";
-import space from "../../assets/fronts/space.jpg";
-import desert from "../../assets/fronts/desert.jpg";
-import buildJk from "../../assets/fronts/build-in-public-jk.jpg";
+import miami from "../assets/fronts/miami.jpg";
+import buildCrew from "../assets/fronts/build-crew.jpg";
+import western from "../assets/fronts/western.jpg";
+import spy from "../assets/fronts/spy.jpg";
+import greetingsWestern from "../assets/fronts/greetings-western.jpg";
+import treasure from "../assets/fronts/treasure.jpg";
+import pirate from "../assets/fronts/pirate.jpg";
+import greetingsBuild from "../assets/fronts/greetings-build-in-public.jpg";
+import buildWestern from "../assets/fronts/build-in-public-western.jpg";
+import christmas from "../assets/fronts/christmas.jpg";
+import space from "../assets/fronts/space.jpg";
+import desert from "../assets/fronts/desert.jpg";
+import buildJk from "../assets/fronts/build-in-public-jk.jpg";
 
 /**
  * The fronts of the picture postcard (JKidd - Workbench, Postcard Image Algo 147:933), one

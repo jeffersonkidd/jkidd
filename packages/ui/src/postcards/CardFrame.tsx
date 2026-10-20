@@ -1,5 +1,5 @@
 import { forwardRef, type ReactNode } from "react";
-import { HandleLockup } from "../foundations/Marks";
+import { HandleLockup } from "./Marks";
 import { FIGMA_NODES } from "@jkidd/core";
 import { CANVAS, type PostType, type Ratio, type Scheme } from "@jkidd/tokens";
 

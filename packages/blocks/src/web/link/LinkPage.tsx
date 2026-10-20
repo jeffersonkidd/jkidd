@@ -18,8 +18,8 @@ import { LINK_NODES } from "@jkidd/core";
 
 /**
  * The link-in-bio page (JKidd - Blocks, Link Page): a paper sheet on the palm sky, put
- * together from the web lane of @jkidd/ui (the Primitives controls and the Compositions
- * Stage, Sheet, Link Header, Link Profile, Tab Bar, Link Row and Link Tile). What's the
+ * together from the web lane of @jkidd/ui (the controls, and the Stage, Sheet, Link
+ * Header, Link Profile, Tab Bar, Link Row and Link Tile). What's the
  * block's own: the spec, the categories and socials with their icons, the filter, and
  * the art. Figma draws it at web size, so sizes match it 1:1. First sketched in JKidd -
  * Workbench (Linktrees, 120:1335).

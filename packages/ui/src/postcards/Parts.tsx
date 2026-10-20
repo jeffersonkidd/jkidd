@@ -1,5 +1,5 @@
 import type { CSSProperties, ReactNode } from "react";
-import arrowLine from "../assets/arrow-line.svg";
+import arrowLine from "./assets/arrow-line.svg";
 import { FIGMA_NODES } from "@jkidd/core";
 
 /** Post type label. Empty by default, so it reads the card's type (type/label). */

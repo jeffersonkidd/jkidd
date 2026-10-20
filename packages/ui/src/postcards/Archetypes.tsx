@@ -1,4 +1,4 @@
-import { Arrow, CheckRow, EqualsBadge, Kicker, Terminal, TokenChip, Zone, type RowMark } from "../primitives/Parts";
+import { Arrow, CheckRow, EqualsBadge, Kicker, Terminal, TokenChip, Zone, type RowMark } from "./Parts";
 import { FIGMA_NODES } from "@jkidd/core";
 
 /* Six archetypes, one frame (POSTCARDS.md §3). Each takes plain data, so a card

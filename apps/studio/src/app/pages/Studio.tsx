@@ -122,7 +122,7 @@ export function Studio({ query }: PageProps) {
   const ratio = spec.ratio ?? "16:9";
   const canvas = CANVAS[ratio];
 
-  // Dressing the back (packages/blocks/src/cards/back/WORKFLOW.md): read this card's JSON, dress it from the stock catalog.
+  // Dressing the back (packages/blocks/src/postcards/back/WORKFLOW.md): read this card's JSON, dress it from the stock catalog.
   const dressed = useMemo(() => dressBack(spec, { source, stock, dress: dress || null, take }), [spec, stock, dress, take, pick]);
   const [placed, setPlaced] = useState<Placed>({ shapes: {}, zones: [] });
   const onPlace = useCallback((p: Placed) => setPlaced(p), []);

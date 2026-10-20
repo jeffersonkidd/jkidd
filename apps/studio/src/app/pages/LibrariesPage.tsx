@@ -55,9 +55,9 @@ export function LibrariesPage(_: PageProps) {
     <div className="page page--wide">
       <PageHeader eyebrow="Genre · Architect's Notebook" title="Library pipeline">
         <p>
-          The four Figma files in layer order, Foundations → Primitives → Compositions → Blocks, drawn on the stage's
-          graph paper with the Architect's Notebook kit's own shapes: a cylinder for the variables, a stack of parts, a
-          window frame, a document. Each uses only the ones before it, so the arrow back is struck out.
+          The three Figma files, Foundations between its two lanes, Postcards and Web, drawn on the stage's graph paper with
+          the Architect's Notebook kit's own shapes: a document for the postcards, a cylinder for the variables, a window
+          frame for the web. Each lane uses Foundations and never the other, so the arrow across is struck out.
         </p>
         <p>Not in Workbench yet: this is the first draft, in code.</p>
       </PageHeader>

@@ -2,7 +2,7 @@ import type { CSSProperties, ReactNode } from "react";
 import { LINK_NODES } from "@jkidd/core";
 
 /**
- * The page shells (JKidd - Compositions, Web page): a backdrop to stand on and a paper
+ * The page shells (JKidd - Postcards, Web page): a backdrop to stand on and a paper
  * sheet that holds the content. Unlike the card frame, these reflow.
  */
 

@@ -1,9 +1,9 @@
 import type { ReactNode } from "react";
 import { LINK_NODES } from "@jkidd/core";
-import { Avatar, ChevronRightIcon, IconButton, IconKicker, Linkish, PillButton, Tab, Tag } from "../primitives/Controls";
+import { Avatar, ChevronRightIcon, IconButton, IconKicker, Linkish, PillButton, Tab, Tag } from "./Controls";
 
 /**
- * The link compositions (JKidd - Compositions, Link page), built from the web controls.
+ * The link compositions (JKidd - Postcards, Link page), built from the web controls.
  * They take their icons and copy as props; what a category or a social is belongs to
  * the block that uses them.
  */

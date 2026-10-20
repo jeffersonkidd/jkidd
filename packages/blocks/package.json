@@ -3,9 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "type": "module",
-  "description": "JK Blocks: finished, postable things, in the same two lanes as @jkidd/ui. Cards (./cards): the postcards and the stage, with their sample copy. Web (./web): the link page. The art in src/assets is shared by both.",
+  "description": "JK Blocks: finished, postable things, in the same two lanes as @jkidd/ui. Postcards (./postcards): the postcards and the stage, with their sample copy. Web (./web): the link page. The art in src/assets is shared by both.",
   "exports": {
-    "./cards": "./src/cards/index.ts",
+    "./postcards": "./src/postcards/index.ts",
     "./web": "./src/web/index.ts"
   },
   "scripts": {

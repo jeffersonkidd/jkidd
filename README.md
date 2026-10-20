@@ -16,17 +16,17 @@ React 19 + Vite 8 + TypeScript, pnpm. Same stack as Tibbie X, without Tailwind: 
 
 ## What's in it
 
-Four packages in a pnpm workspace, stacked like the Figma libraries. Each uses only the ones above it in this table, and `scripts/layers.test.mjs` fails the build if one reaches up.
+Four packages in a pnpm workspace, stacked in layers. Each uses only the ones above it in this table, and `scripts/layers.test.mjs` fails the build if one reaches up. Across them run two lanes, postcards and web, one Figma file each (*JKidd - Postcards*, *JKidd - Web*) over *JKidd - Foundations*; neither lane imports the other.
 
 | Package | What | Figma library |
 |---|---|---|
 | `@jkidd/tokens` · `packages/tokens/` | The variables. `sources/*.json` (the palette export, post types, layout, canvases, fonts, text styles, contrast waivers) → `pnpm tokens` → `src/tokens.css` + `src/tokens.gen.ts`. Also the contrast check and its tests | JKidd - Foundations |
 | `@jkidd/core` · `packages/core/` | Framework-free: the Figma node map and library keys (`src/figma.ts`), the stick-figure rig, contrast math, the export helper. `vendor/architects-notebook/` holds what `pnpm notebook` copies from the kit, with `SOURCE.json`. Never edit it by hand | — |
-| `@jkidd/ui` · `packages/ui/` | **JKidd UI**: the component library, the React components beside their CSS, in folders named for the libraries (`foundations/`, `primitives/`, `compositions/`): marks, card parts, the dressing shapes, stick figure, card frame, the six archetypes. Importing it loads the CSS (alone: `@jkidd/ui/styles.css`); the fonts are `@jkidd/ui/fonts` (`fonts/`, `src/fonts.ts`), and the Foundations imagery `@jkidd/ui/imagery/<file>` (`src/imagery/`: the card stocks, paper and palm sky, that `pnpm stock` cuts to every card shape from `vendor/stock/`, the portrait, the press). Needs `@jkidd/tokens/tokens.css` first | Foundations, Primitives, Compositions |
-| `@jkidd/blocks` · `packages/blocks/` | **JK Blocks**: finished things. Postcard (the archetypes), the picture and stage postcards, the link page, sample copy and the fronts | JKidd - Blocks |
+| `@jkidd/ui` · `packages/ui/` | **JKidd UI**: the component library, the React components beside their CSS, in two lanes, each flat: `src/postcards/` (marks, card parts, the dressing shapes, stick figure, card frame, the six archetypes) and `src/web/` (the controls, the page shells, the link pieces). Importing a lane loads its CSS (alone: `@jkidd/ui/postcards/styles.css`, `@jkidd/ui/web/styles.css`); the fonts are `@jkidd/ui/fonts` (`fonts/`, `src/fonts.ts`), and the Foundations imagery `@jkidd/ui/imagery/<file>` (`src/imagery/`: the card stocks, paper and palm sky, that `pnpm stock` cuts to every card shape from `vendor/stock/`, the portrait, the press). Needs `@jkidd/tokens/tokens.css` first | Foundations, Postcards, Web |
+| `@jkidd/blocks` · `packages/blocks/` | **JK Blocks**: finished things. Postcard (the archetypes), the picture and stage postcards, the link page, sample copy and the fronts | Postcards, Web |
 | `apps/studio/` | **The Studio**: the design system's pages and the postcard makers. `src/ds.ts` re-exports all four packages for the pages | — |
 
-The Figma library keys are `LIBRARIES` in `packages/core/src/figma.ts`. The three libraries split out of JKidd - Foundations (Primitives, Compositions, Blocks; a fourth, Layout, was merged into Compositions on 2026-10-19) start empty and fill as components are moved across in Figma. Until a component moves, its node ID still points into JKidd - Foundations.
+The Figma library keys are `LIBRARIES` in `packages/core/src/figma.ts`. Since 2026-10-20 there are three: JKidd - Foundations, and one file per lane, JKidd - Postcards (formerly Compositions, which had absorbed Layout on 2026-10-19) and JKidd - Web. JKidd - Primitives and JKidd - Blocks, split out of Foundations on 2026-10-12, are being emptied into them: their card pages to Postcards, their web pages to Web, Icons to Foundations. Until a component moves, its node ID still points into the file it's in now.
 
 ### Components → Figma nodes
 
@@ -55,7 +55,7 @@ Two attributes on the card root do what the Figma instance's modes do:
 - `data-scheme` sets the 49 `--md-sys-color-*` roles (six modes: light, dark and their medium- and high-contrast variants).
 - `data-post-type` sets `--jk-type-accent`, `--jk-type-ink`, `--jk-type-on-accent` and `--jk-type-label` as **aliases of scheme roles**, so a type recolours with the scheme. They're redeclared under any nested `[data-scheme]`, so they resolve against the nearest scheme.
 
-Cards are drawn at their Figma canvas size (1600×900, 1080×1080, 1080×1350) and scaled with a transform, never reflowed. A card at 320px is the same card, smaller.
+Postcards are drawn at their Figma canvas size (1600×900, 1080×1080, 1080×1350) and scaled with a transform, never reflowed. A card at 320px is the same card, smaller.
 
 ---
 
@@ -157,7 +157,7 @@ Files: `packages/blocks/src/postcards/StagePostcard.tsx`, `stagepostcard.css`, `
 
 ## Library pipeline
 
-`#/libraries` is one card: the four Figma files in layer order (Foundations → Primitives → Compositions → Blocks), drawn on the stage's graph paper with the Architect's Notebook kit's own shapes: a cylinder, a stack, a window frame and a document for the libraries, arrows between them, and a curved arrow back, struck out in red pen, for the layer rule. A pointing figure, a north arrow and a squiggle under the title are the kit's too. Export PNG at 1536×1024 or @2x. A draft in code: not in Workbench or the libraries yet.
+`#/libraries` is one card: the three Figma files, Foundations between its lanes (Postcards ← Foundations → Web), drawn on the stage's graph paper with the Architect's Notebook kit's own shapes: a document, a cylinder and a window frame for the libraries, arrows out from Foundations, and a curved arrow from Postcards over to Web, struck out in red pen, for the lane rule. A pointing figure, a north arrow and a squiggle under the title are the kit's too. Export PNG at 1536×1024 or @2x. A draft in code: not in Workbench or the libraries yet.
 
 - **The shapes** come in by `pnpm notebook`, like the figures: it reads the kit's `shapes/<name>.svg` for the names in its `SHAPES` list and writes them to `vendor/architects-notebook/shapes.json` as each shape's box and paths, with the kit's pen, dash and solid fill, and a sha256 per shape in `SOURCE.json`. Code reads them as `NOTEBOOK_SHAPES` (`packages/core/src/notebook.ts`). To use another shape, add its name to `SHAPES` and rerun.
 - **Placing one.** A shape stretches to the box it's given; its line doesn't (`vector-effect: non-scaling-stroke`), so the kit's 1.6 pen always draws 3.2px, the stage's ink.
@@ -194,7 +194,7 @@ The figures are the Architect's Notebook kit's own animation loops (Figma *Archi
 
 The token sources are written by hand, because they carry what Figma doesn't hold (font fallbacks, the reason for each choice, contrast waivers). What keeps them honest is a snapshot of Figma and a test that compares the two.
 
-- **`packages/tokens/sources/figma/*.json`** are the snapshots, one per library (`foundations.json` is *JKidd - Foundations*; `primitives`, `layout`, `compositions`, `blocks` are the split libraries). Each holds the pages, every variable in every mode (with scopes, descriptions, IDs and keys), the text, effect, paint and grid styles with their bound variables and descriptions, every component and component set (size, properties, variant count, description), and each page's top-level frames. Committed, so `git diff` shows what changed in Figma. Don't edit them by hand.
+- **`packages/tokens/sources/figma/*.json`** are the snapshots, one per library (`foundations.json` is *JKidd - Foundations*, `postcards.json` *JKidd - Postcards*; `primitives` and `blocks` are the libraries being emptied, and `web.json` comes with the first export of *JKidd - Web*). Each holds the pages, every variable in every mode (with scopes, descriptions, IDs and keys), the text, effect, paint and grid styles with their bound variables and descriptions, every component and component set (size, properties, variant count, description), and each page's top-level frames. Committed, so `git diff` shows what changed in Figma. Don't edit them by hand.
 - **`packages/tokens/scripts/figma/export.js`** writes it. It's read-only, and runs two ways: as a development plugin (in Figma, Plugins → Development → Import plugin from manifest, pick `packages/tokens/scripts/figma/manifest.json`, then run *JKidd Figma Snapshot* and download the file), or by asking Claude to refresh the snapshot through the Figma MCP. Figma's variables REST API needs an Enterprise plan, so the Plugin API is the way in.
 - **`packages/tokens/scripts/figma-drift.test.mjs`** runs in `pnpm check`. It compares the snapshot with `jkidd.tokens.json` and `jkxo-tertiary.json` (palette, all scheme modes, post types, layout, fonts, text styles, shadows) and lists everything out of step. Fix the source, or waive the item in `packages/tokens/sources/figma-waivers.json` with a reason; a waiver that stops applying fails the test too.
 - **`packages/core/scripts/figma-nodes.test.mjs`** checks every node ID in `packages/core/src/figma.ts` (`FIGMA_NODES`, `LINK_NODES`) is still a component, component set or top-level frame in its library's snapshot, so a deleted or moved node fails `pnpm check` instead of leaving a dead link.

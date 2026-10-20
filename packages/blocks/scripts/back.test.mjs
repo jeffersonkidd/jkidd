@@ -4,11 +4,11 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
 import { readFileSync, readdirSync } from "node:fs";
-import { CATALOG } from "../src/cards/back/catalog.ts";
-import { readCard } from "../src/cards/back/read.ts";
-import { BUDGET, pickDressing } from "../src/cards/back/pick.ts";
-import { place } from "../src/cards/back/place.ts";
-import { TEMPLATES } from "../src/cards/templates.ts";
+import { CATALOG } from "../src/postcards/back/catalog.ts";
+import { readCard } from "../src/postcards/back/read.ts";
+import { BUDGET, pickDressing } from "../src/postcards/back/pick.ts";
+import { place } from "../src/postcards/back/place.ts";
+import { TEMPLATES } from "../src/postcards/templates.ts";
 import { POST_TYPE_TOKENS, SCHEME_COLORS } from "../../tokens/src/tokens.gen.ts";
 
 const src = (f) => new URL(`../src/${f}`, import.meta.url);
@@ -176,7 +176,7 @@ test("dressed in a series, the text still reads at 4.5:1 on the series' cream", 
 });
 
 test("components read CSS variables only: no hex in the back's code", () => {
-  const dir = new URL("../src/cards/back/", import.meta.url);
+  const dir = new URL("../src/postcards/back/", import.meta.url);
   for (const f of readdirSync(dir)) {
     const text = readFileSync(new URL(f, dir), "utf8");
     assert.doesNotMatch(text, /(?<![%&\w])#[0-9a-f]{3,8}\b(?![\w-])/i, `${f} has a hex value`);
@@ -192,5 +192,5 @@ test("on the palm sky: the dark scheme, no series inks, and the same picks as on
     assert.equal(sky.dress, null, `${t.id}: a series' dark ink wouldn't read on the wash`);
     assert.equal(sky.seed, paper.seed, `${t.id}: the stock doesn't reshuffle the back`);
   }
-  assert.match(readFileSync(src("cards/back/dressedpostcard.css"), "utf8"), /surface\) 75%, transparent/, "the wash the 4.5:1 sums were run at");
+  assert.match(readFileSync(src("postcards/back/dressedpostcard.css"), "utf8"), /surface\) 75%, transparent/, "the wash the 4.5:1 sums were run at");
 });

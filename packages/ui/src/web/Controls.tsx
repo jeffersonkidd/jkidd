@@ -1,7 +1,7 @@
 import type { CSSProperties, ReactNode } from "react";
 import { LINK_NODES } from "@jkidd/core";
-import commandSvg from "../assets/command.svg";
-import chevronSvg from "../assets/chevron-right.svg";
+import commandSvg from "./assets/command.svg";
+import chevronSvg from "./assets/chevron-right.svg";
 
 /**
  * The web controls (JKidd - Primitives, Controls page; Icon/* on Icons). Drawn at web

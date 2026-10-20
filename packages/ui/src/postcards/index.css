@@ -1,10 +1,10 @@
-/* JKidd UI · cards lane: the look of the card components, as plain CSS, in the layers
-   of the Figma libraries, beside the components that write these class names (index.ts
-   imports it). Needs @jkidd/tokens/tokens.css loaded first. On its own:
-   @jkidd/ui/cards/styles.css. */
-@import "./foundations/marks.css";
-@import "./primitives/parts.css";
-@import "./primitives/sketchfigure.css";
-@import "./primitives/dressing.css";
-@import "./compositions/cardframe.css";
-@import "./compositions/archetypes.css";
+/* JKidd UI · postcards lane: the look of the card components, as plain CSS, primitives
+   before what's built from them, beside the components that write these class names
+   (index.ts imports it). Needs @jkidd/tokens/tokens.css loaded first. On its own:
+   @jkidd/ui/postcards/styles.css. */
+@import "./marks.css";
+@import "./parts.css";
+@import "./sketchfigure.css";
+@import "./dressing.css";
+@import "./cardframe.css";
+@import "./archetypes.css";

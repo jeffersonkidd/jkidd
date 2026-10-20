@@ -4,7 +4,7 @@ import { LIBRARIES, NOTEBOOK_SHAPES, type NotebookShapeName } from "@jkidd/core"
 import stock from "@jkidd/ui/imagery/stock/paper-3x2.jpg";
 
 /**
- * The library pipeline card: the four Figma files, in layer order, drawn as a sheet in
+ * The library pipeline card: the three Figma files, Foundations between its two lanes, drawn as a sheet in
  * the Architect's Notebook on the stage's graph paper (32px squares over the card stock).
  * Every shape is the kit's own (`NOTEBOOK_SHAPES`), placed on the grid; the sheet border
  * is rough.js with the kit's pen, like the stage's. Not in Workbench or the libraries
@@ -17,7 +17,9 @@ import stock from "@jkidd/ui/imagery/stock/paper-3x2.jpg";
 export const LIBRARIES_CANVAS = { width: 1536, height: 1024 } as const;
 
 type Library = {
-  name: keyof typeof LIBRARIES;
+  name: "Foundations" | "Postcards" | "Web";
+  /** Over the shape: the base both lanes use, or a lane. */
+  role: "Base" | "Lane";
   shape: NotebookShapeName;
   /** Where the name sits inside the shape, in the shape's own units. */
   label: readonly [number, number];
@@ -25,17 +27,17 @@ type Library = {
   code: string;
 };
 
+/** Left to right: the postcards lane, Foundations, the web lane. */
 export const LIBRARY_PIPELINE: readonly Library[] = [
-  { name: "Foundations", shape: "cylinder", label: [60, 50], holds: ["Variables · text styles", "Marks · cover"], code: "tokens · ui/foundations" },
-  { name: "Primitives", shape: "stack", label: [64, 52], holds: ["Card parts · dressing", "Controls · icons"], code: "ui/primitives" },
-  { name: "Compositions", shape: "window-frame", label: [60, 56], holds: ["Frame · canvases · web", "Archetypes · link"], code: "ui/compositions" },
-  { name: "Blocks", shape: "document", label: [60, 40], holds: ["Postcards · link page", "Picture · stage"], code: "@jkidd/blocks" },
+  { name: "Postcards", role: "Lane", shape: "document", label: [60, 40], holds: ["Parts · dressing · frame", "Archetypes · postcards"], code: "ui/postcards · blocks/postcards" },
+  { name: "Foundations", role: "Base", shape: "cylinder", label: [60, 50], holds: ["Variables · text styles", "Marks · icons · imagery"], code: "tokens · core" },
+  { name: "Web", role: "Lane", shape: "window-frame", label: [60, 56], holds: ["Controls · page shells", "Link · link page"], code: "ui/web · blocks/web" },
 ];
 
-/** Nodes are 8 squares wide with 4-square arrows between: 4×256 + 3×128 fills the sheet's 1408px. */
-const NODE = { w: 256, h: 192, top: 288 } as const;
-const GAP = 128;
-const nodeX = (i: number) => 64 + i * (NODE.w + GAP);
+/** Nodes are 8 squares wide with 6-square arrows between, centred on the sheet: 3×256 + 2×192. */
+const NODE = { w: 256, h: 192, top: 352 } as const;
+const GAP = 192;
+const nodeX = (i: number) => 192 + i * (NODE.w + GAP);
 /** Canvas px per kit stroke-width unit: the kit's 1.6 pen draws 3.2, the stage's ink. */
 const INK = 2;
 
@@ -103,7 +105,7 @@ export const LibrariesPostcard = forwardRef<HTMLDivElement>(function LibrariesPo
   const style = { "--libraries-stock": `url("${stock}")`, "--libraries-stock-paint": `url(#${stockId})` } as CSSProperties;
   return (
     <div ref={ref} className="jk-libraries" style={style}>
-      <svg className="jk-libraries__drawing" viewBox={`0 0 ${LIBRARIES_CANVAS.width} ${LIBRARIES_CANVAS.height}`} role="img" aria-label="The four Figma files: Foundations, Primitives, Compositions, Blocks. Each uses only the ones before it.">
+      <svg className="jk-libraries__drawing" viewBox={`0 0 ${LIBRARIES_CANVAS.width} ${LIBRARIES_CANVAS.height}`} role="img" aria-label="The three Figma files: Foundations, and the Postcards and Web lanes that use it. Neither lane uses the other.">
         <defs>
           <pattern id={stockId} patternUnits="userSpaceOnUse" width={LIBRARIES_CANVAS.width} height={LIBRARIES_CANVAS.height}>
             <image href={stock} width={LIBRARIES_CANVAS.width} height={LIBRARIES_CANVAS.height} preserveAspectRatio="none" />
@@ -120,7 +122,7 @@ export const LibrariesPostcard = forwardRef<HTMLDivElement>(function LibrariesPo
           JKIDD · FIGMA LIBRARIES
         </text>
         <text x={64} y={180} className="jk-libraries__title">
-          The four Figma files
+          The three Figma files
         </text>
         <Shape name="underline-squiggle" x={64} y={192} w={576} h={36} ink="blueprint" />
         <Shape name="north-arrow" x={1376} y={64} w={84} h={108} />
@@ -134,7 +136,7 @@ export const LibrariesPostcard = forwardRef<HTMLDivElement>(function LibrariesPo
           return (
             <g key={lib.name} data-library={lib.name}>
               <text x={x + 8} y={NODE.top - 12} className="jk-libraries__index">
-                {String(i + 1).padStart(2, "0")}
+                {lib.role.toUpperCase()}
               </text>
               <rect x={x + 24} y={NODE.top + 24} width={NODE.w - 48} height={NODE.h - 64} className="jk-libraries__paper" />
               <Shape name={lib.shape} x={x} y={NODE.top} w={NODE.w} h={NODE.h} />
@@ -152,24 +154,28 @@ export const LibrariesPostcard = forwardRef<HTMLDivElement>(function LibrariesPo
               <text x={x + 8} y={NODE.top + NODE.h + 132} className="jk-libraries__key">
                 {LIBRARIES[lib.name]}
               </text>
-              {i < LIBRARY_PIPELINE.length - 1 && (
-                <Shape name="arrow-right" x={x + NODE.w + 8} y={NODE.top + NODE.h / 2 - 22} w={GAP - 16} h={44} />
+              {/* Foundations points out to each lane */}
+              {lib.role === "Base" && (
+                <>
+                  <Shape name="arrow-right" x={x - GAP + 8} y={NODE.top + NODE.h / 2 - 22} w={GAP - 16} h={44} flip />
+                  <Shape name="arrow-right" x={x + NODE.w + 8} y={NODE.top + NODE.h / 2 - 22} w={GAP - 16} h={44} />
+                </>
               )}
             </g>
           );
         })}
 
-        {/* nothing flows back up: Blocks into Compositions, struck out */}
-        <Shape name="arrow-curved" x={1072} y={640} w={288} h={192} flip />
-        <Shape name="x-mark" x={1160} y={736} w={84} h={84} ink="red-pen" />
+        {/* nothing crosses between the lanes: Postcards over to Web, struck out */}
+        <Shape name="arrow-curved" x={320} y={232} w={896} h={112} />
+        <Shape name="x-mark" x={688} y={220} w={72} h={72} ink="red-pen" />
 
         {/* the rule, pointed at */}
-        <Shape name="figure-pointing" x={72} y={704} w={111} h={165} />
-        <text x={208} y={776} className="jk-libraries__rule-text">
-          Each uses only the ones before it.
+        <Shape name="figure-pointing" x={72} y={712} w={101} h={150} />
+        <text x={208} y={784} className="jk-libraries__rule-text">
+          Each lane uses Foundations, never the other.
         </text>
-        <text x={208} y={816} className="jk-libraries__holds">
-          scripts/layers.test.mjs fails the build if one reaches up
+        <text x={208} y={824} className="jk-libraries__holds">
+          scripts/layers.test.mjs fails the build if one reaches across
         </text>
       </svg>
 
@@ -180,7 +186,7 @@ export const LibrariesPostcard = forwardRef<HTMLDivElement>(function LibrariesPo
         </div>
         <div className="jk-libraries__cell">
           <span className="jk-libraries__label">Revised</span>
-          <span className="jk-libraries__value">2026-10-19 · Layout into Compositions</span>
+          <span className="jk-libraries__value">2026-10-20 · one file per lane</span>
         </div>
         <div className="jk-libraries__cell">
           <span className="jk-libraries__label">Drawn in</span>

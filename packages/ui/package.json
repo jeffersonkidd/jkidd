@@ -3,10 +3,10 @@
   "version": "0.1.0",
   "private": true,
   "type": "module",
-  "description": "JKidd UI: the component library, React components with their CSS, in two lanes. Cards (src/cards): marks, card parts, the dressing shapes, the stick figure, the card frame and the six archetypes, drawn at the Figma canvas size and scaled. Web (src/web): the controls and the page compositions, drawn at web size and reflowed. And what both share: the fonts, and the Foundations imagery (./imagery/*, one file each: the card stocks, paper and palm sky, the portrait, the western press).",
+  "description": "JKidd UI: the component library, React components with their CSS, in two lanes. Postcards (src/postcards): marks, card parts, the dressing shapes, the stick figure, the card frame and the six archetypes, drawn at the Figma canvas size and scaled. Web (src/web): the controls and the page compositions, drawn at web size and reflowed. And what both share: the fonts, and the Foundations imagery (./imagery/*, one file each: the card stocks, paper and palm sky, the portrait, the western press).",
   "exports": {
-    "./cards": "./src/cards/index.ts",
-    "./cards/styles.css": "./src/cards/index.css",
+    "./postcards": "./src/postcards/index.ts",
+    "./postcards/styles.css": "./src/postcards/index.css",
     "./web": "./src/web/index.ts",
     "./web/styles.css": "./src/web/index.css",
     "./fonts": "./src/fonts.ts",
@@ -17,7 +17,7 @@
   },
   "sideEffects": [
     "*.css",
-    "./src/cards/index.ts",
+    "./src/postcards/index.ts",
     "./src/web/index.ts",
     "./src/fonts.ts"
   ],

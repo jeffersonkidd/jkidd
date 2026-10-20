@@ -2,7 +2,7 @@ import { forwardRef, useId, type CSSProperties } from "react";
 import rough from "roughjs";
 import { NOTEBOOK_NODES } from "@jkidd/core";
 import { figureBoxFor, figurePose, figureTransform, type FigureCycle, type FigureLine } from "@jkidd/core";
-import { FigureStrokes } from "@jkidd/ui/cards";
+import { FigureStrokes } from "@jkidd/ui/postcards";
 import stock from "@jkidd/ui/imagery/stock/paper-3x2.jpg";
 
 /**

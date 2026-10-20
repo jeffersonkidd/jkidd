@@ -43,7 +43,7 @@
     "space32": { "value": 128, "unit": "px", "figma": "--jk-space-32" }
   },
   "canvas": {
-    "$description": "Card Frame (Compositions 252:521) Ratio variants. Judge every card at 320px wide (Principle 4).",
+    "$description": "Card Frame (Postcards 252:521) Ratio variants. Judge every card at 320px wide (Principle 4).",
     "16:9": { "width": 1600, "height": 900, "figma": "67:73" },
     "1:1": { "width": 1080, "height": 1080, "figma": "67:86" },
     "4:5": { "width": 1080, "height": 1350, "figma": "67:99" }

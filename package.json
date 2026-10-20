@@ -2,7 +2,7 @@
   "name": "jkidd-ds",
   "private": true,
   "version": "0.1.0",
-  "description": "Jefferson Kidd design system in code, in four packages that mirror the Figma libraries: @jkidd/tokens, @jkidd/core, @jkidd/ui, @jkidd/blocks, and two apps that consume them: the Studio and the link-in-bio page.",
+  "description": "Jefferson Kidd design system in code, in four layered packages, with card and web lanes that mirror the Figma libraries: @jkidd/tokens, @jkidd/core, @jkidd/ui, @jkidd/blocks, and two apps that consume them: the Studio and the link-in-bio page.",
   "type": "module",
   "packageManager": "pnpm@11.18.0",
   "engines": {
