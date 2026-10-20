@@ -42,7 +42,7 @@
     },
     {
       "id": "4:208",
-      "name": "Layout"
+      "name": "Size"
     }
   ],
   "collections": {
@@ -1897,7 +1897,7 @@
         }
       }
     },
-    "Layout": {
+    "Size": {
       "modes": [
         "Value"
       ],
@@ -2207,131 +2207,6 @@
           ],
           "id": "VariableID:4:171",
           "key": "30442b0b0ec35976df98d29f8df29e648a35e993"
-        },
-        "postcard/rail": {
-          "type": "FLOAT",
-          "css": "--jk-card-rail",
-          "values": {
-            "Value": 16
-          },
-          "description": "Accent rail width on the 1600px canvas",
-          "scopes": [
-            "WIDTH_HEIGHT"
-          ],
-          "id": "VariableID:4:172",
-          "key": "74817065570a214cb465a07ebc2bc856eff86786"
-        },
-        "postcard/chrome-inset": {
-          "type": "FLOAT",
-          "css": "--jk-card-chrome-inset",
-          "values": {
-            "Value": 48
-          },
-          "description": "Distance of the corner chrome from the card edge",
-          "scopes": [
-            "GAP"
-          ],
-          "id": "VariableID:4:173",
-          "key": "d01e8943cd7b8d3b3b9dc5c70819c29d43f336b9"
-        },
-        "postcard/content-x": {
-          "type": "FLOAT",
-          "css": "--jk-card-content-x",
-          "values": {
-            "Value": 128
-          },
-          "description": "Content zone horizontal padding",
-          "scopes": [
-            "GAP"
-          ],
-          "id": "VariableID:4:174",
-          "key": "4400047fa38783de5f5967dacd0797c07b2b38e0"
-        },
-        "postcard/content-y": {
-          "type": "FLOAT",
-          "css": "--jk-card-content-y",
-          "values": {
-            "Value": 128
-          },
-          "description": "Content zone vertical padding (clears the chrome)",
-          "scopes": [
-            "GAP"
-          ],
-          "id": "VariableID:4:175",
-          "key": "2c74c3c3ca520e1e423ed1d3fcab75004245ca5b"
-        },
-        "postcard/width-16x9": {
-          "type": "FLOAT",
-          "css": "--jk-card-width-16x9",
-          "values": {
-            "Value": 1600
-          },
-          "scopes": [
-            "WIDTH_HEIGHT"
-          ],
-          "id": "VariableID:4:176",
-          "key": "7da195c79dd3635d2568df11e33df64f9ccf95bf"
-        },
-        "postcard/height-16x9": {
-          "type": "FLOAT",
-          "css": "--jk-card-height-16x9",
-          "values": {
-            "Value": 900
-          },
-          "scopes": [
-            "WIDTH_HEIGHT"
-          ],
-          "id": "VariableID:4:177",
-          "key": "bb2b948c759d99afdde62f6a8d8c6b06d9fcb3e5"
-        },
-        "postcard/width-square": {
-          "type": "FLOAT",
-          "css": "--jk-card-width-square",
-          "values": {
-            "Value": 1080
-          },
-          "scopes": [
-            "WIDTH_HEIGHT"
-          ],
-          "id": "VariableID:4:178",
-          "key": "dadcddc4a27a08615eddf697bcb3228a3d1418b7"
-        },
-        "postcard/width-4x5": {
-          "type": "FLOAT",
-          "css": "--jk-card-width-4x5",
-          "values": {
-            "Value": 1080
-          },
-          "scopes": [
-            "WIDTH_HEIGHT"
-          ],
-          "id": "VariableID:4:179",
-          "key": "0dfc8eedd3d77efa2f3f707f5192fd2f72ee4069"
-        },
-        "postcard/height-4x5": {
-          "type": "FLOAT",
-          "css": "--jk-card-height-4x5",
-          "values": {
-            "Value": 1350
-          },
-          "scopes": [
-            "WIDTH_HEIGHT"
-          ],
-          "id": "VariableID:4:180",
-          "key": "1a0c6dba3a2df8beb11b7a8ed3c021b9651ceaa9"
-        },
-        "postcard/thumbnail": {
-          "type": "FLOAT",
-          "css": "--jk-card-thumbnail",
-          "values": {
-            "Value": 320
-          },
-          "description": "Judge every card at this width (Principle 4)",
-          "scopes": [
-            "WIDTH_HEIGHT"
-          ],
-          "id": "VariableID:4:181",
-          "key": "ddd206e2cdce29cb64bb1441779f49a3e2b6c3ca"
         }
       }
     },
@@ -2841,7 +2716,7 @@
     }
   },
   "paintStyles": {
-    "Imagery/Palm Sky": {
+    "Imagery/Stock/Palm Sky 16:9 (master)": {
       "paints": [
         {
           "type": "IMAGE",
@@ -2853,7 +2728,7 @@
       "id": "S:5eaba8f1c61c142a62bc96f283e10b7993d0e3e6",
       "key": "5eaba8f1c61c142a62bc96f283e10b7993d0e3e6"
     },
-    "Imagery/Palm Sky 3:2": {
+    "Imagery/Stock/Palm Sky 3:2": {
       "paints": [
         {
           "type": "IMAGE",
@@ -2865,19 +2740,7 @@
       "id": "S:f0774931646fdfd2dd1f39e9c82196fd83d61ca8",
       "key": "f0774931646fdfd2dd1f39e9c82196fd83d61ca8"
     },
-    "Imagery/Palm Sky 2:3": {
-      "paints": [
-        {
-          "type": "IMAGE",
-          "scaleMode": "FILL",
-          "imageHash": "335dc7c5fc6665a0391d45bdcfb11c8e7b5c52fa"
-        }
-      ],
-      "description": "The palm sky cropped to 2:3, 720×1080: full height, held right so the palm stays. The link page backdrop on phones. packages/ui/src/imagery/stock/palm-sky-2x3.jpg (pnpm stock).",
-      "id": "S:5adb2b93cde10fe7e9ecc3d3a78a876eb73aa30d",
-      "key": "5adb2b93cde10fe7e9ecc3d3a78a876eb73aa30d"
-    },
-    "Imagery/Palm Sky 1:1": {
+    "Imagery/Stock/Palm Sky 1:1": {
       "paints": [
         {
           "type": "IMAGE",
@@ -2889,7 +2752,7 @@
       "id": "S:9e89a591876759f09f718a5d6866b29240fef834",
       "key": "9e89a591876759f09f718a5d6866b29240fef834"
     },
-    "Imagery/Palm Sky 4:5": {
+    "Imagery/Stock/Palm Sky 4:5": {
       "paints": [
         {
           "type": "IMAGE",
@@ -2901,19 +2764,19 @@
       "id": "S:2ed2262eb7fb5e5ea676f7b8e63a763aa6bcbb3a",
       "key": "2ed2262eb7fb5e5ea676f7b8e63a763aa6bcbb3a"
     },
-    "Imagery/Paper 3:2 Master": {
+    "Imagery/Stock/Palm Sky 2:3": {
       "paints": [
         {
           "type": "IMAGE",
-          "scaleMode": "CROP",
-          "imageHash": "75f537eac43d259287dbf433f7278c1844ffb96c"
+          "scaleMode": "FILL",
+          "imageHash": "335dc7c5fc6665a0391d45bdcfb11c8e7b5c52fa"
         }
       ],
-      "description": "The card stock: a warm parchment sheet, 3:2, 2048×1366, always stretched to its frame, never cropped, so the burnt edges show. Master: packages/ui/vendor/stock/paper.source.jpg; pnpm stock cuts it to every shape in packages/ui/src/imagery/stock (3:2, 2:3 turned 90°, 16:9, 1:1, 4:5). Under the link page sheet, every dressed postcard back and the stage postcards; whatever prints on it takes the Light scheme. packages/ui/src/imagery/stock/paper-3x2.jpg.",
-      "id": "S:44e99cf8993ea379d9f6241c31dc5e88e97d9b8d",
-      "key": "44e99cf8993ea379d9f6241c31dc5e88e97d9b8d"
+      "description": "The palm sky cropped to 2:3, 720×1080: full height, held right so the palm stays. The link page backdrop on phones. packages/ui/src/imagery/stock/palm-sky-2x3.jpg (pnpm stock).",
+      "id": "S:5adb2b93cde10fe7e9ecc3d3a78a876eb73aa30d",
+      "key": "5adb2b93cde10fe7e9ecc3d3a78a876eb73aa30d"
     },
-    "Imagery/Paper 16:9": {
+    "Imagery/Stock/Paper 16:9": {
       "paints": [
         {
           "type": "IMAGE",
@@ -2925,7 +2788,19 @@
       "id": "S:7e446a306d69785bb47e019d5877d862bf9be33f",
       "key": "7e446a306d69785bb47e019d5877d862bf9be33f"
     },
-    "Imagery/Paper 1:1": {
+    "Imagery/Stock/Paper 3:2 (master)": {
+      "paints": [
+        {
+          "type": "IMAGE",
+          "scaleMode": "CROP",
+          "imageHash": "75f537eac43d259287dbf433f7278c1844ffb96c"
+        }
+      ],
+      "description": "The card stock: a warm parchment sheet, 3:2, 2048×1366, always stretched to its frame, never cropped, so the burnt edges show. Master: packages/ui/vendor/stock/paper.source.jpg; pnpm stock cuts it to every shape in packages/ui/src/imagery/stock (3:2, 2:3 turned 90°, 16:9, 1:1, 4:5). Under the link page sheet, every dressed postcard back and the stage postcards; whatever prints on it takes the Light scheme. packages/ui/src/imagery/stock/paper-3x2.jpg.",
+      "id": "S:44e99cf8993ea379d9f6241c31dc5e88e97d9b8d",
+      "key": "44e99cf8993ea379d9f6241c31dc5e88e97d9b8d"
+    },
+    "Imagery/Stock/Paper 1:1": {
       "paints": [
         {
           "type": "IMAGE",
@@ -2937,7 +2812,7 @@
       "id": "S:6085b350b4fdcc9e359f7056e621f4e0106a2a08",
       "key": "6085b350b4fdcc9e359f7056e621f4e0106a2a08"
     },
-    "Imagery/Paper 4:5": {
+    "Imagery/Stock/Paper 4:5": {
       "paints": [
         {
           "type": "IMAGE",
@@ -2949,7 +2824,7 @@
       "id": "S:5bc29f68ce32213db51cbf9bf67cd0ba4d126a31",
       "key": "5bc29f68ce32213db51cbf9bf67cd0ba4d126a31"
     },
-    "Imagery/Paper 2:3": {
+    "Imagery/Stock/Paper 2:3": {
       "paints": [
         {
           "type": "IMAGE",
@@ -3385,7 +3260,7 @@
       "type": "FRAME",
       "page": "Getting Started",
       "width": 1294,
-      "height": 2643
+      "height": 2666
     },
     "679:169": {
       "name": "Icons",
@@ -3423,11 +3298,11 @@
       "height": 3831
     },
     "6:2": {
-      "name": "Layout",
+      "name": "Size",
       "type": "FRAME",
-      "page": "Layout",
+      "page": "Size",
       "width": 1307,
-      "height": 1591
+      "height": 876
     }
   }
 }

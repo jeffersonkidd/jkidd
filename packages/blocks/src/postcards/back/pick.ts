@@ -27,7 +27,7 @@ export type ShapePick = CatalogPick & {
   params: Record<string, string | number>;
 };
 
-/** What the back is printed on: the card stock, or the palm sky photo (Imagery/Palm Sky) under a dark wash. */
+/** What the back is printed on: the card stock, or the palm sky photo (Imagery/Stock/Palm Sky *) under a dark wash. */
 export const STOCKS = ["paper", "palm-sky"] as const;
 export type Stock = (typeof STOCKS)[number];
 

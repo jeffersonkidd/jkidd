@@ -4,8 +4,8 @@
     "fileKey": "ADhu9noVbgFbtapMZivOHw",
     "fileName": "JKidd - Foundations",
     "version": "0.1",
-    "collections": ["Palette", "Scheme", "Layout", "Type"],
-    "postcards": { "fileKey": "N62b8rJJLQ4MT339QUVpr9", "fileName": "JKidd - Postcards", "collections": ["Post Type"] }
+    "collections": ["Palette", "Scheme", "Size", "Type"],
+    "postcards": { "fileKey": "N62b8rJJLQ4MT339QUVpr9", "fileName": "JKidd - Postcards", "collections": ["Post Type", "Postcard"] }
   },
   "postTypes": {
     "$description": "Post Type collection (in JKidd - Postcards since 2026-10-20; Foundations before), one mode per type. Each value names a Scheme role, so a type recolours with the scheme. accent: fills (rail, tick, highlight, swatches). ink: text and thin marks (kicker, arrow, check). onAccent: text set on an accent fill. PROVISIONAL (User, 2026-09-24; CONTENT-SYSTEM.md section 9).",

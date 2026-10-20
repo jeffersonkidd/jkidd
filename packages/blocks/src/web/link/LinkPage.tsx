@@ -10,7 +10,7 @@ import {
   Youtube,
   type LucideIcon,
 } from "lucide-react";
-import { CommandIcon, LinkHeader, LinkProfile, LinkRow, LinkTile, Sheet, Stage, TabBar, type TabSpec } from "@jkidd/ui/web";
+import { Backdrop, CommandIcon, LinkHeader, LinkProfile, LinkRow, LinkTile, Sheet, TabBar, type TabSpec } from "@jkidd/ui/web";
 import palmSky from "@jkidd/ui/imagery/stock/palm-sky-16x9.jpg";
 import palmSkyTall from "@jkidd/ui/imagery/stock/palm-sky-2x3.jpg";
 import paper from "@jkidd/ui/imagery/stock/paper-2x3.jpg";
@@ -18,7 +18,7 @@ import { LINK_NODES } from "@jkidd/core";
 
 /**
  * The link-in-bio page (JKidd - Blocks, Link Page): a paper sheet on the palm sky, put
- * together from the web lane of @jkidd/ui (the controls, and the Stage, Sheet, Link
+ * together from the web lane of @jkidd/ui (the controls, and the Backdrop, Sheet, Link
  * Header, Link Profile, Tab Bar, Link Row and Link Tile). What's the
  * block's own: the spec, the categories and socials with their icons, the filter, and
  * the art. Figma draws it at web size, so sizes match it 1:1. First sketched in JKidd -
@@ -94,7 +94,7 @@ export function LinkPage({ spec }: { spec: LinkPageSpec }) {
   const { profile } = spec;
 
   return (
-    <Stage backdrop={palmSky} narrow={palmSkyTall}>
+    <Backdrop backdrop={palmSky} narrow={palmSkyTall}>
       <Sheet paper={paper}>
         <LinkHeader wordmark={spec.wordmark} nav={spec.nav} follow={spec.follow} />
         <LinkProfile
@@ -121,6 +121,6 @@ export function LinkPage({ spec }: { spec: LinkPageSpec }) {
           ))}
         </div>
       </Sheet>
-    </Stage>
+    </Backdrop>
   );
 }

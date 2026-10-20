@@ -1,7 +1,7 @@
 /* ── Page shells (Postcards, Web page) ──────────────────────────
    Web pages reflow; type is the Foundations Link/* styles. */
 
-.web-stage {
+.web-backdrop {
   display: flex;
   justify-content: center;
   align-items: flex-start;
@@ -33,6 +33,6 @@
 
 @media (max-width: 640px) {
   /* Phones stand on the tall cut, held right like the cuts are, so the palm stays in. */
-  .web-stage { padding: 0; background: var(--web-backdrop-narrow, var(--web-backdrop, none)) right center / cover no-repeat, var(--md-sys-color-primary-container); }
+  .web-backdrop { padding: 0; background: var(--web-backdrop-narrow, var(--web-backdrop, none)) right center / cover no-repeat, var(--md-sys-color-primary-container); }
   .web-sheet { padding: var(--jk-space-4); border-width: 0; }
 }

@@ -128,6 +128,141 @@
           "key": "d104151bae189a60c749ad5d0397e439473d32aa"
         }
       }
+    },
+    "Postcard": {
+      "modes": [
+        "Value"
+      ],
+      "defaultMode": "Value",
+      "id": "VariableCollectionId:330:29",
+      "key": "05dbaa919fdb54232c73564628c2430e24695089",
+      "variables": {
+        "rail": {
+          "type": "FLOAT",
+          "css": "--jk-card-rail",
+          "values": {
+            "Value": 16
+          },
+          "description": "Accent rail width on the 1600px canvas",
+          "scopes": [
+            "WIDTH_HEIGHT"
+          ],
+          "id": "VariableID:330:30",
+          "key": "4d965aef99eaefb1c5af17f7fe8357560771d6db"
+        },
+        "chrome-inset": {
+          "type": "FLOAT",
+          "css": "--jk-card-chrome-inset",
+          "values": {
+            "Value": 48
+          },
+          "description": "Distance of the corner chrome from the card edge",
+          "scopes": [
+            "GAP"
+          ],
+          "id": "VariableID:330:31",
+          "key": "7ab1aa8473f1c9ba09b48e4998717a2e7cf748a3"
+        },
+        "content-x": {
+          "type": "FLOAT",
+          "css": "--jk-card-content-x",
+          "values": {
+            "Value": 128
+          },
+          "description": "Content zone horizontal padding",
+          "scopes": [
+            "GAP"
+          ],
+          "id": "VariableID:330:32",
+          "key": "fbc87591fc64a6fc50d7f77908f5331a2697cdd1"
+        },
+        "content-y": {
+          "type": "FLOAT",
+          "css": "--jk-card-content-y",
+          "values": {
+            "Value": 128
+          },
+          "description": "Content zone vertical padding (clears the chrome)",
+          "scopes": [
+            "GAP"
+          ],
+          "id": "VariableID:330:33",
+          "key": "8bdd65d02bfdcad832b72e274d1807ad582e137e"
+        },
+        "width-16x9": {
+          "type": "FLOAT",
+          "css": "--jk-card-width-16x9",
+          "values": {
+            "Value": 1600
+          },
+          "scopes": [
+            "WIDTH_HEIGHT"
+          ],
+          "id": "VariableID:330:34",
+          "key": "d0a826cb2a223984d44579a1aa2103d74d7a1850"
+        },
+        "height-16x9": {
+          "type": "FLOAT",
+          "css": "--jk-card-height-16x9",
+          "values": {
+            "Value": 900
+          },
+          "scopes": [
+            "WIDTH_HEIGHT"
+          ],
+          "id": "VariableID:330:35",
+          "key": "a38899d0f2496aec0c63a999e08af6af3bd2b92d"
+        },
+        "width-square": {
+          "type": "FLOAT",
+          "css": "--jk-card-width-square",
+          "values": {
+            "Value": 1080
+          },
+          "scopes": [
+            "WIDTH_HEIGHT"
+          ],
+          "id": "VariableID:330:36",
+          "key": "37d0f81c3f938b25edb71fd42aaf44794dedd34a"
+        },
+        "width-4x5": {
+          "type": "FLOAT",
+          "css": "--jk-card-width-4x5",
+          "values": {
+            "Value": 1080
+          },
+          "scopes": [
+            "WIDTH_HEIGHT"
+          ],
+          "id": "VariableID:330:37",
+          "key": "6d419c384723eba137ac186aea49123b12ad24f6"
+        },
+        "height-4x5": {
+          "type": "FLOAT",
+          "css": "--jk-card-height-4x5",
+          "values": {
+            "Value": 1350
+          },
+          "scopes": [
+            "WIDTH_HEIGHT"
+          ],
+          "id": "VariableID:330:38",
+          "key": "63a7e51a402150dd2c5eac42bb893f296567e863"
+        },
+        "thumbnail": {
+          "type": "FLOAT",
+          "css": "--jk-card-thumbnail",
+          "values": {
+            "Value": 320
+          },
+          "description": "Judge every card at this width (Principle 4)",
+          "scopes": [
+            "WIDTH_HEIGHT"
+          ],
+          "id": "VariableID:330:39",
+          "key": "5fcf481e2bf9a57f0af7f2656e77f326814628b5"
+        }
+      }
     }
   },
   "textStyles": {},
@@ -392,11 +527,11 @@
         },
         "Stamp icon": {
           "type": "INSTANCE_SWAP",
-          "default": "266:304"
+          "default": "324:29"
         },
         "Postmark glyph": {
           "type": "INSTANCE_SWAP",
-          "default": "266:307"
+          "default": "324:32"
         }
       },
       "description": "The post type's stamp, cancelled (catalog: cachet). A perforated stamp in type/accent with the type's icon (Flag progress, Signpost decision, Skull failure, Sun principle, Bell teaching), its label and the 2¢ value from Entry 001-C; a ring postmark with the handle or series over the day or date, the card's topic glyph, and five machine waves. Ink is on-surface at 62%. Code adds speckled wear (an SVG noise mask) that Figma doesn't draw. 400×220. Edit the ring text on the curve directly (text on a path takes no component property). Sample: the figma-variables card. Dressing.tsx Cachet (@jkidd/ui).",
@@ -895,7 +1030,7 @@
       "type": "SECTION",
       "page": "Frame",
       "width": 6050,
-      "height": 2676
+      "height": 3478
     },
     "268:860": {
       "name": "Archetypes",

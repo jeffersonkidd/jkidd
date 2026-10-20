@@ -13,7 +13,7 @@
         "node": "99:3598",
         "where": "JKidd - Foundations › Imagery › Image, a loose rectangle beside the Imagery section; deleted 2026-10-19 once this copy was saved"
       },
-      "ships_as": "pnpm stock → src/imagery/stock/palm-sky-16x9 (the master as JPEG, about 265 KB; Figma style Imagery/Palm Sky), palm-sky-3x2, palm-sky-2x3, palm-sky-1x1, palm-sky-4x5 (cropped at full height, held right so the palm stays)",
+      "ships_as": "pnpm stock → src/imagery/stock/palm-sky-16x9 (the master as JPEG, about 265 KB; Figma style Imagery/Stock/Palm Sky 16:9 (master); the cuts are Imagery/Stock/Palm Sky 3:2, 2:3, 1:1, 4:5), palm-sky-3x2, palm-sky-2x3, palm-sky-1x1, palm-sky-4x5 (cropped at full height, held right so the palm stays)",
       "also": "The link page backdrop (16:9; 2:3 on phones), and the palm sky stock for dressed backs (blocks: cards/back/DressedPostcard.tsx), under a 75% wash of the dark scheme's surface."
     }
   }

@@ -50,10 +50,10 @@ function drift() {
   };
 
   for (const name of Object.keys(figma.collections)) {
-    if (!["Palette", "Scheme", "Layout", "Type"].includes(name)) add(name, "a collection this test doesn't know");
+    if (!["Palette", "Scheme", "Size", "Type"].includes(name)) add(name, "a collection this test doesn't know");
   }
   for (const name of Object.keys(postcards.collections ?? {})) {
-    if (name !== "Post Type") add(`Postcards/${name}`, "a collection this test doesn't know");
+    if (!["Post Type", "Postcard"].includes(name)) add(`Postcards/${name}`, "a collection this test doesn't know");
   }
 
   // Palette: primary/primary-40 ↔ palettes.primary["40"].
@@ -95,11 +95,15 @@ function drift() {
     }
   }
 
-  // Layout: matched by CSS name (the variable's code syntax).
+  // Size (Foundations) and Postcard (Postcards, the card metrics since 2026-10-20): matched
+  // by CSS name (the variable's code syntax) against tokens.layout and tokens.canvas.
   const layout = Object.fromEntries(own(tokens.layout).map(([, t]) => [t.figma, t]));
   const seenLayout = new Set();
-  for (const [name, v] of Object.entries(vars("Layout"))) {
-    const key = `Layout/${name}`;
+  const sized = [
+    ...Object.entries(vars("Size")).map(([name, v]) => [`Size/${name}`, v]),
+    ...Object.entries(postcards.collections?.Postcard?.variables ?? {}).map(([name, v]) => [`Postcard/${name}`, v]),
+  ];
+  for (const [key, v] of sized) {
     seenLayout.add(v.css);
     if (CANVAS[v.css]) {
       const [ratio, side] = CANVAS[v.css];
@@ -108,7 +112,7 @@ function drift() {
     } else if (!layout[v.css]) add(key, `${v.css} is not in tokens.layout`);
     else if (layout[v.css].value !== v.values.Value) add(key, `Figma ${v.values.Value}, code ${layout[v.css].value}`);
   }
-  for (const [k, t] of own(tokens.layout)) if (!seenLayout.has(t.figma)) add(`Layout/${k}`, `${t.figma} is in code, not in Figma`);
+  for (const [k, t] of own(tokens.layout)) if (!seenLayout.has(t.figma)) add(`Size/${k}`, `${t.figma} is in code, not in Figma`);
 
   // Type: Figma's family must be in the code's stack (lettering leads with
   // Wild Words in code, which Figma can't render, and falls back to Anime Ace).

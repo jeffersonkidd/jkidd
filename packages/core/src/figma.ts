@@ -20,7 +20,7 @@ export type FigmaNode = readonly [fileKey: string, node: string];
 /** Where each code component lives in the libraries. Its ID is rendered as data-figma on the root element. */
 export const FIGMA_NODES = {
   // Foundations (Cover page; marks and the emblem on Marks; the emblem's master on Illustrations)
-  /** The Cover frame, on the palm sky (Imagery/Palm Sky). The light and dark covers were deleted 2026-10-19. */
+  /** The Cover frame, on the palm sky (Imagery/Stock/Palm Sky 16:9 (master)). The light and dark covers were deleted 2026-10-19. */
   Cover: [LIBRARIES.Foundations, "484:63"],
   Monogram: [LIBRARIES.Foundations, "7:20"],
   Wordmark: [LIBRARIES.Foundations, "7:27"],
@@ -97,23 +97,23 @@ export const WORKBENCH_NODES = {
  * [file key, node].
  */
 export const LINK_NODES = {
-  // Web (Controls page; Icon/* on Foundations)
+  // Web (Primitives page: Controls; Icon/* on Foundations)
   Tag: [LIBRARIES.Web, "5:395"],
   IconKicker: [LIBRARIES.Web, "5:399"],
   PillButton: [LIBRARIES.Web, "5:405"],
   IconButton: [LIBRARIES.Web, "5:420"],
   Tab: [LIBRARIES.Web, "5:432"],
   Avatar: [LIBRARIES.Web, "5:447"],
-  // Web (Web page)
-  Stage: [LIBRARIES.Web, "5:496"],
+  // Web (Layout page)
+  Backdrop: [LIBRARIES.Web, "5:496"],
   Sheet: [LIBRARIES.Web, "5:489"],
-  // Web (Link page)
+  // Web (Compositions page)
   LinkHeader: [LIBRARIES.Web, "5:113"],
   LinkProfile: [LIBRARIES.Web, "5:128"],
   TabBar: [LIBRARIES.Web, "5:161"],
   LinkRow: [LIBRARIES.Web, "5:176"],
   LinkTile: [LIBRARIES.Web, "5:233"],
-  // Web (Link Page page)
+  // Web (Blocks page)
   LinkPage: [LIBRARIES.Web, "5:612"],
 } as const satisfies Record<string, FigmaNode>;
 

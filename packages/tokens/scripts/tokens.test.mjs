@@ -53,19 +53,19 @@ test("generated CSS is in step with the sources", () => {
   assert.match(css, new RegExp(`--jk-card-chrome-inset: ${tokens.layout.cardChromeInset.value}px`));
 });
 
-test("the spacing scale matches the Figma Layout collection: space/0 to space/3200 on a 4px step", () => {
+test("the spacing scale matches the Figma Size collection: space/0 to space/3200 on a 4px step", () => {
   const css = readFileSync(`${root}src/tokens.css`, "utf8");
   const steps = [0, 1, 2, 3, 4, 5, 6, 8, 10, 12, 16, 20, 24, 32];
   for (const n of steps) assert.match(css, new RegExp(`--jk-space-${n}: ${n * 4}px;`));
 });
 
-test("the radius scale matches the Figma Layout collection", () => {
+test("the radius scale matches the Figma Size collection", () => {
   const css = readFileSync(`${root}src/tokens.css`, "utf8");
   const radii = { none: 0, xs: 2, sm: 4, md: 8, lg: 16, xl: 24, full: 9999 };
   for (const [name, px] of Object.entries(radii)) assert.match(css, new RegExp(`--jk-radius-${name}: ${px}px;`));
 });
 
-test("the stroke scale matches the Figma Layout collection", () => {
+test("the stroke scale matches the Figma Size collection", () => {
   const css = readFileSync(`${root}src/tokens.css`, "utf8");
   for (const [name, px] of Object.entries({ hairline: 1, rule: 2, zone: 3 })) assert.match(css, new RegExp(`--jk-stroke-${name}: ${px}px;`));
 });

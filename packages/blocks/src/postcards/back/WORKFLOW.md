@@ -4,7 +4,7 @@ The archetype card is the message side of the postcard. This workflow turns its 
 
 | Node | Where | What it does |
 |---|---|---|
-| Intake | `CardSpec` (+ `CardSource` from a template) | The card as data. A template also brings its idea-bank row and journal event. The back is printed on **paper** (the card stock, light scheme) or the **palm sky** (Imagery/Palm Sky under a 75% wash of the dark surface, dark scheme, no series inks) |
+| Intake | `CardSpec` (+ `CardSource` from a template) | The card as data. A template also brings its idea-bank row and journal event. The back is printed on **paper** (the card stock, light scheme) or the **palm sky** (Imagery/Stock/Palm Sky * under a 75% wash of the dark surface, dark scheme, no series inks) |
 | Lint | `apps/studio/src/app/lint.ts` | The POSTCARDS.md rules. Dressing never covers for a card that fails them |
 | Read | `read.ts` | Tone, topics, figures, a verdict word, the arrows' verbs, each with its JSON path |
 | Pick | `pick.ts` + `catalog.ts` | Scores the stock catalog against the reading. Seeded, budgeted (3), every pick with its reasons |
