@@ -29,7 +29,7 @@ type Library = {
 
 /** Left to right: the postcards lane, Foundations, the web lane. */
 export const LIBRARY_PIPELINE: readonly Library[] = [
-  { name: "Postcards", role: "Lane", shape: "document", label: [60, 40], holds: ["Parts · dressing · frame", "Archetypes · postcards"], code: "ui/postcards · blocks/postcards" },
+  { name: "Postcards", role: "Lane", shape: "document", label: [60, 40], holds: ["Parts · dressing · frame", "Archetypes · postcards"], code: "ui/parts · blocks/parts" },
   { name: "Foundations", role: "Base", shape: "cylinder", label: [60, 50], holds: ["Variables · text styles", "Marks · icons · imagery"], code: "tokens · core" },
   { name: "Web", role: "Lane", shape: "window-frame", label: [60, 56], holds: ["Controls · page shells", "Link · link page"], code: "ui/web · blocks/web" },
 ];

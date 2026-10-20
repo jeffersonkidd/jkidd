@@ -1,4 +1,4 @@
-/* ── Card parts (Primitives 1:11)────────────────────────────────── */
+/* ── Parts (Primitives 1:11)────────────────────────────────── */
 
 .jk-kicker { display: inline-flex; align-items: center; gap: 14px; color: var(--jk-type-ink); white-space: nowrap; }
 .jk-kicker__bullet { width: 14px; height: 14px; background: var(--jk-type-accent); flex-shrink: 0; }

@@ -16,7 +16,7 @@ const ROUTES = [
   { path: "", name: "Overview", el: Overview },
   { path: "foundations", name: "Foundations", el: Foundations },
   { path: "marks", name: "Marks", el: MarksPage },
-  { path: "parts", name: "Card parts", el: PartsPage },
+  { path: "parts", name: "Parts", el: PartsPage },
   { path: "studio", name: "Studio", el: Studio },
   { path: "stock", name: "Stock catalog", el: StockPage },
   { path: "postcards", name: "Picture postcards", el: PicturePage },

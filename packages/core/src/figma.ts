@@ -30,7 +30,7 @@ export const FIGMA_NODES = {
   HandleLockup: [LIBRARIES.Foundations, "7:30"],
   /** Variant Badge/Figure × Tone Original/Mono, built from the master (Illustrations › Logo Assets › asset 3, 425:3522). */
   Emblem: [LIBRARIES.Foundations, "611:128"],
-  // Primitives (Card Parts page)
+  // Primitives (Parts page)
   Kicker: [LIBRARIES.Primitives, "65:62"],
   CheckRow: [LIBRARIES.Primitives, "65:65"],
   TokenChip: [LIBRARIES.Primitives, "65:86"],

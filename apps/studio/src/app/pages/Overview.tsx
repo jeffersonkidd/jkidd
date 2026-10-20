@@ -19,7 +19,7 @@ export function Overview({ navigate }: PageProps) {
         <Wordmark layout="stacked" />
         <p className="cover__lede">
           Foundations and marks for everything J.F. Kidd publishes: one palette, five post types, one type stack and the
-          emblem. The frame, card parts, archetypes and postcards build on it in four more libraries.
+          emblem. The frame, parts, archetypes and postcards build on it in four more libraries.
         </p>
         <dl className="cover__stats">
           {STATS.map(([n, l]) => (

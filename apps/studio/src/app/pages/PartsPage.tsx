@@ -5,12 +5,12 @@ import type { PageProps } from "../App";
 
 const MARKS: RowMark[] = ["check", "cross", "dot"];
 
-/** Card Parts (Primitives 1:11), drawn at card scale and shrunk to fit the page. */
+/** Parts (Primitives 1:11), drawn at card scale and shrunk to fit the page. */
 export function PartsPage(_: PageProps) {
   const [type, setType] = useState<PostType>("progress");
   return (
     <div className="page">
-      <PageHeader eyebrow="Components · 03" title="Card parts">
+      <PageHeader eyebrow="Components · 03" title="Parts">
         <p>
           The atoms the archetypes are built from, sized for the 1600px canvas. Colours read the Post Type tokens:{" "}
           <code>--jk-type-accent</code> for fills, <code>--jk-type-ink</code> for text and thin marks, so parts recolour
