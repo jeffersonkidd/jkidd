@@ -66,6 +66,14 @@ export const FIGMA_NODES = {
   // 2026-10-20, when Blocks was deleted.
   PicturePostcard: [LIBRARIES.Postcards, "279:157"],
   PictureBoard: [LIBRARIES.Postcards, "281:37"],
+  // Postcards (Stage page): the card, built from its parts (Stage/Paper, Set, Depth Tape, Spike
+  // Mark, Figure, Wing, Proscenium, Sheet, Height Bar, Title Strip), and the page's section with
+  // the brief, the inks and the squares. Rebuilt 2026-10-20 from StagePostcard.tsx, after the
+  // Blocks page was lost.
+  StagePostcard: [LIBRARIES.Postcards, "307:29"],
+  StageFigure: [LIBRARIES.Postcards, "306:49"],
+  StageTitleStrip: [LIBRARIES.Postcards, "306:111"],
+  StageBoard: [LIBRARIES.Postcards, "306:30"],
 } as const satisfies Record<string, FigmaNode>;
 
 export type FigmaNodeName = keyof typeof FIGMA_NODES;

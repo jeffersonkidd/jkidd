@@ -546,6 +546,234 @@
       },
       "description": "The picture postcard's story label. One of the postcard's two types (the archetypes are the other). Code: PicturePostcard in jkidd-ds (#/postcards).",
       "key": "663b23442b1dbf1e5c111cfb8ecfe43ba5459753"
+    },
+    "306:49": {
+      "name": "Stage/Figure",
+      "type": "COMPONENT_SET",
+      "page": "Stage",
+      "width": 1456,
+      "height": 888,
+      "variants": 18,
+      "properties": {
+        "Cycle": {
+          "type": "VARIANT",
+          "default": "Walk",
+          "options": [
+            "Run",
+            "Walk",
+            "Wave"
+          ]
+        },
+        "Facing": {
+          "type": "VARIANT",
+          "default": "Right",
+          "options": [
+            "Left",
+            "Right"
+          ]
+        },
+        "Depth": {
+          "type": "VARIANT",
+          "default": "Downstage",
+          "options": [
+            "Downstage",
+            "Midstage",
+            "Upstage"
+          ]
+        }
+      },
+      "description": "A stick figure from the Architect's Notebook rig (Figures 37:2), one pose per cycle, sized to its depth: 8 squares tall downstage, 6 midstage, 4 upstage, head to feet, feet on the frame's ground line (104 of the kit's 116). Pen 2.4 kit units and a stock halo 4 wider, so the line weight follows the depth. Facing Left is the code's dir -1, drawn mirrored. In code the pose comes from figurePose (@jkidd/core) at 12 drawings a second; here it's one still drawing.",
+      "key": "21cef64ab405f919cb3a4bcb1ccb654d14c1dad1"
+    },
+    "306:54": {
+      "name": "Stage/Wing",
+      "type": "COMPONENT_SET",
+      "page": "Stage",
+      "width": 898,
+      "height": 617,
+      "variants": 4,
+      "properties": {
+        "Depth": {
+          "type": "VARIANT",
+          "default": "Midstage",
+          "options": [
+            "Midstage",
+            "Upstage"
+          ]
+        },
+        "Side": {
+          "type": "VARIANT",
+          "default": "Left",
+          "options": [
+            "Left",
+            "Right"
+          ]
+        }
+      },
+      "description": "A flat in the wings at Upstage or Midstage: stock with a 7% ink wash, hachured (52° left, 128° right), 2.6 figures tall at its depth. A figure walks from behind one wing to behind the other. Downstage, the Proscenium piers are the wings.",
+      "key": "8317f9e547b6fea0fdee1de7dbf9348e611e8013"
+    },
+    "306:61": {
+      "name": "Stage/Depth Tape",
+      "type": "COMPONENT_SET",
+      "page": "Stage",
+      "width": 1265,
+      "height": 308,
+      "variants": 3,
+      "properties": {
+        "Depth": {
+          "type": "VARIANT",
+          "default": "Downstage",
+          "options": [
+            "Downstage",
+            "Midstage",
+            "Upstage"
+          ]
+        }
+      },
+      "description": "Dashed blueprint tape on a depth's feet line, across its floor, with its label (MIDSTAGE · 6 SQ). Mono, ink soft, sized 8 + 1.5 × squares.",
+      "key": "7f1ac1d2a231fc36028e765548015ad784697818"
+    },
+    "306:68": {
+      "name": "Stage/Height Bar",
+      "type": "COMPONENT_SET",
+      "page": "Stage",
+      "width": 326,
+      "height": 383,
+      "variants": 3,
+      "properties": {
+        "Depth": {
+          "type": "VARIANT",
+          "default": "Downstage",
+          "options": [
+            "Downstage",
+            "Midstage",
+            "Upstage"
+          ]
+        }
+      },
+      "description": "A blueprint dimension at the right of a depth's floor: a bar as tall as that depth's figure, tick-ended, with its count of squares.",
+      "key": "8bb27a2e9489dc532968dd03f3672400c7c07928"
+    },
+    "306:78": {
+      "name": "Stage/Spike Mark",
+      "type": "COMPONENT_SET",
+      "page": "Stage",
+      "width": 306,
+      "height": 124,
+      "variants": 3,
+      "properties": {
+        "Depth": {
+          "type": "VARIANT",
+          "default": "Downstage",
+          "options": [
+            "Upstage",
+            "Midstage",
+            "Downstage"
+          ]
+        }
+      },
+      "description": "The red-pen X a figure waving on the mark stands on, at its depth's feet line; wider the nearer the depth (2.5px a square).",
+      "key": "13c5668b693f218cfe80d9ef8d03518dc3e3e85a"
+    },
+    "306:79": {
+      "name": "Stage/Set",
+      "type": "COMPONENT",
+      "page": "Stage",
+      "width": 1244,
+      "height": 637,
+      "description": "The back of the stage: the back wall (3 squares at the back, 2.6 figures tall), the floor narrowing to x 768, the apron and its lip, and the floor boards converging on the vanishing point.",
+      "key": "59fbe8f9b88bfc3d02507dee15a8e8fabba58059"
+    },
+    "306:80": {
+      "name": "Stage/Proscenium",
+      "type": "COMPONENT",
+      "page": "Stage",
+      "width": 1429,
+      "height": 790,
+      "description": "The proscenium, hatched at 45° like a section cut: two piers (64–192 and 1344–1472, the downstage wings) and the header. In front of the downstage cast.",
+      "key": "adc804088c325f20bfb2bba0cd78efe01863585c"
+    },
+    "306:81": {
+      "name": "Stage/Sheet",
+      "type": "COMPONENT",
+      "page": "Stage",
+      "width": 1496,
+      "height": 981,
+      "description": "The sheet border, 32px in from the edge, drawn over everything like any drawing border.",
+      "key": "b5e5058fe6b6b814cca84175f78a9ee80c59fd6f"
+    },
+    "306:82": {
+      "name": "Stage/Paper",
+      "type": "COMPONENT",
+      "page": "Stage",
+      "width": 1536,
+      "height": 1024,
+      "description": "The stage's paper: cream, the 3:2 card stock (Imagery/Paper 3:2 Master) stretched over it, and the grid: 32px squares at 1px in grid, heavier every 4 (128px, 2px) in grid major. The floor, flats and piers cut the grid back to stock.",
+      "key": "c450497b6e7be975eecaa83fd211bee84b3d0185"
+    },
+    "306:111": {
+      "name": "Stage/Title Strip",
+      "type": "COMPONENT_SET",
+      "page": "Stage",
+      "width": 1588,
+      "height": 382,
+      "variants": 2,
+      "properties": {
+        "Story": {
+          "type": "TEXT",
+          "default": "THE PARADE THAT TOOK A WRONG TURN"
+        },
+        "Location": {
+          "type": "TEXT",
+          "default": "EDO • KITES OVER NIHONBASHI"
+        },
+        "Length": {
+          "type": "VARIANT",
+          "default": "Short",
+          "options": [
+            "Short",
+            "Long"
+          ]
+        }
+      },
+      "description": "The bottom three squares of the sheet, cells on the grid (32–1088, 1088–1344, 1344–1504): Story in Special Elite Even, uppercase, Location and Squares in mono. Length=Long is the code's data-long: past 40 characters the story drops from 40px to 28px so it still fits. Copy is the library's own (STORY_STARTERS in @jkidd/blocks/postcards samples.ts).",
+      "key": "22c6ffac061842b22f777cf5700b32380f750a5c"
+    },
+    "307:29": {
+      "name": "Stage Postcard",
+      "type": "COMPONENT",
+      "page": "Stage",
+      "width": 1536,
+      "height": 1024,
+      "properties": {
+        "Upstage figure": {
+          "type": "BOOLEAN",
+          "default": true
+        },
+        "Upstage mark": {
+          "type": "BOOLEAN",
+          "default": false
+        },
+        "Midstage figure": {
+          "type": "BOOLEAN",
+          "default": true
+        },
+        "Midstage mark": {
+          "type": "BOOLEAN",
+          "default": true
+        },
+        "Downstage figure": {
+          "type": "BOOLEAN",
+          "default": true
+        },
+        "Downstage mark": {
+          "type": "BOOLEAN",
+          "default": false
+        }
+      },
+      "description": "Stage postcard: a theatre stage in one-point perspective on graph paper over the card stock, in the Architect's Notebook hand, with stick figures at three depths. Cast a depth by swapping its exposed Figure (Cycle, Facing); Upstage/Midstage/Downstage figure hide a depth's cast, and the marks show the red-pen X a waving figure stands on (upstage 30% across, midstage 68%, downstage the centre). Story and Location are the exposed Title Strip's. Each depth's cast is clipped to its wings, so a figure is hidden until it clears its own wing. 1536×1024, scaled, never reflowed. Colours are --jk-genre-stage-*. In code: <StagePostcard spec={spec} drawing={n} /> from @jkidd/blocks/postcards; the maker is #/stage.",
+      "key": "ecec3bdeb9b81653ce7dec9d9b3c7b86c7e73644"
     }
   },
   "frames": {
@@ -597,6 +825,13 @@
       "page": "Picture",
       "width": 6496,
       "height": 7614
+    },
+    "306:30": {
+      "name": "Stage",
+      "type": "SECTION",
+      "page": "Stage",
+      "width": 6105,
+      "height": 4732
     }
   }
 }

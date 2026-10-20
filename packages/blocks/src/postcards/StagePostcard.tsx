@@ -1,6 +1,6 @@
 import { forwardRef, useId, type CSSProperties } from "react";
 import rough from "roughjs";
-import { NOTEBOOK_NODES } from "@jkidd/core";
+import { FIGMA_NODES, NOTEBOOK_NODES } from "@jkidd/core";
 import { figureBoxFor, figurePose, figureTransform, type FigureCycle, type FigureLine } from "@jkidd/core";
 import { FigureStrokes } from "@jkidd/ui/postcards";
 import stock from "@jkidd/ui/imagery/stock/paper-3x2.jpg";
@@ -9,7 +9,8 @@ import stock from "@jkidd/ui/imagery/stock/paper-3x2.jpg";
  * The stage postcard: a theatre stage drawn in one-point perspective on graph paper
  * ruled over the card stock (its 3:2 cut, the shape of the canvas, so never stretched),
  * in the Architect's Notebook hand, with stick figures at three depths. Not in
- * Workbench yet. Drawn on a 1536×1024 canvas and scaled, never reflowed.
+ * Workbench yet. Drawn on a 1536×1024 canvas and scaled, never reflowed. In Figma it's
+ * Stage Postcard in JKidd - Postcards (Stage page), built from the same geometry.
  *
  * The paper sets the dimensions. One square is 32px, and the stage is built so a
  * figure is a whole number of squares tall wherever it stands: 8 downstage, 6
@@ -231,7 +232,7 @@ export const StagePostcard = forwardRef<HTMLDivElement, { spec: StageSpec; drawi
   });
 
   return (
-    <div ref={ref} className="jk-stage" style={style}>
+    <div ref={ref} className="jk-stage" style={style} data-figma={FIGMA_NODES.StagePostcard[1]}>
       <svg className="jk-stage__drawing" viewBox={`0 0 ${STAGE_CANVAS.width} ${STAGE_CANVAS.height}`} aria-hidden="true">
         <defs>
           <pattern id={stockId} patternUnits="userSpaceOnUse" width={STAGE_CANVAS.width} height={STAGE_CANVAS.height}>

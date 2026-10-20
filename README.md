@@ -99,7 +99,7 @@ Fronts come in series. A series is one press: a master, the fronts drawn from it
 
 ## Stage postcards
 
-`#/stage` makes a postcard of a theatre stage drawn on graph paper over the card stock, in the Architect's Notebook hand, with stick figures walking, running or waving at three depths. It's a draft in code: not in Workbench or the library yet.
+`#/stage` makes a postcard of a theatre stage drawn on graph paper over the card stock, in the Architect's Notebook hand, with stick figures walking, running or waving at three depths. It's a draft: not in Workbench yet. In Figma it's **Stage Postcard** on the Stage page of *JKidd - Postcards*, built from parts drawn from this geometry (Stage/Paper, Set, Depth Tape, Spike Mark, Figure, Wing, Proscenium, Sheet, Height Bar, Title Strip): swap a depth's Figure to cast it, switch figures and marks with the card's properties, and type the Story and Location into its Title Strip.
 
 ### Making one
 
