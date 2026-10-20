@@ -9,12 +9,16 @@
       "name": "Cover"
     },
     {
-      "id": "251:247",
-      "name": "Frame"
+      "id": "321:34",
+      "name": "Types"
     },
     {
       "id": "266:250",
       "name": "Parts"
+    },
+    {
+      "id": "251:247",
+      "name": "Frame"
     },
     {
       "id": "1:9",
@@ -37,7 +41,95 @@
       "name": "Stage"
     }
   ],
-  "collections": {},
+  "collections": {
+    "Post Type": {
+      "modes": [
+        "Progress",
+        "Decision",
+        "Failure",
+        "Principle",
+        "Teaching"
+      ],
+      "defaultMode": "Progress",
+      "id": "VariableCollectionId:318:29",
+      "key": "94f4b916834ab167e46e7c113c116aa8be999105",
+      "variables": {
+        "type/accent": {
+          "type": "COLOR",
+          "css": "--jk-type-accent",
+          "values": {
+            "Progress": "{Scheme.primary-container}",
+            "Decision": "{Scheme.tertiary-container}",
+            "Failure": "{Scheme.error}",
+            "Principle": "{Scheme.inverse-surface}",
+            "Teaching": "{Scheme.secondary}"
+          },
+          "description": "The post type colour: accent rail, payoff line, ticks. PROVISIONAL mapping (User, 2026-09-24): Progress=primary-container, Decision=tertiary-container, Failure=error, Principle=inverse-surface, Teaching=secondary. Switch the Post Type mode on a card to change its type.",
+          "scopes": [
+            "FRAME_FILL",
+            "SHAPE_FILL",
+            "TEXT_FILL",
+            "STROKE_COLOR"
+          ],
+          "id": "VariableID:318:30",
+          "key": "371839efecd19ce65480afc3cef88d70aba9b039"
+        },
+        "type/on-accent": {
+          "type": "COLOR",
+          "css": "--jk-type-on-accent",
+          "values": {
+            "Progress": "{Scheme.on-primary-container}",
+            "Decision": "{Scheme.on-tertiary-container}",
+            "Failure": "{Scheme.on-error}",
+            "Principle": "{Scheme.inverse-on-surface}",
+            "Teaching": "{Scheme.on-secondary}"
+          },
+          "scopes": [
+            "SHAPE_FILL",
+            "TEXT_FILL",
+            "STROKE_COLOR"
+          ],
+          "id": "VariableID:318:31",
+          "key": "349551727a722c6362d4b8c6a3a72e83aa7a57ed"
+        },
+        "type/label": {
+          "type": "STRING",
+          "css": "--jk-type-label",
+          "values": {
+            "Progress": "PROGRESS",
+            "Decision": "DECISION",
+            "Failure": "FAILURE",
+            "Principle": "PRINCIPLE",
+            "Teaching": "TEACHING"
+          },
+          "scopes": [
+            "TEXT_CONTENT"
+          ],
+          "id": "VariableID:318:32",
+          "key": "aa3d091cea29d802320a26c04a2311926acfc60f"
+        },
+        "type/ink": {
+          "type": "COLOR",
+          "css": "--jk-type-ink",
+          "values": {
+            "Progress": "{Scheme.primary}",
+            "Decision": "{Scheme.tertiary}",
+            "Failure": "{Scheme.error}",
+            "Principle": "{Scheme.on-surface}",
+            "Teaching": "{Scheme.secondary}"
+          },
+          "description": "The type colour for text and thin marks on a surface (kicker, ticks, arrows). type/accent is for fills; the Progress and Decision accents are too light to read as text on a light surface.",
+          "scopes": [
+            "SHAPE_FILL",
+            "TEXT_FILL",
+            "STROKE_COLOR"
+          ],
+          "id": "VariableID:318:33",
+          "key": "d104151bae189a60c749ad5d0397e439473d32aa"
+        }
+      }
+    }
+  },
   "textStyles": {},
   "effectStyles": {},
   "paintStyles": {},
@@ -784,12 +876,12 @@
       "width": 1920,
       "height": 1080
     },
-    "268:861": {
-      "name": "Frame",
-      "type": "SECTION",
-      "page": "Frame",
-      "width": 6050,
-      "height": 2676
+    "321:35": {
+      "name": "Types",
+      "type": "FRAME",
+      "page": "Types",
+      "width": 1648,
+      "height": 1602
     },
     "268:859": {
       "name": "Card Parts",
@@ -797,6 +889,13 @@
       "page": "Parts",
       "width": 1234,
       "height": 1582
+    },
+    "268:861": {
+      "name": "Frame",
+      "type": "SECTION",
+      "page": "Frame",
+      "width": 6050,
+      "height": 2676
     },
     "268:860": {
       "name": "Archetypes",

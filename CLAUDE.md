@@ -25,7 +25,7 @@ A pnpm workspace, in layers: `@jkidd/tokens` → `@jkidd/core` → `@jkidd/ui` (
 ## How a card works
 
 - **A card is data.** A `CardSpec` (frame settings plus one archetype's content) renders as `Postcard` in the constant `CardFrame`; the samples and templates are `packages/blocks/src/postcards/samples.ts` and `templates.ts`. The Studio (`#/studio`, routes in `apps/studio/src/app/App.tsx`, pages in `app/pages/`) edits the spec, lints it (`lint.ts`), and exports PNG or editable SVG (`vectorSvg` in `@jkidd/core`).
-- **Theming is two attributes on the card root**, mirroring the Figma modes: `data-scheme` sets the `--md-sys-color-*` roles, and `data-post-type` sets `--jk-type-accent`, `-ink`, `-on-accent` and `-label` as aliases of those roles (the Post Type collection in Foundations), so a type recolours with its scheme.
+- **Theming is two attributes on the card root**, mirroring the Figma modes: `data-scheme` sets the `--md-sys-color-*` roles, and `data-post-type` sets `--jk-type-accent`, `-ink`, `-on-accent` and `-label` as aliases of those roles (the Post Type collection in *JKidd - Postcards*, aliasing Foundations' Scheme; moved from Foundations 2026-10-20), so a type recolours with its scheme.
 - **The back is dressed** by `packages/blocks/src/postcards/back/` (read → pick from the stock catalog → place; `WORKFLOW.md` there).
 - **Picture postcards** take their inks from their series (`SERIES` in `packages/blocks/src/postcards/fronts.ts`, tokens `--jk-genre-picture-<series>-*`); the image spec is `front-spec.md` beside it.
 - **Staying in step with Figma**: change Figma → refresh the snapshot (`export.js`, below) → `pnpm check` → fix the sources → `pnpm tokens`.

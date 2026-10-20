@@ -82,8 +82,26 @@ async function readFile() {
   };
 }
 
+// Aliases into a library (Postcards' Post Type points at Foundations' Scheme) name
+// variables that aren't local, so look those up too.
+async function addLibraryAliases(l) {
+  for (const v of Object.values(l.byId)) {
+    for (const val of Object.values(v.valuesByMode)) {
+      if (!val || val.type !== "VARIABLE_ALIAS" || l.byId[val.id]) continue;
+      const target = await figma.variables.getVariableByIdAsync(val.id);
+      if (!target) continue;
+      l.byId[val.id] = target;
+      if (!l.collectionName[target.variableCollectionId]) {
+        const c = await figma.variables.getVariableCollectionByIdAsync(target.variableCollectionId);
+        if (c) l.collectionName[c.id] = c.name;
+      }
+    }
+  }
+}
+
 async function readCollections(names) {
   const l = await lookups();
+  await addLibraryAliases(l);
   const out = {};
   for (const c of l.collections) {
     if (names && !names.includes(c.name)) continue;

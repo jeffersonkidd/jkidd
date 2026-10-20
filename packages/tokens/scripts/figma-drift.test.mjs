@@ -11,6 +11,8 @@ import { palette, tokens, POST_TYPES, root } from "./lib/tokens.mjs";
 import { kebab } from "./lib/color.mjs";
 
 const figma = JSON.parse(readFileSync(`${root}sources/figma/foundations.json`, "utf8"));
+// Post Type lives in the postcards lane's library (moved from Foundations 2026-10-20).
+const postcards = JSON.parse(readFileSync(`${root}sources/figma/postcards.json`, "utf8"));
 const WAIVERS = JSON.parse(readFileSync(`${root}sources/figma-waivers.json`, "utf8")).waivers;
 
 const SCHEME_MODES = {
@@ -48,7 +50,10 @@ function drift() {
   };
 
   for (const name of Object.keys(figma.collections)) {
-    if (!["Palette", "Scheme", "Post Type", "Layout", "Type"].includes(name)) add(name, "a collection this test doesn't know");
+    if (!["Palette", "Scheme", "Layout", "Type"].includes(name)) add(name, "a collection this test doesn't know");
+  }
+  for (const name of Object.keys(postcards.collections ?? {})) {
+    if (name !== "Post Type") add(`Postcards/${name}`, "a collection this test doesn't know");
   }
 
   // Palette: primary/primary-40 ↔ palettes.primary["40"].
@@ -76,9 +81,11 @@ function drift() {
   }
   for (const role of Object.keys(palette.schemes.light)) if (!seenRoles.has(role)) add(`Scheme/${kebab(role)}`, "in code, not in Figma");
 
-  // Post Type: each mode names a Scheme role, compared by name.
+  // Post Type (in Postcards): each mode names a Scheme role in Foundations, compared by name.
   const FIELDS = { "type/accent": "accent", "type/on-accent": "onAccent", "type/ink": "ink", "type/label": "label" };
-  for (const [name, v] of Object.entries(vars("Post Type"))) {
+  const postTypes = postcards.collections?.["Post Type"]?.variables ?? {};
+  if (!Object.keys(postTypes).length) add("Post Type", "not in sources/figma/postcards.json");
+  for (const [name, v] of Object.entries(postTypes)) {
     const field = FIELDS[name];
     if (!field) { add(`Post Type/${name}`, "not in tokens.postTypes"); continue; }
     for (const [mode, value] of Object.entries(v.values)) {

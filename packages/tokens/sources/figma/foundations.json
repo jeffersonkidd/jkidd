@@ -2,7 +2,7 @@
   "$description": "Snapshot of a Figma library, written by packages/tokens/scripts/figma/export.js. Don't edit by hand: refresh it from Figma. The drift tests check the token sources and figma.ts against it.",
   "file": "JKidd - Foundations",
   "fileKey": "ADhu9noVbgFbtapMZivOHw",
-  "readAt": "2026-10-19",
+  "readAt": "2026-10-20",
   "pages": [
     {
       "id": "0:1",
@@ -17,6 +17,10 @@
       "name": "——— ASSETS ———"
     },
     {
+      "id": "677:2",
+      "name": "Icons"
+    },
+    {
       "id": "4:210",
       "name": "Marks"
     },
@@ -25,20 +29,12 @@
       "name": "Imagery"
     },
     {
-      "id": "228:3309",
-      "name": "Illustrations"
-    },
-    {
       "id": "4:204",
       "name": "——— FOUNDATIONS ———"
     },
     {
       "id": "4:205",
       "name": "Color"
-    },
-    {
-      "id": "4:206",
-      "name": "Post Types"
     },
     {
       "id": "4:207",
@@ -1901,93 +1897,6 @@
         }
       }
     },
-    "Post Type": {
-      "modes": [
-        "Progress",
-        "Decision",
-        "Failure",
-        "Principle",
-        "Teaching"
-      ],
-      "defaultMode": "Progress",
-      "id": "VariableCollectionId:4:143",
-      "key": "d2651e083e2b500ad5cbb0241b1c8e8d5efe8d48",
-      "variables": {
-        "type/accent": {
-          "type": "COLOR",
-          "css": "--jk-type-accent",
-          "values": {
-            "Progress": "{Scheme.primary-container}",
-            "Decision": "{Scheme.tertiary-container}",
-            "Failure": "{Scheme.error}",
-            "Principle": "{Scheme.inverse-surface}",
-            "Teaching": "{Scheme.secondary}"
-          },
-          "description": "The post type colour: accent rail, payoff line, ticks. PROVISIONAL mapping (User, 2026-09-24): Progress=primary-container, Decision=tertiary-container, Failure=error, Principle=inverse-surface, Teaching=secondary. Switch the Post Type mode on a card to change its type.",
-          "scopes": [
-            "FRAME_FILL",
-            "SHAPE_FILL",
-            "TEXT_FILL",
-            "STROKE_COLOR"
-          ],
-          "id": "VariableID:4:144",
-          "key": "de9d45469fd7f0181b4f50f0b0d36fa91ce50c69"
-        },
-        "type/on-accent": {
-          "type": "COLOR",
-          "css": "--jk-type-on-accent",
-          "values": {
-            "Progress": "{Scheme.on-primary-container}",
-            "Decision": "{Scheme.on-tertiary-container}",
-            "Failure": "{Scheme.on-error}",
-            "Principle": "{Scheme.inverse-on-surface}",
-            "Teaching": "{Scheme.on-secondary}"
-          },
-          "scopes": [
-            "SHAPE_FILL",
-            "TEXT_FILL",
-            "STROKE_COLOR"
-          ],
-          "id": "VariableID:4:145",
-          "key": "4f0fc4b71af3a59624c7fca72421691b01934f25"
-        },
-        "type/label": {
-          "type": "STRING",
-          "css": "--jk-type-label",
-          "values": {
-            "Progress": "PROGRESS",
-            "Decision": "DECISION",
-            "Failure": "FAILURE",
-            "Principle": "PRINCIPLE",
-            "Teaching": "TEACHING"
-          },
-          "scopes": [
-            "TEXT_CONTENT"
-          ],
-          "id": "VariableID:4:146",
-          "key": "5a5a2a9bd351365ea8937688a68bf13713c99d52"
-        },
-        "type/ink": {
-          "type": "COLOR",
-          "css": "--jk-type-ink",
-          "values": {
-            "Progress": "{Scheme.primary}",
-            "Decision": "{Scheme.tertiary}",
-            "Failure": "{Scheme.error}",
-            "Principle": "{Scheme.on-surface}",
-            "Teaching": "{Scheme.secondary}"
-          },
-          "description": "The type colour for text and thin marks on a surface (kicker, ticks, arrows). type/accent is for fills; the Progress and Decision accents are too light to read as text on a light surface.",
-          "scopes": [
-            "SHAPE_FILL",
-            "TEXT_FILL",
-            "STROKE_COLOR"
-          ],
-          "id": "VariableID:5:697",
-          "key": "571c11235fcfed8bcdadb1f81e3c8496f4af0512"
-        }
-      }
-    },
     "Layout": {
       "modes": [
         "Value"
@@ -2937,12 +2846,60 @@
         {
           "type": "IMAGE",
           "scaleMode": "FILL",
-          "imageHash": "9d6fabb9c211412f727c11c43819279d41462a70"
+          "imageHash": "0a7f447486a8697b0f1aa829db03716be3dd4c43"
         }
       ],
-      "description": "Link page backdrop: palm against a teal sky, 1920×1080. packages/blocks/src/assets/link/palm-sky.jpg. Cover, centred, over primary-container.",
+      "description": "The palm sky: a palm against a teal sky, 16:9, 1920×1080, the master as JPEG. Master: packages/ui/vendor/stock/palm-sky.source.png; pnpm stock crops it to every shape in packages/ui/src/imagery/stock (16:9, 3:2, 2:3, 1:1, 4:5), at full height, held right so the palm stays. The link page backdrop (cover, centred, over primary-container) and the dark stock for 16:9 dressed backs, under a 75% wash of the dark scheme's surface. packages/ui/src/imagery/stock/palm-sky-16x9.jpg.",
       "id": "S:5eaba8f1c61c142a62bc96f283e10b7993d0e3e6",
       "key": "5eaba8f1c61c142a62bc96f283e10b7993d0e3e6"
+    },
+    "Imagery/Palm Sky 3:2": {
+      "paints": [
+        {
+          "type": "IMAGE",
+          "scaleMode": "FILL",
+          "imageHash": "f73786c74ae9edb889282168a5acb6ef45938756"
+        }
+      ],
+      "description": "The palm sky cropped to 3:2, 1620×1080: full height, held right so the palm stays. 3:2 dressed backs. packages/ui/src/imagery/stock/palm-sky-3x2.jpg (pnpm stock).",
+      "id": "S:f0774931646fdfd2dd1f39e9c82196fd83d61ca8",
+      "key": "f0774931646fdfd2dd1f39e9c82196fd83d61ca8"
+    },
+    "Imagery/Palm Sky 2:3": {
+      "paints": [
+        {
+          "type": "IMAGE",
+          "scaleMode": "FILL",
+          "imageHash": "335dc7c5fc6665a0391d45bdcfb11c8e7b5c52fa"
+        }
+      ],
+      "description": "The palm sky cropped to 2:3, 720×1080: full height, held right so the palm stays. The link page backdrop on phones. packages/ui/src/imagery/stock/palm-sky-2x3.jpg (pnpm stock).",
+      "id": "S:5adb2b93cde10fe7e9ecc3d3a78a876eb73aa30d",
+      "key": "5adb2b93cde10fe7e9ecc3d3a78a876eb73aa30d"
+    },
+    "Imagery/Palm Sky 1:1": {
+      "paints": [
+        {
+          "type": "IMAGE",
+          "scaleMode": "FILL",
+          "imageHash": "c1e1d1732fcd41b5d2324be0796b48c91d4d072b"
+        }
+      ],
+      "description": "The palm sky cropped to 1:1, 1080×1080: full height, held right so the palm stays. 1:1 dressed backs. packages/ui/src/imagery/stock/palm-sky-1x1.jpg (pnpm stock).",
+      "id": "S:9e89a591876759f09f718a5d6866b29240fef834",
+      "key": "9e89a591876759f09f718a5d6866b29240fef834"
+    },
+    "Imagery/Palm Sky 4:5": {
+      "paints": [
+        {
+          "type": "IMAGE",
+          "scaleMode": "FILL",
+          "imageHash": "c4036eab28f0f12307768e53decdd988e13020a7"
+        }
+      ],
+      "description": "The palm sky cropped to 4:5, 864×1080: full height, held right so the palm stays. 4:5 dressed backs. packages/ui/src/imagery/stock/palm-sky-4x5.jpg (pnpm stock).",
+      "id": "S:2ed2262eb7fb5e5ea676f7b8e63a763aa6bcbb3a",
+      "key": "2ed2262eb7fb5e5ea676f7b8e63a763aa6bcbb3a"
     },
     "Imagery/Paper 3:2 Master": {
       "paints": [
@@ -2952,7 +2909,7 @@
           "imageHash": "75f537eac43d259287dbf433f7278c1844ffb96c"
         }
       ],
-      "description": "The card stock: a warm parchment sheet, 3:2, 2048×1366, always stretched to its frame, never cropped, so the burnt edges show. Master: packages/blocks/vendor/stock/paper.source.jpg; pnpm stock cuts it to every shape in src/assets/stock (3:2, 2:3 turned 90°, 16:9, 1:1, 4:5). Under the link page sheet, every dressed postcard back and the stage postcards; whatever prints on it takes the Light scheme.",
+      "description": "The card stock: a warm parchment sheet, 3:2, 2048×1366, always stretched to its frame, never cropped, so the burnt edges show. Master: packages/ui/vendor/stock/paper.source.jpg; pnpm stock cuts it to every shape in packages/ui/src/imagery/stock (3:2, 2:3 turned 90°, 16:9, 1:1, 4:5). Under the link page sheet, every dressed postcard back and the stage postcards; whatever prints on it takes the Light scheme. packages/ui/src/imagery/stock/paper-3x2.jpg.",
       "id": "S:44e99cf8993ea379d9f6241c31dc5e88e97d9b8d",
       "key": "44e99cf8993ea379d9f6241c31dc5e88e97d9b8d"
     },
@@ -2964,7 +2921,7 @@
           "imageHash": "4cd86b66e20045325b45b8c9951be43c7b52e746"
         }
       ],
-      "description": "The card stock cut to 16:9, 2428×1366: nine-sliced from the 3:2 master so the burnt edge stays even. 16:9 backs and card anatomy. src/assets/stock/paper-16x9.jpg (pnpm stock).",
+      "description": "The card stock cut to 16:9, 2428×1366: nine-sliced from the 3:2 master so the burnt edge stays even. 16:9 backs and card anatomy. packages/ui/src/imagery/stock/paper-16x9.jpg (pnpm stock).",
       "id": "S:7e446a306d69785bb47e019d5877d862bf9be33f",
       "key": "7e446a306d69785bb47e019d5877d862bf9be33f"
     },
@@ -2976,7 +2933,7 @@
           "imageHash": "85846097b38f681134a2b8ae646e7448f8e0e1dc"
         }
       ],
-      "description": "The card stock cut to 1:1, 1366×1366: nine-sliced from the 3:2 master. 1:1 backs. src/assets/stock/paper-1x1.jpg (pnpm stock).",
+      "description": "The card stock cut to 1:1, 1366×1366: nine-sliced from the 3:2 master. 1:1 backs. packages/ui/src/imagery/stock/paper-1x1.jpg (pnpm stock).",
       "id": "S:6085b350b4fdcc9e359f7056e621f4e0106a2a08",
       "key": "6085b350b4fdcc9e359f7056e621f4e0106a2a08"
     },
@@ -2988,7 +2945,7 @@
           "imageHash": "3639e9ad217fa8879148b42d15dae417aca3a60d"
         }
       ],
-      "description": "The card stock cut to 4:5, 1366×1708: nine-sliced from the 2:3 cut. 4:5 backs. src/assets/stock/paper-4x5.jpg (pnpm stock).",
+      "description": "The card stock cut to 4:5, 1366×1708: nine-sliced from the 2:3 cut. 4:5 backs. packages/ui/src/imagery/stock/paper-4x5.jpg (pnpm stock).",
       "id": "S:5bc29f68ce32213db51cbf9bf67cd0ba4d126a31",
       "key": "5bc29f68ce32213db51cbf9bf67cd0ba4d126a31"
     },
@@ -3000,7 +2957,7 @@
           "imageHash": "2085959759ad0cb249bf56316567d2bf502bcd5e"
         }
       ],
-      "description": "The card stock turned 90°, 2:3, 1366×2048. The link page sheet. src/assets/stock/paper-2x3.jpg (pnpm stock).",
+      "description": "The card stock turned 90°, 2:3, 1366×2048. The link page sheet. packages/ui/src/imagery/stock/paper-2x3.jpg (pnpm stock).",
       "id": "S:14ba865bb4e69ac20fed6a6940387f600df6f6f7",
       "key": "14ba865bb4e69ac20fed6a6940387f600df6f6f7"
     },
@@ -3012,7 +2969,7 @@
           "imageHash": "b082a0cd7717ddd6bfe6fe751270f9641cc02ffd"
         }
       ],
-      "description": "Jefferson Kidd portrait, 344×344, for the profile avatar (172px at 2×). packages/blocks/src/assets/profile/jeffersonkidd-portrait.jpg.",
+      "description": "Jefferson Kidd portrait, 344×344, for the profile avatar (172px at 2×). packages/ui/src/imagery/jeffersonkidd-portrait.jpg.",
       "id": "S:18d96a12f477f6f2164661dcba1bce1f2dca5556",
       "key": "18d96a12f477f6f2164661dcba1bce1f2dca5556"
     },
@@ -3062,9 +3019,21 @@
           "imageHash": "fd58d05bc38c34030a6871559997082ef1b4b0cc"
         }
       ],
-      "description": "The western press: the western master's grain, a 512px tile, overlay blend at 45%. The topmost fill, over the content too. Code: dressedpostcard.css [data-overlays~=press], assets/press/grain.png.",
+      "description": "The western press: the western master's grain, a 512px tile, overlay blend at 45%. The topmost fill, over the content too. Code: dressedpostcard.css [data-overlays~=press] and picturepostcard.css .jk-pic__grain. packages/ui/src/imagery/press/grain.png.",
       "id": "S:a2d487b88349b524d67830bef4ce125cd907741c",
       "key": "a2d487b88349b524d67830bef4ce125cd907741c"
+    },
+    "Imagery/Overlay/Specks": {
+      "paints": [
+        {
+          "type": "IMAGE",
+          "scaleMode": "TILE",
+          "imageHash": "a536383e072a5190c744e9e77d7969a1fccea262"
+        }
+      ],
+      "description": "The press's dropout: the paper showing through the ink, white specks on a 512px tile, stacked over the Western Press. In code they mask the series' cream (picturepostcard.css .jk-pic__dropout), at the front's press. packages/ui/src/imagery/press/specks.png.",
+      "id": "S:62ef42752523065f678ea1f737863cd2104ba1f6",
+      "key": "62ef42752523065f678ea1f737863cd2104ba1f6"
     },
     "Imagery/Overlay/Foxing": {
       "paints": [
@@ -3101,6 +3070,195 @@
   },
   "gridStyles": {},
   "components": {
+    "677:22": {
+      "name": "Icon/Chevron Right",
+      "type": "COMPONENT",
+      "page": "Icons",
+      "width": 24,
+      "height": 24,
+      "description": "Lucide Chevron Right (lucide-react 0.469), 24 grid, 2px stroke bound to on-surface: override the stroke colour per use. Link Row go button.",
+      "key": "19f177698415caef8ce53ffc1d3ae8d64e03ead8"
+    },
+    "677:26": {
+      "name": "Icon/Command",
+      "type": "COMPONENT",
+      "page": "Icons",
+      "width": 24,
+      "height": 24,
+      "description": "Lucide Command (lucide-react 0.469), 24 grid, 2px stroke bound to on-surface: override the stroke colour per use. Studio kicker (Link Row draws Studio with the Command glyph).",
+      "key": "07639c75ad49638b6bd5fb03f52b8396305c6f05"
+    },
+    "677:30": {
+      "name": "Icon/Facebook",
+      "type": "COMPONENT",
+      "page": "Icons",
+      "width": 24,
+      "height": 24,
+      "description": "Lucide Facebook (lucide-react 0.469), 24 grid, 2px stroke bound to on-surface: override the stroke colour per use. Social link.",
+      "key": "b4799f47ed74ff153e34bee0340a4008343320b3"
+    },
+    "677:34": {
+      "name": "Icon/Feather",
+      "type": "COMPONENT",
+      "page": "Icons",
+      "width": 24,
+      "height": 24,
+      "description": "Lucide Feather (lucide-react 0.469), 24 grid, 2px stroke bound to on-surface: override the stroke colour per use. Blog category and tab. Postmark glyph for a card about weight.",
+      "key": "7bafe7a8b771aa10fbe2b523c5206332304267d8"
+    },
+    "677:40": {
+      "name": "Icon/Github",
+      "type": "COMPONENT",
+      "page": "Icons",
+      "width": 24,
+      "height": 24,
+      "description": "Lucide Github (lucide-react 0.469), 24 grid, 2px stroke bound to on-surface: override the stroke colour per use. Social link.",
+      "key": "0f00abf0d3c7ec233d9b1687b2d1ccc5b0433cbe"
+    },
+    "677:45": {
+      "name": "Icon/Instagram",
+      "type": "COMPONENT",
+      "page": "Icons",
+      "width": 24,
+      "height": 24,
+      "description": "Lucide Instagram (lucide-react 0.469), 24 grid, 2px stroke bound to on-surface: override the stroke colour per use. Social link.",
+      "key": "cf22ae25a95f59cdca2f0125b90352c7b3c117aa"
+    },
+    "677:51": {
+      "name": "Icon/Layout Grid",
+      "type": "COMPONENT",
+      "page": "Icons",
+      "width": 24,
+      "height": 24,
+      "description": "Lucide Layout Grid (lucide-react 0.469), 24 grid, 2px stroke bound to on-surface: override the stroke colour per use. All tab; Shop and Support categories. Postmark glyph for a card about layout.",
+      "key": "eeba5cf8465f9e6b4f3f921bdd341e73f2fcb180"
+    },
+    "677:58": {
+      "name": "Icon/Message Circle",
+      "type": "COMPONENT",
+      "page": "Icons",
+      "width": 24,
+      "height": 24,
+      "description": "Lucide Message Circle (lucide-react 0.469), 24 grid, 2px stroke bound to on-surface: override the stroke colour per use. Social link: message.",
+      "key": "0e9b50bddd19bc4c03180720dfce267d92306109"
+    },
+    "677:62": {
+      "name": "Icon/Wrench",
+      "type": "COMPONENT",
+      "page": "Icons",
+      "width": 24,
+      "height": 24,
+      "description": "Lucide Wrench (lucide-react 0.469), 24 grid, 2px stroke bound to on-surface: override the stroke colour per use. Studio tab.",
+      "key": "29d85d2cc836a160e85a3010c47b1979be7eb66d"
+    },
+    "677:66": {
+      "name": "Icon/Youtube",
+      "type": "COMPONENT",
+      "page": "Icons",
+      "width": 24,
+      "height": 24,
+      "description": "Lucide Youtube (lucide-react 0.469), 24 grid, 2px stroke bound to on-surface: override the stroke colour per use. Social link.",
+      "key": "d0ed59a9b78c4b50560bbfb249624f63e05757ae"
+    },
+    "677:71": {
+      "name": "Icon/Flag",
+      "type": "COMPONENT",
+      "page": "Icons",
+      "width": 24,
+      "height": 24,
+      "description": "Lucide Flag (lucide-react 0.469), 24 grid, 2px stroke bound to on-surface: override the stroke colour per use. Progress stamp on a dressed back.",
+      "key": "2c0c10d45fca847a580cff51df94e3b286a4098f"
+    },
+    "677:76": {
+      "name": "Icon/Signpost",
+      "type": "COMPONENT",
+      "page": "Icons",
+      "width": 24,
+      "height": 24,
+      "description": "Lucide Signpost (lucide-react 0.469), 24 grid, 2px stroke bound to on-surface: override the stroke colour per use. Decision stamp on a dressed back.",
+      "key": "1514c8d2dc2741628598a76e954c0d44b328ce32"
+    },
+    "677:82": {
+      "name": "Icon/Skull",
+      "type": "COMPONENT",
+      "page": "Icons",
+      "width": 24,
+      "height": 24,
+      "description": "Lucide Skull (lucide-react 0.469), 24 grid, 2px stroke bound to on-surface: override the stroke colour per use. Failure stamp on a dressed back.",
+      "key": "9df70cdace915d33c2d61fd104d5d8398fcec542"
+    },
+    "677:89": {
+      "name": "Icon/Sun",
+      "type": "COMPONENT",
+      "page": "Icons",
+      "width": 24,
+      "height": 24,
+      "description": "Lucide Sun (lucide-react 0.469), 24 grid, 2px stroke bound to on-surface: override the stroke colour per use. Principle stamp on a dressed back.",
+      "key": "d70ddbb660db90f7f4eeb273535eb4f16cb0a083"
+    },
+    "677:101": {
+      "name": "Icon/Bell",
+      "type": "COMPONENT",
+      "page": "Icons",
+      "width": 24,
+      "height": 24,
+      "description": "Lucide Bell (lucide-react 0.469), 24 grid, 2px stroke bound to on-surface: override the stroke colour per use. Teaching stamp on a dressed back.",
+      "key": "4caa21a459bf1bbb5f4239e79c2314ae59c97919"
+    },
+    "677:106": {
+      "name": "Icon/Braces",
+      "type": "COMPONENT",
+      "page": "Icons",
+      "width": 24,
+      "height": 24,
+      "description": "Lucide Braces (lucide-react 0.469), 24 grid, 2px stroke bound to on-surface: override the stroke colour per use. Postmark glyph for a card about tokens.",
+      "key": "636ba15f0e9ed4f292c76c2ea43218cb2b7b634f"
+    },
+    "677:111": {
+      "name": "Icon/Type",
+      "type": "COMPONENT",
+      "page": "Icons",
+      "width": 24,
+      "height": 24,
+      "description": "Lucide Type (lucide-react 0.469), 24 grid, 2px stroke bound to on-surface: override the stroke colour per use. Postmark glyph for a card about type.",
+      "key": "094933344e2537899e3d270a2287825ee4a693fb"
+    },
+    "677:117": {
+      "name": "Icon/Contrast",
+      "type": "COMPONENT",
+      "page": "Icons",
+      "width": 24,
+      "height": 24,
+      "description": "Lucide Contrast (lucide-react 0.469), 24 grid, 2px stroke bound to on-surface: override the stroke colour per use. Postmark glyph for a card about colour.",
+      "key": "3e1c024ffce0854e3e126ce22a32a25d0b062fa2"
+    },
+    "677:122": {
+      "name": "Icon/Component",
+      "type": "COMPONENT",
+      "page": "Icons",
+      "width": 24,
+      "height": 24,
+      "description": "Lucide Component (lucide-react 0.469), 24 grid, 2px stroke bound to on-surface: override the stroke colour per use. Postmark glyph for a card about Figma.",
+      "key": "214f0b0b13fed7948a8fa1fc41a72c97926f27b6"
+    },
+    "677:129": {
+      "name": "Icon/Square Terminal",
+      "type": "COMPONENT",
+      "page": "Icons",
+      "width": 24,
+      "height": 24,
+      "description": "Lucide Square Terminal (lucide-react 0.469), 24 grid, 2px stroke bound to on-surface: override the stroke colour per use. Postmark glyph for a card about code.",
+      "key": "8393418a8424c71c2aef8083a40903c2e44f2a57"
+    },
+    "677:135": {
+      "name": "Icon/Package",
+      "type": "COMPONENT",
+      "page": "Icons",
+      "width": 24,
+      "height": 24,
+      "description": "Lucide Package (lucide-react 0.469), 24 grid, 2px stroke bound to on-surface: override the stroke colour per use. Postmark glyph for a card about shipping.",
+      "key": "6ac114ae512f3f304b35c080b116529ba026fabd"
+    },
     "611:128": {
       "name": "Emblem",
       "type": "COMPONENT_SET",
@@ -3227,49 +3385,28 @@
       "type": "FRAME",
       "page": "Getting Started",
       "width": 1294,
-      "height": 2696
+      "height": 2643
+    },
+    "679:169": {
+      "name": "Icons",
+      "type": "SECTION",
+      "page": "Icons",
+      "width": 880,
+      "height": 923
     },
     "399:2953": {
       "name": "Marks",
       "type": "FRAME",
       "page": "Marks",
-      "width": 1088,
-      "height": 1511
-    },
-    "7:37": {
-      "name": "On dark",
-      "type": "FRAME",
-      "page": "Marks",
-      "width": 1088,
-      "height": 170
+      "width": 1152,
+      "height": 1753
     },
     "298:1440": {
       "name": "Imagery",
       "type": "SECTION",
       "page": "Imagery",
-      "width": 2624,
-      "height": 1383
-    },
-    "379:1426": {
-      "name": "jkidd-stage (1) 1",
-      "type": "FRAME",
-      "page": "Illustrations",
-      "width": 1536,
-      "height": 1024
-    },
-    "381:1740": {
-      "name": "jkidd-stage 1",
-      "type": "FRAME",
-      "page": "Illustrations",
-      "width": 1536,
-      "height": 1024
-    },
-    "431:3702": {
-      "name": "Logo Assets",
-      "type": "FRAME",
-      "page": "Illustrations",
-      "width": 1406,
-      "height": 400
+      "width": 3136,
+      "height": 1771
     },
     "5:2": {
       "name": "Color",
@@ -3278,19 +3415,12 @@
       "width": 1852,
       "height": 2861
     },
-    "5:597": {
-      "name": "Post Types",
-      "type": "FRAME",
-      "page": "Post Types",
-      "width": 1648,
-      "height": 1578
-    },
     "5:698": {
       "name": "Type",
       "type": "FRAME",
       "page": "Type",
       "width": 2767,
-      "height": 3910
+      "height": 3831
     },
     "6:2": {
       "name": "Layout",
