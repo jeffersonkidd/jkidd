@@ -5,7 +5,7 @@ import { FIGMA_NODES } from "@jkidd/core";
 
 /* The dressing shapes (Primitives › Dressing): what a postcard back is dressed with, drawn on
    the card's own roles, so no colour is set here that the scheme or the post type doesn't
-   supply. Which ones a card gets, and where, is @jkidd/blocks back/ (catalog, pick, place).
+   supply. Which ones a card gets, and where, is @jkidd/blocks cards/back/ (catalog, pick, place).
    Placed shapes take canvas coordinates. */
 
 type Icon = ComponentType<{ x?: number; y?: number; width?: number; height?: number; strokeWidth?: number }>;

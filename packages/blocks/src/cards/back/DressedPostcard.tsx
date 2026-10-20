@@ -1,12 +1,12 @@
 import { forwardRef, useCallback, useLayoutEffect, useRef, useState, type CSSProperties } from "react";
 import { CANVAS } from "@jkidd/tokens";
 import { Postcard, type CardSpec } from "../Postcard";
-import palmSky from "../assets/link/palm-sky.jpg";
-import grain from "../assets/press/grain.png";
-import specks from "../assets/press/specks.png";
-import stock16x9 from "../assets/stock/paper-16x9.jpg";
-import stock1x1 from "../assets/stock/paper-1x1.jpg";
-import stock4x5 from "../assets/stock/paper-4x5.jpg";
+import palmSky from "../../assets/link/palm-sky.jpg";
+import grain from "../../assets/press/grain.png";
+import specks from "../../assets/press/specks.png";
+import stock16x9 from "../../assets/stock/paper-16x9.jpg";
+import stock1x1 from "../../assets/stock/paper-1x1.jpg";
+import stock4x5 from "../../assets/stock/paper-4x5.jpg";
 import { CATALOG } from "./catalog";
 import { readCard, type CardSource, type Reading } from "./read";
 import { pickDressing, rng, type DressOptions, type Dressing } from "./pick";

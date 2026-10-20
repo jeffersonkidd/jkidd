@@ -4,4 +4,4 @@
 export * from "@jkidd/tokens";
 export * from "@jkidd/core";
 export * from "@jkidd/ui/cards";
-export * from "@jkidd/blocks";
+export * from "@jkidd/blocks/cards";

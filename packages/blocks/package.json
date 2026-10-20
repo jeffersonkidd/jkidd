@@ -3,10 +3,10 @@
   "version": "0.1.0",
   "private": true,
   "type": "module",
-  "description": "JK Blocks: finished, postable things, in the same two lanes as @jkidd/ui. Cards (.): the postcards and the stage, with their sample copy and art. Web (./link): the link page.",
+  "description": "JK Blocks: finished, postable things, in the same two lanes as @jkidd/ui. Cards (./cards): the postcards and the stage, with their sample copy. Web (./web): the link page. The art in src/assets is shared by both.",
   "exports": {
-    ".": "./src/index.ts",
-    "./link": "./src/link/index.ts"
+    "./cards": "./src/cards/index.ts",
+    "./web": "./src/web/index.ts"
   },
   "scripts": {
     "front": "node scripts/front-intake.mjs",

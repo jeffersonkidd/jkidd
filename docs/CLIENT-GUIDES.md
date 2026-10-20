@@ -53,7 +53,7 @@ designed ahead of it.
 2. **Next:** a **Guide** module in Tibbie's Studio (`/studio#guide`) that
    renders those lessons, each one linking to the module it teaches.
 3. **When a second client arrives:** move what's shared into this repo:
-   - the lesson layout, as a block in `@jkidd/blocks` (beside the link page);
+   - the lesson layout, as a web block in `@jkidd/blocks` (`src/web/`, beside the link page);
    - the shared lessons (*Your Studio*, *Every post gets its own link*, *One
      face*), with the client's name, address and profile list as data, the way
      the link page takes `apps/links/src/links.ts`;

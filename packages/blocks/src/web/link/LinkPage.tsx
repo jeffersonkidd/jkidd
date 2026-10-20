@@ -11,8 +11,8 @@ import {
   type LucideIcon,
 } from "lucide-react";
 import { CommandIcon, LinkHeader, LinkProfile, LinkRow, LinkTile, Sheet, Stage, TabBar, type TabSpec } from "@jkidd/ui/web";
-import palmSky from "../assets/link/palm-sky.jpg";
-import paper from "../assets/stock/paper-2x3.jpg";
+import palmSky from "../../assets/link/palm-sky.jpg";
+import paper from "../../assets/stock/paper-2x3.jpg";
 import { LINK_NODES } from "@jkidd/core";
 
 /**

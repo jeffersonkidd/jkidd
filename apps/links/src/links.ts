@@ -1,4 +1,4 @@
-import { LINK_SAMPLE, type LinkPageSpec } from "@jkidd/blocks/link";
+import { LINK_SAMPLE, type LinkPageSpec } from "@jkidd/blocks/web";
 
 /**
  * What the live page shows. It starts as the library's own copy (LINK_SAMPLE, from

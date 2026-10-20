@@ -1,4 +1,5 @@
-// The cards lane of JK Blocks. The link page is the web lane, on its own at ./link.
+// The cards lane of JK Blocks: the postcards, their backs and the stage, built from
+// @jkidd/ui/cards. The web lane is ../web; neither imports the other.
 import "./postcards/picturepostcard.css";
 import "./postcards/stagepostcard.css";
 import "./postcards/librariespostcard.css";

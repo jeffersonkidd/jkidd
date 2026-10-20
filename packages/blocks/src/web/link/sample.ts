@@ -1,5 +1,5 @@
 import type { LinkPageSpec } from "./LinkPage";
-import portrait from "../assets/profile/jeffersonkidd-portrait.jpg";
+import portrait from "../../assets/profile/jeffersonkidd-portrait.jpg";
 
 /**
  * The link page's copy, from JKidd - Workbench (Linktrees, 102:551). Profile, nav and

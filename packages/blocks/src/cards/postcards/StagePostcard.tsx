@@ -3,7 +3,7 @@ import rough from "roughjs";
 import { NOTEBOOK_NODES } from "@jkidd/core";
 import { figureBoxFor, figurePose, figureTransform, type FigureCycle, type FigureLine } from "@jkidd/core";
 import { FigureStrokes } from "@jkidd/ui/cards";
-import stock from "../assets/stock/paper-3x2.jpg";
+import stock from "../../assets/stock/paper-3x2.jpg";
 
 /**
  * The stage postcard: a theatre stage drawn in one-point perspective on graph paper
